@@ -24,7 +24,7 @@ export default function Navbar() {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },
     { label: "Contact", href: "/contact" },
-    { label: "About", href: "/about" },
+    { label: "About Me", href: "/about" },
   ];
 
   // Motion variants
