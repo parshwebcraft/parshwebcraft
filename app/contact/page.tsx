@@ -24,7 +24,6 @@ export default function ContactPage() {
     "Hi ParshWebCraft! I want to discuss a website project."
   )}`;
 
-  // EXACT GOLD GLOW (same as About page) — disabled when user prefers reduced motion
   const glowHover = !reduce
     ? {
         scale: 1.02,
@@ -70,7 +69,7 @@ export default function ContactPage() {
       </section>
 
       {/* CONTACT GRID */}
-      <section className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 py-10">
+      <section className="max-w-6xl mx-auto w-full grid md:grid-cols-2 items-start gap-10 py-10">
         {/* LEFT : CONTACT DETAILS */}
         <motion.div
           variants={fadeUp}
@@ -78,17 +77,17 @@ export default function ContactPage() {
           whileInView="visible"
           viewport={{ once: true }}
           transition={{ duration: 0.45 }}
-          className="glass p-8 rounded-2xl border border-[rgba(255,255,255,0.06)]"
+          className="glass p-6 rounded-2xl border border-[rgba(255,255,255,0.06)] max-w-md mx-auto md:mx-0 h-fit"
           whileHover={glowHover}
         >
-          <h2 className="text-2xl font-bold mb-3">Contact Details</h2>
-          <p className="text-slate-300 mb-6">
-            Reach out anytime — I’m always happy to help.
+          <h2 className="text-xl font-bold mb-2">Contact Details</h2>
+          <p className="text-slate-300 text-sm mb-4">
+            Reach out to us anytime — we are always happy to help.
           </p>
 
-          <div className="space-y-6">
+          <div className="space-y-4 text-sm">
             <div className="flex items-start gap-4">
-              <div className="text-2xl">📞</div>
+              <div className="text-xl">📞</div>
               <div>
                 <h4 className="font-semibold">Phone</h4>
                 <a href={`tel:+91${whatsappNumber}`} className="text-slate-300">
@@ -98,15 +97,15 @@ export default function ContactPage() {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="text-2xl">📍</div>
+              <div className="text-xl">📍</div>
               <div>
                 <h4 className="font-semibold">Location</h4>
                 <p className="text-slate-300">Udaipur, RJ, India</p>
               </div>
             </div>
 
-            <div className="pt-4">
-              <h4 className="font-semibold mb-2">Social</h4>
+            <div className="pt-2">
+              <h4 className="font-semibold mb-1">Social</h4>
               <a
                 href="https://www.instagram.com/parshwebcraft/"
                 target="_blank"
@@ -129,14 +128,14 @@ export default function ContactPage() {
           className="glass p-8 rounded-2xl border border-[rgba(255,255,255,0.06)]"
           whileHover={glowHover}
         >
-          <h2 className="text-2xl font-bold mb-6">Send a Message</h2>
+          <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
           <ContactForm onSuccess={handleSuccess} />
         </motion.div>
       </section>
 
       {/* MAP */}
       <section className="w-full py-20">
-        <div className="max-w-6xl mx-auto px-6 lg:px-24">
+        <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -149,13 +148,12 @@ export default function ContactPage() {
             <motion.div
               className="relative rounded-xl overflow-hidden border border-[rgba(243,208,122,0.25)]"
               whileHover={glowHover}
-              transition={{ type: "spring", stiffness: 300, damping: 22 }}
             >
               <iframe
                 src="https://www.google.com/maps?q=Udaipur%20Rajasthan&output=embed"
                 loading="lazy"
-                className="w-full h-[280px] rounded-xl"
-                style={{ border: "0" }}
+                className="w-full h-[280px]"
+                style={{ border: 0 }}
               ></iframe>
             </motion.div>
           </motion.div>
@@ -171,7 +169,6 @@ export default function ContactPage() {
           viewport={{ once: true }}
           className="glass p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-4"
           whileHover={glowHover}
-          transition={{ type: "spring", stiffness: 300, damping: 22 }}
         >
           <div>
             <h3 className="text-xl font-semibold">
@@ -191,28 +188,24 @@ export default function ContactPage() {
         </motion.div>
       </section>
 
-      {/* FLOATING WHATSAPP BUTTON (now with svg inside and gold-glow on hover) */}
+      {/* FLOATING WHATSAPP BUTTON */}
       <motion.a
         href={whatsappUrl}
         target="_blank"
         rel="noreferrer"
-        aria-label="Chat via WhatsApp"
-        className="fixed z-50 bottom-6"
-        style={{ right: 20 }}
+        className="fixed z-50 bottom-6 right-6"
         whileHover={glowHover}
-        transition={{ type: "spring", stiffness: 300, damping: 18 }}
       >
-        <div className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg ring-4 ring-[rgba(243,208,122,0.06)] hover:scale-105 transition-transform">
+        <div className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg ring-4 ring-[rgba(243,208,122,0.08)]">
           <svg
+            viewBox="0 0 32 32"
             width="22"
             height="22"
-            viewBox="0 0 24 24"
             fill="white"
             xmlns="http://www.w3.org/2000/svg"
             aria-hidden
           >
-            <path d="M20.52 3.48A11.93 11.93 0 0012 0C5.373 0 .036 5.337.036 12c0 2.113.553 4.176 1.601 5.98L0 24l6.2-1.63A11.925 11.925 0 0012 24c6.627 0 12-5.373 12-12 0-3.207-1.252-6.215-3.48-8.52zM12 21.5c-1.8 0-3.53-.47-5.05-1.36l-.36-.21-3.67.97.98-3.58-.23-.37A9.5 9.5 0 1121.5 12 9.514 9.514 0 0112 21.5z" />
-            <path d="M17.2 14.1c-.3-.15-1.78-.88-2.05-.98-.27-.1-.47-.15-.67.15s-.77.98-.95 1.18c-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.48-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.28.3-.47.1-.18 0-.34-.02-.48-.02-.15-.65-1.57-.9-2.16-.24-.58-.49-.5-.67-.51-.17-.01-.37-.01-.57-.01s-.52.08-.8.37c-.27.29-1.03 1.01-1.03 2.47 0 1.46 1.06 2.88 1.2 3.08.15.2 2.07 3.2 5.02 4.49 2.95 1.29 2.95.86 3.48.8.53-.06 1.73-.71 1.98-1.4.25-.69.25-1.28.17-1.4-.08-.12-.27-.2-.57-.35z" />
+            <path d="M16.003 3.2c-7.065 0-12.8 5.735-12.8 12.8 0 2.246.59 4.44 1.707 6.375L3.2 28.8l6.61-1.673a12.743 12.743 0 006.193 1.6h.001c7.065 0 12.8-5.735 12.8-12.8S23.068 3.2 16.003 3.2zm0 23.04a10.24 10.24 0 01-5.222-1.432l-.374-.224-3.918.99 1.046-3.82-.244-.393a10.2 10.2 0 01-1.58-5.434c0-5.647 4.595-10.24 10.292-10.24 5.648 0 10.24 4.593 10.24 10.24 0 5.647-4.592 10.24-10.24 10.24zm5.664-7.728c-.31-.155-1.83-.904-2.114-1.008-.284-.104-.492-.155-.7.155-.207.31-.803 1.008-.986 1.215-.18.207-.36.233-.67.078-.31-.155-1.31-.482-2.495-1.54-.923-.824-1.545-1.842-1.726-2.153-.18-.31-.02-.477.135-.63.14-.138.31-.36.465-.54.155-.18.207-.31.31-.517.104-.207.052-.388-.026-.544-.078-.155-.7-1.688-.96-2.31-.252-.604-.508-.522-.7-.532l-.6-.01c-.207 0-.544.078-.83.388-.285.31-1.09 1.067-1.09 2.602 0 1.535 1.115 3.018 1.27 3.225.155.207 2.194 3.353 5.318 4.7.743.32 1.323.51 1.774.652.746.237 1.425.204 1.962.124.598-.09 1.83-.748 2.09-1.47.258-.724.258-1.345.18-1.47-.078-.124-.284-.207-.594-.362z" />
           </svg>
         </div>
       </motion.a>
@@ -226,41 +219,12 @@ export default function ContactPage() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <motion.div className="bg-black/60 absolute inset-0" />
-
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 260, damping: 18 }}
-              className="relative z-50 bg-[#0b1220] p-6 rounded-2xl border border-[rgba(243,208,122,0.12)] shadow-2xl w-full max-w-md text-center"
-            >
-              <div className="w-16 h-16 rounded-full bg-[#f3d07a] flex items-center justify-center text-black text-2xl font-bold shadow-[0_8px_40px_rgba(243,208,122,0.18)] mx-auto mb-4">
-                ✓
-              </div>
-
+            <motion.div className="absolute inset-0 bg-black/60" />
+            <motion.div className="relative z-50 bg-[#0b1220] p-6 rounded-2xl max-w-md text-center">
               <h3 className="text-xl font-semibold mb-2">Message sent!</h3>
-              <p className="text-slate-300 mb-4">
-                Thanks for reaching out — I’ll get back to you within 24 hours.
+              <p className="text-slate-300">
+                Thanks for reaching out — I’ll contact you shortly.
               </p>
-
-              <div className="flex items-center justify-center gap-3">
-                <button
-                  onClick={() => setShowSuccess(false)}
-                  className="px-4 py-2 rounded-full bg-[rgba(255,255,255,0.04)]"
-                >
-                  Close
-                </button>
-
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-4 py-2 rounded-full bg-[#f3d07a] text-black font-semibold"
-                >
-                  Continue on WhatsApp
-                </a>
-              </div>
             </motion.div>
           </motion.div>
         )}
