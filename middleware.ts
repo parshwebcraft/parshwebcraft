@@ -8,9 +8,8 @@ export async function middleware(req: NextRequest) {
   const adminEmail =
     (process.env.ADMIN_EMAIL ?? "").trim().toLowerCase();
 
-  // Safety: if env missing, block admin routes
   if (!adminEmail) {
-    return NextResponse.redirect(new URL("/admin/login", req.url));
+    return res;
   }
 
   const supabase = createServerClient(
@@ -33,24 +32,21 @@ export async function middleware(req: NextRequest) {
 
   const pathname = req.nextUrl.pathname;
 
-  // ✅ Use session (reliable in middleware / edge)
   const {
     data: { session },
   } = await supabase.auth.getSession();
 
   const userEmail = session?.user?.email?.toLowerCase() ?? null;
 
-  // 🔐 Protect all /admin routes except login
+  // 🔐 Protect admin pages (EXCEPT login)
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
     if (!userEmail || userEmail !== adminEmail) {
       return NextResponse.redirect(new URL("/admin/login", req.url));
     }
   }
 
-  // ✅ Logged-in admin should not see login page
-  if (pathname === "/admin/login" && userEmail === adminEmail) {
-    return NextResponse.redirect(new URL("/admin/analytics", req.url));
-  }
+  // ❌ DO NOT redirect FROM /admin/login
+  // Let client handle navigation
 
   return res;
 }
