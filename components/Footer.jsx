@@ -6,8 +6,14 @@ export default function Footer() {
   return (
     <footer className="relative mt-24 border-t border-[rgba(255,255,255,0.04)] py-12 bg-gradient-to-t from-[rgba(14,11,43,0.02)] overflow-hidden">
       {/* Decorative gradient blobs (pure CSS, pointer-events-none) */}
-      <div aria-hidden className="absolute -right-24 -top-20 w-72 h-72 rounded-full blur-3xl opacity-30 bg-gradient-to-br from-[#f3d07a]/60 to-[#e6c35a]/30 pointer-events-none transform rotate-12 animate-blob"></div>
-      <div aria-hidden className="absolute -left-32 -bottom-24 w-96 h-96 rounded-full blur-2xl opacity-20 bg-gradient-to-br from-[#7adbf3]/30 to-[#8b6ff3]/20 pointer-events-none animate-blob animation-delay-2000"></div>
+      <div
+        aria-hidden
+        className="absolute -right-24 -top-20 w-72 h-72 rounded-full blur-3xl opacity-30 bg-gradient-to-br from-[#f3d07a]/60 to-[#e6c35a]/30 pointer-events-none transform rotate-12 animate-blob"
+      ></div>
+      <div
+        aria-hidden
+        className="absolute -left-32 -bottom-24 w-96 h-96 rounded-full blur-2xl opacity-20 bg-gradient-to-br from-[#7adbf3]/30 to-[#8b6ff3]/20 pointer-events-none animate-blob animation-delay-2000"
+      ></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-24 relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -22,7 +28,9 @@ export default function Footer() {
               </div>
               <div>
                 <div className="text-lg font-bold">ParshWebCraft</div>
-                <div className="text-sm text-slate-400">Premium Web Solutions</div>
+                <div className="text-sm text-slate-400">
+                  Premium Web Solutions
+                </div>
               </div>
             </div>
 
@@ -47,7 +55,9 @@ export default function Footer() {
 
           {/* Quick links */}
           <div>
-            <h3 className="text-sm font-semibold mb-3 text-white">Quick links</h3>
+            <h3 className="text-sm font-semibold mb-3 text-white">
+              Quick links
+            </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>
                 <Link href="/services" className="footer-link">
@@ -81,7 +91,9 @@ export default function Footer() {
 
             {/* small services highlight */}
             <div className="mt-6 text-sm text-slate-400">
-              <div className="font-medium text-slate-200 mb-2">Other services</div>
+              <div className="font-medium text-slate-200 mb-2">
+                Other services
+              </div>
               <div className="flex flex-wrap gap-2">
                 <Link href="/services/web-design" className="chip">
                   Web Design
@@ -101,7 +113,9 @@ export default function Footer() {
 
           {/* Newsletter / small CTA */}
           <div>
-            <h3 className="text-sm font-semibold mb-3 text-white">Stay updated</h3>
+            <h3 className="text-sm font-semibold mb-3 text-white">
+              Stay updated
+            </h3>
             <p className="text-sm text-slate-300 mb-4">
               Get occasional tips about launching & growing your site.
             </p>
@@ -128,28 +142,77 @@ export default function Footer() {
             <div className="mt-6 text-sm text-slate-400">
               <div className="mb-2">Follow</div>
               <div className="flex gap-3 mt-2">
-                <a
-                  href="#"
-                  aria-label="Instagram"
-                  className="social"
-                >
+                <a href="#" aria-label="Instagram" className="social">
                   {/* simple IG SVG */}
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-                    <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.2"/>
-                    <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.2"/>
-                    <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden
+                  >
+                    <rect
+                      x="3"
+                      y="3"
+                      width="18"
+                      height="18"
+                      rx="5"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="3"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                    />
+                    <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
                   </svg>
                 </a>
                 <a href="#" aria-label="LinkedIn" className="social">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="1.2"/>
-                    <path d="M8 11v6M8 8.5v.01M12 11v6M16 11v6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden
+                  >
+                    <rect
+                      x="3"
+                      y="3"
+                      width="18"
+                      height="18"
+                      rx="2"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                    />
+                    <path
+                      d="M8 11v6M8 8.5v.01M12 11v6M16 11v6"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                      strokeLinecap="round"
+                    />
                   </svg>
                 </a>
                 <a href="#" aria-label="YouTube" className="social">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-                    <rect x="3" y="6" width="18" height="12" rx="3" stroke="currentColor" strokeWidth="1.2"/>
-                    <path d="M10 9l5 3-5 3V9z" fill="currentColor"/>
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden
+                  >
+                    <rect
+                      x="3"
+                      y="6"
+                      width="18"
+                      height="12"
+                      rx="3"
+                      stroke="currentColor"
+                      strokeWidth="1.2"
+                    />
+                    <path d="M10 9l5 3-5 3V9z" fill="currentColor" />
                   </svg>
                 </a>
               </div>
@@ -175,9 +238,15 @@ export default function Footer() {
       <style jsx>{`
         /* small blob animation (subtle float) */
         @keyframes blob {
-          0% { transform: translateY(0) scale(1) rotate(0); }
-          50% { transform: translateY(-10px) scale(1.04) rotate(6deg); }
-          100% { transform: translateY(0) scale(1) rotate(0); }
+          0% {
+            transform: translateY(0) scale(1) rotate(0);
+          }
+          50% {
+            transform: translateY(-10px) scale(1.04) rotate(6deg);
+          }
+          100% {
+            transform: translateY(0) scale(1) rotate(0);
+          }
         }
         .animate-blob {
           animation: blob 6s ease-in-out infinite;
@@ -189,16 +258,18 @@ export default function Footer() {
         /* Logo glowing circle */
         .glow-logo {
           background: linear-gradient(135deg, #f3d07a, #e6c35a);
-          box-shadow: 0 6px 26px rgba(243,208,122,0.16), inset 0 -4px 10px rgba(0,0,0,0.08);
+          box-shadow: 0 6px 26px rgba(243, 208, 122, 0.16),
+            inset 0 -4px 10px rgba(0, 0, 0, 0.08);
         }
         .glow-logo:hover {
           transform: scale(1.06);
-          box-shadow: 0 10px 38px rgba(243,208,122,0.22), 0 0 40px rgba(246,213,110,0.12);
+          box-shadow: 0 10px 38px rgba(243, 208, 122, 0.22),
+            0 0 40px rgba(246, 213, 110, 0.12);
         }
 
         /* small glow used on badges / name */
         .glow-small {
-          box-shadow: 0 8px 30px rgba(243,208,122,0.06);
+          box-shadow: 0 8px 30px rgba(243, 208, 122, 0.06);
         }
 
         /* footer link underline animation */
@@ -215,10 +286,14 @@ export default function Footer() {
           bottom: -4px;
           height: 2px;
           width: 0;
-          background: linear-gradient(90deg, rgba(243,208,122,0.95), rgba(230,195,90,0.8));
+          background: linear-gradient(
+            90deg,
+            rgba(243, 208, 122, 0.95),
+            rgba(230, 195, 90, 0.8)
+          );
           transition: width 220ms ease;
           border-radius: 2px;
-          box-shadow: 0 6px 18px rgba(243,208,122,0.08);
+          box-shadow: 0 6px 18px rgba(243, 208, 122, 0.08);
         }
         .footer-link:hover {
           color: #fff;
@@ -233,14 +308,15 @@ export default function Footer() {
           padding: 6px 10px;
           font-size: 12px;
           color: #e6d7b0;
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(255,255,255,0.03);
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.03);
           border-radius: 999px;
           transition: transform 150ms ease, box-shadow 150ms ease;
         }
         .chip:hover {
           transform: translateY(-4px);
-          box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 6px 18px rgba(243,208,122,0.06);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35),
+            0 6px 18px rgba(243, 208, 122, 0.06);
         }
 
         /* social icons hover glow */
@@ -251,14 +327,16 @@ export default function Footer() {
           width: 36px;
           height: 36px;
           border-radius: 8px;
-          transition: transform 140ms ease, box-shadow 140ms ease, color 140ms ease;
+          transition: transform 140ms ease, box-shadow 140ms ease,
+            color 140ms ease;
           color: #cbd5e1;
         }
         .social:hover {
           transform: translateY(-4px);
           color: #000;
           background: linear-gradient(90deg, #fff2d2, #f3d07a);
-          box-shadow: 0 10px 30px rgba(243,208,122,0.12), 0 6px 18px rgba(0,0,0,0.12);
+          box-shadow: 0 10px 30px rgba(243, 208, 122, 0.12),
+            0 6px 18px rgba(0, 0, 0, 0.12);
         }
 
         /* small utility because tailwind blur-3xl sometimes not large enough in some setups */

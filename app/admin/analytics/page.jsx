@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import dynamic from "next/dynamic";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,11 +13,25 @@ import {
   Legend,
 } from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+// Register Chart.js components (required)
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+// Dynamic import to disable SSR for Chart.js
+const Line = dynamic(
+  () => import("react-chartjs-2").then((mod) => mod.Line),
+  { ssr: false }
+);
 
 export default function AdminAnalyticsPage() {
-  // plain JSX (no TypeScript)
-  const [visits, setVisits] = useState(null);
+  const [visits, setVisits] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -29,7 +43,6 @@ export default function AdminAnalyticsPage() {
         setLoading(true);
         setError(null);
 
-        // hit your API (adjust path if your API route differs)
         const res = await fetch("/api/visit/daily?days=14");
         if (!res.ok) {
           const txt = await res.text().catch(() => "");
@@ -41,11 +54,10 @@ export default function AdminAnalyticsPage() {
         if (!cancelled) {
           if (json && json.ok && Array.isArray(json.data)) {
             setVisits(json.data);
-          } else if (json && Array.isArray(json)) {
-            // in case your API returns raw array
+          } else if (Array.isArray(json)) {
             setVisits(json);
           } else {
-            setError(json && json.error ? json.error : "Unexpected response");
+            throw new Error(json?.error || "Unexpected API response");
           }
         }
       } catch (err) {
@@ -56,12 +68,12 @@ export default function AdminAnalyticsPage() {
     }
 
     loadVisits();
-
     return () => {
       cancelled = true;
     };
-  }, []); // run once on mount
+  }, []);
 
+  // ---------- STATES ----------
   if (loading) {
     return (
       <div className="min-h-screen pt-24 px-6 lg:px-24 lg:pl-64">
@@ -73,7 +85,7 @@ export default function AdminAnalyticsPage() {
   if (error) {
     return (
       <div className="min-h-screen pt-24 px-6 lg:px-24 lg:pl-64">
-        <div className="p-6 text-red-400">Error: {String(error)}</div>
+        <div className="p-6 text-red-400">Error: {error}</div>
       </div>
     );
   }
@@ -86,30 +98,49 @@ export default function AdminAnalyticsPage() {
     );
   }
 
-  // labels and dataset for ChartJS
-  const labels = visits.map((v) => v.date);
-  const data = {
-    labels,
+  // ---------- CHART DATA ----------
+  const chartData = {
+    labels: visits.map((v) => v.date),
     datasets: [
       {
         label: "Visits",
         data: visits.map((v) => v.count),
+        borderColor: "#22c55e",
+        backgroundColor: "rgba(34,197,94,0.3)",
+        tension: 0.4,
         fill: true,
-        tension: 0.2,
         borderWidth: 2,
       },
     ],
   };
 
-  return (
-    // NOTE: lg:pl-64 gives room for a fixed sidebar ~16rem (adjust if needed)
-    <div className="min-h-screen pt-24 px-6 lg:px-24 lg:pl-64">
-      <h1 className="text-2xl font-bold mb-6">Admin — Visits (last {visits.length} days)</h1>
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false, // 🔥 REQUIRED
+    plugins: {
+      legend: { display: true },
+      title: { display: false },
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        ticks: { precision: 0 },
+      },
+    },
+  };
 
-      <div className="bg-[#0b1220] glass p-6 rounded-lg mb-6">
-        <Line data={data} />
+  return (
+    <div className="min-h-screen pt-24 px-6 lg:px-24 lg:pl-64">
+      <h1 className="text-2xl font-bold mb-6">
+        Admin — Visits (last {visits.length} days)
+      </h1>
+
+      {/* GRAPH */}
+      <div className="bg-[#0b1220] glass p-6 rounded-lg mb-6 h-80">
+        <Line data={chartData} options={options} />
       </div>
 
+      {/* RAW DATA (DEBUG) */}
       <div className="mt-6">
         <h3 className="font-semibold mb-2">Raw data</h3>
         <div className="mt-2 bg-[rgba(255,255,255,0.02)] rounded-lg overflow-auto p-4">
@@ -122,7 +153,10 @@ export default function AdminAnalyticsPage() {
             </thead>
             <tbody>
               {visits.map((v) => (
-                <tr key={v.date} className="border-t border-[rgba(255,255,255,0.03)]">
+                <tr
+                  key={v.date}
+                  className="border-t border-[rgba(255,255,255,0.03)]"
+                >
                   <td className="py-2 pl-2">{v.date}</td>
                   <td className="py-2">{v.count}</td>
                 </tr>

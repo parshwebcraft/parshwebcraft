@@ -2,14 +2,15 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
 import VisitTracker from "./VisitTracker";
 import TrackVisit from "./TrackVisit";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
 import FloatingParticles from "../components/FloatingParticles";
 import MotionWrapper from "./motion/wrapper";
-import ClientShell from "../components/ClientShell"; // <-- client wrapper that includes VisitTracker
+import ClientShell from "../components/ClientShell";
+import AuthListener from "../components/AuthListener"; // ✅ NEW (auth cookie sync)
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -37,16 +38,19 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <VisitTracker />
+
         {/* floating particles (sitewide, behind everything) */}
         <FloatingParticles />
 
         {/* Motion wrapper: adds page fade-in to everything inside it */}
         <MotionWrapper>
           <TrackVisit />
-          
 
-          {/* ClientShell is a small client component that mounts VisitTracker on the client */}
+          {/* ClientShell mounts client-only logic */}
           <ClientShell>
+            {/* 🔑 AuthListener forces Supabase auth cookie sync */}
+            <AuthListener />
+
             <Navbar />
             <main>{children}</main>
             <Footer />
