@@ -22,6 +22,7 @@ export default function Hero() {
     heading: 0.08,
     subtext: 0.16,
     ctas: 0.24,
+    secondary: 0.32,
   };
 
   const services = [
@@ -93,6 +94,7 @@ export default function Hero() {
             and small to medium businesses.
           </motion.p>
 
+          {/* PRIMARY CTAs */}
           <motion.div
             className="mt-8 flex gap-4"
             initial={{ opacity: 0, y: 18 }}
@@ -118,6 +120,25 @@ export default function Hero() {
               Get Started
             </motion.a>
           </motion.div>
+
+          {/* SECONDARY TRUST CTA */}
+          <motion.div
+            className="mt-4"
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: delays.secondary }}
+          >
+            <a
+              href="/contact?intent=free-review"
+              className="inline-flex items-center gap-2 text-sm text-[#f3d07a] hover:underline"
+            >
+              Not sure which plan fits?
+              <span className="font-semibold">
+                Get a free website review →
+              </span>
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -140,7 +161,6 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* --- SERVICE CARDS --- */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((item, i) => (
               <motion.a
@@ -152,7 +172,6 @@ export default function Hero() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.05 * (i + 1) }}
                 whileHover={!reduce ? glowHover : undefined}
-                
               >
                 <div className="text-3xl mb-3">{item.icon}</div>
                 <h3 className="text-xl font-semibold text-white">{item.title}</h3>
@@ -174,7 +193,9 @@ export default function Hero() {
             className="text-center mb-16"
           >
             <span className="text-[#f3d07a] font-medium">How It Works</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">Our Project Process</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
+              Our Project Process
+            </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
@@ -187,7 +208,6 @@ export default function Hero() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.05 * (i + 1) }}
                 whileHover={!reduce ? glowHover : undefined}
-                
               >
                 <span className="text-[#f3d07a] text-sm font-medium">{item.step}</span>
                 <h3 className="text-xl font-semibold text-white mt-2">{item.title}</h3>
@@ -208,7 +228,6 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             whileHover={!reduce ? glowHover : undefined}
-            
           >
             <div>
               <h3 className="text-2xl font-bold text-white">Ready to Start Your Website?</h3>

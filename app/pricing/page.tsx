@@ -132,7 +132,8 @@ export default function PricingPage(): React.ReactElement {
             variants={fadeUp}
             transition={{ duration: 0.4 }}
           >
-            Simple & Transparent <span className="text-[#f3d07a]">Pricing Plans</span>
+            Simple & Transparent{" "}
+            <span className="text-[#f3d07a]">Pricing Plans</span>
           </motion.h1>
 
           <motion.p
@@ -140,9 +141,34 @@ export default function PricingPage(): React.ReactElement {
             variants={fadeUp}
             transition={{ duration: 0.4, delay: 0.02 }}
           >
-            Choose a plan that suits your business. No hidden charges — just premium
-            websites built for performance and conversions.
+            Choose a plan that suits your business. No hidden charges — just
+            premium websites built for performance and conversions.
           </motion.p>
+        </motion.div>
+        <motion.div
+          variants={fadeUp}
+          transition={{ duration: 0.4, delay: 0.04 }}
+        >
+          <Link
+            href="/pricing/why"
+            className="inline-block mt-4 text-sm text-[#f3d07a] hover:underline"
+          >
+            Why our pricing makes sense →
+          </Link>
+        </motion.div>
+        <motion.div
+          variants={fadeUp}
+          transition={{ duration: 0.4, delay: 0.06 }}
+        >
+          <Link
+            href="/contact?intent=free-review"
+            className="inline-block mt-2 text-sm text-slate-300 hover:text-[#f3d07a] transition"
+          >
+            Not sure which plan fits?{" "}
+            <span className="text-[#f3d07a] font-medium">
+              Get a free website review →
+            </span>
+          </Link>
         </motion.div>
       </section>
 
@@ -157,7 +183,8 @@ export default function PricingPage(): React.ReactElement {
         >
           {plans.map((plan, i) => {
             const oneTime = parseOneTimePrice(plan.price);
-            const firstMonthTotal = oneTime !== null ? oneTime + recurringTotal : null;
+            const firstMonthTotal =
+              oneTime !== null ? oneTime + recurringTotal : null;
 
             return (
               <motion.div
@@ -185,8 +212,12 @@ export default function PricingPage(): React.ReactElement {
 
                   <div className="mt-4">
                     <div>
-                      <div className="text-3xl font-extrabold">{plan.price}</div>
-                      <div className="text-sm text-slate-300 mt-1">{plan.subtitle}</div>
+                      <div className="text-3xl font-extrabold">
+                        {plan.price}
+                      </div>
+                      <div className="text-sm text-slate-300 mt-1">
+                        {plan.subtitle}
+                      </div>
                     </div>
                   </div>
 
@@ -226,15 +257,22 @@ export default function PricingPage(): React.ReactElement {
                       </div>
 
                       <div className="text-[11px] text-slate-400 mt-2">
-                        You can add any combination — SEO, hosting or maintenance. Exact
-                        quote provided on request.
+                        You can add any combination — SEO, hosting or
+                        maintenance. Exact quote provided on request.
                       </div>
                     </div>
                   )}
 
                   {/* CTA button */}
                   <motion.div
-                    whileHover={!reduce ? { scale: 1.06, boxShadow: "0 8px 26px rgba(243,208,122,0.18)" } : undefined}
+                    whileHover={
+                      !reduce
+                        ? {
+                            scale: 1.06,
+                            boxShadow: "0 8px 26px rgba(243,208,122,0.18)",
+                          }
+                        : undefined
+                    }
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: "spring", stiffness: 300, damping: 18 }}
                     style={{ willChange: "transform" }}
@@ -250,12 +288,17 @@ export default function PricingPage(): React.ReactElement {
                           : "bg-transparent border border-[rgba(255,255,255,0.06)] text-slate-200"
                       }`}
                     >
-                      {plan.key === "enterprise" ? "Contact for Quote" : "Choose Plan"}
+                      {plan.key === "enterprise"
+                        ? "Contact for Quote"
+                        : "Choose Plan"}
                     </Link>
                   </motion.div>
 
                   <div className="text-xs text-slate-400 text-center mt-3">
-                    Need customization? <Link href="/contact" className="text-[#f3d07a]">Contact us</Link>
+                    Need customization?{" "}
+                    <Link href="/contact" className="text-[#f3d07a]">
+                      Contact us
+                    </Link>
                   </div>
                 </div>
                 {/* ===== end moved block ===== */}
@@ -264,13 +307,53 @@ export default function PricingPage(): React.ReactElement {
           })}
         </motion.div>
       </section>
+      <section className="max-w-6xl mx-auto py-6">
+  <motion.div
+    variants={fadeUp}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true }}
+    whileHover={!reduce ? glowHover : undefined}
+    transition={{ type: "spring", stiffness: 300, damping: 22 }}
+    className="glass p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4"
+  >
+    <div>
+      <h3 className="text-lg font-semibold">
+        Not sure which plan is right for you?
+      </h3>
+      <p className="text-slate-300 text-sm mt-1">
+        Get a free, honest review of your website or business needs.
+      </p>
+    </div>
+
+    <Link
+      href="/contact?intent=free-review"
+      className="px-5 py-3 rounded-full font-semibold text-black
+                 bg-gradient-to-r from-[#f3d07a] to-[#e6c35a]
+                 hover:scale-[1.03] transition
+                 shadow-[0_6px_24px_rgba(243,208,122,0.35)]"
+    >
+      Free Website Review →
+    </Link>
+  </motion.div>
+</section>
+
 
       {/* FEATURE COMPARISON */}
       <section className="max-w-6xl mx-auto py-8">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <div className="mb-6">
-            <span className="text-sm text-[#f3d07a] font-semibold">Comparison</span>
-            <h2 className="text-2xl font-extrabold mt-2">What’s Included in Each Plan</h2>
+            <span className="text-sm text-[#f3d07a] font-semibold">
+              Comparison
+            </span>
+            <h2 className="text-2xl font-extrabold mt-2">
+              What’s Included in Each Plan
+            </h2>
             <p className="text-slate-300 mt-2 max-w-2xl">
               See which plan fits your exact business needs.
             </p>
@@ -355,9 +438,15 @@ export default function PricingPage(): React.ReactElement {
 
                 <tr className="border-t border-[rgba(255,255,255,0.04)]">
                   <td className="py-3 pl-4">Recommended Monthly Add-ons</td>
-                  <td className="text-center">{formatINR(recurringTotal)}/mo</td>
-                  <td className="text-center">{formatINR(recurringTotal)}/mo</td>
-                  <td className="text-center">{formatINR(recurringTotal)}/mo</td>
+                  <td className="text-center">
+                    {formatINR(recurringTotal)}/mo
+                  </td>
+                  <td className="text-center">
+                    {formatINR(recurringTotal)}/mo
+                  </td>
+                  <td className="text-center">
+                    {formatINR(recurringTotal)}/mo
+                  </td>
                   <td className="text-center">Custom</td>
                 </tr>
               </tbody>
@@ -368,17 +457,29 @@ export default function PricingPage(): React.ReactElement {
 
       {/* CTA */}
       <section className="max-w-6xl mx-auto py-10">
-        <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           <motion.div
             className="wj-cta-band glass p-6 rounded-lg flex flex-col md:flex-row items-center justify-between gap-4"
             whileHover={!reduce ? glowHover : undefined}
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
           >
             <div>
-              <h3 className="text-xl font-semibold">Need Help Choosing a Plan?</h3>
-              <p className="text-slate-300">Contact us — we’ll guide you to the best plan for your business.</p>
+              <h3 className="text-xl font-semibold">
+                Need Help Choosing a Plan?
+              </h3>
+              <p className="text-slate-300">
+                Contact us — we’ll guide you to the best plan for your business.
+              </p>
             </div>
-            <Link href="/contact" className="mt-3 md:mt-0 inline-block px-5 py-3 bg-[#f3d07a] text-black rounded-full font-semibold">
+            <Link
+              href="/contact"
+              className="mt-3 md:mt-0 inline-block px-5 py-3 bg-[#f3d07a] text-black rounded-full font-semibold"
+            >
               Contact Now
             </Link>
           </motion.div>

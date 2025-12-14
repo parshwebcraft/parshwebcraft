@@ -47,10 +47,10 @@ export default function AboutPage() {
   return (
     <>
       <Head>
-        <title>About Me — ParshWebCraft</title>
+        <title>About ParshWebCraft</title>
         <meta
           name="description"
-          content="Learn more about ParshWebCraft and its founder — who we are, what we do, and our mission."
+          content="Why ParshWebCraft exists, who it is built for, and the mission behind creating honest, future-ready websites."
         />
       </Head>
 
@@ -70,11 +70,12 @@ export default function AboutPage() {
             variants={itemUp}
             className="text-lg text-slate-300 max-w-2xl leading-relaxed"
           >
-            ParshWebCraft builds premium web experiences for business growth.
+            ParshWebCraft was created to help real businesses build an honest,
+            professional, and future-ready online presence.
           </motion.p>
         </motion.section>
 
-        {/* Story */}
+        {/* Origin Story */}
         <motion.section
           variants={container}
           initial="hidden"
@@ -88,47 +89,28 @@ export default function AboutPage() {
             whileHover={glowHover}
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
           >
-            <h2 className="text-3xl font-bold mb-4">My Story</h2>
+            <h2 className="text-3xl font-bold mb-4">Why ParshWebCraft Started</h2>
 
             <p className="text-slate-300 leading-relaxed">
-              I started ParshWebCraft with a simple goal — to provide businesses
-              with modern, high-performance websites that not only look premium
-              but also convert visitors into customers.
+              ParshWebCraft didn’t start as a business idea — it started as a
+              problem I saw around me.
               <br />
               <br />
-              Over time, I learned that most businesses struggle with:
+              Local businesses, coaching institutes, and service providers were
+              either struggling with outdated websites or had no online presence
+              at all. Many paid for cheap websites that looked fine but failed in
+              speed, mobile experience, SEO, and lead generation.
             </p>
 
-            <motion.ul
-              variants={container}
-              className="mt-4 space-y-2 text-slate-300 list-none pl-0"
-            >
-              {[
-                "Outdated websites",
-                "Slow loading speeds",
-                "Poor mobile experience",
-                "No automated lead capture system",
-              ].map((text) => (
-                <motion.li
-                  key={text}
-                  variants={itemUp}
-                  className="flex items-start gap-3"
-                >
-                  <span className="text-[#f3d07a] font-semibold">•</span>
-                  <span>{text}</span>
-                </motion.li>
-              ))}
-            </motion.ul>
-
-            <motion.p variants={itemUp} className="mt-4 text-slate-300">
-              This is exactly what ParshWebCraft solves — modern, optimized, and
-              high-converting websites built with Next.js, Tailwind CSS, and
-              Supabase automation.
-            </motion.p>
+            <p className="mt-4 text-slate-300">
+              I built ParshWebCraft to change that — by offering websites that
+              are transparent in pricing, clean in design, and strong in
+              performance.
+            </p>
           </motion.div>
         </motion.section>
 
-        {/* Mission & Values */}
+        {/* Who We Help */}
         <motion.section
           variants={container}
           initial="hidden"
@@ -137,22 +119,22 @@ export default function AboutPage() {
           className="max-w-5xl mx-auto mb-20"
         >
           <motion.h2 variants={itemUp} className="text-3xl font-bold mb-6">
-            Mission & Values
+            Who ParshWebCraft Is For
           </motion.h2>
 
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
-                title: "Quality First",
-                body: "Pixel-perfect design, performance optimization, and clean code — every project is built with quality in mind.",
+                title: "Local Businesses",
+                body: "Shops, services, and startups that want a strong online presence without technical confusion.",
               },
               {
-                title: "Client-Centric",
-                body: "Your business goals come first. The website is designed exactly around what your brand needs.",
+                title: "Coaching & Education",
+                body: "Institutes that need trust, clarity, and lead generation — not just a brochure website.",
               },
               {
-                title: "Growth Driven",
-                body: "Websites aren’t just for show — they must drive leads, sales, and real growth.",
+                title: "Growing Brands",
+                body: "Businesses ready to scale with a website that won’t break after a few months.",
               },
             ].map((card) => (
               <motion.div
@@ -169,7 +151,48 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* ===== ABOUT ME – CEO ===== */}
+        {/* Values */}
+        <motion.section
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-5xl mx-auto mb-20"
+        >
+          <motion.h2 variants={itemUp} className="text-3xl font-bold mb-6">
+            How We Work
+          </motion.h2>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Honest Solutions",
+                body: "No over-promises, no fake guarantees. Only what genuinely helps your business grow.",
+              },
+              {
+                title: "Built for Performance",
+                body: "Fast loading, mobile-first, and structured for long-term scalability.",
+              },
+              {
+                title: "Clear Communication",
+                body: "We explain things simply so you always know what you’re paying for.",
+              },
+            ].map((card) => (
+              <motion.div
+                key={card.title}
+                variants={itemUp}
+                whileHover={glowHover}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                className="glass p-6 rounded-xl"
+              >
+                <h3 className="text-xl font-semibold">{card.title}</h3>
+                <p className="text-slate-300 mt-2">{card.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* Founder */}
         <motion.section
           variants={container}
           initial="hidden"
@@ -188,7 +211,7 @@ export default function AboutPage() {
                 <div className="relative w-44 h-44 rounded-full overflow-hidden border border-white/10">
                   <Image
                     src="/images/gauransh .png"
-                    alt="Gauransh Jaroli – CEO of ParshWebCraft"
+                    alt="Gauransh Jaroli – Founder of ParshWebCraft"
                     fill
                     className="object-cover"
                     priority
@@ -197,24 +220,18 @@ export default function AboutPage() {
               </div>
 
               <div className="md:col-span-2 text-center md:text-left">
-                <h2 className="text-3xl font-bold mb-3">About Me</h2>
+                <h2 className="text-3xl font-bold mb-3">About the Founder</h2>
 
                 <p className="text-slate-300 leading-relaxed">
-                  I’m{" "}
-                  <span className="text-white font-semibold">
-                    Gauransh Jaroli
-                  </span>
-                  , Founder & CEO of{" "}
-                  <span className="text-white font-semibold">
-                    ParshWebCraft
-                  </span>
-                  . I build premium, scalable web platforms focused on
-                  performance, security, and modern UI.
+                  I’m <span className="text-white font-semibold">Gauransh Jaroli</span>,
+                  Founder of <span className="text-white font-semibold">ParshWebCraft</span>.
+                  I build reliable, scalable web platforms with a strong focus on
+                  clarity, performance, and real-world usability.
                 </p>
 
                 <p className="mt-4 text-slate-400">
-                  My goal is to help businesses grow online with reliable,
-                  future-ready digital solutions.
+                  My goal is simple — help businesses grow online without
+                  confusion, shortcuts, or technical debt.
                 </p>
               </div>
             </div>
@@ -230,23 +247,22 @@ export default function AboutPage() {
           className="max-w-5xl mx-auto text-center mb-32"
         >
           <motion.h2 variants={itemUp} className="text-3xl font-bold mb-4">
-            Let’s Build Something Amazing
+            Ready to Build Something Meaningful?
           </motion.h2>
 
           <motion.p variants={itemUp} className="text-slate-300 mb-8">
-            Whether you need a simple landing page or a full business website, I
-            can build it end-to-end.
+            If you value clarity, quality, and long-term growth, let’s talk.
           </motion.p>
 
           <motion.div variants={itemUp}>
             <Link
               href="/contact"
               className="inline-block px-6 py-3 rounded-md font-semibold text-black
-             bg-gradient-to-br from-[#f3d07a] to-[#e6c35a]
-             hover:scale-[1.03] transition
-             shadow-[0_6px_24px_rgba(243,208,122,0.35)]"
+              bg-gradient-to-br from-[#f3d07a] to-[#e6c35a]
+              hover:scale-[1.03] transition
+              shadow-[0_6px_24px_rgba(243,208,122,0.35)]"
             >
-               Get in Touch
+              Get in Touch
             </Link>
           </motion.div>
         </motion.section>

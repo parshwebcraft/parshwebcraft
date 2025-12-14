@@ -22,6 +22,7 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
+    { label: "Case Studies", href: "/case-studies" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },
     { label: "Contact", href: "/contact" },
@@ -100,7 +101,10 @@ export default function Navbar() {
               href="mailto:parshwebcraft@gmail.com"
               whileHover={
                 !reduce
-                  ? { scale: 1.06, boxShadow: "0 6px 22px rgba(243,208,122,0.22)" }
+                  ? {
+                      scale: 1.06,
+                      boxShadow: "0 6px 22px rgba(243,208,122,0.22)",
+                    }
                   : {}
               }
               className="px-4 py-2 rounded-full bg-gradient-to-r from-[#f3d07a] to-[#e6c35a] text-black font-semibold"
@@ -145,7 +149,9 @@ export default function Navbar() {
       <motion.div
         className="md:hidden bg-black/85 backdrop-blur border-t border-white/10 overflow-hidden"
         initial={false}
-        animate={open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+        animate={
+          open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
+        }
         transition={{ duration: reduce ? 0 : 0.3 }}
       >
         <div className="px-6 py-4 flex flex-col gap-3">
