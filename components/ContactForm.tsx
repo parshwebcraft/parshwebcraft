@@ -65,10 +65,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
       next.email = "Enter a valid email address.";
     }
 
-    if (
-      form.phone.trim() &&
-      !/^[0-9]{10}$/.test(form.phone.trim())
-    ) {
+    if (form.phone.trim() && !/^[0-9]{10}$/.test(form.phone.trim())) {
       next.phone = "Enter a valid 10-digit phone number.";
     }
 
@@ -91,8 +88,11 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         body: JSON.stringify(form),
       });
 
+      const data = await res.json();
+
       if (!res.ok) {
-        setStatus("Something went wrong. Please try again.");
+        // 👇 show backend error (rate limit, invalid email, etc.)
+        setStatus(data?.error || "Something went wrong. Please try again.");
         return;
       }
 
@@ -202,9 +202,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         {sending ? "Sending..." : "Send Message"}
       </button>
 
-      {errors.form && (
-        <div className="text-sm text-red-300">{errors.form}</div>
-      )}
+      {errors.form && <div className="text-sm text-red-300">{errors.form}</div>}
 
       {status && (
         <motion.div
