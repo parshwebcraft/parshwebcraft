@@ -1,7 +1,11 @@
 "use client";
 import Link from "next/link";
-
+import { useState } from "react";
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
   return (
     <footer className="relative mt-24 border-t border-[rgba(255,255,255,0.04)] py-12 bg-gradient-to-t from-[rgba(14,11,43,0.02)] overflow-hidden">
       {/* Decorative gradient blobs */}
@@ -110,9 +114,7 @@ export default function Footer() {
 
           {/* SUPPORT (NEW) */}
           <div>
-            <h3 className="text-sm font-semibold mb-3 text-white">
-              Support
-            </h3>
+            <h3 className="text-sm font-semibold mb-3 text-white">Support</h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>
                 <Link href="/contact" className="footer-link">
@@ -142,18 +144,58 @@ export default function Footer() {
             </p>
 
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setError("");
+                setSuccess(false);
+
+                if (!email) return;
+
+                setLoading(true);
+
+                const res = await fetch("/api/newsletter", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ email }),
+                });
+
+                const data = await res.json();
+                setLoading(false);
+
+                if (!res.ok) {
+                  setError(data.error || "Something went wrong");
+                  return;
+                }
+
+                setSuccess(true);
+                setEmail("");
+              }}
               className="flex gap-2"
             >
               <input
                 type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your best email"
                 className="flex-1 p-3 rounded-md bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] text-sm focus:outline-none focus:ring-2 focus:ring-[rgba(243,208,122,0.18)] focus:border-[#f3d07a]"
               />
-              <button className="px-4 rounded-md bg-[#f3d07a] text-black font-semibold hover:scale-[1.02]">
-                Join
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="px-4 rounded-md bg-[#f3d07a] text-black font-semibold hover:scale-[1.02] disabled:opacity-60"
+              >
+                {loading ? "Joining…" : "Join"}
               </button>
             </form>
+            {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
+
+            {success && (
+              <p className="mt-2 text-sm text-green-400">
+                You’re subscribed 🎉
+              </p>
+            )}
           </div>
         </div>
 
@@ -174,9 +216,15 @@ export default function Footer() {
       {/* Styles unchanged */}
       <style jsx>{`
         @keyframes blob {
-          0% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-          100% { transform: translateY(0); }
+          0% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+          100% {
+            transform: translateY(0);
+          }
         }
         .animate-blob {
           animation: blob 6s ease-in-out infinite;
@@ -199,8 +247,8 @@ export default function Footer() {
           padding: 6px 10px;
           font-size: 12px;
           border-radius: 999px;
-          background: rgba(255,255,255,0.02);
-          border: 1px solid rgba(255,255,255,0.03);
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.03);
         }
       `}</style>
     </footer>

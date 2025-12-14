@@ -25,7 +25,7 @@ export default function Navbar() {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },
     { label: "Contact", href: "/contact" },
-    { label: "About Me", href: "/about" },
+    { label: "About Us", href: "/about" },
   ];
 
   /* motion variants */

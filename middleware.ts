@@ -4,6 +4,48 @@ import { createServerClient } from "@supabase/ssr";
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
+  const pathname = req.nextUrl.pathname;
+
+  /* ============================================================
+     🚫 EARLY BYPASS (VERY IMPORTANT)
+     ============================================================ */
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/favicon.ico") ||
+    pathname.startsWith("/api") ||
+    pathname === "/maintenance"
+  ) {
+    return res;
+  }
+
+  /* ============================================================
+     🔧 MAINTENANCE MODE LOGIC (SAFE VERSION)
+     ============================================================ */
+  try {
+    const settingsRes = await fetch(
+      new URL("/api/settings", req.nextUrl.origin).toString(),
+      { cache: "no-store" }
+    );
+
+    if (settingsRes.ok) {
+      const settings = await settingsRes.json();
+
+      if (
+        settings?.maintenance_mode === true &&
+        !pathname.startsWith("/admin")
+      ) {
+        return NextResponse.redirect(
+          new URL("/maintenance", req.url)
+        );
+      }
+    }
+  } catch {
+    // Fail-safe: allow site if anything goes wrong
+  }
+
+  /* ============================================================
+     🔐 EXISTING ADMIN AUTH LOGIC (UNCHANGED)
+     ============================================================ */
 
   const adminEmail =
     (process.env.ADMIN_EMAIL ?? "").trim().toLowerCase();
@@ -30,8 +72,6 @@ export async function middleware(req: NextRequest) {
     }
   );
 
-  const pathname = req.nextUrl.pathname;
-
   const {
     data: { session },
   } = await supabase.auth.getSession();
@@ -41,16 +81,18 @@ export async function middleware(req: NextRequest) {
   // 🔐 Protect admin pages (EXCEPT login)
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
     if (!userEmail || userEmail !== adminEmail) {
-      return NextResponse.redirect(new URL("/admin/login", req.url));
+      return NextResponse.redirect(
+        new URL("/admin/login", req.url)
+      );
     }
   }
-
-  // ❌ DO NOT redirect FROM /admin/login
-  // Let client handle navigation
 
   return res;
 }
 
+/* ============================================================
+   ⚠️ MATCHER (GLOBAL, SAFE)
+   ============================================================ */
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: ["/((?!_next|favicon.ico).*)"],
 };

@@ -241,9 +241,12 @@ export default function AboutPage() {
           <motion.div variants={itemUp}>
             <Link
               href="/contact"
-              className="inline-block px-6 py-3 rounded-md text-slate-200 hover:text-white bg-gradient-to-br from-transparent to-transparent border border-[#2b2f3a] glass-button"
+              className="inline-block px-6 py-3 rounded-md font-semibold text-black
+             bg-gradient-to-br from-[#f3d07a] to-[#e6c35a]
+             hover:scale-[1.03] transition
+             shadow-[0_6px_24px_rgba(243,208,122,0.35)]"
             >
-              Contact
+               Get in Touch
             </Link>
           </motion.div>
         </motion.section>

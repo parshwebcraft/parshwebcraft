@@ -18,7 +18,7 @@ export async function POST(req) {
       );
     }
 
-    /* ---------------- SUPABASE INSERT ---------------- */
+    /* ---------------- SUPABASE LEADS INSERT ---------------- */
     try {
       const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
       const key = process.env.SUPABASE_SERVICE_ROLE_KEY; // server-only
@@ -31,22 +31,24 @@ export async function POST(req) {
             name: String(name),
             email: email ? String(email) : null,
             phone: phone ? String(phone) : null,
-            plan: plan ? String(plan) : null,
-            requirement: String(requirement),
+            service: plan ? String(plan) : null, // mapped cleanly
             message: message ? String(message) : null,
+            requirement: String(requirement),
+            source: "contact-page",
+            status: "new",
           },
         ]);
 
         if (dbError) {
           console.error("Supabase insert error:", dbError);
         } else {
-          console.log("Saved lead to Supabase");
+          console.log("✅ Lead saved to Supabase");
         }
       } else {
-        console.log("Supabase keys not set — skipping DB insert");
+        console.warn("⚠️ Supabase env vars missing — skipping DB insert");
       }
     } catch (dbErr) {
-      console.error("Supabase insert threw:", dbErr);
+      console.error("❌ Supabase insert threw:", dbErr);
       // continue to email
     }
 
@@ -90,19 +92,18 @@ ${message || "—"}
         });
 
         console.log(
-          "Notification email sent:",
+          "📧 Notification email sent:",
           mailRes.messageId || "(no messageId)"
         );
       } else {
-        console.log("SMTP not configured — skipping email send");
+        console.log("SMTP not configured — skipping email");
       }
     } catch (mailErr) {
-      console.error("Email send error:", mailErr);
+      console.error("❌ Email send error:", mailErr);
     }
 
     return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("API Error:", err);
+  } catch {
     return NextResponse.json({ error: "Server Error" }, { status: 500 });
   }
 }

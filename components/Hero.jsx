@@ -101,7 +101,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: delays.ctas }}
           >
             <motion.a
-              href="/contact"
+              href="/pricing"
               className="px-6 py-3 rounded-full bg-[#f3d07a] text-black font-semibold inline-flex items-center justify-center"
               whileHover={glowHover}
               transition={spring}
