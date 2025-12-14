@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
 import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req) {
@@ -89,59 +90,37 @@ export async function POST(req) {
 
     console.log("✅ Lead saved to Supabase");
 
-    /* ---------------- EMAIL NOTIFICATION ---------------- */
-    try {
-      if (process.env.SMTP_HOST) {
-        const transporter = nodemailer.createTransport({
-          host: process.env.SMTP_HOST,
-          port: Number(process.env.SMTP_PORT || 587),
-          secure: false,
-          auth: {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
-          },
-        });
+    /* ---------------- EMAIL NOTIFICATION (RESEND) ---------------- */
+try {
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
-        await transporter.sendMail({
-          from: process.env.EMAIL_FROM_ADDRESS || process.env.SMTP_USER,
-          to: process.env.NOTIFY_EMAIL || process.env.SMTP_USER,
-          subject: `New website lead: ${name}`,
-          text: `
-New Lead Received
+  await resend.emails.send({
+    from: "ParshWebCraft <onboarding@resend.dev>",
+    to: [process.env.NOTIFY_EMAIL || "parshwebcraft@gmail.com"],
+    subject: `New website lead: ${name}`,
+    html: `
+      <h2>New Lead Received</h2>
 
-Name: ${name}
-Email: ${email || "—"}
-Phone: ${phone || "—"}
-Plan: ${plan || "Not selected"}
+      <p><b>Name:</b> ${name}</p>
+      <p><b>Email:</b> ${email || "—"}</p>
+      <p><b>Phone:</b> ${phone || "—"}</p>
+      <p><b>Plan:</b> ${plan || "Not selected"}</p>
 
-Requirement:
-${requirement}
+      <p><b>Requirement:</b><br/>
+      ${requirement.replace(/\n/g, "<br/>")}
+      </p>
 
-Message:
-${message || "—"}
-      `,
-          html: `
-<p><b>New Lead Received</b></p>
-<p><b>Name:</b> ${name}</p>
-<p><b>Email:</b> ${email || "—"}</p>
-<p><b>Phone:</b> ${phone || "—"}</p>
-<p><b>Plan:</b> ${plan || "Not selected"}</p>
+      <p><b>Message:</b><br/>
+      ${(message || "—").replace(/\n/g, "<br/>")}
+      </p>
+    `,
+  });
 
-<p><b>Requirement:</b><br/>
-${requirement.replace(/\n/g, "<br/>")}
-</p>
+  console.log("📧 Email sent via Resend");
+} catch (mailErr) {
+  console.error("❌ Resend email error:", mailErr);
+}
 
-<p><b>Message:</b><br/>
-${(message || "—").replace(/\n/g, "<br/>")}
-</p>
-      `,
-        });
-
-        console.log("📧 Full lead email sent");
-      }
-    } catch (mailErr) {
-      console.error("❌ Email send error:", mailErr);
-    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
