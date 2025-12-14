@@ -308,36 +308,35 @@ export default function PricingPage(): React.ReactElement {
         </motion.div>
       </section>
       <section className="max-w-6xl mx-auto py-6">
-  <motion.div
-    variants={fadeUp}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    whileHover={!reduce ? glowHover : undefined}
-    transition={{ type: "spring", stiffness: 300, damping: 22 }}
-    className="glass p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4"
-  >
-    <div>
-      <h3 className="text-lg font-semibold">
-        Not sure which plan is right for you?
-      </h3>
-      <p className="text-slate-300 text-sm mt-1">
-        Get a free, honest review of your website or business needs.
-      </p>
-    </div>
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          whileHover={!reduce ? glowHover : undefined}
+          transition={{ type: "spring", stiffness: 300, damping: 22 }}
+          className="glass p-6 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <div>
+            <h3 className="text-lg font-semibold">
+              Not sure which plan is right for you?
+            </h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Get a free, honest review of your website or business needs.
+            </p>
+          </div>
 
-    <Link
-      href="/contact?intent=free-review"
-      className="px-5 py-3 rounded-full font-semibold text-black
+          <Link
+            href="/contact?intent=free-review"
+            className="px-5 py-3 rounded-full font-semibold text-black
                  bg-gradient-to-r from-[#f3d07a] to-[#e6c35a]
                  hover:scale-[1.03] transition
                  shadow-[0_6px_24px_rgba(243,208,122,0.35)]"
-    >
-      Free Website Review →
-    </Link>
-  </motion.div>
-</section>
-
+          >
+            Free Website Review →
+          </Link>
+        </motion.div>
+      </section>
 
       {/* FEATURE COMPARISON */}
       <section className="max-w-6xl mx-auto py-8">

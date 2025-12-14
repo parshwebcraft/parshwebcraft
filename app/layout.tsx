@@ -22,10 +22,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "ParshWebCraft",
-  description: "Premium Web Solutions by ParshWebCraft",
+export const metadata = {
+  title: {
+    default: "ParshWebCraft — Premium Web Experiences",
+    template: "%s | ParshWebCraft",
+  },
+  description:
+    "ParshWebCraft builds premium, modern websites for business growth.",
+  icons: {
+    icon: "/icon.png",
+    
+  },
 };
+
 
 export default function RootLayout({
   children,

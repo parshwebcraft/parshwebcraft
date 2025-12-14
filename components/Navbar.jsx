@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -52,9 +53,17 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* BRAND */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#f3d07a] to-[#e6c35a] flex items-center justify-center font-bold text-black">
-              PW
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+              <Image
+                src="/images/logo-main.png"
+                alt="ParshWebCraft Logo"
+                width={40}
+                height={40}
+                className="object-cover"
+                priority
+              />
             </div>
+
             <div>
               <div className="text-sm font-bold">ParshWebCraft</div>
               <div className="text-xs text-slate-400 -mt-0.5">
