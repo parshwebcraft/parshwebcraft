@@ -77,13 +77,10 @@ export default function Hero() {
             repeat: Infinity,
           }}
           style={{ willChange: "transform" }}
-          whileHover={
-             {
-                  scale: 1.05,
-                  boxShadow: "0 12px 40px rgba(243,208,122,0.35)",
-                }
-          }
-          
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 12px 40px rgba(243,208,122,0.35)",
+          }}
         >
           <div className="relative w-56 h-56 rounded-full overflow-hidden">
             {/*  glow */}
