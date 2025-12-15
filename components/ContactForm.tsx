@@ -123,53 +123,73 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
   return (
     <form onSubmit={onSubmit} className="space-y-5" noValidate>
       {/* NAME */}
+      <label>Your Name</label>
       <input
         name="name"
         type="text"
-        placeholder="Your name"
+        placeholder="Enter your name"
         value={form.name}
         onChange={onChange}
         className={`${inputBase} ${errors.name ? inputError : inputNormal}`}
       />
 
       {/* EMAIL */}
+      <label>Email Address</label>
       <input
         name="email"
         type="email"
-        placeholder="Email address"
+        placeholder="Enter your Email"
         value={form.email}
         onChange={onChange}
         className={`${inputBase} ${errors.email ? inputError : inputNormal}`}
       />
 
       {/* PHONE */}
+      <label>Phone Number</label>
       <input
         name="phone"
         type="tel"
         inputMode="numeric"
-        placeholder="Phone number (10 digits)"
+        placeholder="Enter your Phone number (10 digits)"
         value={form.phone}
         onChange={onChange}
         className={`${inputBase} ${errors.phone ? inputError : inputNormal}`}
       />
 
-      {/* PLAN */}
+      {/* PLAN FIELD */}
+
+      <label>Which Plan Are You Interested In?</label>
       <select
         name="plan"
         value={form.plan}
         onChange={onChange}
         className={`${inputBase} ${inputNormal} appearance-none bg-[rgba(255,255,255,0.02)]`}
       >
-        <option value="" className="bg-[#0b1220] text-slate-300">
-          Select a plan (optional)
+        <option className="bg-[#0b1220]" value="">
+          Select a plan (Optional)
         </option>
-        <option className="bg-[#0b1220]">Starter</option>
-        <option className="bg-[#0b1220]">Business Growth</option>
-        <option className="bg-[#0b1220]">Premium Marketing</option>
-        <option className="bg-[#0b1220]">Enterprise (Custom)</option>
+        <option className="bg-[#0b1220]" value="Starter Plan – ₹7,999">
+          💎 Starter Plan – ₹7,999
+        </option>
+        <option className="bg-[#0b1220]" value="Business Growth Plan – ₹14,999">
+          ✨ Business Growth Plan – ₹14,999
+        </option>
+        <option
+          className="bg-[#0b1220]"
+          value="Premium Marketing Plan– ₹29,999"
+        >
+          🚀 Premium Marketing Plan – ₹29,999
+        </option>
+        <option className="bg-[#0b1220]" value="Enterprise (Custom) ">
+          👑 Enterprise (Custom) Plan{" "}
+        </option>
+        <option className="bg-[#0b1220]" value="Not Sure">
+          ❓ Not Sure (Need Help)
+        </option>
       </select>
 
       {/* REQUIREMENT */}
+      <label>Requirement</label>
       <textarea
         name="requirement"
         placeholder="What do you want us to build?"
@@ -199,7 +219,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
             : "bg-gradient-to-r from-[#f3d07a] to-[#e6c35a] text-black"
         }`}
       >
-        {sending ? "Sending..." : "Send Message"}
+        {sending ? "Sending..." : "Submit"}
       </button>
 
       {errors.form && <div className="text-sm text-red-300">{errors.form}</div>}

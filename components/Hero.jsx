@@ -67,24 +67,30 @@ export default function Hero() {
       <section className="max-w-4xl mx-auto py-20 relative">
         {/* HERO LOGO SEAL */}
         <motion.div
-  aria-hidden
-  className="hidden md:block absolute right-[-12px] top-[58%] -translate-y-1/2 z-0"
-  initial={false}
-  animate={
-    reduce
-      ? {}
-      : {
-          y: [0, -10, 0],
-        }
-  }
-  transition={{
-    duration: 5,
-    ease: "easeInOut",
-    repeat: Infinity,
-  }}
->
-          <div className="relative w-56 h-56 rounded-full">
-            <div className="absolute inset-0 rounded-full blur-3xl bg-[#f3d07a33]" />
+          aria-hidden
+          className="hidden md:block absolute right-[-12px] top-[36%] z-0"
+          initial={false}
+          animate={{ y: [0, -12, 0] }}
+
+          transition={{
+            duration: 6,
+            ease: "easeInOut",
+            repeat: Infinity,
+          }}
+          whileHover={
+            reduce
+              ? undefined
+              : {
+                  scale: 1.06,
+                  boxShadow: "0 12px 40px rgba(243,208,122,0.35)",
+                }
+          }
+        >
+          <div className="relative w-56 h-56 rounded-full overflow-hidden">
+            {/* soft outer glow */}
+            <div className="absolute inset-0 rounded-full blur-3xl bg-[#f3d07a26]" />
+
+            {/* actual logo */}
             <Image
               src="/images/logo-hero.png"
               alt="ParshWebCraft Logo"

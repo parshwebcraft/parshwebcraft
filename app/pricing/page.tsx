@@ -42,10 +42,10 @@ export default function PricingPage(): React.ReactElement {
   // recurring addon prices (standardized)
   const ADDONS = {
     seo: 2999, // per month
-    hosting: 499, // per month
-    maintenance: 499, // per month
+    hosting: 500, // per month
+    maintenance: 500, // per month
   };
-  const recurringTotal = ADDONS.seo + ADDONS.hosting + ADDONS.maintenance; // 3997
+  const recurringTotal = ADDONS.seo + ADDONS.hosting + ADDONS.maintenance; // 3999
 
   const plans = [
     {
