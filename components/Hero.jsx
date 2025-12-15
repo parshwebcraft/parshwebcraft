@@ -68,15 +68,15 @@ export default function Hero() {
         {/* HERO LOGO SEAL */}
         <motion.div
           aria-hidden
-          className="hidden md:block absolute right-[-12px] top-[36%] z-0"
+          className="hidden md:block absolute right-[-12px] top-[200px] z-0"
           initial={false}
-          animate={{ y: [0, -12, 0] }}
-
+          animate={{ y: [-0, 28, -0] }}
           transition={{
             duration: 6,
             ease: "easeInOut",
             repeat: Infinity,
           }}
+          style={{ willChange: "transform" }}
           whileHover={
             reduce
               ? undefined
@@ -87,7 +87,7 @@ export default function Hero() {
           }
         >
           <div className="relative w-56 h-56 rounded-full overflow-hidden">
-            {/* soft outer glow */}
+            {/*  glow */}
             <div className="absolute inset-0 rounded-full blur-3xl bg-[#f3d07a26]" />
 
             {/* actual logo */}
