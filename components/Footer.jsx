@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,8 +25,15 @@ export default function Footer() {
           {/* BRAND */}
           <div>
             <div className="flex items-center gap-3 mb-3">
-              <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-black glow-logo">
-                PW
+              <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+                <Image
+                  src="/images/logo-main.png"
+                  alt="ParshWebCraft Logo"
+                  width={40}
+                  height={40}
+                  className="object-cover"
+                  priority
+                />
               </div>
               <div>
                 <div className="text-lg font-bold">ParshWebCraft</div>
