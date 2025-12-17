@@ -47,7 +47,7 @@ export default function Hero() {
     {
       step: "Step 1",
       title: "Requirement Call",
-      desc: "We understand your business goals & needs.",
+      desc: "We understand your business stage, goals & budget.",
     },
     {
       step: "Step 2",
@@ -155,9 +155,10 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.subtext }}
           >
-            I create modern, high-performance websites with animations, lead
-            capture, and full business automation — tailored for agencies,
-            coaches, freelancers, and small to medium businesses.
+            I help local businesses and growing brands build modern,
+            high-performance websites that generate enquiries and trust. Not
+            every business needs an app — I guide you to the right solution
+            based on your stage and goals.
           </motion.p>
 
           {/* PRIMARY CTAs */}
@@ -247,6 +248,20 @@ export default function Hero() {
           </div>
         </div>
       </section>
+      {/* WHO WE WORK WITH */}
+      <section className="py-24">
+        <div className="max-w-5xl mx-auto text-center">
+          <span className="text-[#f3d07a] font-medium">Who We Work With</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
+            Built for Real Businesses
+          </h2>
+          <p className="text-slate-300 mt-4 max-w-3xl mx-auto">
+            We work closely with local shops, clothing stores, coaching
+            institutes, clinics, and small to medium businesses that want a
+            strong online presence without unnecessary complexity.
+          </p>
+        </div>
+      </section>
 
       {/* PROCESS */}
       <section className="py-24">
@@ -304,8 +319,10 @@ export default function Hero() {
                 Ready to Start Your Website?
               </h3>
               <p className="text-slate-300 mt-2">
-                Get a premium website with automation & stunning UI.
-              </p>
+  Get the right website for your business — built to grow,
+  not overcomplicate.
+</p>
+
             </div>
 
             <motion.a
