@@ -13,27 +13,37 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
+type Project = {
+  title: string;
+  description: string;
+  tag?: string;
+  tech?: string[];
+  href?: string;
+  status?: "in-progress" | "live";
+};
+
 export default function PortfolioPage() {
   const reduce = useReducedMotion();
 
-  // exact same glow used on About page
+  // exact same glow used across site
   const glowHover = {
     scale: 1.02,
     boxShadow:
       "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.18), inset 0 0 18px rgba(243,208,122,0.03)",
   };
 
-  // Add your real projects when ready
-  type Project = {
-    title: string;
-    description: string;
-    thumb?: string;
-    tag?: string;
-    tech?: string[];
-    href?: string;
-  };
-  const projects: Project[] = [];
-  // empty for now
+  // Portfolio projects
+  const projects: Project[] = [
+    {
+      title: "Anand Fashion",
+      description:
+        "A local clothing store website built to establish a structured online presence. Visual assets and final content are currently being prepared by the client.",
+      tag: "Clothing Store Website",
+      tech: ["Next.js", "Tailwind CSS"],
+      href: "/case-studies/anand-fashion",
+      status: "in-progress",
+    },
+  ];
 
   return (
     <main className="min-h-screen pt-24 px-6 lg:px-24">
@@ -41,83 +51,78 @@ export default function PortfolioPage() {
         {/* Section Heading */}
         <motion.div variants={container} initial="hidden" animate="visible">
           <motion.div variants={fadeUp} transition={{ duration: 0.6 }}>
-            <span className="text-sm text-[#f3d07a] font-semibold">Portfolio</span>
-            <h1 className="text-4xl font-extrabold mt-2 mb-3">Recent Projects</h1>
-            <p className="text-slate-300 mb-8">Websites designed and developed for clients across industries.</p>
+            <span className="text-sm text-[#f3d07a] font-semibold">
+              Portfolio
+            </span>
+            <h1 className="text-4xl font-extrabold mt-2 mb-3">
+              Recent Projects
+            </h1>
+            <p className="text-slate-300 mb-8">
+              A selection of real client work and production-grade builds.
+            </p>
           </motion.div>
         </motion.div>
 
-        {/* If no projects, show clean Coming Soon */}
-        {projects.length === 0 && (
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            className="text-center text-slate-400 py-20"
-          >
-            <h3 className="text-2xl font-semibold mb-2">Portfolio Coming Soon</h3>
-            <p className="text-slate-500">New projects are being added. Check back shortly.</p>
-          </motion.div>
-        )}
+        {/* Portfolio Grid */}
+        <motion.div
+          className="grid gap-6 md:grid-cols-3"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          {projects.map((p) => (
+            <motion.div
+              key={p.title}
+              className="block rounded-lg overflow-hidden border border-[rgba(255,255,255,0.04)] bg-transparent"
+              variants={fadeUp}
+              whileHover={!reduce ? glowHover : undefined}
+              whileTap={{ scale: reduce ? 0.99 : 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 22 }}
+            >
+              {/* Header / Status */}
+              <div className="px-4 pt-4 flex items-center justify-between">
+                <span className="inline-block text-xs font-medium text-[#f3d07a] bg-[rgba(243,208,122,0.06)] px-3 py-1 rounded-full">
+                  {p.tag}
+                </span>
 
-        {/* Portfolio Grid (will appear when projects added) */}
-        {projects.length > 0 && (
-          <motion.div
-            className="grid gap-6 md:grid-cols-3"
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-          >
-            {projects.map((p) => (
-              <motion.a
-                key={p.title}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-lg overflow-hidden border border-[rgba(255,255,255,0.04)] bg-transparent"
-                variants={fadeUp}
-                whileHover={!reduce ? glowHover : undefined}
-                whileTap={{ scale: reduce ? 0.99 : 0.98 }}
-                transition={{ type: "spring", stiffness: 300, damping: 22 }}
-              >
-                {/* Thumbnail */}
-                <div className="w-full h-44 md:h-36 lg:h-40 overflow-hidden bg-[rgba(255,255,255,0.02)]">
-                  {p.thumb ? (
-                    // prefer next/image in production, this keeps your structure
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={p.thumb} alt={p.title} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-slate-600">
-                      No preview
-                    </div>
-                  )}
-                </div>
-
-                {/* Tag */}
-                <div className="px-4 pt-4">
-                  <span className="inline-block text-xs font-medium text-[#f3d07a] bg-[rgba(243,208,122,0.06)] px-3 py-1 rounded-full">
-                    {p.tag}
+                {p.status === "in-progress" && (
+                  <span className="text-xs text-slate-400">
+                    In Progress
                   </span>
+                )}
+              </div>
+
+              {/* Body */}
+              <div className="px-4 pb-4 pt-4">
+                <h3 className="text-lg font-semibold">{p.title}</h3>
+                <p className="text-slate-300 mt-2 text-sm">
+                  {p.description}
+                </p>
+
+                <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
+                  {p.tech?.map((t) => (
+                    <span
+                      key={t}
+                      className="bg-[rgba(255,255,255,0.02)] px-2 py-1 rounded"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Body */}
-                <div className="px-4 pb-4 pt-3">
-                  <h3 className="text-lg font-semibold">{p.title}</h3>
-                  <p className="text-slate-300 mt-2 text-sm">{p.description}</p>
-                  <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
-                    {p.tech?.map((t) => (
-                      <span key={t} className="bg-[rgba(255,255,255,0.02)] px-2 py-1 rounded">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.a>
-            ))}
-          </motion.div>
-        )}
+                {p.href && (
+                  <Link
+                    href={p.href}
+                    className="inline-block mt-4 text-sm text-[#f3d07a] hover:underline"
+                  >
+                    View case study →
+                  </Link>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
         {/* CTA Band */}
         <motion.div
@@ -133,8 +138,13 @@ export default function PortfolioPage() {
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
           >
             <div>
-              <h3 className="text-xl font-semibold">Want a website like these?</h3>
-              <p className="text-slate-300">We create custom premium websites tailored to your business.</p>
+              <h3 className="text-xl font-semibold">
+                Want a website like this?
+              </h3>
+              <p className="text-slate-300">
+                We build clean, scalable websites tailored to your business
+                stage.
+              </p>
             </div>
             <Link
               href="/contact"
