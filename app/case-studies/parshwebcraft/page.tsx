@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "How We Built ParshWebCraft | Case Study",
   description:
-    "A behind-the-scenes look at how ParshWebCraft was designed, built, and optimized as a production-grade web platform.",
+    "A behind-the-scenes case study of how ParshWebCraft was designed, built, and shipped as a production-grade web platform.",
 };
 
 const goldHover =
@@ -29,20 +29,24 @@ export default function ParshWebCraftCaseStudy() {
           <div className="grid sm:grid-cols-3 gap-6 text-center">
             <div>
               <div className="text-3xl font-bold text-[#f3d07a]">100%</div>
-              <div className="text-sm text-slate-400 mt-1">Custom Built</div>
+              <div className="text-sm text-slate-400 mt-1">
+                Custom Architecture
+              </div>
             </div>
             <div>
               <div className="text-3xl font-bold text-[#f3d07a]">
+                Modern Stack
+              </div>
+              <div className="text-sm text-slate-400 mt-1">
                 Next.js + Supabase
               </div>
-              <div className="text-sm text-slate-400 mt-1">Modern Stack</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-[#f3d07a]">
                 Production Ready
               </div>
               <div className="text-sm text-slate-400 mt-1">
-                Scalable Architecture
+                Built for Scale
               </div>
             </div>
           </div>
@@ -53,10 +57,10 @@ export default function ParshWebCraftCaseStudy() {
       <section className="mb-14 border-l-2 border-[#f3d07a]/40 pl-6">
         <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
         <p className="text-slate-300 leading-relaxed">
-          ParshWebCraft was built as a production-grade agency platform to solve a
-          common problem: businesses paying for websites that look good but fail
-          in performance, SEO, and scalability. This project represents the same
-          standards we apply to all client work.
+          ParshWebCraft was built as an internal agency platform to apply the same
+          standards we expect from professional client work. The goal was to
+          create a fast, scalable, and SEO-ready website that reflects how modern
+          businesses should be built — without relying on templates or shortcuts.
         </p>
       </section>
 
@@ -66,10 +70,10 @@ export default function ParshWebCraftCaseStudy() {
       >
         <h2 className="text-2xl font-semibold mb-4">Challenges</h2>
         <ul className="list-disc pl-6 text-slate-300 space-y-2">
-          <li>Mobile-first UI without performance tradeoffs</li>
-          <li>Secure admin authentication</li>
-          <li>SEO-ready structure from day one</li>
-          <li>Analytics and lead tracking scalability</li>
+          <li>Maintaining mobile-first UX without sacrificing performance</li>
+          <li>Implementing secure admin authentication</li>
+          <li>Designing an SEO-friendly structure from day one</li>
+          <li>Building analytics and lead tracking that can scale</li>
         </ul>
       </section>
 
@@ -79,10 +83,10 @@ export default function ParshWebCraftCaseStudy() {
       >
         <h2 className="text-2xl font-semibold mb-4">Our Solution</h2>
         <ul className="list-disc pl-6 text-slate-300 space-y-2">
-          <li>Next.js App Router for performance and scalability</li>
-          <li>Supabase for auth, database, and contact flows</li>
-          <li>Server-first SEO with clean metadata</li>
-          <li>Vercel deployment for speed and reliability</li>
+          <li>Next.js App Router for performance and long-term scalability</li>
+          <li>Supabase for authentication, database, and form handling</li>
+          <li>Server-first SEO with clean metadata and structure</li>
+          <li>Vercel deployment for fast global delivery</li>
         </ul>
       </section>
 
@@ -90,24 +94,26 @@ export default function ParshWebCraftCaseStudy() {
       <section
         className={`mb-14 rounded-2xl border border-white/10 bg-white/5 p-8 ${goldHover}`}
       >
-        <h2 className="text-2xl font-semibold mb-4">Results</h2>
+        <h2 className="text-2xl font-semibold mb-4">Outcome</h2>
         <p className="text-slate-300 leading-relaxed">
-          The final build is fast, secure, and scalable — optimized for
-          conversion, search visibility, and long-term growth rather than just
-          visual appeal.
+          The result is a production-ready platform that is fast, secure, and
+          maintainable. It serves as both our agency website and a reference
+          architecture for how we approach real client projects.
         </p>
       </section>
 
       {/* Work & Experiments */}
       <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-6">Our Work & Experiments</h2>
+        <h2 className="text-2xl font-semibold mb-6">
+          Internal Work & Experiments
+        </h2>
 
         <div className="grid sm:grid-cols-2 gap-6">
           {[
-            "Landing page conversion testing",
-            "SEO architecture experiments",
-            "Admin dashboards & analytics tooling",
-            "Core Web Vitals optimization",
+            "Landing page structure and conversion flow testing",
+            "SEO architecture and metadata experiments",
+            "Admin dashboards and analytics tooling",
+            "Core Web Vitals and performance optimization",
           ].map((item) => (
             <div
               key={item}
@@ -124,11 +130,11 @@ export default function ParshWebCraftCaseStudy() {
         className={`relative border border-[#f3d07a]/30 rounded-3xl bg-gradient-to-br from-[#f3d07a]/15 via-transparent to-transparent p-10 ${goldHover}`}
       >
         <h3 className="text-2xl font-semibold mb-4">
-          Want this level of quality for your business?
+          Looking for a similar quality build?
         </h3>
         <p className="text-slate-300 mb-6 max-w-xl">
-          We don’t use templates. Every project is designed for performance,
-          conversion, and long-term growth.
+          We apply the same technical standards, performance focus, and clarity
+          to every client project — scaled to your business stage.
         </p>
 
         <div className="flex gap-4">

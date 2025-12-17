@@ -319,10 +319,9 @@ export default function Hero() {
                 Ready to Start Your Website?
               </h3>
               <p className="text-slate-300 mt-2">
-  Get the right website for your business — built to grow,
-  not overcomplicate.
-</p>
-
+                Get the right website for your business — built to grow, not
+                overcomplicate.
+              </p>
             </div>
 
             <motion.a
