@@ -103,9 +103,7 @@ export default function Footer() {
 
             {/* Services chips */}
             <div className="mt-6 text-sm text-slate-400">
-              <div className="font-medium text-slate-200 mb-2">
-                Services
-              </div>
+              <div className="font-medium text-slate-200 mb-2">Services</div>
               <div className="flex flex-wrap gap-2">
                 <Link href="/services/web-design" className="chip">
                   Web Design
@@ -125,9 +123,7 @@ export default function Footer() {
 
           {/* SUPPORT */}
           <div>
-            <h3 className="text-sm font-semibold mb-3 text-white">
-              Support
-            </h3>
+            <h3 className="text-sm font-semibold mb-3 text-white">Support</h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>
                 <Link href="/contact" className="footer-link">
@@ -216,7 +212,7 @@ export default function Footer() {
             © {new Date().getFullYear()} ParshWebCraft. All rights reserved.
           </div>
           <div className="text-sm text-slate-400">
-            Crafted with care by{" "}
+            Crafted with ❤️ by{" "}
             <span className="px-3 py-1 rounded-md bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.03)] text-slate-200">
               ParshWebCraft
             </span>

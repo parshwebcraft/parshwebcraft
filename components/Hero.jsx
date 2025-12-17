@@ -155,10 +155,10 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.subtext }}
           >
-            I help local businesses and growing brands build modern,
-            high-performance websites that generate enquiries and trust. Not
-            every business needs an app — I guide you to the right solution
-            based on your stage and goals.
+            I help local businesses and growing brands in Udaipur and across
+            India build modern, high-performance websites that generate
+            enquiries and trust. Not every business needs an app — I guide you
+            to the right solution based on your stage and goals.
           </motion.p>
 
           {/* PRIMARY CTAs */}
