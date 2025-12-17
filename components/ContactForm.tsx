@@ -168,8 +168,8 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         <option className="bg-[#0b1220]" value="">
           Select a plan (Optional)
         </option>
-        <option className="bg-[#0b1220]" value="Starter Plan – ₹7,999">
-          💎 Starter Plan – ₹7,999
+        <option className="bg-[#0b1220]" value="Starter Plan – ₹4,999">
+          💎 Starter Plan – ₹4,999
         </option>
         <option className="bg-[#0b1220]" value="Business Growth Plan – ₹14,999">
           ✨ Business Growth Plan – ₹14,999
@@ -178,7 +178,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
           className="bg-[#0b1220]"
           value="Premium Marketing Plan– ₹29,999"
         >
-          🚀 Premium Marketing Plan – ₹29,999
+          🚀 Premium Marketing Plan – ₹34,999
         </option>
         <option className="bg-[#0b1220]" value="Enterprise (Custom) ">
           👑 Enterprise (Custom) Plan{" "}
