@@ -1,12 +1,15 @@
 "use client";
+
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+
 export default function Footer() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+
   return (
     <footer className="relative mt-24 border-t border-[rgba(255,255,255,0.04)] py-12 bg-gradient-to-t from-[rgba(14,11,43,0.02)] overflow-hidden">
       {/* Decorative gradient blobs */}
@@ -44,11 +47,11 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-slate-300 max-w-sm">
-              I build premium websites — modern UI, fast performance, and lead
-              automation to grow your business online.
+              We design and build high-performance websites focused on clean UI,
+              speed, SEO, and real business growth.
             </p>
 
-            <div className="mt-4 text-sm text-slate-400">
+            <div className="mt-4 text-sm text-slate-400 space-y-2">
               <div>
                 📧{" "}
                 <a
@@ -58,14 +61,14 @@ export default function Footer() {
                   parshwebcraft@gmail.com
                 </a>
               </div>
-              <div className="mt-2">📍 India</div>
+              <div>📍 Udaipur, Rajasthan · India</div>
             </div>
           </div>
 
           {/* QUICK LINKS */}
           <div>
             <h3 className="text-sm font-semibold mb-3 text-white">
-              Quick links
+              Quick Links
             </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>
@@ -101,7 +104,7 @@ export default function Footer() {
             {/* Services chips */}
             <div className="mt-6 text-sm text-slate-400">
               <div className="font-medium text-slate-200 mb-2">
-                Other services
+                Services
               </div>
               <div className="flex flex-wrap gap-2">
                 <Link href="/services/web-design" className="chip">
@@ -111,7 +114,7 @@ export default function Footer() {
                   SEO
                 </Link>
                 <Link href="/services/ecommerce" className="chip">
-                  eCommerce
+                  E-commerce
                 </Link>
                 <Link href="/services/maintenance" className="chip">
                   Maintenance
@@ -120,9 +123,11 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* SUPPORT (NEW) */}
+          {/* SUPPORT */}
           <div>
-            <h3 className="text-sm font-semibold mb-3 text-white">Support</h3>
+            <h3 className="text-sm font-semibold mb-3 text-white">
+              Support
+            </h3>
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>
                 <Link href="/contact" className="footer-link">
@@ -145,10 +150,10 @@ export default function Footer() {
           {/* NEWSLETTER */}
           <div>
             <h3 className="text-sm font-semibold mb-3 text-white">
-              Stay updated
+              Stay Updated
             </h3>
             <p className="text-sm text-slate-300 mb-4">
-              Get occasional tips about launching & growing your site.
+              Occasional insights on websites, SEO, and business growth.
             </p>
 
             <form
@@ -156,11 +161,9 @@ export default function Footer() {
                 e.preventDefault();
                 setError("");
                 setSuccess(false);
-
                 if (!email) return;
 
                 setLoading(true);
-
                 const res = await fetch("/api/newsletter", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
@@ -185,7 +188,7 @@ export default function Footer() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your best email"
+                placeholder="Your email address"
                 className="flex-1 p-3 rounded-md bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] text-sm focus:outline-none focus:ring-2 focus:ring-[rgba(243,208,122,0.18)] focus:border-[#f3d07a]"
               />
 
@@ -197,11 +200,11 @@ export default function Footer() {
                 {loading ? "Joining…" : "Join"}
               </button>
             </form>
-            {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
 
+            {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
             {success && (
               <p className="mt-2 text-sm text-green-400">
-                You’re subscribed 🎉
+                Subscription successful 🎉
               </p>
             )}
           </div>
@@ -210,10 +213,10 @@ export default function Footer() {
         {/* BOTTOM */}
         <div className="mt-10 border-t border-[rgba(255,255,255,0.03)] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-slate-400">
-            © {new Date().getFullYear()} ParshWebCraft. All Rights Reserved.
+            © {new Date().getFullYear()} ParshWebCraft. All rights reserved.
           </div>
           <div className="text-sm text-slate-400">
-            Made with ❤️ by{" "}
+            Crafted with care by{" "}
             <span className="px-3 py-1 rounded-md bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.03)] text-slate-200">
               ParshWebCraft
             </span>
@@ -221,7 +224,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Styles unchanged */}
+      {/* Styles */}
       <style jsx>{`
         @keyframes blob {
           0% {
@@ -240,12 +243,7 @@ export default function Footer() {
         .animation-delay-2000 {
           animation-delay: 2s;
         }
-        .glow-logo {
-          background: linear-gradient(135deg, #f3d07a, #e6c35a);
-          box-shadow: 0 6px 26px rgba(243, 208, 122, 0.16);
-        }
         .footer-link {
-          position: relative;
           transition: color 0.2s;
         }
         .footer-link:hover {
