@@ -11,6 +11,7 @@ import FloatingParticles from "../components/FloatingParticles";
 import MotionWrapper from "./motion/wrapper";
 import ClientShell from "../components/ClientShell";
 import AuthListener from "../components/AuthListener"; // ✅ NEW (auth cookie sync)
+import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -59,6 +60,8 @@ export default function RootLayout({
           <ClientShell>
             {/* 🔑 AuthListener forces Supabase auth cookie sync */}
             <AuthListener />
+            <Analytics />
+
 
             <Navbar />
             <main>{children}</main>
