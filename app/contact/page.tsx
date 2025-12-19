@@ -63,8 +63,8 @@ export default function ContactPage() {
           transition={{ duration: 0.45, delay: 0.06 }}
           className="text-slate-300 mt-4 max-w-2xl mx-auto"
         >
-          Have a project in mind? Share your requirements and we’ll guide you with
-          the right solution.
+          Have a project in mind? Share your requirements and we’ll guide you
+          with the right solution.
         </motion.p>
       </section>
 
@@ -107,9 +107,7 @@ export default function ContactPage() {
                 <div className="text-xl">📍</div>
                 <div>
                   <h4 className="font-semibold">Location</h4>
-                  <p className="text-slate-300">
-                    Udaipur, Rajasthan, India
-                  </p>
+                  <p className="text-slate-300">Udaipur, Rajasthan, India</p>
                 </div>
               </div>
 
@@ -193,7 +191,14 @@ export default function ContactPage() {
         whileHover={glowHover}
       >
         <div className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg ring-4 ring-[rgba(243,208,122,0.08)]">
-          <span className="text-white text-xl font-bold">WA</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            fill="white"
+            className="w-7 h-7"
+          >
+            <path d="M16.01 3C9.383 3 4 8.383 4 15.01c0 2.65.865 5.1 2.33 7.08L4 29l7.1-2.28a11.9 11.9 0 0 0 4.91 1.04h.01C22.627 27.76 28 22.38 28 15.75 28 9.12 22.627 3 16.01 3zm0 21.56c-1.53 0-3.03-.4-4.35-1.17l-.31-.18-4.21 1.35 1.37-4.1-.2-.33a8.99 8.99 0 0 1-1.38-4.8c0-4.98 4.05-9.03 9.08-9.03 5 0 9.06 4.05 9.06 9.03 0 4.98-4.06 9.03-9.06 9.03zm5.1-6.84c-.28-.14-1.65-.82-1.91-.91-.26-.1-.45-.14-.64.14-.19.28-.73.91-.9 1.1-.16.18-.33.2-.61.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.66-1.56-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.33.43-.5.14-.16.19-.28.28-.47.09-.18.05-.35-.02-.49-.07-.14-.64-1.54-.88-2.1-.23-.55-.47-.48-.64-.49h-.55c-.18 0-.49.07-.74.35-.26.28-.98.96-.98 2.34 0 1.38 1 2.72 1.14 2.9.14.18 1.97 3.01 4.77 4.22.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.65-.67 1.88-1.32.23-.64.23-1.2.16-1.32-.07-.12-.26-.19-.54-.33z" />
+          </svg>
         </div>
       </motion.a>
 
