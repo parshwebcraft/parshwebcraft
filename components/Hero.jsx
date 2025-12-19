@@ -68,7 +68,7 @@ export default function Hero() {
         {/* HERO LOGO SEAL */}
         <motion.div
           aria-hidden
-          className="hidden md:block absolute right-[-12px] top-[200px] z-0"
+          className="hidden md:block absolute -right-3 top-[200px] z-0"
           initial={false}
           animate={{ y: [-0, 28, -0] }}
           transition={{
