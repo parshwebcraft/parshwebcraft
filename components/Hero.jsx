@@ -3,6 +3,7 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
+
 export default function Hero() {
   const reduce = useReducedMotion();
 
@@ -29,17 +30,17 @@ export default function Hero() {
     {
       icon: "💻",
       title: "Premium Web Design",
-      text: "Modern UI/UX, animations and aesthetic layouts.",
+      text: "Modern UI/UX, clean layouts, and smooth animations.",
     },
     {
       icon: "⚙️",
-      title: "Custom Development",
-      text: "Next.js, WordPress, E-commerce, booking systems.",
+      title: "Web Apps & Systems",
+      text: "Custom dashboards, SaaS platforms, and internal tools.",
     },
     {
       icon: "📈",
-      title: "SEO + Growth",
-      text: "Rank higher and get more leads with professional SEO.",
+      title: "SEO & Performance",
+      text: "Optimized websites built for speed, trust, and growth.",
     },
   ];
 
@@ -47,17 +48,17 @@ export default function Hero() {
     {
       step: "Step 1",
       title: "Requirement Call",
-      desc: "We understand your business stage, goals & budget.",
+      desc: "We understand your business stage, goals, and constraints.",
     },
     {
       step: "Step 2",
-      title: "Design & UI",
-      desc: "Clean UI, premium visuals & animations.",
+      title: "Design & Build",
+      desc: "Clean UI, scalable architecture, and production-grade code.",
     },
     {
       step: "Step 3",
-      title: "Build & Launch",
-      desc: "Fully responsive, optimized & live.",
+      title: "Launch & Support",
+      desc: "Optimized, deployed, and ready to grow with your business.",
     },
   ];
 
@@ -65,28 +66,15 @@ export default function Hero() {
     <main className="min-h-screen pt-24 px-6 lg:px-24">
       {/* HERO */}
       <section className="max-w-4xl mx-auto py-20 relative">
-        {/* HERO LOGO SEAL */}
+        {/* Floating Logo */}
         <motion.div
           aria-hidden
           className="hidden md:block absolute -right-3 top-[200px] z-0"
-          initial={false}
           animate={{ y: [-0, 28, -0] }}
-          transition={{
-            duration: 6,
-            ease: "easeInOut",
-            repeat: Infinity,
-          }}
-          style={{ willChange: "transform" }}
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0 12px 40px rgba(243,208,122,0.35)",
-          }}
+          transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
         >
           <div className="relative w-56 h-56 rounded-full overflow-hidden">
-            {/*  glow */}
             <div className="absolute inset-0 rounded-full blur-3xl bg-[#f3d07a26]" />
-
-            {/* actual logo */}
             <Image
               src="/images/logo-hero.png"
               alt="ParshWebCraft Logo"
@@ -97,25 +85,15 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <motion.div
-          aria-hidden
-          className="absolute -right-10 -top-6 w-44 h-44 rounded-full pointer-events-none blur-3xl"
-          style={{
-            background: "radial-gradient(circle,#f3d07a33,transparent 40%)",
-          }}
-          animate={!reduce ? { y: [0, -8, 0] } : undefined}
-          transition={!reduce ? { duration: 4, repeat: Infinity } : undefined}
-        />
-
         <div className="relative z-10">
           <motion.span
             className="inline-block mb-4 px-4 py-1 rounded-full bg-[#f3d07a22] text-[#f3d07a] font-medium tracking-wide"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.badge }}
           >
-            Premium Website Services
+            Premium Web & SaaS Solutions
           </motion.span>
 
           <motion.h1
@@ -127,26 +105,12 @@ export default function Hero() {
           >
             <div>
               Build{" "}
-              <span
-                className="inline-block text-[#f3d07a]"
-                style={{
-                  textShadow:
-                    "0px 4px 14px rgba(243,208,122,0.15), 0px 0px 8px rgba(243,208,122,0.10)",
-                }}
-              >
-                Premium Web Experiences
+              <span className="text-[#f3d07a]">
+                Premium Digital Products
               </span>
             </div>
-            <div>for Your Business</div>
+            <div>That Grow With Your Business</div>
           </motion.h1>
-          <motion.div
-            className="flex justify-center md:justify-end"
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.18 }}
-            animate={!reduce ? { y: [0, -10, 0] } : undefined}
-          ></motion.div>
 
           <motion.p
             className="text-slate-300 text-lg mt-6 max-w-xl"
@@ -155,10 +119,10 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.subtext }}
           >
-            I help local businesses and growing brands in Udaipur and across
-            India build modern, high-performance websites that generate
-            enquiries and trust. Not every business needs an app — I guide you
-            to the right solution based on your stage and goals.
+            I help businesses build high-performance websites, SaaS platforms,
+            and internal systems — designed for clarity, speed, and long-term
+            scalability. Not every business needs an app; the right solution
+            depends on your stage and goals.
           </motion.p>
 
           {/* PRIMARY CTAs */}
@@ -170,12 +134,12 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: delays.ctas }}
           >
             <motion.a
-              href="/pricing"
+              href="/portfolio"
               className="px-6 py-3 rounded-full bg-[#f3d07a] text-black font-semibold inline-flex items-center justify-center"
               whileHover={glowHover}
               transition={spring}
             >
-              View Pricing
+              View Portfolio
             </motion.a>
 
             <motion.a
@@ -184,7 +148,7 @@ export default function Hero() {
               whileHover={glowHover}
               transition={spring}
             >
-              Get Started
+              Contact Us
             </motion.a>
           </motion.div>
 
@@ -200,8 +164,10 @@ export default function Hero() {
               href="/contact?intent=free-review"
               className="inline-flex items-center gap-2 text-sm text-[#f3d07a] hover:underline"
             >
-              Not sure which plan fits?
-              <span className="font-semibold">Get a free website review →</span>
+              Not sure what you need?
+              <span className="font-semibold">
+                Get a free website review →
+              </span>
             </a>
           </motion.div>
         </div>
@@ -219,10 +185,10 @@ export default function Hero() {
           >
             <span className="text-[#f3d07a] font-medium">Our Services</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
-              Everything You Need for A Modern Website
+              Built for Real Business Needs
             </h2>
             <p className="text-slate-300 mt-3">
-              From design, development to automation — we handle everything.
+              Websites, SaaS platforms, and systems designed to scale.
             </p>
           </motion.div>
 
@@ -248,20 +214,6 @@ export default function Hero() {
           </div>
         </div>
       </section>
-      {/* WHO WE WORK WITH */}
-      <section className="py-24">
-        <div className="max-w-5xl mx-auto text-center">
-          <span className="text-[#f3d07a] font-medium">Who We Work With</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
-            Built for Real Businesses
-          </h2>
-          <p className="text-slate-300 mt-4 max-w-3xl mx-auto">
-            We work closely with local shops, clothing stores, coaching
-            institutes, clinics, and small to medium businesses that want a
-            strong online presence without unnecessary complexity.
-          </p>
-        </div>
-      </section>
 
       {/* PROCESS */}
       <section className="py-24">
@@ -275,7 +227,7 @@ export default function Hero() {
           >
             <span className="text-[#f3d07a] font-medium">How It Works</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
-              Our Project Process
+              A Clear, Proven Process
             </h2>
           </motion.div>
 
@@ -283,7 +235,7 @@ export default function Hero() {
             {process.map((item, i) => (
               <motion.div
                 key={i}
-                className="p-6 rounded-xl border border-[#2d2d2d] bg-transparent transition-all cursor-default"
+                className="p-6 rounded-xl border border-[#2d2d2d]"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -300,39 +252,6 @@ export default function Hero() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA BAND */}
-      <section className="py-24">
-        <div className="max-w-5xl mx-auto">
-          <motion.div
-            className="p-10 bg-[#f3d07a22] rounded-2xl border border-[#f3d07a55] flex flex-col md:flex-row md:items-center md:justify-between transition-all"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            whileHover={!reduce ? glowHover : undefined}
-          >
-            <div>
-              <h3 className="text-2xl font-bold text-white">
-                Ready to Start Your Website?
-              </h3>
-              <p className="text-slate-300 mt-2">
-                Get the right website for your business — built to grow, not
-                overcomplicate.
-              </p>
-            </div>
-
-            <motion.a
-              href="/contact"
-              className="mt-6 md:mt-0 px-6 py-3 rounded-full bg-[#f3d07a] text-black font-semibold inline-flex"
-              whileHover={!reduce ? glowHover : undefined}
-              transition={spring}
-            >
-              Get Started
-            </motion.a>
-          </motion.div>
         </div>
       </section>
     </main>

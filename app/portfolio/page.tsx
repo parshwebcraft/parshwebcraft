@@ -32,22 +32,13 @@ export default function PortfolioPage() {
       "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.18), inset 0 0 18px rgba(243,208,122,0.03)",
   };
 
-  // Portfolio projects
+  // Portfolio projects (ALL have case study links now)
   const projects: Project[] = [
     {
       title: "Anand Fashion",
       description:
         "A local clothing store website built to establish a structured online presence. Visual assets and final content are currently being prepared by the client.",
       tag: "Clothing Store Website",
-      tech: ["Next.js", "Tailwind CSS"],
-      href: "/case-studies/anand-fashion",
-      status: "in-progress",
-    },
-    {
-      title: "Anand Fashion",
-      description:
-        "A local clothing store website built to establish a structured online presence. Visual assets and final content are currently being prepared by the client.",
-      tag: "Client Website",
       tech: ["Next.js", "Tailwind CSS"],
       href: "/case-studies/anand-fashion",
       status: "in-progress",
@@ -65,7 +56,7 @@ export default function PortfolioPage() {
         "Supabase Auth",
         "PWA",
       ],
-      // no href yet – case study can be added later
+      href: "/case-studies/jayesh-sir-elearning",
       status: "in-progress",
     },
 
@@ -75,6 +66,7 @@ export default function PortfolioPage() {
         "A batch-wise medicine inventory system focused on expiry tracking, stock visibility, and owner-centric usability. Built as a real-world case study after analyzing limitations of existing ERP workflows.",
       tag: "Inventory System",
       tech: ["React", "Tailwind CSS", "FastAPI", "MongoDB"],
+      href: "/case-studies/easymed",
       status: "in-progress",
     },
 
@@ -84,6 +76,7 @@ export default function PortfolioPage() {
         "A Blinkit-style grocery management system featuring admin dashboards, product catalogs, cart flow, and order handling. Built with heavy real-world debugging and backend integration experience.",
       tag: "Internal System",
       tech: ["React", "FastAPI", "MongoDB Atlas"],
+      href: "/case-studies/freshmart",
       status: "in-progress",
     },
   ];
@@ -130,14 +123,18 @@ export default function PortfolioPage() {
                 </span>
 
                 {p.status === "in-progress" && (
-                  <span className="text-xs text-slate-400">In Progress</span>
+                  <span className="text-xs text-slate-400">
+                    In Progress
+                  </span>
                 )}
               </div>
 
               {/* Body */}
               <div className="px-4 pb-4 pt-4">
                 <h3 className="text-lg font-semibold">{p.title}</h3>
-                <p className="text-slate-300 mt-2 text-sm">{p.description}</p>
+                <p className="text-slate-300 mt-2 text-sm">
+                  {p.description}
+                </p>
 
                 <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
                   {p.tech?.map((t) => (
@@ -150,6 +147,7 @@ export default function PortfolioPage() {
                   ))}
                 </div>
 
+                {/* View Case Study (NOW ON ALL CARDS) */}
                 {p.href && (
                   <Link
                     href={p.href}
