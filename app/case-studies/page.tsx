@@ -28,12 +28,10 @@ export default function CaseStudiesPage() {
             Anand Fashion — Clothing Store Website
           </h2>
           <p className="text-slate-400 mb-4">
-            A local clothing store website built to showcase products,
-            categories, and brand presence with a clean, mobile-first layout.
+            A local clothing store website built to establish an online presence
+            with a clean, mobile-first layout and structured content.
           </p>
-          <span className="text-sm text-amber-400">
-            View case study →
-          </span>
+          <span className="text-sm text-amber-400">View case study →</span>
         </Link>
 
         {/* Internal Founder Case Study */}
@@ -45,12 +43,56 @@ export default function CaseStudiesPage() {
             Building ParshWebCraft
           </h2>
           <p className="text-slate-400 mb-4">
-            An internal founder project showcasing how we design, build, and
-            deploy production-grade websites using Next.js and Supabase.
+            An internal founder case study covering the design, development,
+            launch, and post-launch optimization of a production-grade agency
+            website.
           </p>
-          <span className="text-sm text-amber-400">
-            View case study →
-          </span>
+          <span className="text-sm text-amber-400">View case study →</span>
+        </Link>
+
+        {/* System Case Study: Jayesh Sir App */}
+        <Link
+          href="/case-studies/jayesh-sir-elearning"
+          className="group rounded-2xl border border-white/10 p-8 hover:border-white/20 transition"
+        >
+          <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
+            Jayesh Sir — E-Learning Platform
+          </h2>
+          <p className="text-slate-400 mb-4">
+            A PWA-first online learning platform built for structured courses,
+            secure access, and scalable content delivery.
+          </p>
+          <span className="text-sm text-amber-400">View case study →</span>
+        </Link>
+
+        <Link
+          href="/case-studies/freshmart"
+          className="group rounded-2xl border border-white/10 p-8 hover:border-white/20 transition"
+        >
+          <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
+            FreshMart — Grocery Admin System
+          </h2>
+          <p className="text-slate-400 mb-4">
+            An internal case study exploring real-world challenges of building a
+            hyperlocal grocery platform, including admin workflows and backend
+            stability.
+          </p>
+          <span className="text-sm text-amber-400">View case study →</span>
+        </Link>
+
+        {/* Internal System Case Study: EasyMed */}
+        <Link
+          href="/case-studies/easymed"
+          className="group rounded-2xl border border-white/10 p-8 hover:border-white/20 transition"
+        >
+          <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
+            EasyMed — Pharmacy Inventory System
+          </h2>
+          <p className="text-slate-400 mb-4">
+            A batch-wise medicine inventory system focused on expiry tracking,
+            stock visibility, and owner-centric usability.
+          </p>
+          <span className="text-sm text-amber-400">View case study →</span>
         </Link>
       </section>
     </main>

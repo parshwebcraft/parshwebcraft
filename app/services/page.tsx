@@ -44,16 +44,17 @@ export default function ServicesPage() {
             className="text-4xl font-extrabold mt-3 leading-snug"
             variants={fadeUp}
           >
-            Premium Website Services That <br />
-            <span className="text-[#f3d07a]">Grow Your Business</span>
+            Premium Digital Solutions That <br />
+            <span className="text-[#f3d07a]">Support Business Growth</span>
           </motion.h1>
 
           <motion.p
             className="text-slate-300 max-w-2xl mx-auto mt-6"
             variants={fadeUp}
           >
-            From high-converting landing pages to full business websites — ParshWebCraft
-            provides everything your brand needs for a powerful online presence.
+            From high-performance websites to custom SaaS platforms and internal
+            business systems — ParshWebCraft builds digital products designed for
+            clarity, performance, and long-term use.
           </motion.p>
         </motion.div>
       </section>
@@ -65,10 +66,13 @@ export default function ServicesPage() {
             What We Offer
           </span>
 
-          <h2 className="text-3xl font-bold mt-2">Complete Website Solutions</h2>
+          <h2 className="text-3xl font-bold mt-2">
+            Websites, SaaS & Business Systems
+          </h2>
 
           <p className="text-slate-300 max-w-xl mx-auto mt-3">
-            We build premium digital experiences that convert visitors into customers.
+            We focus on building systems that are simple to use, scalable, and
+            aligned with real business workflows.
           </p>
         </div>
 
@@ -119,9 +123,12 @@ export default function ServicesPage() {
           whileHover={!reduce ? glowHover : undefined}
         >
           <div>
-            <h3 className="text-2xl font-bold mb-2">Need a Premium Website for Your Business?</h3>
+            <h3 className="text-2xl font-bold mb-2">
+              Looking to Build a Reliable Digital System?
+            </h3>
             <p className="text-slate-300">
-              Let ParshWebCraft create a high-performance, elegant, and modern website for you.
+              Whether it’s a website, SaaS product, or internal tool — we’ll help
+              you build it right.
             </p>
           </div>
 
@@ -138,60 +145,61 @@ export default function ServicesPage() {
   );
 }
 
-/* Services Data */
+/* ================= SERVICES DATA ================= */
+
 const services = [
   {
     icon: "💻",
-    title: "Website Development",
-    desc: "Fully responsive, premium, and high-performance business websites.",
-    items: ["Business websites", "Portfolio websites", "Modern UI/UX"],
+    title: "Business Websites",
+    desc: "Fast, responsive, and SEO-optimized websites built for trust and lead generation.",
+    items: ["Company websites", "Portfolio sites", "Mobile-first UI"],
   },
   {
     icon: "🚀",
     title: "Landing Pages",
-    desc: "High converting landing pages for ad campaigns & lead generation.",
-    items: ["Sales funnels", "Lead capture pages", "Marketing campaigns"],
+    desc: "High-converting landing pages for marketing campaigns and ads.",
+    items: ["Lead capture pages", "Sales funnels", "Campaign microsites"],
   },
   {
     icon: "🛒",
     title: "E-commerce Websites",
-    desc: "Premium online stores with advanced features & clean UI.",
-    items: ["WooCommerce setups", "Payment integration", "Product management"],
+    desc: "Clean, scalable online stores with modern UX and secure payments.",
+    items: ["Product catalogs", "Payment integration", "Order management"],
+  },
+  {
+    icon: "⚙️",
+    title: "SaaS & Web Applications",
+    desc: "Custom SaaS platforms and web applications tailored to your business logic.",
+    items: ["Role-based access", "Dashboards", "Scalable architecture"],
+  },
+  {
+    icon: "📊",
+    title: "Internal Business Systems",
+    desc: "Custom systems built to simplify operations and daily workflows.",
+    items: ["Admin panels", "Inventory systems", "Workflow tools"],
   },
   {
     icon: "📅",
-    title: "Booking & Appointment System",
-    desc: "Automated booking systems for service-based businesses.",
-    items: ["Auto-confirmation", "Calendar sync", "WhatsApp & email alerts"],
-  },
-  {
-    icon: "📈",
-    title: "Sales Funnels",
-    desc: "High-performance funnels to increase conversions & revenue.",
-    items: ["Lead magnet funnel", "Checkout funnel", "Upsell/downsell pages"],
-  },
-  {
-    icon: "🎨",
-    title: "Branding + UI/UX",
-    desc: "Premium branding visuals and modern UI frameworks.",
-    items: ["Brand identity", "Color palette", "UI components"],
+    title: "Booking & Appointment Systems",
+    desc: "Automated scheduling solutions for service-based businesses.",
+    items: ["Calendar sync", "Auto confirmations", "WhatsApp & email alerts"],
   },
   {
     icon: "⚡",
-    title: "SEO & Speed Optimization",
-    desc: "Rank higher and optimize speed for peak performance.",
-    items: ["Technical SEO", "PageSpeed boost", "Mobile SEO"],
+    title: "SEO & Performance Optimization",
+    desc: "Improve visibility and speed for better user experience and rankings.",
+    items: ["Technical SEO", "Core Web Vitals", "Mobile optimization"],
   },
   {
     icon: "🤖",
-    title: "Automation & CRM Integration",
-    desc: "Automate your business with CRM workflows.",
-    items: ["HubSpot setup", "Lead automation", "Email & WhatsApp flows"],
+    title: "Automation & Integrations",
+    desc: "Automate repetitive tasks and connect your tools seamlessly.",
+    items: ["CRM integration", "Lead automation", "Custom workflows"],
   },
   {
     icon: "🛠️",
-    title: "Website Maintenance",
-    desc: "Keep your website secure and updated.",
-    items: ["Security updates", "Backups", "Bug fixing"],
+    title: "Website Maintenance & Support",
+    desc: "Ongoing support to keep your system secure and stable.",
+    items: ["Bug fixes", "Security updates", "Performance monitoring"],
   },
 ];

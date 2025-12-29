@@ -43,6 +43,49 @@ export default function PortfolioPage() {
       href: "/case-studies/anand-fashion",
       status: "in-progress",
     },
+    {
+      title: "Anand Fashion",
+      description:
+        "A local clothing store website built to establish a structured online presence. Visual assets and final content are currently being prepared by the client.",
+      tag: "Client Website",
+      tech: ["Next.js", "Tailwind CSS"],
+      href: "/case-studies/anand-fashion",
+      status: "in-progress",
+    },
+
+    {
+      title: "Jayesh Sir E-Learning Platform",
+      description:
+        "A PWA-first online learning platform designed for structured courses, secure student access, and scalable content delivery. Built with a production-ready architecture for future Android deployment.",
+      tag: "EdTech Platform",
+      tech: [
+        "Next.js (App Router)",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase Auth",
+        "PWA",
+      ],
+      // no href yet – case study can be added later
+      status: "in-progress",
+    },
+
+    {
+      title: "EasyMed – Pharmacy Inventory System",
+      description:
+        "A batch-wise medicine inventory system focused on expiry tracking, stock visibility, and owner-centric usability. Built as a real-world case study after analyzing limitations of existing ERP workflows.",
+      tag: "Inventory System",
+      tech: ["React", "Tailwind CSS", "FastAPI", "MongoDB"],
+      status: "in-progress",
+    },
+
+    {
+      title: "FreshMart – Grocery Admin & Order System",
+      description:
+        "A Blinkit-style grocery management system featuring admin dashboards, product catalogs, cart flow, and order handling. Built with heavy real-world debugging and backend integration experience.",
+      tag: "Internal System",
+      tech: ["React", "FastAPI", "MongoDB Atlas"],
+      status: "in-progress",
+    },
   ];
 
   return (
@@ -87,18 +130,14 @@ export default function PortfolioPage() {
                 </span>
 
                 {p.status === "in-progress" && (
-                  <span className="text-xs text-slate-400">
-                    In Progress
-                  </span>
+                  <span className="text-xs text-slate-400">In Progress</span>
                 )}
               </div>
 
               {/* Body */}
               <div className="px-4 pb-4 pt-4">
                 <h3 className="text-lg font-semibold">{p.title}</h3>
-                <p className="text-slate-300 mt-2 text-sm">
-                  {p.description}
-                </p>
+                <p className="text-slate-300 mt-2 text-sm">{p.description}</p>
 
                 <div className="mt-3 flex flex-wrap gap-2 text-xs text-slate-400">
                   {p.tech?.map((t) => (

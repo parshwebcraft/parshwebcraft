@@ -50,7 +50,7 @@ export default function AboutPage() {
         <title>About ParshWebCraft</title>
         <meta
           name="description"
-          content="Why ParshWebCraft exists, who it is built for, and the mission behind creating honest, future-ready websites."
+          content="Why ParshWebCraft exists, who it is built for, and how we build websites, SaaS platforms, and internal systems with clarity and honesty."
         />
       </Head>
 
@@ -70,8 +70,10 @@ export default function AboutPage() {
             variants={itemUp}
             className="text-lg text-slate-300 max-w-2xl leading-relaxed"
           >
-            ParshWebCraft was created to help real businesses build an honest,
-            professional, and future-ready online presence.
+            ParshWebCraft was created to help businesses build honest,
+            professional, and future-ready digital products — from
+            high-performance websites to custom SaaS platforms and internal
+            business systems.
           </motion.p>
         </motion.section>
 
@@ -99,13 +101,14 @@ export default function AboutPage() {
               Local businesses, coaching institutes, and service providers were
               either struggling with outdated websites or had no online presence
               at all. Many paid for cheap websites that looked fine but failed in
-              speed, mobile experience, SEO, and lead generation.
+              speed, mobile experience, SEO, and long-term maintainability.
             </p>
 
             <p className="mt-4 text-slate-300">
-              I built ParshWebCraft to change that — by offering websites that
-              are transparent in pricing, clean in design, and strong in
-              performance.
+              I built ParshWebCraft to change that — by offering not just
+              websites, but complete digital systems that businesses can rely on
+              as they grow. This includes scalable websites, internal dashboards,
+              and SaaS-style applications designed for real-world usage.
             </p>
           </motion.div>
         </motion.section>
@@ -130,11 +133,11 @@ export default function AboutPage() {
               },
               {
                 title: "Coaching & Education",
-                body: "Institutes that need trust, clarity, and lead generation — not just a brochure website.",
+                body: "Institutes that need trust, clarity, and scalable digital platforms — not just brochure websites.",
               },
               {
                 title: "Growing Brands",
-                body: "Businesses ready to scale with a website that won’t break after a few months.",
+                body: "Businesses ready to scale with systems that won’t break after a few months.",
               },
             ].map((card) => (
               <motion.div
@@ -151,7 +154,48 @@ export default function AboutPage() {
           </div>
         </motion.section>
 
-        {/* Values */}
+        {/* What We Build */}
+        <motion.section
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-5xl mx-auto mb-20"
+        >
+          <motion.h2 variants={itemUp} className="text-3xl font-bold mb-6">
+            What We Build
+          </motion.h2>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "Business Websites",
+                body: "Fast, SEO-optimized, and mobile-first websites built to establish trust and generate leads.",
+              },
+              {
+                title: "SaaS & Web Applications",
+                body: "Custom SaaS platforms and web applications built to solve specific business problems and scale over time.",
+              },
+              {
+                title: "Internal Business Systems",
+                body: "Dashboards, admin panels, and workflow or inventory systems designed for clarity and daily use.",
+              },
+            ].map((card) => (
+              <motion.div
+                key={card.title}
+                variants={itemUp}
+                whileHover={glowHover}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                className="glass p-6 rounded-xl"
+              >
+                <h3 className="text-xl font-semibold">{card.title}</h3>
+                <p className="text-slate-300 mt-2">{card.body}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
+
+        {/* How We Work */}
         <motion.section
           variants={container}
           initial="hidden"
@@ -167,7 +211,7 @@ export default function AboutPage() {
             {[
               {
                 title: "Honest Solutions",
-                body: "No over-promises, no fake guarantees. Only what genuinely helps your business grow.",
+                body: "No over-promises, no fake guarantees. Only solutions that genuinely help your business operate better and scale responsibly.",
               },
               {
                 title: "Built for Performance",
@@ -175,7 +219,7 @@ export default function AboutPage() {
               },
               {
                 title: "Clear Communication",
-                body: "We explain things simply so you always know what you’re paying for.",
+                body: "We explain things simply so you always know what you’re paying for and why.",
               },
             ].map((card) => (
               <motion.div
@@ -223,10 +267,18 @@ export default function AboutPage() {
                 <h2 className="text-3xl font-bold mb-3">About the Founder</h2>
 
                 <p className="text-slate-300 leading-relaxed">
-                  I’m <span className="text-white font-semibold">Gauransh Jaroli</span>,
-                  Founder of <span className="text-white font-semibold">ParshWebCraft</span>.
-                  I build reliable, scalable web platforms with a strong focus on
-                  clarity, performance, and real-world usability.
+                  I’m{" "}
+                  <span className="text-white font-semibold">
+                    Gauransh Jaroli
+                  </span>
+                  , Founder of{" "}
+                  <span className="text-white font-semibold">
+                    ParshWebCraft
+                  </span>
+                  . I build reliable, scalable web platforms — including
+                  websites, SaaS applications, and internal business systems —
+                  with a strong focus on clarity, performance, and real-world
+                  usability.
                 </p>
 
                 <p className="mt-4 text-slate-400">
