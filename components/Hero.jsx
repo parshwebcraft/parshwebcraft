@@ -69,7 +69,7 @@ export default function Hero() {
         {/* Floating Logo */}
         <motion.div
           aria-hidden
-          className="hidden md:block absolute -right-3 top-[180px] z-0"
+          className="hidden md:block absolute -right-3 top-[260px] z-0"
           animate={{ y: [-0, 28, -0] }}
           transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
         >
