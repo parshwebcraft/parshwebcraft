@@ -43,7 +43,6 @@ export default function ContactPage() {
           content="Contact ParshWebCraft for professional website design and web development services in Udaipur. Get expert guidance for business websites, SaaS, and digital systems."
         />
 
-        {/* FAQ Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -56,7 +55,7 @@ export default function ContactPage() {
                   name: "How can I contact ParshWebCraft for website development?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "You can contact ParshWebCraft via the contact form on our website or directly through WhatsApp for quick discussion about your website or web development project.",
+                    text: "You can contact ParshWebCraft via the contact form on our website or directly through WhatsApp for quick discussion.",
                   },
                 },
                 {
@@ -69,26 +68,10 @@ export default function ContactPage() {
                 },
                 {
                   "@type": "Question",
-                  name: "What type of projects does ParshWebCraft handle?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "We handle business websites, landing pages, SaaS platforms, internal business systems, and custom web applications.",
-                  },
-                },
-                {
-                  "@type": "Question",
-                  name: "How long does it take to get a response after contacting?",
-                  acceptedAnswer: {
-                    "@type": "Answer",
-                    text: "We usually respond within 24 hours after receiving your message.",
-                  },
-                },
-                {
-                  "@type": "Question",
                   name: "Is the initial consultation free?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Yes, the initial discussion is completely free and helps us understand your requirements before suggesting the right solution.",
+                    text: "Yes, the initial discussion is completely free.",
                   },
                 },
               ],
@@ -98,13 +81,12 @@ export default function ContactPage() {
       </Head>
 
       <main className="min-h-screen pt-24 px-6 lg:px-24">
-        {/* HERO */}
+        {/* ================= HERO ================= */}
         <section className="max-w-5xl mx-auto text-center py-12">
           <motion.span
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 0.35 }}
             className="inline-block text-sm text-[#f3d07a] font-semibold"
           >
             Contact Web Developer in Udaipur
@@ -114,7 +96,7 @@ export default function ContactPage() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 0.45, delay: 0.03 }}
+            transition={{ delay: 0.05 }}
             className="text-4xl md:text-5xl font-extrabold mt-3"
           >
             Let’s Discuss Your{" "}
@@ -125,26 +107,25 @@ export default function ContactPage() {
             variants={fadeUp}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 0.45, delay: 0.06 }}
+            transition={{ delay: 0.1 }}
             className="text-slate-300 mt-4 max-w-2xl mx-auto"
           >
-            Planning a business website, landing page, SaaS platform, or
-            internal system? Share your requirements and get honest guidance on
-            the right digital solution.
+            Planning a business website, landing page, SaaS platform, or internal
+            system? Share your requirements and get honest guidance.
           </motion.p>
         </section>
 
-        {/* CONTACT GRID */}
+        {/* ================= CONTACT GRID ================= */}
         <section className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 py-10">
-          {/* LEFT */}
+          {/* LEFT COLUMN */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
             className="space-y-6"
           >
+            {/* CONTACT DETAILS */}
             <motion.div
               className="glass p-6 rounded-2xl border border-[rgba(255,255,255,0.06)]"
               whileHover={glowHover}
@@ -172,20 +153,36 @@ export default function ContactPage() {
                   <div className="text-xl">📍</div>
                   <div>
                     <h4 className="font-semibold">Service Location</h4>
-                    <p className="text-slate-300">Udaipur, Rajasthan, India</p>
+                    <p className="text-slate-300">
+                      Udaipur, Rajasthan, India
+                    </p>
                   </div>
                 </div>
               </div>
             </motion.div>
+
+            {/* ✅ MAP SECTION (RE-ADDED) */}
+            <motion.div
+              className="glass rounded-2xl overflow-hidden border border-[rgba(243,208,122,0.2)]"
+              whileHover={glowHover}
+            >
+              <iframe
+                title="ParshWebCraft Location - Udaipur"
+                src="https://www.google.com/maps?q=Udaipur%20Rajasthan&output=embed"
+                loading="lazy"
+                className="w-full h-[260px]"
+                style={{ border: 0 }}
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </motion.div>
           </motion.div>
 
-          {/* RIGHT */}
+          {/* RIGHT COLUMN */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: 0.05 }}
             className="glass p-8 rounded-2xl border border-[rgba(255,255,255,0.06)]"
             whileHover={glowHover}
           >
