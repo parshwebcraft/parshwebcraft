@@ -5,28 +5,43 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 
+/* ================= TYPES ================= */
+
+type PricingPlan = {
+  key: string;
+  name: string;
+  price: string;
+  subtitle: string;
+  features: string[];
+  popular?: boolean;
+};
+
+/* ================= ANIMATIONS ================= */
+
 const container = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 14, willChange: "opacity, transform" },
-  visible: { opacity: 1, y: 0, willChange: "opacity, transform" },
+  hidden: { opacity: 0, y: 14 },
+  visible: { opacity: 1, y: 0 },
 };
 
-function parseOneTimePrice(priceStr: string | undefined | null): number | null {
-  if (!priceStr || typeof priceStr !== "string") return null;
+/* ================= HELPERS ================= */
+
+function parseOneTimePrice(priceStr: string): number | null {
   const digits = priceStr.replace(/[^\d]/g, "");
   if (!digits) return null;
   const n = Number(digits);
   return Number.isFinite(n) ? n : null;
 }
 
-function formatINR(num: number | null | undefined): string {
-  if (num == null || !Number.isFinite(num)) return "";
+function formatINR(num: number): string {
   return "₹" + new Intl.NumberFormat("en-IN").format(Math.round(num));
 }
+
+/* ================= COMPONENT ================= */
 
 export default function PricingPage(): React.ReactElement {
   const reduce = useReducedMotion();
@@ -34,7 +49,7 @@ export default function PricingPage(): React.ReactElement {
   const glowHover = {
     scale: 1.02,
     boxShadow:
-      "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.18), inset 0 0 18px rgba(243,208,122,0.03)",
+      "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.18)",
   };
 
   const ADDONS = {
@@ -42,9 +57,12 @@ export default function PricingPage(): React.ReactElement {
     hosting: 500,
     maintenance: 500,
   };
+
   const recurringTotal = ADDONS.seo + ADDONS.hosting + ADDONS.maintenance;
 
-  const plans = [
+  /* ================= PLANS ================= */
+
+  const primaryPlans: PricingPlan[] = [
     {
       key: "starter",
       name: "Starter Presence",
@@ -60,7 +78,6 @@ export default function PricingPage(): React.ReactElement {
         "Delivery: 3–5 Days",
       ],
     },
-
     {
       key: "business",
       name: "Business Growth",
@@ -78,12 +95,11 @@ export default function PricingPage(): React.ReactElement {
         "Delivery: 7–10 Days",
       ],
     },
-
     {
       key: "premium",
       name: "Premium Website",
       price: "₹34,999+",
-      subtitle: "Conversion-focused website with booking or product enquiry.",
+      subtitle: "Conversion-focused website with booking or enquiry.",
       features: [
         "10–15 Pages",
         "High-Conversion Landing Page",
@@ -94,7 +110,9 @@ export default function PricingPage(): React.ReactElement {
         "Delivery: 10–15 Days",
       ],
     },
+  ];
 
+  const advancedPlans: PricingPlan[] = [
     {
       key: "saas",
       name: "SaaS Platform Development",
@@ -107,15 +125,13 @@ export default function PricingPage(): React.ReactElement {
         "Subscription / Payment Integration",
         "Scalable Backend & APIs",
         "Security & Performance Optimization",
-        "Delivery: Milestone-based",
       ],
     },
-
     {
       key: "enterprise",
       name: "Enterprise (Custom)",
       price: "Contact",
-      subtitle: "Large-scale systems, marketplaces & automation.",
+      subtitle: "Large-scale systems & marketplaces.",
       features: [
         "Full Custom Development",
         "E-commerce / Marketplace",
@@ -127,110 +143,123 @@ export default function PricingPage(): React.ReactElement {
     },
   ];
 
+  /* ================= CARD RENDER ================= */
+
+  const renderPlanCard = (plan: PricingPlan): React.ReactElement => {
+    const oneTime = parseOneTimePrice(plan.price);
+    const firstMonthTotal =
+      oneTime !== null ? oneTime + recurringTotal : null;
+
+    const isPopular = plan.popular === true;
+
+    return (
+      <motion.div
+        key={plan.key}
+        className={`glass p-6 rounded-2xl flex flex-col justify-between relative border ${
+          isPopular
+            ? "border-[#f3d07a]"
+            : "border-[rgba(255,255,255,0.05)]"
+        }`}
+        variants={fadeUp}
+        whileHover={!reduce ? glowHover : undefined}
+      >
+        {isPopular && (
+          <div className="absolute -top-3 right-4">
+            <span className="px-3 py-1 text-xs font-semibold bg-[#f3d07a] text-black rounded-full">
+              Most Popular
+            </span>
+          </div>
+        )}
+
+        <div>
+          <h3 className="text-lg font-semibold">{plan.name}</h3>
+          <div className="text-3xl font-extrabold mt-3">{plan.price}</div>
+          <p className="text-sm text-slate-300 mt-2">{plan.subtitle}</p>
+
+          <ul className="mt-5 space-y-2 text-sm text-slate-300">
+            {plan.features.map((feature) => (
+              <li key={feature} className="flex gap-2">
+                <span className="text-[#f3d07a]">✔</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-6">
+          {firstMonthTotal !== null && (
+            <div className="text-xs text-slate-400 mb-3">
+              With add-ons:{" "}
+              <span className="text-slate-200 font-medium">
+                {formatINR(firstMonthTotal)}
+              </span>
+            </div>
+          )}
+
+          <Link
+            href="/contact"
+            className={`block text-center px-4 py-3 rounded-full font-semibold transition ${
+              isPopular
+                ? "bg-[#f3d07a] text-black shadow-lg"
+                : "border border-[rgba(255,255,255,0.08)] text-slate-200 hover:bg-[#f3d07a] hover:text-black"
+            }`}
+          >
+            {plan.key === "enterprise" || plan.key === "saas"
+              ? "Request Quote"
+              : "Choose Plan"}
+          </Link>
+        </div>
+      </motion.div>
+    );
+  };
+
+  /* ================= RENDER ================= */
+
   return (
     <>
-      {/* SEO */}
       <Head>
         <title>
           Website & SaaS Development Pricing in Udaipur | ParshWebCraft
         </title>
         <meta
           name="description"
-          content="Explore transparent website and SaaS development pricing by ParshWebCraft. Affordable plans for business websites, e-commerce, and SaaS platforms in Udaipur."
+          content="Transparent website and SaaS development pricing by ParshWebCraft. Clear plans for businesses, startups, and enterprises in India."
         />
       </Head>
 
       <main className="min-h-screen pt-24 px-6 lg:px-24">
-        {/* HERO */}
-        <section className="max-w-6xl mx-auto py-12">
-          <motion.div variants={container} initial="hidden" animate="visible">
-            <motion.span
-              className="inline-block text-sm text-[#f3d07a] font-semibold"
-              variants={fadeUp}
-            >
-              Pricing Plans
-            </motion.span>
-
-            <motion.h1
-              className="text-4xl md:text-5xl font-extrabold mt-3"
-              variants={fadeUp}
-            >
-              Transparent Website &{" "}
-              <span className="text-[#f3d07a]">SaaS Pricing</span>
-            </motion.h1>
-
-            <motion.p
-              className="text-slate-300 mt-4 max-w-2xl"
-              variants={fadeUp}
-            >
-              Clear pricing for websites, SaaS platforms, and business systems —
-              no hidden costs, no confusion.
-            </motion.p>
-          </motion.div>
-        </section>
-
-        {/* PRICING CARDS */}
+        {/* PRIMARY PLANS */}
         <section className="max-w-6xl mx-auto py-6">
           <motion.div
-            className="grid gap-6 md:grid-cols-5"
+            className="grid gap-6 md:grid-cols-3"
             variants={container}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {plans.map((plan) => {
-              const oneTime = parseOneTimePrice(plan.price);
-              const firstMonthTotal =
-                oneTime !== null ? oneTime + recurringTotal : null;
+            {primaryPlans.map(renderPlanCard)}
+          </motion.div>
+        </section>
 
-              return (
-                <motion.div
-                  key={plan.key}
-                  className="glass p-6 rounded-2xl border border-[rgba(255,255,255,0.05)] flex flex-col justify-between"
-                  variants={fadeUp}
-                  whileHover={!reduce ? glowHover : undefined}
-                >
-                  <div>
-                    <h3 className="text-lg font-semibold">{plan.name}</h3>
-                    <div className="text-3xl font-extrabold mt-3">
-                      {plan.price}
-                    </div>
-                    <p className="text-sm text-slate-300 mt-2">
-                      {plan.subtitle}
-                    </p>
+        {/* ADVANCED PLANS */}
+        <section className="max-w-5xl mx-auto py-10">
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            className="text-2xl font-extrabold text-center mb-6"
+          >
+            Advanced & Custom Solutions
+          </motion.h2>
 
-                    <ul className="mt-5 space-y-2 text-sm text-slate-300">
-                      {plan.features.map((f) => (
-                        <li key={f} className="flex gap-2">
-                          <span className="text-[#f3d07a]">✔</span>
-                          {f}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="mt-6">
-                    {firstMonthTotal && (
-                      <div className="text-xs text-slate-400 mb-3">
-                        With recommended add-ons:{" "}
-                        <span className="text-slate-200 font-medium">
-                          {formatINR(firstMonthTotal)}
-                        </span>
-                      </div>
-                    )}
-
-                    <Link
-                      href="/contact"
-                      className="block text-center px-4 py-3 rounded-full font-semibold border border-[rgba(255,255,255,0.08)] hover:bg-[#f3d07a] hover:text-black transition"
-                    >
-                      {plan.key === "enterprise" || plan.key === "saas"
-                        ? "Request Quote"
-                        : "Choose Plan"}
-                    </Link>
-                  </div>
-                </motion.div>
-              );
-            })}
+          <motion.div
+            className="grid gap-6 md:grid-cols-2"
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {advancedPlans.map(renderPlanCard)}
           </motion.div>
         </section>
       </main>
