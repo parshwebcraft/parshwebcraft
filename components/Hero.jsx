@@ -7,7 +7,6 @@ import Image from "next/image";
 export default function Hero() {
   const reduce = useReducedMotion();
 
-  // Exact same glow from About page (respects reduced motion)
   const glowHover = !reduce
     ? {
         scale: 1.02,
@@ -29,36 +28,36 @@ export default function Hero() {
   const services = [
     {
       icon: "💻",
-      title: "Premium Web Design",
-      text: "Modern UI/UX, clean layouts, and smooth animations.",
+      title: "Website Design Services",
+      text: "Professional business websites with clean UI, modern UX, and responsive layouts.",
     },
     {
       icon: "⚙️",
-      title: "Web Apps & Systems",
-      text: "Custom dashboards, SaaS platforms, and internal tools.",
+      title: "Custom Web Development",
+      text: "Custom dashboards, SaaS platforms, and internal business systems.",
     },
     {
       icon: "📈",
-      title: "SEO & Performance",
-      text: "Optimized websites built for speed, trust, and growth.",
+      title: "SEO-Optimized Websites",
+      text: "Fast, secure, and search-engine-ready websites built for long-term growth.",
     },
   ];
 
   const process = [
     {
       step: "Step 1",
-      title: "Requirement Call",
-      desc: "We understand your business stage, goals, and constraints.",
+      title: "Requirement Discussion",
+      desc: "We understand your business goals, target audience, and website requirements.",
     },
     {
       step: "Step 2",
-      title: "Design & Build",
-      desc: "Clean UI, scalable architecture, and production-grade code.",
+      title: "Design & Development",
+      desc: "We design and build scalable, SEO-friendly websites with clean code and UI.",
     },
     {
       step: "Step 3",
-      title: "Launch & Support",
-      desc: "Optimized, deployed, and ready to grow with your business.",
+      title: "Launch & Growth",
+      desc: "Your website is optimized, deployed, and ready to support business growth.",
     },
   ];
 
@@ -93,7 +92,7 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.badge }}
           >
-            Premium Web & SaaS Solutions
+            Premium Web & SaaS Solutions in Udaipur
           </motion.span>
 
           <motion.h1
@@ -106,10 +105,10 @@ export default function Hero() {
             <div>
               Build{" "}
               <span className="text-[#f3d07a]">
-                Premium Digital Products
+                Premium Websites & Digital Products
               </span>
             </div>
-            <div>That Grow With Your Business</div>
+            <div>That Grow Your Business in Udaipur</div>
           </motion.h1>
 
           <motion.p
@@ -119,10 +118,11 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.subtext }}
           >
-            I help businesses build high-performance websites, SaaS platforms,
-            and internal systems — designed for clarity, speed, and long-term
-            scalability. Not every business needs an app; the right solution
-            depends on your stage and goals.
+            I help businesses in Udaipur and across India build high-performance
+            websites, SaaS platforms, and internal systems designed for speed,
+            SEO, clarity, and long-term scalability. From business websites to
+            custom web applications, the right solution depends on your goals
+            and growth stage.
           </motion.p>
 
           {/* PRIMARY CTAs */}
@@ -165,9 +165,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 text-sm text-[#f3d07a] hover:underline"
             >
               Not sure what you need?
-              <span className="font-semibold">
-                Get a free website review →
-              </span>
+              <span className="font-semibold">Get a free website review →</span>
             </a>
           </motion.div>
         </div>
@@ -185,10 +183,11 @@ export default function Hero() {
           >
             <span className="text-[#f3d07a] font-medium">Our Services</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
-              Built for Real Business Needs
+              Website Design & Development for Businesses
             </h2>
             <p className="text-slate-300 mt-3">
-              Websites, SaaS platforms, and systems designed to scale.
+              Website design, web development, and SaaS solutions built for real
+              business growth.
             </p>
           </motion.div>
 
@@ -227,7 +226,7 @@ export default function Hero() {
           >
             <span className="text-[#f3d07a] font-medium">How It Works</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
-              A Clear, Proven Process
+              A Proven Web Development Process
             </h2>
           </motion.div>
 

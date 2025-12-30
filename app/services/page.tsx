@@ -1,5 +1,6 @@
 "use client";
 
+import Head from "next/head";
 import { motion, useReducedMotion } from "framer-motion";
 
 const container = {
@@ -23,125 +24,141 @@ export default function ServicesPage() {
   const reduce = useReducedMotion();
 
   return (
-    <main className="min-h-screen pt-24 px-6 lg:px-24">
+    <>
+      {/* ================= SEO META ================= */}
+      <Head>
+        <title>
+          Website Design & Web Development Services in Udaipur | ParshWebCraft
+        </title>
+        <meta
+          name="description"
+          content="ParshWebCraft offers professional website design, web development, SaaS platforms, and business system solutions in Udaipur. SEO-optimized, fast, and scalable digital services."
+        />
+      </Head>
 
-      {/* ================= HERO ================= */}
-      <section className="py-20">
-        <motion.div
-          className="max-w-4xl mx-auto text-center"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.span
-            className="text-[#f3d07a] text-sm tracking-wide uppercase font-semibold"
-            variants={fadeUp}
+      <main className="min-h-screen pt-24 px-6 lg:px-24">
+        {/* ================= HERO ================= */}
+        <section className="py-20">
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            variants={container}
+            initial="hidden"
+            animate="visible"
           >
-            Our Services
-          </motion.span>
-
-          <motion.h1
-            className="text-4xl font-extrabold mt-3 leading-snug"
-            variants={fadeUp}
-          >
-            Premium Digital Solutions That <br />
-            <span className="text-[#f3d07a]">Support Business Growth</span>
-          </motion.h1>
-
-          <motion.p
-            className="text-slate-300 max-w-2xl mx-auto mt-6"
-            variants={fadeUp}
-          >
-            From high-performance websites to custom SaaS platforms and internal
-            business systems — ParshWebCraft builds digital products designed for
-            clarity, performance, and long-term use.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* ================= GRID HEAD ================= */}
-      <section className="py-10">
-        <div className="max-w-5xl mx-auto text-center mb-14">
-          <span className="text-[#f3d07a] text-sm tracking-wide uppercase font-semibold">
-            What We Offer
-          </span>
-
-          <h2 className="text-3xl font-bold mt-2">
-            Websites, SaaS & Business Systems
-          </h2>
-
-          <p className="text-slate-300 max-w-xl mx-auto mt-3">
-            We focus on building systems that are simple to use, scalable, and
-            aligned with real business workflows.
-          </p>
-        </div>
-
-        {/* ================= SERVICE GRID ================= */}
-        <motion.div
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {services.map((srv, i) => (
-            <motion.div
-              key={i}
-              className="glass p-6 rounded-xl border border-[rgba(243,208,122,0.15)] bg-transparent 
-                         transition-all duration-300 cursor-pointer"
+            <motion.span
+              className="text-[#f3d07a] text-sm tracking-wide uppercase font-semibold"
               variants={fadeUp}
-              whileHover={!reduce ? glowHover : undefined}
-              transition={{ type: "spring", stiffness: 300, damping: 22 }}
-              whileTap={{ scale: 0.98 }}
             >
-              <div className="text-4xl mb-3">{srv.icon}</div>
+              Website Design & Development Services in Udaipur
+            </motion.span>
 
-              <h3 className="text-xl font-semibold mb-2">{srv.title}</h3>
+            <motion.h1
+              className="text-4xl font-extrabold mt-3 leading-snug"
+              variants={fadeUp}
+            >
+              Professional Web Solutions That <br />
+              <span className="text-[#f3d07a]">
+                Support Real Business Growth
+              </span>
+            </motion.h1>
 
-              <p className="text-slate-300 mb-4">{srv.desc}</p>
+            <motion.p
+              className="text-slate-300 max-w-2xl mx-auto mt-6"
+              variants={fadeUp}
+            >
+              ParshWebCraft provides professional website design, web development,
+              SaaS platforms, and internal business systems for companies in
+              Udaipur and across India. Our solutions are built for performance,
+              scalability, SEO, and long-term business use.
+            </motion.p>
+          </motion.div>
+        </section>
 
-              <ul className="text-slate-300 space-y-1 text-sm">
-                {srv.items.map((it, idx) => (
-                  <li key={idx} className="flex gap-2">
-                    <span className="text-[#f3d07a]">•</span> {it}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
+        {/* ================= GRID HEAD ================= */}
+        <section className="py-10">
+          <div className="max-w-5xl mx-auto text-center mb-14">
+            <span className="text-[#f3d07a] text-sm tracking-wide uppercase font-semibold">
+              What We Offer
+            </span>
 
-      {/* ================= CTA SECTION ================= */}
-      <section className="py-20">
-        <motion.div
-          className="max-w-5xl mx-auto glass p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-[rgba(243,208,122,0.12)]"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          whileHover={!reduce ? glowHover : undefined}
-        >
-          <div>
-            <h3 className="text-2xl font-bold mb-2">
-              Looking to Build a Reliable Digital System?
-            </h3>
-            <p className="text-slate-300">
-              Whether it’s a website, SaaS product, or internal tool — we’ll help
-              you build it right.
+            <h2 className="text-3xl font-bold mt-2">
+              Website Design, Web Development & Business Systems
+            </h2>
+
+            <p className="text-slate-300 max-w-xl mx-auto mt-3">
+              We help businesses in Udaipur build fast, secure, and scalable
+              digital systems aligned with real-world workflows and growth
+              goals.
             </p>
           </div>
 
-          <a
-            href="/contact"
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-[#f3d07a] to-[#e6c35a]
-                       text-black font-semibold shadow-lg hover:scale-105 transition"
+          {/* ================= SERVICE GRID ================= */}
+          <motion.div
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
+            variants={container}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
           >
-            Start Your Project
-          </a>
-        </motion.div>
-      </section>
-    </main>
+            {services.map((srv, i) => (
+              <motion.div
+                key={i}
+                className="glass p-6 rounded-xl border border-[rgba(243,208,122,0.15)] bg-transparent 
+                         transition-all duration-300 cursor-pointer"
+                variants={fadeUp}
+                whileHover={!reduce ? glowHover : undefined}
+                transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="text-4xl mb-3">{srv.icon}</div>
+
+                <h3 className="text-xl font-semibold mb-2">{srv.title}</h3>
+
+                <p className="text-slate-300 mb-4">{srv.desc}</p>
+
+                <ul className="text-slate-300 space-y-1 text-sm">
+                  {srv.items.map((it, idx) => (
+                    <li key={idx} className="flex gap-2">
+                      <span className="text-[#f3d07a]">•</span> {it}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
+        </section>
+
+        {/* ================= CTA SECTION ================= */}
+        <section className="py-20">
+          <motion.div
+            className="max-w-5xl mx-auto glass p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-[rgba(243,208,122,0.12)]"
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            whileHover={!reduce ? glowHover : undefined}
+          >
+            <div>
+              <h3 className="text-2xl font-bold mb-2">
+                Need a Reliable Website or Web System?
+              </h3>
+              <p className="text-slate-300">
+                Whether you need a business website, SaaS platform, or internal
+                system, we help you build scalable digital solutions that work.
+              </p>
+            </div>
+
+            <a
+              href="/contact"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-[#f3d07a] to-[#e6c35a]
+                       text-black font-semibold shadow-lg hover:scale-105 transition"
+            >
+              Start Your Project
+            </a>
+          </motion.div>
+        </section>
+      </main>
+    </>
   );
 }
 
@@ -150,32 +167,32 @@ export default function ServicesPage() {
 const services = [
   {
     icon: "💻",
-    title: "Business Websites",
-    desc: "Fast, responsive, and SEO-optimized websites built for trust and lead generation.",
+    title: "Business Website Design",
+    desc: "Professional, SEO-friendly business websites designed to build trust and generate leads.",
     items: ["Company websites", "Portfolio sites", "Mobile-first UI"],
   },
   {
     icon: "🚀",
-    title: "Landing Pages",
-    desc: "High-converting landing pages for marketing campaigns and ads.",
+    title: "Landing Page Development",
+    desc: "High-converting landing pages for marketing, ads, and lead generation.",
     items: ["Lead capture pages", "Sales funnels", "Campaign microsites"],
   },
   {
     icon: "🛒",
-    title: "E-commerce Websites",
-    desc: "Clean, scalable online stores with modern UX and secure payments.",
+    title: "E-commerce Website Development",
+    desc: "Scalable online stores with modern UX and secure payment integration.",
     items: ["Product catalogs", "Payment integration", "Order management"],
   },
   {
     icon: "⚙️",
-    title: "SaaS & Web Applications",
-    desc: "Custom SaaS platforms and web applications tailored to your business logic.",
+    title: "SaaS & Web Application Development",
+    desc: "Custom SaaS platforms and web applications tailored to business logic.",
     items: ["Role-based access", "Dashboards", "Scalable architecture"],
   },
   {
     icon: "📊",
     title: "Internal Business Systems",
-    desc: "Custom systems built to simplify operations and daily workflows.",
+    desc: "Custom-built systems to streamline operations and internal workflows.",
     items: ["Admin panels", "Inventory systems", "Workflow tools"],
   },
   {
@@ -187,19 +204,19 @@ const services = [
   {
     icon: "⚡",
     title: "SEO & Performance Optimization",
-    desc: "Improve visibility and speed for better user experience and rankings.",
+    desc: "Technical SEO and performance improvements for better rankings and speed.",
     items: ["Technical SEO", "Core Web Vitals", "Mobile optimization"],
   },
   {
     icon: "🤖",
     title: "Automation & Integrations",
-    desc: "Automate repetitive tasks and connect your tools seamlessly.",
+    desc: "Automate tasks and integrate third-party tools into your workflow.",
     items: ["CRM integration", "Lead automation", "Custom workflows"],
   },
   {
     icon: "🛠️",
     title: "Website Maintenance & Support",
-    desc: "Ongoing support to keep your system secure and stable.",
+    desc: "Ongoing support to keep your website secure, fast, and reliable.",
     items: ["Bug fixes", "Security updates", "Performance monitoring"],
   },
 ];
