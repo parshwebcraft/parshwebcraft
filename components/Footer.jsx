@@ -41,14 +41,16 @@ export default function Footer() {
               <div>
                 <div className="text-lg font-bold">ParshWebCraft</div>
                 <div className="text-sm text-slate-400">
-                  Premium Web Solutions
+                  Website & SaaS Development Agency
                 </div>
               </div>
             </div>
 
             <p className="text-sm text-slate-300 max-w-sm">
-              We design and build high-performance websites focused on clean UI,
-              speed, SEO, and real business growth.
+              ParshWebCraft is a Udaipur-based website and SaaS development
+              agency building high-performance business websites, web
+              applications, and scalable SaaS platforms focused on long-term
+              growth.
             </p>
 
             <div className="mt-4 text-sm text-slate-400 space-y-2">
@@ -61,7 +63,7 @@ export default function Footer() {
                   parshwebcraft@gmail.com
                 </a>
               </div>
-              <div>📍 Udaipur, Rajasthan · India</div>
+              <div>📍 Serving Udaipur, Rajasthan & Across India</div>
             </div>
           </div>
 
@@ -73,17 +75,17 @@ export default function Footer() {
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>
                 <Link href="/services" className="footer-link">
-                  Services
+                  Website & SaaS Services
                 </Link>
               </li>
               <li>
                 <Link href="/portfolio" className="footer-link">
-                  Portfolio
+                  Case Studies
                 </Link>
               </li>
               <li className="flex items-center gap-2">
                 <Link href="/pricing" className="footer-link">
-                  Pricing
+                  Pricing Plans
                 </Link>
                 <span className="inline-flex items-center px-2 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-[#fff2d2] to-[#f3d07a] text-black">
                   Popular
@@ -103,19 +105,21 @@ export default function Footer() {
 
             {/* Services chips */}
             <div className="mt-6 text-sm text-slate-400">
-              <div className="font-medium text-slate-200 mb-2">Services</div>
+              <div className="font-medium text-slate-200 mb-2">
+                Our Expertise
+              </div>
               <div className="flex flex-wrap gap-2">
-                <Link href="/services/web-design" className="chip">
-                  Web Design
+                <Link href="/services" className="chip">
+                  Business Websites
                 </Link>
-                <Link href="/services/seo" className="chip">
-                  SEO
+                <Link href="/services" className="chip">
+                  SaaS Development
                 </Link>
-                <Link href="/services/ecommerce" className="chip">
-                  E-commerce
+                <Link href="/services" className="chip">
+                  Web Applications
                 </Link>
-                <Link href="/services/maintenance" className="chip">
-                  Maintenance
+                <Link href="/services" className="chip">
+                  SEO & Performance
                 </Link>
               </div>
             </div>
@@ -127,12 +131,12 @@ export default function Footer() {
             <ul className="space-y-2 text-slate-300 text-sm">
               <li>
                 <Link href="/contact" className="footer-link">
-                  Contact Support
+                  Project Consultation
                 </Link>
               </li>
               <li>
                 <Link href="/faq" className="footer-link">
-                  FAQ
+                  FAQs
                 </Link>
               </li>
               <li>
@@ -146,10 +150,11 @@ export default function Footer() {
           {/* NEWSLETTER */}
           <div>
             <h3 className="text-sm font-semibold mb-3 text-white">
-              Stay Updated
+              Insights & Updates
             </h3>
             <p className="text-sm text-slate-300 mb-4">
-              Occasional insights on websites, SEO, and business growth.
+              Practical insights on website development, SaaS products, SEO, and
+              digital business growth.
             </p>
 
             <form

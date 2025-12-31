@@ -48,8 +48,7 @@ export default function PricingPage(): React.ReactElement {
 
   const glowHover = {
     scale: 1.02,
-    boxShadow:
-      "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.18)",
+    boxShadow: "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.18)",
   };
 
   const ADDONS = {
@@ -147,8 +146,7 @@ export default function PricingPage(): React.ReactElement {
 
   const renderPlanCard = (plan: PricingPlan): React.ReactElement => {
     const oneTime = parseOneTimePrice(plan.price);
-    const firstMonthTotal =
-      oneTime !== null ? oneTime + recurringTotal : null;
+    const firstMonthTotal = oneTime !== null ? oneTime + recurringTotal : null;
 
     const isPopular = plan.popular === true;
 
@@ -156,9 +154,7 @@ export default function PricingPage(): React.ReactElement {
       <motion.div
         key={plan.key}
         className={`glass p-6 rounded-2xl flex flex-col justify-between relative border ${
-          isPopular
-            ? "border-[#f3d07a]"
-            : "border-[rgba(255,255,255,0.05)]"
+          isPopular ? "border-[#f3d07a]" : "border-[rgba(255,255,255,0.05)]"
         }`}
         variants={fadeUp}
         whileHover={!reduce ? glowHover : undefined}
@@ -260,6 +256,42 @@ export default function PricingPage(): React.ReactElement {
             viewport={{ once: true }}
           >
             {advancedPlans.map(renderPlanCard)}
+          </motion.div>
+        </section>
+        {/* ================= SMART COMPARISON LINKS ================= */}
+        <section className="max-w-4xl mx-auto py-12">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="rounded-2xl border border-[rgba(255,255,255,0.06)] bg-white/5 p-8"
+          >
+            <h3 className="text-xl font-semibold mb-3">
+              Confused between options?
+            </h3>
+
+            <p className="text-slate-300 text-sm mb-6 max-w-2xl">
+              Before choosing a plan, understand the real difference between
+              cheap websites, custom builds, freelancers, and agencies. These
+              comparisons help you make the right long-term decision.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/compare/cheap-vs-custom-website"
+                className="text-sm font-medium text-[#f3d07a] hover:underline"
+              >
+                ₹8k website vs custom website →
+              </Link>
+
+              <Link
+                href="/compare/freelancer-vs-agency"
+                className="text-sm font-medium text-[#f3d07a] hover:underline"
+              >
+                Freelancer vs Agency — what’s better for business? →
+              </Link>
+            </div>
           </motion.div>
         </section>
       </main>

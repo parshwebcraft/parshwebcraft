@@ -2,9 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "How We Built ParshWebCraft | Case Study",
+  title:
+    "Building ParshWebCraft – Website & SaaS Application Development | Case Study",
   description:
-    "A behind-the-scenes case study of how ParshWebCraft was designed, built, and shipped as a production-grade web platform.",
+    "Founder case study of how ParshWebCraft was built as a production-grade website and SaaS application platform. Covers architecture, SEO, performance, and scalable system design.",
 };
 
 const goldHover =
@@ -17,7 +18,8 @@ export default function ParshWebCraftCaseStudy() {
       <header className="mb-16">
         <h1 className="text-4xl font-bold mb-4">Building ParshWebCraft</h1>
         <p className="text-slate-400">
-          Internal Founder Project · Next.js · Supabase · Vercel
+          Internal Founder Project · Website & SaaS Application Architecture ·
+          Next.js · Supabase · Vercel
         </p>
       </header>
 
@@ -30,7 +32,7 @@ export default function ParshWebCraftCaseStudy() {
             <div>
               <div className="text-3xl font-bold text-[#f3d07a]">100%</div>
               <div className="text-sm text-slate-400 mt-1">
-                Custom Architecture
+                Custom Website & SaaS Architecture
               </div>
             </div>
             <div>
@@ -38,7 +40,7 @@ export default function ParshWebCraftCaseStudy() {
                 Modern Stack
               </div>
               <div className="text-sm text-slate-400 mt-1">
-                Next.js + Supabase
+                Next.js · Supabase · Scalable Systems
               </div>
             </div>
             <div>
@@ -46,7 +48,7 @@ export default function ParshWebCraftCaseStudy() {
                 Production Ready
               </div>
               <div className="text-sm text-slate-400 mt-1">
-                Built for Scale
+                Built for Real Client SaaS Use
               </div>
             </div>
           </div>
@@ -57,10 +59,11 @@ export default function ParshWebCraftCaseStudy() {
       <section className="mb-14 border-l-2 border-[#f3d07a]/40 pl-6">
         <h2 className="text-2xl font-semibold mb-4">Project Overview</h2>
         <p className="text-slate-300 leading-relaxed">
-          ParshWebCraft was built as an internal agency platform to apply the same
-          standards we expect from professional client work. The goal was to
-          create a fast, scalable, and SEO-ready website that reflects how modern
-          businesses should be built — without relying on templates or shortcuts.
+          ParshWebCraft was built as an internal agency platform to demonstrate
+          how modern websites and SaaS applications should be designed,
+          developed, and shipped. The objective was to create a fast, SEO-ready,
+          and scalable system capable of supporting both content-driven websites
+          and full SaaS-style web applications for real businesses.
         </p>
       </section>
 
@@ -70,10 +73,19 @@ export default function ParshWebCraftCaseStudy() {
       >
         <h2 className="text-2xl font-semibold mb-4">Challenges</h2>
         <ul className="list-disc pl-6 text-slate-300 space-y-2">
-          <li>Maintaining mobile-first UX without sacrificing performance</li>
-          <li>Implementing secure admin authentication</li>
-          <li>Designing an SEO-friendly structure from day one</li>
-          <li>Building analytics and lead tracking that can scale</li>
+          <li>
+            Maintaining a mobile-first user experience without compromising
+            performance or SEO
+          </li>
+          <li>
+            Designing a system flexible enough for both marketing websites and
+            SaaS application workflows
+          </li>
+          <li>Implementing secure admin authentication and protected routes</li>
+          <li>
+            Creating analytics and lead tracking that can scale with future
+            SaaS-based features
+          </li>
         </ul>
       </section>
 
@@ -83,10 +95,22 @@ export default function ParshWebCraftCaseStudy() {
       >
         <h2 className="text-2xl font-semibold mb-4">Our Solution</h2>
         <ul className="list-disc pl-6 text-slate-300 space-y-2">
-          <li>Next.js App Router for performance and long-term scalability</li>
-          <li>Supabase for authentication, database, and form handling</li>
-          <li>Server-first SEO with clean metadata and structure</li>
-          <li>Vercel deployment for fast global delivery</li>
+          <li>
+            Next.js App Router for high-performance website and SaaS application
+            development
+          </li>
+          <li>
+            Supabase for authentication, database management, and form handling
+            across both website and SaaS use cases
+          </li>
+          <li>
+            Server-first SEO architecture with clean metadata and scalable page
+            structure
+          </li>
+          <li>
+            Vercel deployment for reliable global delivery and SaaS-ready
+            infrastructure
+          </li>
         </ul>
       </section>
 
@@ -96,9 +120,11 @@ export default function ParshWebCraftCaseStudy() {
       >
         <h2 className="text-2xl font-semibold mb-4">Outcome</h2>
         <p className="text-slate-300 leading-relaxed">
-          The result is a production-ready platform that is fast, secure, and
-          maintainable. It serves as both our agency website and a reference
-          architecture for how we approach real client projects.
+          The final result is a production-grade platform that functions as both
+          a high-performance agency website and a reference architecture for
+          building scalable SaaS applications. It reflects how ParshWebCraft
+          approaches client projects — with clarity, performance, security, and
+          long-term growth in mind.
         </p>
       </section>
 
@@ -111,9 +137,9 @@ export default function ParshWebCraftCaseStudy() {
         <div className="grid sm:grid-cols-2 gap-6">
           {[
             "Landing page structure and conversion flow testing",
-            "SEO architecture and metadata experiments",
-            "Admin dashboards and analytics tooling",
-            "Core Web Vitals and performance optimization",
+            "SEO architecture for websites and SaaS platforms",
+            "Admin dashboards, analytics, and role-based access",
+            "Core Web Vitals optimization for scalable web applications",
           ].map((item) => (
             <div
               key={item}
@@ -130,11 +156,12 @@ export default function ParshWebCraftCaseStudy() {
         className={`relative border border-[#f3d07a]/30 rounded-3xl bg-gradient-to-br from-[#f3d07a]/15 via-transparent to-transparent p-10 ${goldHover}`}
       >
         <h3 className="text-2xl font-semibold mb-4">
-          Looking for a similar quality build?
+          Looking for a Website or SaaS Application Build?
         </h3>
         <p className="text-slate-300 mb-6 max-w-xl">
-          We apply the same technical standards, performance focus, and clarity
-          to every client project — scaled to your business stage.
+          We apply the same technical standards, SEO-first thinking, and
+          scalable architecture to every website and SaaS application we build —
+          tailored to your business stage.
         </p>
 
         <div className="flex gap-4">

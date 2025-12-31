@@ -23,16 +23,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
-    default: "ParshWebCraft — Premium Web Experiences",
+    default: "ParshWebCraft — Website & SaaS Development Agency",
     template: "%s | ParshWebCraft",
   },
   description:
-    "ParshWebCraft builds premium, modern websites for business growth.",
+    "ParshWebCraft is a website and SaaS development agency based in Udaipur, building high-performance business websites, web applications, and scalable digital systems for growing businesses.",
   icons: {
     icon: "/icon.png",
-    
   },
 };
 
