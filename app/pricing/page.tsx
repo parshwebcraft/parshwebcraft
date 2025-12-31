@@ -224,6 +224,38 @@ export default function PricingPage(): React.ReactElement {
       </Head>
 
       <main className="min-h-screen pt-24 px-6 lg:px-24">
+        {/* ================= PRICING HEADER (RESTORED) ================= */}
+        <section className="max-w-4xl mx-auto text-center py-12">
+          <motion.span
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="text-sm text-[#f3d07a] font-semibold"
+          >
+            Our Pricing
+          </motion.span>
+
+          <motion.h1
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="text-4xl md:text-5xl font-extrabold mt-3"
+          >
+            Simple & Transparent{" "}
+            <span className="text-[#f3d07a]">Pricing Plans</span>
+          </motion.h1>
+
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            className="text-slate-300 mt-4 max-w-2xl mx-auto"
+          >
+            Choose a plan based on your business stage — from basic online
+            presence to advanced SaaS platforms and enterprise systems.
+          </motion.p>
+        </section>
+
         {/* PRIMARY PLANS */}
         <section className="max-w-6xl mx-auto py-6">
           <motion.div
@@ -258,7 +290,8 @@ export default function PricingPage(): React.ReactElement {
             {advancedPlans.map(renderPlanCard)}
           </motion.div>
         </section>
-        {/* ================= SMART COMPARISON LINKS ================= */}
+
+        {/* SMART COMPARISON LINKS */}
         <section className="max-w-4xl mx-auto py-12">
           <motion.div
             variants={fadeUp}

@@ -53,7 +53,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
       next.requirement = "Please describe what you want to build.";
     }
 
-    // 🔑 Either email OR phone required
+    // Either email OR phone required
     if (!form.email.trim() && !form.phone.trim()) {
       next.form = "Please provide either an email or a phone number.";
     }
@@ -91,7 +91,6 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
       const data = await res.json();
 
       if (!res.ok) {
-        // 👇 show backend error (rate limit, invalid email, etc.)
         setStatus(data?.error || "Something went wrong. Please try again.");
         return;
       }
@@ -156,8 +155,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         className={`${inputBase} ${errors.phone ? inputError : inputNormal}`}
       />
 
-      {/* PLAN FIELD */}
-
+      {/* PLAN */}
       <label>Which Plan Are You Interested In?</label>
       <select
         name="plan"
@@ -168,21 +166,34 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         <option className="bg-[#0b1220]" value="">
           Select a plan (Optional)
         </option>
+
         <option className="bg-[#0b1220]" value="Starter Plan – ₹4,999">
           💎 Starter Plan – ₹4,999
         </option>
+
         <option className="bg-[#0b1220]" value="Business Growth Plan – ₹14,999">
           ✨ Business Growth Plan – ₹14,999
         </option>
+
         <option
           className="bg-[#0b1220]"
-          value="Premium Marketing Plan– ₹29,999"
+          value="Premium Website Plan – ₹34,999+"
         >
-          🚀 Premium Marketing Plan – ₹34,999
+          🚀 Premium Website Plan – ₹34,999+
         </option>
-        <option className="bg-[#0b1220]" value="Enterprise (Custom) ">
-          👑 Enterprise (Custom) Plan{" "}
+
+        {/* ✅ NEW SaaS OPTION */}
+        <option
+          className="bg-[#0b1220]"
+          value="SaaS Platform Development – Starting ₹1,20,000+"
+        >
+          🧩 SaaS Platform Development – ₹1,20,000+
         </option>
+
+        <option className="bg-[#0b1220]" value="Enterprise (Custom)">
+          👑 Enterprise (Custom) Plan
+        </option>
+
         <option className="bg-[#0b1220]" value="Not Sure">
           ❓ Not Sure (Need Help)
         </option>
