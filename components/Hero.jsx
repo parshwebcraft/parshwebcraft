@@ -11,7 +11,17 @@ export default function Hero() {
     ? {
         scale: 1.02,
         boxShadow:
-          "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.18), inset 0 0 18px rgba(243,208,122,0.03)",
+          "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.25), inset 0 0 18px rgba(243,208,122,0.05)",
+      }
+    : {};
+
+  const glowPulse = !reduce
+    ? {
+        boxShadow: [
+          "0 0 20px rgba(243,208,122,0.25)",
+          "0 0 36px rgba(243,208,122,0.45)",
+          "0 0 20px rgba(243,208,122,0.25)",
+        ],
       }
     : {};
 
@@ -21,8 +31,9 @@ export default function Hero() {
     badge: 0,
     heading: 0.08,
     subtext: 0.16,
-    ctas: 0.24,
-    secondary: 0.32,
+    saas: 0.24,
+    ctas: 0.32,
+    secondary: 0.4,
   };
 
   const services = [
@@ -120,14 +131,43 @@ export default function Hero() {
           >
             I help businesses in Udaipur and across India build high-performance
             websites, SaaS platforms, and internal systems designed for speed,
-            SEO, clarity, and long-term scalability. From business websites to
-            custom web applications, the right solution depends on your goals
-            and growth stage.
+            SEO, clarity, and long-term scalability.
           </motion.p>
+
+          {/* 🔥 FEATURED SAAS — FRESHMART */}
+          <motion.a
+            href="/saas"
+            className="mt-10 block rounded-2xl border border-[#f3d07a55] bg-[#0b0f19] p-6 relative overflow-hidden"
+            initial={{ opacity: 0, y: 22 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: delays.saas }}
+            animate={glowPulse}
+            whileHover={!reduce ? glowHover : undefined}
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#f3d07a18] to-transparent pointer-events-none" />
+
+            <span className="inline-block mb-2 text-sm font-semibold text-[#f3d07a]">
+              🚀 Featured SaaS Product
+            </span>
+
+            <h3 className="text-2xl font-bold text-white">
+              FreshMart — Hyperlocal Grocery App
+            </h3>
+
+            <p className="text-slate-300 mt-2 max-w-xl">
+              A Blinkit / Grocbay-style grocery ordering & delivery platform with
+              user app, admin dashboard, banners, orders, and revenue tracking.
+            </p>
+
+            <div className="mt-4 inline-flex items-center gap-2 text-[#f3d07a] font-semibold">
+              View SaaS Demo →
+            </div>
+          </motion.a>
 
           {/* PRIMARY CTAs */}
           <motion.div
-            className="mt-8 flex gap-4"
+            className="mt-10 flex gap-4"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -165,7 +205,9 @@ export default function Hero() {
               className="inline-flex items-center gap-2 text-sm text-[#f3d07a] hover:underline"
             >
               Not sure what you need?
-              <span className="font-semibold">Get a free website review →</span>
+              <span className="font-semibold">
+                Get a free website review →
+              </span>
             </a>
           </motion.div>
         </div>

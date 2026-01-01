@@ -23,6 +23,10 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
+
+    // ✅ NEW SAAS LINK
+    { label: "SaaS", href: "/saas", highlight: true },
+
     { label: "Case Studies", href: "/case-studies" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },
@@ -87,13 +91,20 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`transition ${
+                    className={`relative transition ${
                       active
                         ? "text-[#f3d07a]"
                         : "text-slate-200 hover:text-white"
                     }`}
                   >
                     {item.label}
+
+                    {/* ⭐ NEW BADGE */}
+                    {item.highlight && (
+                      <span className="ml-2 text-[10px] bg-[#f3d07a] text-black px-2 py-0.5 rounded-full font-semibold">
+                        New
+                      </span>
+                    )}
                   </Link>
 
                   <motion.span
@@ -178,13 +189,13 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={`block py-3 px-4 rounded-md transition ${
+                  className={`flex items-center justify-between py-3 px-4 rounded-md transition ${
                     active
                       ? "bg-[#f3d07a]/15 text-[#f3d07a]"
                       : "text-slate-200 hover:bg-white/5"
                   }`}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
                 </Link>
               </motion.div>
             );
