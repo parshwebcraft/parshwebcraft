@@ -24,8 +24,8 @@ export default function Navbar() {
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
 
-    // ✅ NEW SAAS LINK
-    { label: "SaaS", href: "/saas", highlight: true },
+    // ✅ CORRECT SAAS LINK
+    { label: "SaaS", href: "/saas/freshmart", highlight: true },
 
     { label: "Case Studies", href: "/case-studies" },
     { label: "Portfolio", href: "/portfolio" },
@@ -43,6 +43,13 @@ export default function Navbar() {
   const mobileItem = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const isActive = (href) => {
+    if (href.startsWith("/saas")) {
+      return pathname.startsWith("/saas");
+    }
+    return pathname === href;
   };
 
   return (
@@ -79,7 +86,7 @@ export default function Navbar() {
           {/* DESKTOP NAV */}
           <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => {
-              const active = pathname === item.href;
+              const active = isActive(item.href);
 
               return (
                 <motion.div
@@ -99,7 +106,6 @@ export default function Navbar() {
                   >
                     {item.label}
 
-                    {/* ⭐ NEW BADGE */}
                     {item.highlight && (
                       <span className="ml-2 text-[10px] bg-[#f3d07a] text-black px-2 py-0.5 rounded-full font-semibold">
                         New
@@ -176,7 +182,7 @@ export default function Navbar() {
       >
         <div className="px-6 py-4 flex flex-col gap-3">
           {navItems.map((item, i) => {
-            const active = pathname === item.href;
+            const active = isActive(item.href);
 
             return (
               <motion.div
@@ -195,7 +201,14 @@ export default function Navbar() {
                       : "text-slate-200 hover:bg-white/5"
                   }`}
                 >
-                  <span>{item.label}</span>
+                  <span>
+                    {item.label}
+                    {item.highlight && (
+                      <span className="ml-2 text-[10px] bg-[#f3d07a] text-black px-2 py-0.5 rounded-full font-semibold">
+                        New
+                      </span>
+                    )}
+                  </span>
                 </Link>
               </motion.div>
             );

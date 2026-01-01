@@ -79,9 +79,9 @@ export default function Hero() {
         {/* Floating Logo */}
         <motion.div
           aria-hidden
-          className="hidden md:block absolute -right-3 top-[260px] z-0"
-          animate={{ y: [-0, 28, -0] }}
-          transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
+          className="hidden md:block absolute -right-3 top-[280px] z-0"
+          animate={{ y: [0, 12, 0] }}
+          transition={{ duration: 5.5, ease: "easeInOut", repeat: Infinity }}
         >
           <div className="relative w-56 h-56 rounded-full overflow-hidden">
             <div className="absolute inset-0 rounded-full blur-3xl bg-[#f3d07a26]" />
@@ -156,8 +156,9 @@ export default function Hero() {
             </h3>
 
             <p className="text-slate-300 mt-2 max-w-xl">
-              A Blinkit / Grocbay-style grocery ordering & delivery platform with
-              user app, admin dashboard, banners, orders, and revenue tracking.
+              A Blinkit style grocery ordering & delivery platform
+              with user app, admin dashboard, banners, orders, and revenue
+              tracking.
             </p>
 
             <div className="mt-4 inline-flex items-center gap-2 text-[#f3d07a] font-semibold">
@@ -205,9 +206,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 text-sm text-[#f3d07a] hover:underline"
             >
               Not sure what you need?
-              <span className="font-semibold">
-                Get a free website review →
-              </span>
+              <span className="font-semibold">Get a free website review →</span>
             </a>
           </motion.div>
         </div>

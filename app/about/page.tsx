@@ -50,7 +50,7 @@ export default function AboutPage() {
         <title>About ParshWebCraft</title>
         <meta
           name="description"
-          content="Why ParshWebCraft exists, who it is built for, and how we build websites, SaaS platforms, and internal systems with clarity and honesty."
+          content="Why ParshWebCraft exists, who it is built for, and how we design websites, SaaS platforms, and internal systems with clarity and long-term thinking."
         />
       </Head>
 
@@ -70,10 +70,9 @@ export default function AboutPage() {
             variants={itemUp}
             className="text-lg text-slate-300 max-w-2xl leading-relaxed"
           >
-            ParshWebCraft was created to help businesses build honest,
-            professional, and future-ready digital products — from
-            high-performance websites to custom SaaS platforms and internal
-            business systems.
+            ParshWebCraft exists to help businesses build clear, reliable, and
+            future-ready digital products — from high-performance websites to
+            custom SaaS platforms and internal business systems.
           </motion.p>
         </motion.section>
 
@@ -91,24 +90,28 @@ export default function AboutPage() {
             whileHover={glowHover}
             transition={{ type: "spring", stiffness: 300, damping: 22 }}
           >
-            <h2 className="text-3xl font-bold mb-4">Why ParshWebCraft Started</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              Why ParshWebCraft Started
+            </h2>
 
             <p className="text-slate-300 leading-relaxed">
-              ParshWebCraft didn’t start as a business idea — it started as a
-              problem I saw around me.
+              ParshWebCraft didn’t begin as a startup idea — it began with a
+              pattern I kept noticing.
               <br />
               <br />
               Local businesses, coaching institutes, and service providers were
-              either struggling with outdated websites or had no online presence
-              at all. Many paid for cheap websites that looked fine but failed in
-              speed, mobile experience, SEO, and long-term maintainability.
+              either using outdated websites or had no digital presence at all.
+              Many invested in low-cost websites that looked acceptable on the
+              surface but failed in performance, mobile usability, SEO, and
+              long-term maintainability.
             </p>
 
             <p className="mt-4 text-slate-300">
-              I built ParshWebCraft to change that — by offering not just
-              websites, but complete digital systems that businesses can rely on
-              as they grow. This includes scalable websites, internal dashboards,
-              and SaaS-style applications designed for real-world usage.
+              ParshWebCraft was built to fix that gap — not by selling
+              templates, but by creating dependable digital systems businesses
+              can actually rely on as they grow. This includes scalable
+              websites, internal dashboards, and SaaS-style applications
+              designed for real-world usage.
             </p>
           </motion.div>
         </motion.section>
@@ -129,15 +132,15 @@ export default function AboutPage() {
             {[
               {
                 title: "Local Businesses",
-                body: "Shops, services, and startups that want a strong online presence without technical confusion.",
+                body: "Shops, service providers, and founders who want a strong online presence without technical confusion or unnecessary complexity.",
               },
               {
                 title: "Coaching & Education",
-                body: "Institutes that need trust, clarity, and scalable digital platforms — not just brochure websites.",
+                body: "Institutes that need trust-focused websites or scalable platforms — not just brochure pages.",
               },
               {
                 title: "Growing Brands",
-                body: "Businesses ready to scale with systems that won’t break after a few months.",
+                body: "Businesses ready to scale with systems that remain stable, maintainable, and future-proof.",
               },
             ].map((card) => (
               <motion.div
@@ -170,15 +173,15 @@ export default function AboutPage() {
             {[
               {
                 title: "Business Websites",
-                body: "Fast, SEO-optimized, and mobile-first websites built to establish trust and generate leads.",
+                body: "Fast, SEO-optimized, mobile-first websites designed to build trust and generate enquiries.",
               },
               {
                 title: "SaaS & Web Applications",
-                body: "Custom SaaS platforms and web applications built to solve specific business problems and scale over time.",
+                body: "Custom SaaS platforms and web applications built to solve specific business problems and scale responsibly.",
               },
               {
                 title: "Internal Business Systems",
-                body: "Dashboards, admin panels, and workflow or inventory systems designed for clarity and daily use.",
+                body: "Dashboards, admin panels, and workflow systems designed for clarity, stability, and daily use.",
               },
             ].map((card) => (
               <motion.div
@@ -211,15 +214,15 @@ export default function AboutPage() {
             {[
               {
                 title: "Honest Solutions",
-                body: "No over-promises, no fake guarantees. Only solutions that genuinely help your business operate better and scale responsibly.",
+                body: "No over-promises or shortcuts — only solutions that genuinely help your business operate better.",
               },
               {
                 title: "Built for Performance",
-                body: "Fast loading, mobile-first, and structured for long-term scalability.",
+                body: "Fast loading, mobile-first, and architected for long-term scalability.",
               },
               {
                 title: "Clear Communication",
-                body: "We explain things simply so you always know what you’re paying for and why.",
+                body: "We explain things simply, so you always understand what you’re paying for and why.",
               },
             ].map((card) => (
               <motion.div
@@ -254,9 +257,10 @@ export default function AboutPage() {
               <div className="flex justify-center">
                 <div className="relative w-44 h-44 rounded-full overflow-hidden border border-white/10">
                   <Image
-                    src="/images/gauransh .png"
+                    src="/images/gauransh-founder.png"
                     alt="Gauransh Jaroli – Founder of ParshWebCraft"
                     fill
+                    sizes="176px"
                     className="object-cover"
                     priority
                   />
