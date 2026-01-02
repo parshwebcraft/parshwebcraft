@@ -249,39 +249,100 @@ export default function FreshmartSaaSPage() {
       </section>
 
       {/* =========================
-         FINAL CTA
-      ========================= */}
+   FINAL CTA
+========================= */}
       <section className="max-w-4xl mx-auto mt-28 text-center">
-        <motion.h2
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl font-bold"
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="
+      relative overflow-hidden
+      rounded-2xl
+      border border-[#f3d07a]/30
+      bg-[#0b1220]
+      p-10
+    "
         >
-          Want This System for Your Business?
-        </motion.h2>
+          {/* GOLD RADIAL GLOW */}
+          <div
+            className="
+        pointer-events-none absolute inset-0
+        bg-[radial-gradient(circle_at_top_left,rgba(243,208,122,0.22),transparent_60%)]
+      "
+          />
 
-        <p className="text-slate-400 mt-4">
-          Get a ready-to-launch grocery SaaS customized for your brand and
-          operations.
-        </p>
+          <motion.h2
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10 text-3xl font-bold"
+          >
+            Want This System for Your Business?
+          </motion.h2>
 
-        <div className="mt-8 flex justify-center gap-4">
-          <Link
-            href="/contact"
-            className="px-6 py-3 rounded-full bg-[#f3d07a] text-black font-semibold"
-          >
-            Get Demo
-          </Link>
-          <Link
-            href="/contact"
-            className="px-6 py-3 rounded-full border border-slate-600 text-slate-200"
-          >
-            Contact Sales
-          </Link>
-        </div>
+          <p className="relative z-10 text-slate-300 mt-4 max-w-xl mx-auto">
+            Get a ready-to-launch grocery SaaS customized for your brand, scale,
+            and local operations — without overbuilding.
+          </p>
+
+          {/* CTA BUTTONS */}
+          <div className="relative z-10 mt-10 flex justify-center gap-4">
+            {/* PRIMARY */}
+            <motion.div
+              whileHover={{
+                scale: 1.06,
+                boxShadow:
+                  "0 14px 40px rgba(18,24,38,0.6), 0 0 40px rgba(243,208,122,0.45)",
+              }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            >
+              <Link
+                href="/contact"
+                className="
+            inline-flex items-center justify-center
+            px-7 py-3
+            rounded-full
+            bg-gradient-to-r from-[#f3d07a] to-[#e6c35a]
+            text-black
+            font-semibold
+          "
+              >
+                Get Demo →
+              </Link>
+            </motion.div>
+
+            {/* SECONDARY */}
+            <motion.div
+              whileHover={{
+                scale: 1.04,
+                boxShadow: "0 0 24px rgba(243,208,122,0.25)",
+              }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 260, damping: 18 }}
+            >
+              <Link
+                href="/contact"
+                className="
+            inline-flex items-center justify-center
+            px-7 py-3
+            rounded-full
+            border border-[#f3d07a]/40
+            text-[#f3d07a]
+            font-medium
+            hover:bg-[#f3d07a]/10
+            transition
+          "
+              >
+                Contact Sales
+              </Link>
+            </motion.div>
+          </div>
+        </motion.div>
       </section>
     </main>
   );

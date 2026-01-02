@@ -197,6 +197,61 @@ export default function AboutPage() {
             ))}
           </div>
         </motion.section>
+        {/* =========================
+   WE BUILD WEBSITES + SAAS
+========================= */}
+        <section className="max-w-5xl mx-auto mt-28">
+          <h2 className="text-3xl font-bold mb-6">
+            More Than Websites — We Build{" "}
+            <span className="text-[#f3d07a]">SaaS & Systems</span>
+          </h2>
+
+          <p className="text-slate-300 leading-relaxed max-w-3xl">
+            ParshWebCraft is not limited to brochure websites. We design and
+            develop
+            <strong>
+              {" "}
+              scalable SaaS platforms, internal business systems, and
+              admin-driven applications{" "}
+            </strong>
+            used in real operational environments.
+          </p>
+
+          <p className="text-slate-300 leading-relaxed max-w-3xl mt-4">
+            From hyperlocal grocery platforms to e-learning systems and
+            inventory tools, our work focuses on{" "}
+            <strong>
+              real workflows, performance, security, and long-term
+              maintainability
+            </strong>
+            — not demo apps or surface-level builds.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            {[
+              {
+                title: "Business Websites",
+                desc: "Conversion-focused websites built for trust, speed, SEO, and lead generation.",
+              },
+              {
+                title: "SaaS Platforms",
+                desc: "Custom SaaS applications with authentication, dashboards, payments, and role-based access.",
+              },
+              {
+                title: "Internal Systems",
+                desc: "Admin panels, order systems, inventory tools, and automation for daily operations.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-xl border border-white/10 bg-white/5 p-6"
+              >
+                <h3 className="font-semibold mb-2">{item.title}</h3>
+                <p className="text-slate-400 text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* How We Work */}
         <motion.section
