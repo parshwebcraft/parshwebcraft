@@ -254,6 +254,7 @@ export default function AboutPage() {
         </section>
 
         {/* How We Work */}
+
         <motion.section
           variants={container}
           initial="hidden"
