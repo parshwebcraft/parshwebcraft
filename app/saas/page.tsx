@@ -1,8 +1,14 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+
 export default function SaaSPage() {
+  const reduce = useReducedMotion();
+
   return (
     <main className="min-h-screen pt-28 px-6 lg:px-24">
       <section className="max-w-6xl mx-auto">
-        {/* PAGE HEADER */}
+        {/* ================= PAGE HEADER ================= */}
         <div className="text-center mb-20">
           <span className="inline-block mb-3 px-4 py-1 rounded-full bg-[#f3d07a22] text-[#f3d07a] font-medium">
             SaaS Solutions
@@ -18,7 +24,7 @@ export default function SaaSPage() {
           </p>
         </div>
 
-        {/* FEATURED SAAS */}
+        {/* ================= FEATURED SAAS ================= */}
         <div className="rounded-3xl border border-[#f3d07a55] bg-[#0b0f19] p-10 mb-24">
           <span className="text-[#f3d07a] font-semibold text-sm">
             🚀 Featured SaaS Product
@@ -45,18 +51,73 @@ export default function SaaSPage() {
             <Feature text="Scalable FastAPI + MongoDB backend" />
           </div>
 
-          {/* CTA */}
-          <div className="mt-12">
-            <a
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#f3d07a] text-black font-semibold hover:opacity-90 transition"
+          {/* ================= GOLDEN REVEAL CTA ================= */}
+          <motion.div
+            className="mt-14"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <motion.div
+              whileHover={
+                !reduce
+                  ? {
+                      boxShadow:
+                        "0 12px 40px rgba(18,24,38,0.65), 0 0 42px rgba(243,208,122,0.28)",
+                      scale: 1.015,
+                    }
+                  : undefined
+              }
+              transition={{ type: "spring", stiffness: 220, damping: 20 }}
+              className="
+                relative overflow-hidden rounded-2xl
+                border border-[rgba(243,208,122,0.28)]
+                bg-[#0b1220]
+                p-8 md:p-10
+                flex flex-col md:flex-row
+                items-center justify-between gap-6
+              "
             >
-              Request FreshMart Demo
-            </a>
-          </div>
+              {/* Gold Glow Layer */}
+              <div
+                className="
+                  pointer-events-none absolute inset-0
+                  bg-[radial-gradient(circle_at_top_left,rgba(243,208,122,0.18),transparent_60%)]
+                "
+              />
+
+              <div className="relative z-10 max-w-xl">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Want to See FreshMart in Action?
+                </h3>
+                <p className="text-slate-300">
+                  Request a guided demo to understand how FreshMart can work for
+                  your grocery store or local delivery business.
+                </p>
+              </div>
+
+              <a
+                href="/contact"
+                className="
+                  relative z-10
+                  inline-flex items-center justify-center
+                  px-8 py-4
+                  rounded-full
+                  bg-[#f3d07a]
+                  text-black
+                  font-semibold
+                  hover:brightness-95
+                  transition
+                "
+              >
+                Request FreshMart Demo
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
 
-        {/* WHY SAAS */}
+        {/* ================= WHY SAAS ================= */}
         <div className="text-center mb-24">
           <h3 className="text-3xl font-bold text-white">
             Why Choose Our SaaS Solutions?
@@ -64,7 +125,7 @@ export default function SaaSPage() {
 
           <p className="text-slate-300 mt-4 max-w-3xl mx-auto">
             Our SaaS products are not prototypes. They are production-ready
-            platforms built with scalability, performance, and business
+            platforms built with scalability, performance, and real business
             operations in mind.
           </p>
 

@@ -110,8 +110,8 @@ export default function ContactPage() {
             transition={{ delay: 0.1 }}
             className="text-slate-300 mt-4 max-w-2xl mx-auto"
           >
-            Planning a business website, landing page, SaaS platform, or internal
-            system? Share your requirements and get honest guidance.
+            Planning a business website, landing page, SaaS platform, or
+            internal system? Share your requirements and get honest guidance.
           </motion.p>
         </section>
 
@@ -153,9 +153,7 @@ export default function ContactPage() {
                   <div className="text-xl">📍</div>
                   <div>
                     <h4 className="font-semibold">Service Location</h4>
-                    <p className="text-slate-300">
-                      Udaipur, Rajasthan, India
-                    </p>
+                    <p className="text-slate-300">Udaipur, Rajasthan, India</p>
                   </div>
                 </div>
               </div>
@@ -210,11 +208,12 @@ export default function ContactPage() {
           <div className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg ring-4 ring-[rgba(243,208,122,0.08)]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
+              viewBox="0 0 448 512"
               fill="white"
               className="w-7 h-7"
+              aria-hidden="true"
             >
-              <path d="M16.01 3C9.383 3 4 8.383 4 15.01c0 2.65.865 5.1 2.33 7.08L4 29l7.1-2.28a11.9 11.9 0 0 0 4.91 1.04h.01C22.627 27.76 28 22.38 28 15.75 28 9.12 22.627 3 16.01 3z" />
+              <path d="M380.9 97.1C339-1.2 256.5-1.1 224.5.4 101.5 6.1 7.5 113.2 7.5 235.1c0 44.2 11.8 87.4 34.3 125.3L0 512l155.5-40.7c35.1 19.1 74.6 29.2 114.9 29.2h.1c123 0 223.5-94.4 223.6-216.4.1-54.7-21.2-106.1-60.2-143zM224.5 438.7h-.1c-33.6 0-66.6-9-95.5-26l-6.9-4.1-92.2 24.1 24.6-89.8-4.5-7.3c-19.3-30.8-29.5-66.4-29.5-103C20.4 135.3 109.8 47.2 224.5 47.2c54.6 0 105.9 21.3 144.5 60.1 38.6 38.8 59.8 90.2 59.7 144.8-.1 114.8-93.4 207.6-203.2 207.6zm111.8-155.4c-6.1-3.1-36.1-17.8-41.7-19.8-5.6-2-9.7-3.1-13.8 3.1-4.1 6.1-15.8 19.8-19.4 23.9-3.6 4.1-7.1 4.6-13.2 1.5-6.1-3.1-25.9-9.5-49.3-30.4-18.2-16.2-30.5-36.2-34.1-42.3-3.6-6.1-.4-9.4 2.7-12.5 2.8-2.8 6.1-7.1 9.2-10.7 3.1-3.6 4.1-6.1 6.1-10.2 2-4.1 1-7.7-.5-10.7-1.5-3.1-13.8-33.2-18.9-45.5-5-12-10-10.4-13.8-10.6-3.6-.2-7.7-.2-11.8-.2-4.1 0-10.7 1.5-16.3 7.7-5.6 6.1-21.4 20.9-21.4 51 0 30.1 21.9 59.2 25 63.3 3.1 4.1 43.1 65.9 104.5 92.4 14.6 6.3 26 10.1 34.9 12.9 14.7 4.7 28.1 4 38.7 2.4 11.8-1.8 36.1-14.8 41.2-29.1 5.1-14.3 5.1-26.5 3.6-29.1-1.5-2.6-5.6-4.1-11.7-7.2z" />
             </svg>
           </div>
         </motion.a>

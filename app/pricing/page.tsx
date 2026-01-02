@@ -442,6 +442,67 @@ export default function PricingPage() {
             </div>
           </motion.div>
         </section>
+        {/* ================= FINAL GOLDEN CTA ================= */}
+        <section className="max-w-5xl mx-auto py-24">
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <motion.div
+              whileHover={{
+                boxShadow:
+                  "0 12px 40px rgba(18,24,38,0.65), 0 0 42px rgba(243,208,122,0.28)",
+                scale: 1.015,
+              }}
+              transition={{ type: "spring", stiffness: 220, damping: 20 }}
+              className="
+        relative overflow-hidden rounded-2xl
+        border border-[rgba(243,208,122,0.28)]
+        bg-[#0b1220]
+        p-10
+        text-center
+      "
+            >
+              {/* Gold Glow Layer */}
+              <div
+                className="
+          pointer-events-none absolute inset-0
+          bg-[radial-gradient(circle_at_top_left,rgba(243,208,122,0.18),transparent_60%)]
+        "
+              />
+
+              <div className="relative z-10 max-w-2xl mx-auto">
+                <h3 className="text-2xl font-bold mb-3">
+                  Not Sure Which Plan Fits Your Business?
+                </h3>
+
+                <p className="text-slate-300 mb-6">
+                  Tell us about your business, goals, and budget. We’ll help you
+                  choose the right website, SaaS solution, or custom system —
+                  without overbuilding.
+                </p>
+
+                <Link
+                  href="/contact"
+                  className="
+            inline-flex items-center justify-center
+            px-6 py-3
+            rounded-full
+            bg-[#f3d07a]
+            text-black
+            font-semibold
+            hover:brightness-95
+            transition
+          "
+                >
+                  Get Honest Guidance
+                </Link>
+              </div>
+            </motion.div>
+          </motion.div>
+        </section>
       </main>
     </>
   );

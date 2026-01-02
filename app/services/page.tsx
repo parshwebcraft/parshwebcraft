@@ -13,7 +13,7 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-// SAME glow hover as About page
+// SAME glow used site-wide
 const glowHover = {
   scale: 1.02,
   boxShadow:
@@ -49,7 +49,7 @@ export default function ServicesPage() {
               className="text-[#f3d07a] text-sm tracking-wide uppercase font-semibold"
               variants={fadeUp}
             >
-              Website Design & Development Services in Udaipur
+              Website Design & Development Services
             </motion.span>
 
             <motion.h1
@@ -66,15 +66,14 @@ export default function ServicesPage() {
               className="text-slate-300 max-w-2xl mx-auto mt-6"
               variants={fadeUp}
             >
-              ParshWebCraft provides professional website design, web development,
-              SaaS platforms, and internal business systems for companies in
-              Udaipur and across India. Our solutions are built for performance,
-              scalability, SEO, and long-term business use.
+              We design websites, SaaS platforms, and internal systems that are
+              built for clarity, performance, and long-term business use — not
+              just visual appeal.
             </motion.p>
           </motion.div>
         </section>
 
-        {/* ================= GRID HEAD ================= */}
+        {/* ================= SERVICES GRID ================= */}
         <section className="py-10">
           <div className="max-w-5xl mx-auto text-center mb-14">
             <span className="text-[#f3d07a] text-sm tracking-wide uppercase font-semibold">
@@ -82,17 +81,15 @@ export default function ServicesPage() {
             </span>
 
             <h2 className="text-3xl font-bold mt-2">
-              Website Design, Web Development & Business Systems
+              Websites, SaaS & Business Systems
             </h2>
 
             <p className="text-slate-300 max-w-xl mx-auto mt-3">
-              We help businesses in Udaipur build fast, secure, and scalable
-              digital systems aligned with real-world workflows and growth
-              goals.
+              Solutions designed to match your business stage — from simple
+              websites to scalable internal systems.
             </p>
           </div>
 
-          {/* ================= SERVICE GRID ================= */}
           <motion.div
             className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
             variants={container}
@@ -103,8 +100,11 @@ export default function ServicesPage() {
             {services.map((srv, i) => (
               <motion.div
                 key={i}
-                className="glass p-6 rounded-xl border border-[rgba(243,208,122,0.15)] bg-transparent 
-                         transition-all duration-300 cursor-pointer"
+                className="
+                  glass p-6 rounded-xl 
+                  border border-[rgba(243,208,122,0.15)]
+                  bg-transparent cursor-pointer
+                "
                 variants={fadeUp}
                 whileHover={!reduce ? glowHover : undefined}
                 transition={{ type: "spring", stiffness: 300, damping: 22 }}
@@ -119,7 +119,8 @@ export default function ServicesPage() {
                 <ul className="text-slate-300 space-y-1 text-sm">
                   {srv.items.map((it, idx) => (
                     <li key={idx} className="flex gap-2">
-                      <span className="text-[#f3d07a]">•</span> {it}
+                      <span className="text-[#f3d07a]">•</span>
+                      {it}
                     </li>
                   ))}
                 </ul>
@@ -128,33 +129,70 @@ export default function ServicesPage() {
           </motion.div>
         </section>
 
-        {/* ================= CTA SECTION ================= */}
+        {/* ================= GOLDEN REVEAL CTA ================= */}
         <section className="py-20">
           <motion.div
-            className="max-w-5xl mx-auto glass p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-[rgba(243,208,122,0.12)]"
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            whileHover={!reduce ? glowHover : undefined}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="max-w-5xl mx-auto"
           >
-            <div>
-              <h3 className="text-2xl font-bold mb-2">
-                Need a Reliable Website or Web System?
-              </h3>
-              <p className="text-slate-300">
-                Whether you need a business website, SaaS platform, or internal
-                system, we help you build scalable digital solutions that work.
-              </p>
-            </div>
-
-            <a
-              href="/contact"
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-[#f3d07a] to-[#e6c35a]
-                       text-black font-semibold shadow-lg hover:scale-105 transition"
+            <motion.div
+              whileHover={
+                !reduce
+                  ? {
+                      boxShadow:
+                        "0 12px 40px rgba(18,24,38,0.65), 0 0 42px rgba(243,208,122,0.28)",
+                      scale: 1.015,
+                    }
+                  : undefined
+              }
+              transition={{ type: "spring", stiffness: 220, damping: 20 }}
+              className="
+                relative overflow-hidden rounded-2xl
+                border border-[rgba(243,208,122,0.28)]
+                bg-[#0b1220]
+                p-10
+                flex flex-col md:flex-row
+                items-center justify-between gap-6
+              "
             >
-              Start Your Project
-            </a>
+              {/* Gold Glow Layer */}
+              <div
+                className="
+                  pointer-events-none absolute inset-0
+                  bg-[radial-gradient(circle_at_top_left,rgba(243,208,122,0.18),transparent_60%)]
+                "
+              />
+
+              <div className="relative z-10 max-w-xl">
+                <h3 className="text-2xl font-bold mb-2">
+                  Need a Website or Business System?
+                </h3>
+                <p className="text-slate-300">
+                  Tell us about your business. We’ll help you decide whether you
+                  need a simple website, a SaaS platform, or a custom internal
+                  system — and build it the right way.
+                </p>
+              </div>
+
+              <a
+                href="/contact"
+                className="
+                  relative z-10
+                  px-6 py-3
+                  rounded-full
+                  bg-[#f3d07a]
+                  text-black
+                  font-semibold
+                  hover:brightness-95
+                  transition
+                "
+              >
+                Start Your Project
+              </a>
+            </motion.div>
           </motion.div>
         </section>
       </main>
@@ -168,55 +206,37 @@ const services = [
   {
     icon: "💻",
     title: "Business Website Design",
-    desc: "Professional, SEO-friendly business websites designed to build trust and generate leads.",
+    desc: "Professional websites built to establish trust and generate enquiries.",
     items: ["Company websites", "Portfolio sites", "Mobile-first UI"],
   },
   {
     icon: "🚀",
-    title: "Landing Page Development",
-    desc: "High-converting landing pages for marketing, ads, and lead generation.",
-    items: ["Lead capture pages", "Sales funnels", "Campaign microsites"],
+    title: "Landing Pages",
+    desc: "High-converting pages designed for campaigns and lead generation.",
+    items: ["Lead capture", "Sales pages", "Marketing funnels"],
   },
   {
     icon: "🛒",
-    title: "E-commerce Website Development",
-    desc: "Scalable online stores with modern UX and secure payment integration.",
-    items: ["Product catalogs", "Payment integration", "Order management"],
+    title: "E-commerce Websites",
+    desc: "Scalable online stores with secure payments and modern UX.",
+    items: ["Product catalog", "Payments", "Order management"],
   },
   {
     icon: "⚙️",
-    title: "SaaS & Web Application Development",
-    desc: "Custom SaaS platforms and web applications tailored to business logic.",
-    items: ["Role-based access", "Dashboards", "Scalable architecture"],
+    title: "SaaS & Web Applications",
+    desc: "Custom SaaS platforms aligned with real business logic.",
+    items: ["Dashboards", "Role-based access", "Scalable systems"],
   },
   {
     icon: "📊",
     title: "Internal Business Systems",
-    desc: "Custom-built systems to streamline operations and internal workflows.",
-    items: ["Admin panels", "Inventory systems", "Workflow tools"],
-  },
-  {
-    icon: "📅",
-    title: "Booking & Appointment Systems",
-    desc: "Automated scheduling solutions for service-based businesses.",
-    items: ["Calendar sync", "Auto confirmations", "WhatsApp & email alerts"],
-  },
-  {
-    icon: "⚡",
-    title: "SEO & Performance Optimization",
-    desc: "Technical SEO and performance improvements for better rankings and speed.",
-    items: ["Technical SEO", "Core Web Vitals", "Mobile optimization"],
-  },
-  {
-    icon: "🤖",
-    title: "Automation & Integrations",
-    desc: "Automate tasks and integrate third-party tools into your workflow.",
-    items: ["CRM integration", "Lead automation", "Custom workflows"],
+    desc: "Custom tools to manage operations, inventory, and workflows.",
+    items: ["Admin panels", "Inventory systems", "Automation tools"],
   },
   {
     icon: "🛠️",
-    title: "Website Maintenance & Support",
-    desc: "Ongoing support to keep your website secure, fast, and reliable.",
+    title: "Maintenance & Support",
+    desc: "Ongoing support to keep your systems fast and secure.",
     items: ["Bug fixes", "Security updates", "Performance monitoring"],
   },
 ];
