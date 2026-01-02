@@ -14,9 +14,10 @@ export default function FreshmartSaaSPage() {
 
   const cardHover = !reduce
     ? {
-        y: -8,
+        y: -6,
+        scale: 1.02,
         boxShadow:
-          "0 14px 40px rgba(0,0,0,0.6), 0 0 32px rgba(243,208,122,0.15)",
+          "0 12px 40px rgba(18,24,38,0.6), 0 0 32px rgba(243,208,122,0.22)",
       }
     : {};
 
@@ -132,8 +133,8 @@ export default function FreshmartSaaSPage() {
       </section>
 
       {/* =========================
-         FEATURES
-      ========================= */}
+   FEATURES
+========================= */}
       <section className="max-w-6xl mx-auto mt-28">
         <motion.h2
           variants={fadeUp}
@@ -161,19 +162,40 @@ export default function FreshmartSaaSPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
+              transition={{ duration: 0.45, delay: i * 0.06 }}
               whileHover={cardHover}
-              className="p-6 rounded-xl border border-[#2a2a2a] bg-transparent"
+              className="
+          group relative
+          p-6 rounded-2xl
+          border border-[#2a2a2a]
+          bg-[#0b1220]
+          transition
+        "
             >
-              <p className="text-slate-200">{feature}</p>
+              {/* subtle gold glow layer */}
+              <div
+                className="
+          pointer-events-none absolute inset-0 rounded-2xl
+          bg-[radial-gradient(circle_at_top_left,rgba(243,208,122,0.18),transparent_60%)]
+          opacity-0 group-hover:opacity-100 transition
+        "
+              />
+
+              <p className="relative z-10 text-slate-200 font-medium">
+                {feature}
+              </p>
+
+              <span className="relative z-10 mt-3 inline-block text-sm text-[#f3d07a] opacity-0 group-hover:opacity-100 transition">
+                Learn more →
+              </span>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* =========================
-         WHO IS THIS FOR
-      ========================= */}
+   WHO IS THIS FOR
+========================= */}
       <section className="max-w-5xl mx-auto mt-28 text-center">
         <motion.h2
           variants={fadeUp}
@@ -198,11 +220,29 @@ export default function FreshmartSaaSPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
               whileHover={cardHover}
-              className="p-6 rounded-xl border border-[#2a2a2a]"
+              className="
+          group relative
+          p-6 rounded-2xl
+          border border-[#2a2a2a]
+          bg-[#0b1220]
+          transition
+        "
             >
-              <p className="text-slate-300">{item}</p>
+              <div
+                className="
+          pointer-events-none absolute inset-0 rounded-2xl
+          bg-[radial-gradient(circle_at_bottom_right,rgba(243,208,122,0.18),transparent_60%)]
+          opacity-0 group-hover:opacity-100 transition
+        "
+              />
+
+              <p className="relative z-10 text-slate-300 font-medium">{item}</p>
+
+              <span className="relative z-10 mt-3 inline-block text-sm text-[#f3d07a] opacity-0 group-hover:opacity-100 transition">
+                Perfect fit →
+              </span>
             </motion.div>
           ))}
         </div>
