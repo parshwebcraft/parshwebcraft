@@ -90,6 +90,12 @@ export default function PricingPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              whileHover={{
+                y: -10,
+                boxShadow:
+                  "0 12px 36px rgba(18,24,38,0.55), 0 0 30px rgba(243,208,122,0.22)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="border border-white/10 rounded-2xl p-6"
             >
               <h3 className="text-lg font-semibold mb-2">Starter Website</h3>
@@ -123,7 +129,13 @@ export default function PricingPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="border-2 border-[#f3d07a] rounded-2xl p-6 relative"
+              whileHover={{
+                y: -12,
+                boxShadow:
+                  "0 14px 42px rgba(18,24,38,0.6), 0 0 36px rgba(243,208,122,0.32)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
+              className="border border-white/10 rounded-2xl p-6"
             >
               <span className="absolute -top-3 right-4 bg-[#f3d07a] text-black text-xs font-semibold px-3 py-1 rounded-full">
                 Most Chosen
@@ -160,6 +172,12 @@ export default function PricingPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              whileHover={{
+                y: -10,
+                boxShadow:
+                  "0 12px 36px rgba(18,24,38,0.55), 0 0 30px rgba(243,208,122,0.22)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="border border-white/10 rounded-2xl p-6"
             >
               <h3 className="text-lg font-semibold mb-2">Premium Website</h3>
@@ -201,6 +219,12 @@ export default function PricingPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              whileHover={{
+                y: -10,
+                boxShadow:
+                  "0 12px 36px rgba(18,24,38,0.55), 0 0 30px rgba(243,208,122,0.22)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="border border-white/10 rounded-2xl p-6"
             >
               <h3 className="text-lg font-semibold mb-2">
@@ -235,6 +259,12 @@ export default function PricingPage() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              whileHover={{
+                y: -10,
+                boxShadow:
+                  "0 12px 36px rgba(18,24,38,0.55), 0 0 30px rgba(243,208,122,0.22)",
+              }}
+              transition={{ type: "spring", stiffness: 260, damping: 22 }}
               className="border border-white/10 rounded-2xl p-6"
             >
               <h3 className="text-lg font-semibold mb-2">
@@ -393,10 +423,17 @@ export default function PricingPage() {
         {/* ================= COMPARISON SECTION ================= */}
         <section className="max-w-5xl mx-auto py-16">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
             viewport={{ once: true }}
-            className="rounded-2xl border border-white/10 bg-white/5 p-8"
+            whileHover={{
+              y: -10,
+              boxShadow:
+                "0 12px 36px rgba(18,24,38,0.55), 0 0 30px rgba(243,208,122,0.22)",
+            }}
+            transition={{ type: "spring", stiffness: 260, damping: 22 }}
+            className="border border-white/10 rounded-2xl p-6"
           >
             <h3 className="text-2xl font-bold mb-3">
               Still unsure which option is right?
