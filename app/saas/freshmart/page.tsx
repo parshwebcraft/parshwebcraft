@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FreshmartSaaSPage() {
   const reduce = useReducedMotion();
@@ -10,6 +11,14 @@ export default function FreshmartSaaSPage() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   };
+
+  const cardHover = !reduce
+    ? {
+        y: -8,
+        boxShadow:
+          "0 14px 40px rgba(0,0,0,0.6), 0 0 32px rgba(243,208,122,0.15)",
+      }
+    : {};
 
   return (
     <main className="min-h-screen pt-28 pb-24 px-6 lg:px-24 bg-black text-white">
@@ -63,7 +72,7 @@ export default function FreshmartSaaSPage() {
       </section>
 
       {/* =========================
-         SCREENSHOT PLACEHOLDERS
+         PRODUCT PREVIEW
       ========================= */}
       <section className="max-w-6xl mx-auto mt-28">
         <motion.h2
@@ -78,11 +87,24 @@ export default function FreshmartSaaSPage() {
         </motion.h2>
 
         <p className="text-center text-slate-400 mt-3">
-          Real screenshots will be added here
+          Real screenshots from the FreshMart system
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-          {["Home", "Cart & Checkout", "Admin Dashboard"].map((label, i) => (
+        <div className="relative w-full aspect-[9/16] bg-black">
+          {[
+            {
+              src: "/freshmart/home.png",
+              label: "Customer App – Home",
+            },
+            {
+              src: "/freshmart/cart-checkout.png",
+              label: "Cart & Checkout Flow",
+            },
+            {
+              src: "/freshmart/admin-dashboard.png",
+              label: "Admin Dashboard",
+            },
+          ].map((item, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
@@ -90,9 +112,20 @@ export default function FreshmartSaaSPage() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="h-48 rounded-xl border border-[#2a2a2a] flex items-center justify-center text-slate-500"
+              whileHover={cardHover}
+              className="rounded-xl border border-[#2a2a2a] bg-[#0b1220] overflow-hidden"
             >
-              {label} Screenshot
+              <Image
+                src={item.src}
+                alt={`${item.label} – FreshMart grocery SaaS`}
+                width={1200}
+                height={800}
+                className="w-full h-auto object-cover"
+              />
+
+              <div className="p-4 text-center">
+                <p className="text-sm text-slate-300">{item.label}</p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -129,6 +162,7 @@ export default function FreshmartSaaSPage() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
+              whileHover={cardHover}
               className="p-6 rounded-xl border border-[#2a2a2a] bg-transparent"
             >
               <p className="text-slate-200">{feature}</p>
@@ -165,6 +199,7 @@ export default function FreshmartSaaSPage() {
               whileInView="visible"
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
+              whileHover={cardHover}
               className="p-6 rounded-xl border border-[#2a2a2a]"
             >
               <p className="text-slate-300">{item}</p>
