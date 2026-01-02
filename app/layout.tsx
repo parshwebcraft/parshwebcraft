@@ -28,8 +28,13 @@ export const metadata = {
     default: "ParshWebCraft — Website & SaaS Development Agency",
     template: "%s | ParshWebCraft",
   },
+
   description:
     "ParshWebCraft is a website and SaaS development agency based in Udaipur, building high-performance business websites, web applications, and scalable digital systems.",
+
+  alternates: {
+    canonical: "https://www.parshwebcraft.in",
+  },
 
   icons: {
     icon: "/icon.png",
@@ -43,13 +48,12 @@ export const metadata = {
     siteName: "ParshWebCraft",
     images: [
       {
-        url: "/images/social-preview.png",
+        url: "https://www.parshwebcraft.in/images/social-preview.png",
         width: 1200,
         height: 630,
         alt: "ParshWebCraft — Website & SaaS Development Agency",
       },
     ],
-    locale: "en_IN",
     type: "website",
   },
 
@@ -57,10 +61,11 @@ export const metadata = {
     card: "summary_large_image",
     title: "ParshWebCraft — Website & SaaS Development Agency",
     description:
-      "Premium websites and SaaS platforms built for modern businesses.",
-    images: ["/images/social-preview.png"],
+      "High-performance websites and SaaS platforms for growing businesses.",
+    images: ["https://www.parshwebcraft.in/images/social-preview.png"],
   },
 };
+
 
 export default function RootLayout({
   children,
