@@ -23,18 +23,44 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: {
     default: "ParshWebCraft — Website & SaaS Development Agency",
     template: "%s | ParshWebCraft",
   },
   description:
-    "ParshWebCraft is a website and SaaS development agency based in Udaipur, building high-performance business websites, web applications, and scalable digital systems for growing businesses.",
+    "ParshWebCraft is a website and SaaS development agency based in Udaipur, building high-performance business websites, web applications, and scalable digital systems.",
+
   icons: {
     icon: "/icon.png",
   },
-};
 
+  openGraph: {
+    title: "ParshWebCraft — Website & SaaS Development Agency",
+    description:
+      "Premium websites and SaaS platforms built for speed, clarity, and business growth.",
+    url: "https://www.parshwebcraft.in",
+    siteName: "ParshWebCraft",
+    images: [
+      {
+        url: "/images/social-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "ParshWebCraft — Website & SaaS Development Agency",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "ParshWebCraft — Website & SaaS Development Agency",
+    description:
+      "Premium websites and SaaS platforms built for modern businesses.",
+    images: ["/images/social-preview.png"],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -60,7 +86,6 @@ export default function RootLayout({
             {/* 🔑 AuthListener forces Supabase auth cookie sync */}
             <AuthListener />
             <Analytics />
-
 
             <Navbar />
             <main>{children}</main>
