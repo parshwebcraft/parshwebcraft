@@ -1,0 +1,66 @@
+/* app/admin/admin.css */
+
+/* sizes used here:
+   sidebar width = 16rem (256px)
+   topbar height = 4rem (64px)
+   adjust if your Sidebar/Topbar have different sizes
+*/
+
+:root {
+  --admin-sidebar-w: 16rem; /* adjust if your sidebar is bigger/smaller */
+  --admin-topbar-h: 4rem;
+}
+
+/* layout root */
+.admin-root {
+  min-height: 100vh;
+  background: var(--bg, #0b1220); /* page background — optional */
+  color: #e6e6e6;
+}
+
+/* Sidebar: fixed left full height */
+.admin-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--admin-sidebar-w);
+  z-index: 60;
+  /* keep same visual as your sidebar component */
+}
+
+/* Topbar sits to the right of the sidebar, fixed at top */
+.admin-topbar {
+  position: fixed;
+  left: var(--admin-sidebar-w);
+  right: 0;
+  top: 0;
+  height: var(--admin-topbar-h);
+  z-index: 50;
+}
+
+/* Main content — shifted right and down so nothing sits under sidebar/topbar */
+.admin-main {
+  margin-left: var(--admin-sidebar-w);
+  padding-top: calc(var(--admin-topbar-h) + 1.5rem); /* extra spacing below topbar */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 4rem;
+  min-height: calc(100vh - var(--admin-topbar-h));
+}
+
+/* small screens: collapse sidebar to top area (optional) */
+@media (max-width: 1024px) {
+  .admin-sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  .admin-topbar {
+    left: 0;
+  }
+  .admin-main {
+    margin-left: 0;
+    padding-top: calc(var(--admin-topbar-h) + 1rem);
+  }
+}

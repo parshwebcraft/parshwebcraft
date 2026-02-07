@@ -1,0 +1,98 @@
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { createServerClient } from "@supabase/ssr";
+
+export async function middleware(req: NextRequest) {
+  const res = NextResponse.next();
+  const pathname = req.nextUrl.pathname;
+
+  /* ============================================================
+     🚫 EARLY BYPASS (VERY IMPORTANT)
+     ============================================================ */
+  if (
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/favicon.ico") ||
+    pathname.startsWith("/api") ||
+    pathname === "/maintenance"
+  ) {
+    return res;
+  }
+
+  /* ============================================================
+     🔧 MAINTENANCE MODE LOGIC (SAFE VERSION)
+     ============================================================ */
+  try {
+    const settingsRes = await fetch(
+      new URL("/api/settings", req.nextUrl.origin).toString(),
+      { cache: "no-store" }
+    );
+
+    if (settingsRes.ok) {
+      const settings = await settingsRes.json();
+
+      if (
+        settings?.maintenance_mode === true &&
+        !pathname.startsWith("/admin")
+      ) {
+        return NextResponse.redirect(
+          new URL("/maintenance", req.url)
+        );
+      }
+    }
+  } catch {
+    // Fail-safe: allow site if anything goes wrong
+  }
+
+  /* ============================================================
+     🔐 EXISTING ADMIN AUTH LOGIC (UNCHANGED)
+     ============================================================ */
+
+  const adminEmail =
+    (process.env.ADMIN_EMAIL ?? "").trim().toLowerCase();
+
+  if (!adminEmail) {
+    return res;
+  }
+
+  const supabase = createServerClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        get(name) {
+          return req.cookies.get(name)?.value;
+        },
+        set(name, value, options) {
+          res.cookies.set({ name, value, ...options });
+        },
+        remove(name, options) {
+          res.cookies.set({ name, value: "", ...options });
+        },
+      },
+    }
+  );
+
+  const {
+    data: { session },
+  } = await supabase.auth.getSession();
+
+  const userEmail = session?.user?.email?.toLowerCase() ?? null;
+
+  // 🔐 Protect admin pages (EXCEPT login)
+  if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
+    if (!userEmail || userEmail !== adminEmail) {
+      return NextResponse.redirect(
+        new URL("/admin/login", req.url)
+      );
+    }
+  }
+
+  return res;
+}
+
+/* ============================================================
+   ⚠️ MATCHER (GLOBAL, SAFE)
+   ============================================================ */
+export const config = {
+  matcher: ["/((?!_next|favicon.ico).*)"],
+};
