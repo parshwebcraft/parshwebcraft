@@ -56,6 +56,28 @@ export default function PortfolioPage() {
     },
 
     {
+      title: "Valentine Special – Interactive Celebration Website",
+      category: "Interactive Campaign Website",
+      image: "/portfolio/valentine-special.jpg",
+      description:
+        "A fully interactive Valentine-themed website built for personalized greetings, image uploads, animations, and shareable private links. Designed for high engagement and emotional impact.",
+      outcomes: [
+        "Custom Slug-Based Pages",
+        "Image Upload Feature",
+        "Razorpay Integration (Test Mode)",
+      ],
+      tech: [
+        "Next.js",
+        "MongoDB",
+        "Razorpay",
+        "Framer Motion",
+        "Cloud Hosting",
+      ],
+      href: "https://valentine-special.vercel.app/", // 👈 replace with your exact live domain if different
+      status: "live",
+    },
+
+    {
       title: "Kharka Mining LLP – Asset Website",
       category: "Mining & Industrial Asset",
       image: "/portfolio/kharka-mining-llp.png",
