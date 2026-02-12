@@ -58,7 +58,7 @@ export default function PortfolioPage() {
     {
       title: "Valentine Special – Interactive Celebration Website",
       category: "Interactive Campaign Website",
-      image: "/portfolio/valentine-special.jpg",
+      image: "/portfolio/valentine-special.png",
       description:
         "A fully interactive Valentine-themed website built for personalized greetings, image uploads, animations, and shareable private links. Designed for high engagement and emotional impact.",
       outcomes: [
