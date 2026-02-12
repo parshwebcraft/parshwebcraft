@@ -69,11 +69,10 @@ export default function PortfolioPage() {
       tech: [
         "Next.js",
         "MongoDB",
-        "Razorpay",
         "Framer Motion",
         "Cloud Hosting",
       ],
-      href: "https://valentine-special.vercel.app/", // 👈 replace with your exact live domain if different
+      href: "https://valentineweekspecial.vercel.app/", // 👈 replace with your exact live domain if different
       status: "live",
     },
 
