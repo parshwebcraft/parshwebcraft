@@ -20,7 +20,7 @@ export default function ContactPage() {
     setTimeout(() => setShowSuccess(false), 3200);
   }
 
-  const whatsappNumber = "918442097839";
+  const whatsappNumber = "919521347419";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     "Hi ParshWebCraft! I want to discuss a website or web development project."
   )}`;
@@ -144,7 +144,7 @@ export default function ContactPage() {
                       href={`tel:+91${whatsappNumber}`}
                       className="text-slate-300"
                     >
-                      +91 84420 97839
+                      +91 95213 47419
                     </a>
                   </div>
                 </div>
