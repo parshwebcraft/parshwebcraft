@@ -135,47 +135,10 @@ export default function Hero() {
           </motion.p>
 
           {/* 🔥 FEATURED SAAS — PARSHVYAPAR */}
-          <motion.a
-            href="/saas/parshvyapar"
-            className="mt-10 block rounded-2xl border border-[#f3d07a55] bg-[#0b0f19] p-6 relative overflow-hidden"
-            initial={{ opacity: 0, y: 22 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: delays.saas }}
-            animate={glowPulse}
-            whileHover={!reduce ? glowHover : undefined}
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#f3d07a18] to-transparent pointer-events-none" />
-
-            <span className="inline-block mb-2 text-sm font-semibold text-[#f3d07a]">
-              🚀 Featured SaaS • Live Product
-            </span>
-
-            <h3 className="text-2xl font-bold text-white">
-              ParshVyapar — Billing & Inventory Management App
-            </h3>
-
-            <p className="text-slate-300 mt-2 max-w-xl">
-              A production-ready billing, inventory, and reporting system built
-              for local shops and growing businesses. Includes admin dashboard,
-              product management, sales reports, and secure authentication.
-            </p>
-
-            <ul className="mt-4 space-y-1 text-slate-300 text-sm">
-              <li>• Inventory & product management</li>
-              <li>• Billing & order tracking</li>
-              <li>• Business reports & analytics</li>
-              <li>• Built as scalable SaaS (LIVE)</li>
-            </ul>
-
-            <div className="mt-5 inline-flex items-center gap-2 text-[#f3d07a] font-semibold">
-              View Product Case Study →
-            </div>
-          </motion.a>
 
           {/* PRIMARY CTAs */}
           <motion.div
-            className="mt-10 flex gap-4"
+            className="mt-12 flex gap-4"
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
