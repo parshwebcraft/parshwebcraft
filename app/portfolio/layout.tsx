@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+
 export const metadata: Metadata = {
   title: "Portfolio | ParshWebCraft",
   description:
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
 export default function PortfolioLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return <>{children}</>;
 }

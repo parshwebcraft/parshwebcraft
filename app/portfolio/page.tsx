@@ -63,7 +63,7 @@ export default function PortfolioPage() {
         "Razorpay Integration (Test Mode)",
       ],
       tech: ["Next.js", "MongoDB", "Framer Motion", "Cloud Hosting"],
-      href: "https://valentineweekspecial.vercel.app/",
+      href: "https://aigreetingstudio.vercel.app/",
       status: "live",
     },
     {
@@ -92,6 +92,68 @@ export default function PortfolioPage() {
       href: "https://bahubalicabs.com/",
       status: "live",
     },
+
+    // 🔥 NEW PROJECTS
+
+    {
+      title: "Him Cream Naturals — QR Ordering System",
+      category: "Restaurant Tech • QR Ordering",
+      image: "/portfolio/him-cream.png",
+      description:
+        "A complete QR-based ordering system deployed for Him Cream Naturals, enabling customers to scan and order directly from their table.",
+      outcomes: [
+        "QR Menu System Live",
+        "Table-Based Ordering Flow",
+        "Deployed in Udaipur Store",
+      ],
+      tech: ["Next.js", "MongoDB", "QR System", "Vercel"],
+      href: "https://www.himcreamnaturals.com/select-table",
+      status: "live",
+    },
+
+    {
+      title: "Anand Fashion Udaipur — Ecommerce Website",
+      category: "Ecommerce Website",
+      image: "/portfolio/anand-fashion.png",
+      description:
+        "A product-heavy ecommerce-style website built for Anand Fashion with large inventory handling and catalog browsing.",
+      outcomes: [
+        "500+ Product Handling",
+        "Catalog-Based Browsing",
+        "Client Revenue Enablement",
+      ],
+      tech: ["React", "MongoDB", "Vercel"],
+      href: "https://www.anandfashionudaipur.com/",
+      status: "live",
+    },
+  
+    {
+      title: "Bullet Raja Showroom — Digital Presence",
+      category: "Showroom Website",
+      image: "/portfolio/bullet-raja.png",
+      description:
+        "A showroom-focused website designed to highlight premium bike inventory and improve local reach.",
+      outcomes: [
+        "Showroom Branding",
+        "Inventory Highlight",
+        "Local Customer Reach",
+      ],
+      tech: ["React", "Tailwind CSS"],
+      href: "https://bulletrajweb.vercel.app/",
+      status: "live",
+    },
+    {
+      title: "Strong Fit — Fitness Brand Website",
+      category: "Fitness Website",
+      image: "/portfolio/strong-fit.png",
+      description:
+        "A fitness-focused website built to represent the Strong Fit brand and convert visitors into gym members.",
+      outcomes: ["Brand Positioning", "Lead Capture", "Mobile-First Design"],
+      tech: ["Next.js", "Tailwind CSS"],
+      href: "https://strongfitweb.vercel.app/",
+      status: "live",
+    },
+    
   ];
 
   return (
@@ -117,7 +179,7 @@ export default function PortfolioPage() {
         </motion.div>
 
         <motion.div
-          className="grid gap-6 md:grid-cols-3"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -154,9 +216,7 @@ export default function PortfolioPage() {
                 </span>
                 <span
                   className={`text-xs capitalize ${
-                    p.status === "live"
-                      ? "text-green-400"
-                      : "text-slate-400"
+                    p.status === "live" ? "text-green-400" : "text-slate-400"
                   }`}
                 >
                   {p.status.replace("-", " ")}
@@ -165,9 +225,7 @@ export default function PortfolioPage() {
 
               <div className="px-4 pb-4 pt-3">
                 <h3 className="text-lg font-semibold">{p.title}</h3>
-                <p className="text-slate-300 mt-2 text-sm">
-                  {p.description}
-                </p>
+                <p className="text-slate-300 mt-2 text-sm">{p.description}</p>
 
                 <div className="mt-3 flex flex-wrap gap-2 text-xs">
                   {p.outcomes.map((o) => (
