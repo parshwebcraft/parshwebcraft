@@ -12,7 +12,6 @@ export default function Navbar() {
   const reduce = useReducedMotion();
   const pathname = usePathname();
 
-  /* detect scroll */
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
@@ -20,11 +19,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // 🔥 NAV ITEMS (UPDATED)
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
 
-    // ✅ FEATURED SAAS — PARSHVYAPAR
     {
       label: "SaaS",
       href: "/saas/parshvyapar",
@@ -35,10 +34,17 @@ export default function Navbar() {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },
     { label: "About Us", href: "/about" },
+
+    // 🔥 CAREERS (SMART HIGHLIGHT)
+    {
+      label: "Careers",
+      href: "/careers",
+      hiring: true,
+    },
+
     { label: "Contact", href: "/contact" },
   ];
 
-  /* motion variants */
   const underline = {
     rest: { scaleX: 0, opacity: 0 },
     active: { scaleX: 1, opacity: 1 },
@@ -48,6 +54,7 @@ export default function Navbar() {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
   };
+
   const isActive = (href) => {
     if (href.startsWith("/saas")) {
       return pathname.startsWith("/saas");
@@ -104,14 +111,24 @@ export default function Navbar() {
                     className={`relative transition ${
                       active
                         ? "text-[#f3d07a]"
-                        : "text-slate-200 hover:text-white"
+                        : item.hiring
+                          ? "text-[#f3d07a] font-medium"
+                          : "text-slate-200 hover:text-white"
                     }`}
                   >
                     {item.label}
 
+                    {/* SaaS Badge */}
                     {item.highlight && (
                       <span className="ml-2 text-[10px] bg-[#f3d07a] text-black px-2 py-0.5 rounded-full font-semibold">
                         New
+                      </span>
+                    )}
+
+                    {/* Careers Badge */}
+                    {item.hiring && (
+                      <span className="ml-2 text-[10px] bg-green-500 text-black px-2 py-0.5 rounded-full font-semibold animate-pulse">
+                        Hiring
                       </span>
                     )}
                   </Link>
@@ -126,6 +143,7 @@ export default function Navbar() {
               );
             })}
 
+            {/* CTA */}
             <motion.a
               href="mailto:parshwebcraft@gmail.com"
               whileHover={
@@ -206,9 +224,16 @@ export default function Navbar() {
                 >
                   <span>
                     {item.label}
+
                     {item.highlight && (
                       <span className="ml-2 text-[10px] bg-[#f3d07a] text-black px-2 py-0.5 rounded-full font-semibold">
                         New
+                      </span>
+                    )}
+
+                    {item.hiring && (
+                      <span className="ml-2 text-[10px] bg-green-500 text-black px-2 py-0.5 rounded-full font-semibold">
+                        Hiring
                       </span>
                     )}
                   </span>

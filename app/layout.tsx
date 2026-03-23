@@ -31,15 +31,33 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.parshwebcraft.in"),
 
   title: {
-    default: "ParshWebCraft — Website & SaaS Development Agency",
+    default: "Web Development Company in Udaipur | ParshWebCraft",
     template: "%s | ParshWebCraft",
   },
 
   description:
-    "ParshWebCraft is a website and SaaS development agency based in Udaipur, building high-performance business websites, web applications, and scalable digital systems.",
+    "ParshWebCraft is a leading web development company in Udaipur offering website design, ecommerce development, and SaaS solutions for businesses across India.",
+
+  keywords: [
+    "web development company in udaipur",
+    "website design in udaipur",
+    "web designer in udaipur",
+    "ecommerce website development india",
+    "saas development company india",
+    "business website development",
+  ],
 
   alternates: {
     canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
 
   icons: {
@@ -47,17 +65,17 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "ParshWebCraft — Website & SaaS Development Agency",
+    title: "Web Development Company in Udaipur | ParshWebCraft",
     description:
-      "Premium websites and SaaS platforms built for speed, clarity, and business growth.",
-    url: "/",
+      "We build high-converting websites, ecommerce stores, and SaaS platforms for growing businesses.",
+    url: "https://www.parshwebcraft.in",
     siteName: "ParshWebCraft",
     images: [
       {
         url: "/images/social-preview.png",
         width: 1200,
         height: 630,
-        alt: "ParshWebCraft — Website & SaaS Development Agency",
+        alt: "ParshWebCraft Website Development",
       },
     ],
     type: "website",
@@ -65,9 +83,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "ParshWebCraft — Website & SaaS Development Agency",
+    title: "Web Development Company in Udaipur | ParshWebCraft",
     description:
-      "High-performance websites and SaaS platforms for growing businesses.",
+      "Premium website design and SaaS development for modern businesses.",
     images: ["/images/social-preview.png"],
   },
 };
@@ -98,6 +116,29 @@ export default function RootLayout({
             </Script>
           </>
         )}
+
+        <Script
+          id="ld-json"
+          type="application/ld+json"
+          strategy="afterInteractive"
+        >
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "ParshWebCraft",
+            url: "https://www.parshwebcraft.in",
+            logo: "https://www.parshwebcraft.in/icon.png",
+            description:
+              "Web development company in Udaipur building websites, ecommerce platforms, and SaaS products.",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Udaipur",
+              addressRegion: "Rajasthan",
+              addressCountry: "India",
+            },
+            sameAs: ["https://www.instagram.com/", "https://www.linkedin.com/"],
+          })}
+        </Script>
       </head>
 
       <body

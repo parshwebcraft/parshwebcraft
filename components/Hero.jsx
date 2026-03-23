@@ -39,18 +39,21 @@ export default function Hero() {
   const services = [
     {
       icon: "💻",
-      title: "Website Design Services",
-      text: "Professional business websites with clean UI, modern UX, and responsive layouts.",
+      title: "Website Design in Udaipur",
+      text: "Professional business websites with modern UI/UX.",
+      link: "/web-design-udaipur",
     },
     {
       icon: "⚙️",
-      title: "Custom Web Development",
-      text: "Custom dashboards, SaaS platforms, and internal business systems.",
+      title: "Web Development Company in Udaipur",
+      text: "Custom dashboards, SaaS platforms, and systems.",
+      link: "/web-development-udaipur",
     },
     {
       icon: "📈",
-      title: "SEO-Optimized Websites",
-      text: "Fast, secure, and search-engine-ready websites built for long-term growth.",
+      title: "SEO Optimized Websites",
+      text: "Fast, secure, and search-engine-ready websites.",
+      link: "/seo-services-udaipur",
     },
   ];
 
@@ -114,12 +117,12 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: delays.heading }}
           >
             <div>
-              Build{" "}
-              <span className="text-[#f3d07a]">
-                Premium Websites & Digital Products
-              </span>
+              Web Development Company in{" "}
+              <span className="text-[#f3d07a]">Udaipur</span>
             </div>
-            <div>That Grow Your Business in Udaipur</div>
+            <div className="text-3xl mt-2 font-semibold text-slate-300">
+              We Build High-Converting Websites & SaaS Products
+            </div>
           </motion.h1>
 
           <motion.p
@@ -129,9 +132,10 @@ export default function Hero() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.subtext }}
           >
-            I help businesses in Udaipur and across India build high-performance
-            websites, SaaS platforms, and internal systems designed for speed,
-            SEO, clarity, and long-term scalability.
+            ParshWebCraft is a leading web development company in Udaipur
+            offering website design, ecommerce development, and custom SaaS
+            solutions. We help businesses build fast, SEO-optimized websites
+            that generate real leads and drive long-term growth.
           </motion.p>
 
           {/* 🔥 FEATURED SAAS — PARSHVYAPAR */}
@@ -151,6 +155,23 @@ export default function Hero() {
               transition={spring}
             >
               View Portfolio
+            </motion.a>
+
+            <motion.a
+              href="/contact"
+              className="px-6 py-3 rounded-full border border-slate-500 text-slate-200 inline-flex items-center justify-center"
+              whileHover={glowHover}
+              transition={spring}
+            >
+              Contact Us
+            </motion.a>
+            <motion.a
+              href="/web-development-udaipur"
+              className="px-6 py-3 rounded-full bg-[#f3d07a] text-black font-semibold inline-flex items-center justify-center"
+              whileHover={glowHover}
+              transition={spring}
+            >
+              Web Development in Udaipur
             </motion.a>
 
             <motion.a
@@ -262,6 +283,36 @@ export default function Hero() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="py-24 max-w-4xl mx-auto">
+        <h2 className="text-3xl font-bold text-white mb-6">
+          Frequently Asked Questions
+        </h2>
+
+        <div className="space-y-4 text-slate-300">
+          <p>
+            <strong>
+              What is the best web development company in Udaipur?
+            </strong>
+            <br />
+            ParshWebCraft is one of the leading web development companies in
+            Udaipur offering modern website design and SaaS solutions.
+          </p>
+
+          <p>
+            <strong>Do you provide ecommerce website development?</strong>
+            <br />
+            Yes, we build ecommerce websites for jewellery, fashion, and local
+            businesses.
+          </p>
+
+          <p>
+            <strong>How much does a website cost in Udaipur?</strong>
+            <br />
+            Website cost depends on features, design, and functionality. Contact
+            us for a custom quote.
+          </p>
         </div>
       </section>
     </main>

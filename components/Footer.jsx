@@ -117,7 +117,8 @@ export default function Footer() {
                   Website & SaaS Services
                 </Link>
               </li>
-              {/* ⭐ PARSHVYAPAR LINK */}
+
+              {/* PARSHVYAPAR */}
               <li className="flex items-center gap-2">
                 <a
                   href="https://parshvyapar.in"
@@ -131,11 +132,13 @@ export default function Footer() {
                   Live
                 </span>
               </li>
+
               <li>
                 <Link href="/portfolio" className="footer-link">
                   Case Studies
                 </Link>
               </li>
+
               <li className="flex items-center gap-2">
                 <Link href="/pricing" className="footer-link">
                   Pricing Plans
@@ -144,11 +147,23 @@ export default function Footer() {
                   Popular
                 </span>
               </li>
+
+              {/* 🔥 CAREERS ADDED */}
+              <li className="flex items-center gap-2">
+                <Link href="/careers" className="footer-link">
+                  Careers
+                </Link>
+                <span className="inline-flex items-center px-2 py-0.5 text-xs font-semibold rounded-full bg-green-500 text-black">
+                  Hiring
+                </span>
+              </li>
+
               <li>
                 <Link href="/contact" className="footer-link">
                   Contact
                 </Link>
               </li>
+
               <li>
                 <Link href="/privacy" className="footer-link">
                   Privacy Policy
