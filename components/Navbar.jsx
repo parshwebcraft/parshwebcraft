@@ -19,46 +19,31 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // 🔥 NAV ITEMS (UPDATED)
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
-
-    {
-      label: "SaaS",
-      href: "/saas/parshvyapar",
-      highlight: true,
-    },
-
+    { label: "SaaS", href: "/saas/parshvyapar", highlight: true },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },
     { label: "About Us", href: "/about" },
-
-    // 🔥 CAREERS (SMART HIGHLIGHT)
-    {
-      label: "Careers",
-      href: "/careers",
-      hiring: true,
-    },
-
+    { label: "Careers", href: "/careers", hiring: true },
     { label: "Contact", href: "/contact" },
   ];
 
   const underline = {
     rest: { scaleX: 0, opacity: 0 },
+    hover: { scaleX: 1, opacity: 1 },
     active: { scaleX: 1, opacity: 1 },
   };
 
   const mobileItem = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 12 },
     visible: { opacity: 1, y: 0 },
   };
 
   const isActive = (href) => {
-    if (href.startsWith("/saas")) {
-      return pathname.startsWith("/saas");
-    }
+    if (href.startsWith("/saas")) return pathname.startsWith("/saas");
     return pathname === href;
   };
 
@@ -66,31 +51,26 @@ export default function Navbar() {
     <header
       className={`fixed top-0 w-full z-50 transition-all ${
         scrolled || open
-          ? "bg-black/80 backdrop-blur shadow-md"
+          ? "bg-black/80 backdrop-blur-md shadow-md"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-24">
         <div className="flex items-center justify-between h-16">
-          {/* BRAND */}
+
+          {/* LOGO */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
+            <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10">
               <Image
                 src="/images/logo-main.png"
-                alt="ParshWebCraft Logo"
-                width={40}
-                height={40}
-                className="object-cover"
-                priority
+                alt="ParshWebCraft"
+                width={36}
+                height={36}
               />
             </div>
-
-            <div>
-              <div className="text-sm font-bold">ParshWebCraft</div>
-              <div className="text-xs text-slate-400 -mt-0.5">
-                Premium Web Solutions
-              </div>
-            </div>
+            <span className="text-sm font-semibold text-white">
+              ParshWebCraft
+            </span>
           </Link>
 
           {/* DESKTOP NAV */}
@@ -104,16 +84,14 @@ export default function Navbar() {
                   className="relative"
                   initial="rest"
                   animate="rest"
-                  whileHover={!reduce ? "active" : undefined}
+                  whileHover={!reduce ? "hover" : undefined}
                 >
                   <Link
                     href={item.href}
-                    className={`relative transition ${
+                    className={`relative text-sm transition ${
                       active
                         ? "text-[#f3d07a]"
-                        : item.hiring
-                          ? "text-[#f3d07a] font-medium"
-                          : "text-slate-200 hover:text-white"
+                        : "text-slate-300 hover:text-white"
                     }`}
                   >
                     {item.label}
@@ -133,6 +111,7 @@ export default function Navbar() {
                     )}
                   </Link>
 
+                  {/* UNDERLINE */}
                   <motion.span
                     className="absolute left-0 right-0 -bottom-2 h-[2px] bg-[#f3d07a] origin-left"
                     variants={underline}
@@ -145,16 +124,16 @@ export default function Navbar() {
 
             {/* CTA */}
             <motion.a
-              href="mailto:parshwebcraft@gmail.com"
+              href="/contact"
               whileHover={
                 !reduce
                   ? {
-                      scale: 1.06,
-                      boxShadow: "0 6px 22px rgba(243,208,122,0.22)",
+                      scale: 1.05,
+                      boxShadow: "0 6px 20px rgba(243,208,122,0.25)",
                     }
                   : {}
               }
-              className="px-4 py-2 rounded-full bg-gradient-to-r from-[#f3d07a] to-[#e6c35a] text-black font-semibold"
+              className="ml-2 px-4 py-2 rounded-md bg-[#f3d07a] text-black text-sm font-semibold"
             >
               Get Quote
             </motion.a>
@@ -162,39 +141,17 @@ export default function Navbar() {
 
           {/* MOBILE BUTTON */}
           <button
-            aria-label="Toggle menu"
-            onClick={() => setOpen((v) => !v)}
-            className="md:hidden p-2 rounded-md border border-white/10"
+            onClick={() => setOpen(!open)}
+            className="md:hidden p-2 text-white"
           >
-            <svg
-              className="w-6 h-6"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              fill="none"
-            >
-              {open ? (
-                <path
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+            ☰
           </button>
         </div>
       </div>
 
       {/* MOBILE MENU */}
       <motion.div
-        className="md:hidden bg-black/85 backdrop-blur border-t border-white/10 overflow-hidden"
+        className="md:hidden bg-black/90 backdrop-blur border-t border-white/10 overflow-hidden"
         initial={false}
         animate={
           open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
@@ -211,28 +168,28 @@ export default function Navbar() {
                 variants={mobileItem}
                 initial="hidden"
                 animate={open ? "visible" : "hidden"}
-                transition={{ delay: open ? i * 0.04 : 0 }}
+                transition={{ delay: open ? i * 0.05 : 0 }}
               >
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className={`flex items-center justify-between py-3 px-4 rounded-md transition ${
+                  className={`flex items-center justify-between py-3 px-4 rounded-md text-sm ${
                     active
                       ? "bg-[#f3d07a]/15 text-[#f3d07a]"
-                      : "text-slate-200 hover:bg-white/5"
+                      : "text-slate-300 hover:bg-white/5"
                   }`}
                 >
                   <span>
                     {item.label}
 
                     {item.highlight && (
-                      <span className="ml-2 text-[10px] bg-[#f3d07a] text-black px-2 py-0.5 rounded-full font-semibold">
+                      <span className="ml-2 text-[10px] bg-[#f3d07a] text-black px-2 py-0.5 rounded-full">
                         New
                       </span>
                     )}
 
                     {item.hiring && (
-                      <span className="ml-2 text-[10px] bg-green-500 text-black px-2 py-0.5 rounded-full font-semibold">
+                      <span className="ml-2 text-[10px] bg-green-500 text-black px-2 py-0.5 rounded-full">
                         Hiring
                       </span>
                     )}
@@ -242,13 +199,14 @@ export default function Navbar() {
             );
           })}
 
-          <a
-            href="mailto:parshwebcraft@gmail.com"
+          <motion.a
+            href="/contact"
             onClick={() => setOpen(false)}
-            className="mt-2 px-4 py-3 rounded-full bg-gradient-to-r from-[#f3d07a] to-[#e6c35a] text-black font-semibold text-center"
+            whileTap={{ scale: 0.95 }}
+            className="mt-2 px-4 py-3 rounded-md bg-[#f3d07a] text-black font-semibold text-center"
           >
             Get Quote
-          </a>
+          </motion.a>
         </div>
       </motion.div>
     </header>
