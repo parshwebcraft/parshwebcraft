@@ -157,14 +157,7 @@ export default function Hero() {
               View Portfolio
             </motion.a>
 
-            <motion.a
-              href="/contact"
-              className="px-6 py-3 rounded-full border border-slate-500 text-slate-200 inline-flex items-center justify-center"
-              whileHover={glowHover}
-              transition={spring}
-            >
-              Contact Us
-            </motion.a>
+           
             <motion.a
               href="/web-development-udaipur"
               className="px-6 py-3 rounded-full bg-[#f3d07a] text-black font-semibold inline-flex items-center justify-center"
