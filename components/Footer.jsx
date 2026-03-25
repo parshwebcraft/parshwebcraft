@@ -10,6 +10,7 @@ const FOOTER_LINKS = {
     { name: "Website Design Udaipur", href: "/web-design-udaipur" },
     { name: "Web Development Udaipur", href: "/web-development-udaipur" },
     { name: "All Services", href: "/services" },
+    { name: "Graphic Designing Udaipur", href: "/graphic-designing-udaipur" },
     { name: "Portfolio / Case Studies", href: "/portfolio" },
   ],
   support: [

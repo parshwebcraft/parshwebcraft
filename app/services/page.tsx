@@ -173,6 +173,12 @@ const services = [
     items: ["Inventory", "Reports", "Automation"],
   },
   {
+    icon: "🎨",
+    title: "Graphic Designing",
+    desc: "Logos, posters, social media creatives & branding.",
+    items: ["Logo Design", "Posters", "Reels", "Branding"],
+  },
+  {
     icon: "🛠️",
     title: "Maintenance",
     desc: "Ongoing support.",
