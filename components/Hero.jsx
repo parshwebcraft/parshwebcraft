@@ -141,41 +141,39 @@ export default function Hero() {
           {/* 🔥 FEATURED SAAS — PARSHVYAPAR */}
 
           {/* PRIMARY CTAs */}
-          <motion.div
-            className="mt-12 flex gap-4"
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: delays.ctas }}
-          >
+            {/* ✅ FIXED CTA BUTTONS */}
+          <div className="mt-10 flex flex-col sm:flex-row gap-4">
+            
+            {/* PRIMARY */}
             <motion.a
               href="/portfolio"
-              className="px-6 py-3 rounded-full bg-[#f3d07a] text-black font-semibold inline-flex items-center justify-center"
+              className="px-6 py-3 rounded-xl bg-[#f3d07a] text-black font-semibold text-center"
               whileHover={glowHover}
               transition={spring}
             >
-              View Portfolio
+              View Portfolio →
             </motion.a>
 
-           
+            {/* SECONDARY */}
             <motion.a
               href="/web-development-udaipur"
-              className="px-6 py-3 rounded-full bg-[#f3d07a] text-black font-semibold inline-flex items-center justify-center"
+              className="px-6 py-3 rounded-xl border border-[#f3d07a]/40 text-[#f3d07a] text-center"
               whileHover={glowHover}
               transition={spring}
             >
               Web Development in Udaipur
             </motion.a>
 
+            {/* OUTLINE */}
             <motion.a
               href="/contact"
-              className="px-6 py-3 rounded-full border border-slate-500 text-slate-200 inline-flex items-center justify-center"
+              className="px-6 py-3 rounded-xl border border-white/20 text-slate-300 text-center"
               whileHover={glowHover}
               transition={spring}
             >
               Contact Us
             </motion.a>
-          </motion.div>
+          </div>
 
           {/* SECONDARY TRUST CTA */}
           <motion.div
