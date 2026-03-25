@@ -3,340 +3,179 @@
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
-import { Instagram, Facebook, Linkedin } from "lucide-react";
+import { Instagram, Facebook, Linkedin, Mail, MapPin } from "lucide-react";
+
+const FOOTER_LINKS = {
+  services: [
+    { name: "Website Design Udaipur", href: "/web-design-udaipur" },
+    { name: "Web Development Udaipur", href: "/web-development-udaipur" },
+    { name: "All Services", href: "/services" },
+    { name: "Portfolio / Case Studies", href: "/portfolio" },
+  ],
+  support: [
+    { name: "Pricing Plans", href: "/pricing" },
+    { name: "Start a Project", href: "/contact" },
+    { name: "Privacy Policy", href: "/privacy" },
+  ],
+};
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState({ type: null, msg: "" });
   const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
 
+  const handleSubscribe = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus({ type: null, msg: "" });
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      if (res.ok) {
+        setStatus({ type: "success", msg: "Subscribed successfully 🎉" });
+        setEmail("");
+      } else {
+        throw new Error();
+      }
+    } catch {
+      setStatus({ type: "error", msg: "Something went wrong" });
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
-    <footer className="relative mt-24 border-t border-[rgba(255,255,255,0.04)] py-12 bg-gradient-to-t from-[rgba(14,11,43,0.02)] overflow-hidden">
-      {/* Decorative blobs */}
-      <div
-        aria-hidden
-        className="absolute -right-24 -top-20 w-72 h-72 rounded-full blur-3xl opacity-30 bg-gradient-to-br from-[#f3d07a]/60 to-[#e6c35a]/30 pointer-events-none animate-blob"
-      />
-      <div
-        aria-hidden
-        className="absolute -left-32 -bottom-24 w-96 h-96 rounded-full blur-2xl opacity-20 bg-gradient-to-br from-[#7adbf3]/30 to-[#8b6ff3]/20 pointer-events-none animate-blob animation-delay-2000"
-      />
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-24 relative">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="mt-20 border-t border-white/5 bg-[#0a0a0c] pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
           {/* BRAND */}
-          <div>
-            <div className="flex items-center gap-3 mb-3">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-white/10">
-                <Image
-                  src="/images/logo-main.png"
-                  alt="ParshWebCraft Logo"
-                  width={40}
-                  height={40}
-                  className="object-cover"
-                  priority
-                />
-              </div>
+          <div className="lg:col-span-4 space-y-5">
+            <Link href="/" className="flex items-center gap-3">
+              <Image
+                src="/images/logo-main.png"
+                alt="ParshWebCraft"
+                width={42}
+                height={42}
+                className="rounded-full border border-white/10"
+              />
               <div>
-                <div className="text-lg font-bold">ParshWebCraft</div>
-                <div className="text-sm text-slate-400">
-                  Website & SaaS Development Agency
+                <div className="font-bold text-white">ParshWebCraft</div>
+                <div className="text-xs text-slate-400">
+                  Web & SaaS Development
                 </div>
               </div>
-            </div>
+            </Link>
 
-            <p className="text-sm text-slate-300 max-w-sm">
-              ParshWebCraft is a Udaipur-based website and SaaS development
-              agency building high-performance business websites, web
-              applications, and founder-built SaaS products like{" "}
-              <a
-                href="https://parshvyapar.in"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#f3d07a] underline hover:text-white"
-              >
-                ParshVyapar
-              </a>
-              , focused on long-term business growth.
+            <p className="text-sm text-slate-400">
+              We build high-performance websites and SaaS products focused on
+              SEO, speed, and real business growth.
             </p>
 
-            {/* SOCIAL ICONS */}
-            <div className="mt-4 flex items-center gap-4">
-              <a
-                href="https://www.instagram.com/parshwebcraft"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="social-icon"
-              >
-                <Instagram size={18} />
-              </a>
-              <a
-                href="https://www.facebook.com/parshwebcraft"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="social-icon"
-              >
-                <Facebook size={18} />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/parshwebcraft"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="social-icon"
-              >
-                <Linkedin size={18} />
-              </a>
-            </div>
-
-            <div className="mt-4 text-sm text-slate-400 space-y-2">
-              <div>
-                📧{" "}
-                <a
-                  href="mailto:parshwebcraft@gmail.com"
-                  className="underline hover:text-white"
-                >
+            {/* CONTACT */}
+            <div className="space-y-2 text-sm text-slate-300">
+              <div className="flex gap-2 items-center">
+                <Mail size={14} className="text-[#f3d07a]" />
+                <a href="mailto:parshwebcraft@gmail.com">
                   parshwebcraft@gmail.com
                 </a>
               </div>
-              <div>📍 Serving Udaipur, Rajasthan & Across India</div>
+
+              <div className="flex gap-2 items-center">
+                <MapPin size={14} className="text-[#f3d07a]" />
+                <span>Udaipur, Rajasthan</span>
+              </div>
+            </div>
+
+            {/* SOCIAL */}
+            <div className="flex gap-3">
+              <a href="https://instagram.com/parshwebcraft" target="_blank">
+                <Instagram size={18} />
+              </a>
+              <a
+                href="https://linkedin.com/company/parshwebcraft"
+                target="_blank"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a href="https://facebook.com/parshwebcraft" target="_blank">
+                <Facebook size={18} />
+              </a>
             </div>
           </div>
 
-          {/* QUICK LINKS */}
-          <div>
-            <h3 className="text-sm font-semibold mb-3 text-white">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 text-slate-300 text-sm">
-              <li>
-                <Link href="/services" className="footer-link">
-                  Website & SaaS Services
-                </Link>
-              </li>
-
-              {/* PARSHVYAPAR */}
-              <li className="flex items-center gap-2">
-                <a
-                  href="https://parshvyapar.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="footer-link text-[#f3d07a]"
-                >
-                  ParshVyapar (Live SaaS)
-                </a>
-                <span className="inline-flex items-center px-2 py-0.5 text-xs font-semibold rounded-full bg-[#f3d07a] text-black">
-                  Live
-                </span>
-              </li>
-
-              <li>
-                <Link href="/portfolio" className="footer-link">
-                  Case Studies
-                </Link>
-              </li>
-
-              <li className="flex items-center gap-2">
-                <Link href="/pricing" className="footer-link">
-                  Pricing Plans
-                </Link>
-                <span className="inline-flex items-center px-2 py-0.5 text-xs font-semibold rounded-full bg-gradient-to-r from-[#fff2d2] to-[#f3d07a] text-black">
-                  Popular
-                </span>
-              </li>
-
-              {/* 🔥 CAREERS ADDED */}
-              <li className="flex items-center gap-2">
-                <Link href="/careers" className="footer-link">
-                  Careers
-                </Link>
-                <span className="inline-flex items-center px-2 py-0.5 text-xs font-semibold rounded-full bg-green-500 text-black">
-                  Hiring
-                </span>
-              </li>
-
-              <li>
-                <Link href="/contact" className="footer-link">
-                  Contact
-                </Link>
-              </li>
-
-              <li>
-                <Link href="/privacy" className="footer-link">
-                  Privacy Policy
-                </Link>
-              </li>
+          {/* SERVICES */}
+          <div className="lg:col-span-2">
+            <h4 className="text-white font-semibold mb-5">Services</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              {FOOTER_LINKS.services.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-[#f3d07a]">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
-
-            <div className="mt-6 text-sm text-slate-400">
-              <div className="font-medium text-slate-200 mb-2">
-                Our Expertise
-              </div>
-              <div className="flex flex-wrap gap-2">
-                <Link href="/services" className="chip">
-                  Business Websites
-                </Link>
-                <Link href="/services" className="chip">
-                  SaaS Development
-                </Link>
-                <Link href="/services" className="chip">
-                  Web Applications
-                </Link>
-                <Link href="/services" className="chip">
-                  SEO & Performance
-                </Link>
-              </div>
-            </div>
           </div>
 
           {/* SUPPORT */}
-          <div>
-            <h3 className="text-sm font-semibold mb-3 text-white">Support</h3>
-            <ul className="space-y-2 text-slate-300 text-sm">
-              <li>
-                <Link href="/contact" className="footer-link">
-                  Project Consultation
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="footer-link">
-                  FAQs
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="footer-link">
-                  Terms & Conditions
-                </Link>
-              </li>
+          <div className="lg:col-span-2">
+            <h4 className="text-white font-semibold mb-5">Support</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              {FOOTER_LINKS.support.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-[#f3d07a]">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* NEWSLETTER */}
-          <div>
-            <h3 className="text-sm font-semibold mb-3 text-white">
-              Insights & Updates
-            </h3>
-            <p className="text-sm text-slate-300 mb-4">
-              Practical insights on website development, SaaS products, SEO, and
-              digital business growth.
+          <div className="lg:col-span-4">
+            <h4 className="text-white font-semibold mb-4">
+              Get Business Insights
+            </h4>
+
+            <p className="text-sm text-slate-400 mb-4">
+              Actionable tips on websites, SaaS, and growth.
             </p>
 
-            <form
-              onSubmit={async (e) => {
-                e.preventDefault();
-                setError("");
-                setSuccess(false);
-                if (!email) return;
-
-                setLoading(true);
-                const res = await fetch("/api/newsletter", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ email }),
-                });
-
-                const data = await res.json();
-                setLoading(false);
-
-                if (!res.ok) {
-                  setError(data.error || "Something went wrong");
-                  return;
-                }
-
-                setSuccess(true);
-                setEmail("");
-              }}
-              className="flex gap-2"
-            >
+            <form onSubmit={handleSubscribe} className="flex gap-2">
               <input
                 type="email"
                 required
+                placeholder="Your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
-                className="flex-1 p-3 rounded-md bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.04)] text-sm focus:outline-none focus:ring-2 focus:ring-[rgba(243,208,122,0.18)]"
+                className="flex-1 p-2 rounded bg-white/5 border border-white/10 text-sm"
               />
-              <button
-                type="submit"
-                disabled={loading}
-                className="px-4 rounded-md bg-[#f3d07a] text-black font-semibold hover:scale-[1.02] disabled:opacity-60"
-              >
-                {loading ? "Joining…" : "Join"}
+
+              <button className="px-4 bg-[#f3d07a] text-black rounded text-sm font-semibold">
+                {loading ? "..." : "Join"}
               </button>
             </form>
 
-            {error && <p className="mt-2 text-sm text-red-400">{error}</p>}
-            {success && (
-              <p className="mt-2 text-sm text-green-400">
-                Subscription successful 🎉
+            {status.msg && (
+              <p
+                className={`mt-2 text-xs ${status.type === "success" ? "text-green-400" : "text-red-400"}`}
+              >
+                {status.msg}
               </p>
             )}
           </div>
         </div>
 
         {/* BOTTOM */}
-        <div className="mt-10 border-t border-[rgba(255,255,255,0.03)] pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-slate-400">
-            © {new Date().getFullYear()} ParshWebCraft. All rights reserved.
-          </div>
-          <div className="text-sm text-slate-400">
-            Crafted with ❤️ by{" "}
-            <span className="px-3 py-1 rounded-md bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.03)] text-slate-200">
-              ParshWebCraft
-            </span>
-          </div>
+        <div className="mt-12 pt-6 border-t border-white/5 flex justify-between text-xs text-slate-500">
+          <span>© {new Date().getFullYear()} ParshWebCraft</span>
+          <span>Built for performance</span>
         </div>
       </div>
-
-      {/* Styles */}
-      <style jsx>{`
-        @keyframes blob {
-          0% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-          100% {
-            transform: translateY(0);
-          }
-        }
-        .animate-blob {
-          animation: blob 6s ease-in-out infinite;
-        }
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-        .footer-link:hover {
-          color: white;
-        }
-        .chip {
-          padding: 6px 10px;
-          font-size: 12px;
-          border-radius: 999px;
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.03);
-        }
-        .social-icon {
-          width: 36px;
-          height: 36px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: 999px;
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          background: rgba(255, 255, 255, 0.02);
-          transition: all 0.25s ease;
-        }
-        .social-icon:hover {
-          background: #f3d07a;
-          color: black;
-          transform: translateY(-2px);
-        }
-      `}</style>
     </footer>
   );
 }
