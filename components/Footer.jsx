@@ -85,7 +85,7 @@ export default function Footer() {
                 </div>{" "}
               </div>{" "}
             </Link>
-            ```
+            
             <p className="text-sm text-slate-400">
               We build high-performance websites and SaaS products for
               businesses in Udaipur and across India. Focused on SEO, speed, and
@@ -96,7 +96,7 @@ export default function Footer() {
               <div className="flex gap-2 items-center">
                 <Mail size={14} className="text-[#f3d07a]" />
                 <a href="mailto:hello@parshwebcraft.com">
-                  hello@parshwebcraft.com
+                  hello@parshwebcraft.in
                 </a>
               </div>
 
@@ -226,7 +226,7 @@ export default function Footer() {
             Ecommerce Development India | SaaS Development Company
           </span>
 
-          <span>Built for performance</span>
+          <span>Built by Gauransh Jaroli</span>
         </div>
       </div>
     </footer>
