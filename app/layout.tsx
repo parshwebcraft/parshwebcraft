@@ -48,7 +48,11 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: "/",
+    canonical: "https://www.parshwebcraft.in/",
+    languages: {
+      "en-IN": "https://www.parshwebcraft.in/",
+      "x-default": "https://www.parshwebcraft.in/",
+    },
   },
 
   robots: {
@@ -122,22 +126,45 @@ export default function RootLayout({
           type="application/ld+json"
           strategy="afterInteractive"
         >
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "ParshWebCraft",
-            url: "https://www.parshwebcraft.in",
-            logo: "https://www.parshwebcraft.in/icon.png",
-            description:
-              "Web development company in Udaipur building websites, ecommerce platforms, and SaaS products.",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Udaipur",
-              addressRegion: "Rajasthan",
-              addressCountry: "India",
+          {JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "ParshWebCraft",
+              url: "https://www.parshwebcraft.in",
+              logo: "https://www.parshwebcraft.in/icon.png",
+              description:
+                "Web development company in Udaipur building websites, ecommerce platforms, and SaaS products.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Udaipur",
+                addressRegion: "Rajasthan",
+                addressCountry: "India",
+              },
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+91-9521347419",
+                contactType: "customer support",
+                areaServed: "IN",
+              },
+              sameAs: [
+                "https://www.instagram.com/parshwebcraft",
+                "https://www.linkedin.com/company/parshwebcraft",
+              ],
             },
-            sameAs: ["https://www.instagram.com/", "https://www.linkedin.com/"],
-          })}
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              url: "https://www.parshwebcraft.in",
+              name: "ParshWebCraft",
+              potentialAction: {
+                "@type": "SearchAction",
+                target:
+                  "https://www.parshwebcraft.in/search?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            },
+          ])}
         </Script>
       </head>
 
