@@ -52,18 +52,19 @@ export default function PortfolioPage() {
       status: "live",
     },
     {
-      title: "Valentine Special – Interactive Celebration Website",
-      category: "Interactive Campaign Website",
-      image: "/portfolio/valentine-special.png",
+      title: "Medexia Journal – Academic Publishing Website",
+      category: "Journal & Research Website",
+      image: "/portfolio/medexia-journal.png",
       description:
-        "A fully interactive Valentine-themed website built for personalized greetings, image uploads, and shareable links.",
+        "A professional international journal website built for research publication, article access, and author submissions with trust-focused design.",
       outcomes: [
-        "Custom Slug-Based Pages",
-        "Image Upload Feature",
-        "Razorpay Integration (Test Mode)",
+        "Responsive Publishing Platform",
+        "SEO Optimized Structure",
+        "Author Submission Ready Pages",
+        "Professional Academic Branding",
       ],
-      tech: ["Next.js", "MongoDB", "Framer Motion", "Cloud Hosting"],
-      href: "https://aigreetingstudio.vercel.app/",
+      tech: ["Next.js", "React", "Tailwind CSS", "SEO"],
+      href: "https://www.medexiajournal.org/",
       status: "live",
     },
     {
@@ -81,6 +82,7 @@ export default function PortfolioPage() {
       href: "https://kharka-mining-llp.vercel.app/",
       status: "live",
     },
+
     {
       title: "Bahubali Cabs – Taxi Service Website",
       category: "Local Business Website",
@@ -90,6 +92,22 @@ export default function PortfolioPage() {
       outcomes: ["Local SEO Ready", "WhatsApp Booking CTA", "Mobile-First UX"],
       tech: ["React", "Tailwind CSS", "Vercel"],
       href: "https://bahubalicabs.com/",
+      status: "live",
+    },
+    {
+      title: "OSPF Official Website",
+      category: "Organization Website",
+      image: "/portfolio/ospf-platform.png",
+      description:
+        "A professional website developed for an organization with member access, structured information pages, and secure login features.",
+      outcomes: [
+        "Professional Brand Presence",
+        "Secure Login System",
+        "Member Access Section",
+        "Responsive Website Experience",
+      ],
+      tech: ["React", "Node.js", "MongoDB"],
+      href: "https://www.ospfudr.com/",
       status: "live",
     },
 
@@ -126,7 +144,7 @@ export default function PortfolioPage() {
       href: "https://www.anandfashionudaipur.com/",
       status: "live",
     },
-  
+
     {
       title: "Bullet Raja Showroom — Digital Presence",
       category: "Showroom Website",
@@ -153,7 +171,6 @@ export default function PortfolioPage() {
       href: "https://strongfitweb.vercel.app/",
       status: "live",
     },
-    
   ];
 
   return (

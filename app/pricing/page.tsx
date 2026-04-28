@@ -192,6 +192,7 @@ export default function PricingPage() {
                 <li>Booking or enquiry automation</li>
                 <li>Basic payment integration</li>
                 <li>Performance & SEO optimization</li>
+                <li>Delivery: 15–20 working days</li>
               </ul>
 
               <MaintenanceAddon />
@@ -241,6 +242,7 @@ export default function PricingPage() {
                 <li>Admin dashboards & controls</li>
                 <li>Payments / subscriptions</li>
                 <li>Secure APIs & performance tuning</li>
+                <li>Delivery: Minimumm 1 Month Time depends on app type.</li>
               </ul>
 
               <MaintenanceAddon />
