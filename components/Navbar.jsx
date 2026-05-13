@@ -27,7 +27,6 @@ export default function Navbar() {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Pricing", href: "/pricing" },
     { label: "About Us", href: "/about" },
-    { label: "Careers", href: "/careers", hiring: true },
     { label: "Contact", href: "/contact" },
   ];
 
