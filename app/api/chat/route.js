@@ -56,7 +56,7 @@ async function generateAIReply({ message, history }) {
   const model = process.env.OPENAI_MODEL || "gpt-4o-mini";
 
   if (!apiKey) {
-    return getFallbackChatReply(message);
+    return getFallbackChatReply(message, history);
   }
 
   const recentHistory = Array.isArray(history)
@@ -91,14 +91,14 @@ async function generateAIReply({ message, history }) {
     if (!response.ok) {
       const errorText = await response.text().catch(() => "");
       console.error("OpenAI chat failed:", response.status, errorText);
-      return getFallbackChatReply(message);
+      return getFallbackChatReply(message, history);
     }
 
     const data = await response.json();
-    return data?.choices?.[0]?.message?.content || getFallbackChatReply(message);
+    return data?.choices?.[0]?.message?.content || getFallbackChatReply(message, history);
   } catch (error) {
     console.error("AI reply failed:", error);
-    return getFallbackChatReply(message);
+    return getFallbackChatReply(message, history);
   }
 }
 

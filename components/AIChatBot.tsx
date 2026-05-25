@@ -35,7 +35,7 @@ export default function AIChatBot() {
     {
       role: "assistant",
       content:
-        "Hello! I'm ParshWebCraft's AI assistant. Ask me about pricing, portfolio, web development, digital marketing, SEO, or which plan fits your business.",
+        "Hi! Main ParshWebCraft AI assistant hoon. Aap apna business type batao, jaise jewellery showroom, restaurant, clinic, coaching, ecommerce, ya SaaS. Main website/marketing plan aur pricing suggest kar dunga.",
       time: getTimeLabel(),
     },
   ]);
