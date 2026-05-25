@@ -80,7 +80,7 @@ async function generateAIReply({ message, history }) {
         messages: [
           {
             role: "system",
-            content: `You are ParshWebCraft's website AI assistant. Answer in a concise, helpful Hinglish/English style matching the user's language. Use only the business knowledge below. Help users decide services, portfolio fit, pricing, and basic negotiation. Do not hallucinate exact custom quotes. Collect contact details when the user seems ready to start.\n\n${chatbotKnowledge}`,
+            content: `You are ParshWebCraft's website AI assistant. Answer in a concise, helpful Hinglish/English style matching the user's language. Use only the business knowledge below. Help users decide services, portfolio fit, pricing, and basic negotiation. Do not hallucinate exact custom quotes. Collect contact details when the user seems ready to start. Important: never include reels, social media posting, photoshoot, ad management, or ad spend inside website package prices. If user asks whether reels are included in Rs 14,999 or a website package, clearly say no and explain separate charges.\n\n${chatbotKnowledge}`,
           },
           ...recentHistory,
           { role: "user", content: message },

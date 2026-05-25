@@ -20,6 +20,13 @@ Pricing:
 - Enterprise/custom systems: custom pricing.
 - Monthly maintenance add-on: around Rs 3,500/month.
 
+Package boundary rules:
+- Website plans do NOT include Instagram reels, social media monthly posting, ad spend, photoshoot, product shoot, or ongoing digital marketing.
+- Rs 14,999 Business Website includes website design/development, 6-8 pages, WhatsApp/enquiry forms, local SEO foundation, and analytics setup only.
+- If user asks whether reels are included in Rs 14,999 or website package, clearly say no. Reels/content creation is a separate digital marketing service with separate charges.
+- Reels can be suggested as an add-on, but never say it is included in website pricing.
+- Ad spend for Google/Meta is always separate from management/service charges.
+
 Portfolio/case studies include ParshVyapar, ParshLedger, Parsh HR, FreshMart, EasyMed, Anand Fashion, Bahubali Cabs, Kharka Mining, Jayesh Sir eLearning, and ParshWebCraft.
 
 Negotiation rules:
@@ -92,6 +99,47 @@ function isBusinessTypeAnswer(text: string) {
   ]);
 }
 
+function isReelsInclusionQuestion(text: string) {
+  const asksReels = hasAny(text, [
+    "reel",
+    "reels",
+    "video",
+    "videos",
+    "content",
+    "shoot",
+    "photoshoot",
+    "photo shoot",
+    "instagram post",
+    "social media post",
+  ]);
+
+  const asksIncluded = hasAny(text, [
+    "isme",
+    "is me",
+    "include",
+    "included",
+    "ban jayegi",
+    "ban jayega",
+    "ho jayegi",
+    "ho jayega",
+    "mil jayega",
+    "mil jayegi",
+    "sath",
+    "saath",
+    "14999",
+    "14,999",
+    "business plan",
+    "website plan",
+    "package",
+  ]);
+
+  return asksReels && asksIncluded;
+}
+
+function marketingAddOnBoundaryReply() {
+  return "Nahi, Rs 14,999 Business Website plan me reels included nahi hain.\n\nRs 14,999 me website work cover hota hai:\n- 6-8 website pages\n- Premium UI/UX\n- WhatsApp/enquiry form\n- Local SEO foundation\n- Analytics setup\n\nInstagram reels, social media content, photoshoot, Meta/Google ads ye sab digital marketing add-ons hain aur inke separate charges hote hain. Jewellery showroom ke liye reels useful rahengi, but website package ke andar free/include nahi hoti.\n\nAap chaho toh main website + reels ka separate combo suggest kar sakta hoon.";
+}
+
 function businessRecommendation(text: string) {
   if (hasAny(text, ["jewellery", "jewelry", "jwellery", "showroom"])) {
     return "Jewellery showroom ke liye best setup: Premium Website or Ecommerce Catalog Website.\n\nRecommended features:\n- Premium luxury design with trust-focused branding\n- Product catalog for rings, necklaces, bangles, bridal collections\n- WhatsApp enquiry button on every product\n- Google Maps + local SEO for jewellery showroom in Udaipur\n- Testimonials, certifications, offers and festive campaign sections\n- Instagram reels + Meta ads for new collections\n- Optional online payment/checkout if you want full ecommerce\n\nBest plan: Premium Website Rs 34,999+ if you want strong brand presence and catalog. If you want simple showroom website first, Business Website Rs 14,999 can work.\n\nAapka showroom me approx kitne products/categories hain? Aur online payment chahiye ya WhatsApp enquiry enough hai?";
@@ -132,6 +180,10 @@ export function getFallbackChatReply(
   const previousUserText = lastUserMessages(history);
   const conversationText = `${previousUserText} ${text}`;
 
+  if (isReelsInclusionQuestion(text)) {
+    return marketingAddOnBoundaryReply();
+  }
+
   if (isBusinessTypeAnswer(text)) {
     return businessRecommendation(text);
   }
@@ -149,11 +201,15 @@ export function getFallbackChatReply(
   }
 
   if (text.includes("digital") || text.includes("marketing") || text.includes("instagram") || text.includes("ads") || text.includes("seo") || text.includes("reels")) {
-    if (isBusinessTypeAnswer(conversationText)) {
-      return `${businessRecommendation(conversationText)}\n\nMarketing side me SEO + Instagram reels + Meta ads + Google Search ads ka combo strong rahega. Goal kya hai: store visits, WhatsApp enquiries, online orders, ya brand awareness?`;
+    if (isReelsInclusionQuestion(conversationText)) {
+      return marketingAddOnBoundaryReply();
     }
 
-    return "Digital marketing me ParshWebCraft ye handle kar sakta hai:\n- Social media management\n- Instagram reels strategy\n- Content creation\n- SEO\n- Google Ads\n- Meta Ads\n- WhatsApp marketing\n- Bulk SMS\n- Branding and lead generation\n\nAapka business type aur goal batao: calls, store visits, WhatsApp enquiries, online sales, ya brand awareness?";
+    if (isBusinessTypeAnswer(conversationText)) {
+      return `${businessRecommendation(conversationText)}\n\nMarketing side me SEO + Instagram reels + Meta ads + Google Search ads ka combo strong rahega, but reels/ads website package me included nahi hote. Ye separate digital marketing add-ons hote hain. Goal kya hai: store visits, WhatsApp enquiries, online orders, ya brand awareness?`;
+    }
+
+    return "Digital marketing me ParshWebCraft ye handle kar sakta hai:\n- Social media management\n- Instagram reels strategy\n- Content creation\n- SEO\n- Google Ads\n- Meta Ads\n- WhatsApp marketing\n- Bulk SMS\n- Branding and lead generation\n\nNote: reels, content creation, ads management, photoshoot aur ad spend website pricing me included nahi hote. Inke separate charges hote hain.\n\nAapka business type aur goal batao: calls, store visits, WhatsApp enquiries, online sales, ya brand awareness?";
   }
 
   if (text.includes("website") || text.includes("web design") || text.includes("development")) {
