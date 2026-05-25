@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Bot, MessageCircle, Send, X } from "lucide-react";
+import { Bot, Cpu, Send, Sparkles, X } from "lucide-react";
 
 type ChatMessage = {
   role: "assistant" | "user";
@@ -250,10 +250,26 @@ export default function AIChatBot() {
       <button
         type="button"
         onClick={() => setOpen((value) => !value)}
-        className="fixed bottom-5 right-5 z-[61] inline-flex h-16 w-16 items-center justify-center rounded-full bg-[#f3d07a] text-black shadow-[0_0_28px_rgba(243,208,122,0.36)] transition hover:-translate-y-1"
+        className="group fixed bottom-5 right-5 z-[61] inline-flex h-[74px] w-[74px] items-center justify-center rounded-full border border-[#f3d07a]/45 bg-[#07070a] text-[#f3d07a] shadow-[0_0_34px_rgba(243,208,122,0.32)] transition hover:-translate-y-1 hover:shadow-[0_0_42px_rgba(243,208,122,0.46)]"
         aria-label={open ? "Close AI chat" : "Open AI chat"}
       >
-        {open ? <X size={25} /> : <MessageCircle size={27} />}
+        <span className="absolute inset-1 rounded-full bg-[radial-gradient(circle_at_35%_20%,rgba(243,208,122,0.32),transparent_42%),linear-gradient(145deg,rgba(243,208,122,0.16),rgba(255,255,255,0.03))]" />
+        <span className="absolute -right-1 top-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#f3d07a] text-black shadow-lg">
+          <Sparkles size={13} aria-hidden="true" />
+        </span>
+
+        {open ? (
+          <X className="relative z-10" size={27} />
+        ) : (
+          <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-2xl border border-[#f3d07a]/35 bg-black/50 transition group-hover:scale-105">
+            <Bot size={28} strokeWidth={1.8} aria-hidden="true" />
+            <Cpu
+              className="absolute -bottom-1 -right-1 rounded-full bg-[#f3d07a] p-0.5 text-black"
+              size={17}
+              aria-hidden="true"
+            />
+          </span>
+        )}
       </button>
     </>
   );
