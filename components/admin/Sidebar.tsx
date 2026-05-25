@@ -43,6 +43,13 @@ export default function Sidebar() {
           </Link>
 
           <Link
+            href="/admin/chat-history"
+            className="block w-full text-left px-4 py-3 rounded-lg hover:bg-slate-900 transition-colors"
+          >
+            AI Chat History
+          </Link>
+
+          <Link
             href="/admin/settings"
             className="block w-full text-left px-4 py-3 rounded-lg hover:bg-slate-900 transition-colors"
           >

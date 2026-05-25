@@ -13,6 +13,7 @@ import MotionWrapper from "./motion/wrapper";
 import ClientShell from "../components/ClientShell";
 import AuthListener from "../components/AuthListener";
 import FloatingCTA from "../components/FloatingCTA";
+import AIChatBot from "../components/AIChatBot";
 import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
@@ -186,6 +187,7 @@ export default function RootLayout({
             <main>{children}</main>
             <Footer />
             <FloatingCTA />
+            <AIChatBot />
           </ClientShell>
         </MotionWrapper>
       </body>

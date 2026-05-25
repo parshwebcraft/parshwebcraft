@@ -8,7 +8,7 @@ export default function FloatingCTA() {
     "https://wa.me/919521347419?text=Hi%20ParshWebCraft%2C%20I%20want%20a%20free%20consultation.";
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-5 left-5 z-50 hidden flex-col items-start gap-3 sm:flex">
       <a
         href={whatsappUrl}
         target="_blank"
