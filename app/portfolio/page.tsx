@@ -52,6 +52,34 @@ export default function PortfolioPage() {
       status: "live",
     },
     {
+      title: "ParshLedger — Accounting & Ledger SaaS",
+      category: "SaaS • Accounting Automation",
+      image: "/images/social-preview.png",
+      description:
+        "A business ledger and accounting SaaS concept built to help Indian businesses manage parties, transactions, balances, and financial records in one clean dashboard.",
+      outcomes: [
+        "Ledger Management",
+        "Party-Wise Balance Tracking",
+        "Business Finance Dashboard",
+      ],
+      tech: ["Next.js", "React", "Supabase", "Tailwind CSS", "SaaS"],
+      status: "in-progress",
+    },
+    {
+      title: "Parsh HR — HR & Employee Management System",
+      category: "SaaS • HR Management",
+      image: "/images/social-preview.png",
+      description:
+        "An HR management system planned for attendance, employee records, leave tracking, payroll workflows, and internal business operations.",
+      outcomes: [
+        "Employee Records",
+        "Attendance & Leave Tracking",
+        "HR Operations Dashboard",
+      ],
+      tech: ["Next.js", "React", "Database Design", "Admin Dashboard"],
+      status: "in-progress",
+    },
+    {
       title: "Medexia Journal – Academic Publishing Website",
       category: "Journal & Research Website",
       image: "/portfolio/medexia-journal.png",

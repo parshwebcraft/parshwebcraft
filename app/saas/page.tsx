@@ -112,6 +112,92 @@ export default function SaaSPage() {
           </motion.div>
         </div>
 
+        {/* ================= FEATURED SAAS — PARSHLEDGER ================= */}
+        <div className="rounded-3xl border border-white/10 bg-[#090d17] p-10 mb-24">
+          <span className="text-[#f3d07a] font-semibold text-sm">
+            New SaaS • IN DEVELOPMENT
+          </span>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-white mt-4">
+            ParshLedger — Accounting & Ledger Management SaaS
+          </h2>
+
+          <p className="text-slate-300 mt-4 max-w-4xl">
+            ParshLedger is being built as a simple, modern accounting and ledger
+            management platform for Indian businesses that need clear party-wise
+            balances, transaction records, payment tracking, and financial
+            visibility without complicated legacy software.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+            <Feature text="Party-wise ledger and balance tracking" />
+            <Feature text="Credit, debit, payment and receipt entries" />
+            <Feature text="Business finance summary dashboard" />
+            <Feature text="Customer and supplier account records" />
+            <Feature text="Export-ready transaction history" />
+            <Feature text="Built for Indian SMEs, shops and service businesses" />
+          </div>
+
+          <motion.div
+            className="mt-14"
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <motion.div
+              whileHover={
+                !reduce
+                  ? {
+                      boxShadow:
+                        "0 12px 40px rgba(18,24,38,0.65), 0 0 42px rgba(243,208,122,0.22)",
+                      scale: 1.015,
+                    }
+                  : undefined
+              }
+              transition={{ type: "spring", stiffness: 220, damping: 20 }}
+              className="
+                relative overflow-hidden rounded-2xl
+                border border-white/10
+                bg-[#0b1220]
+                p-8 md:p-10
+                flex flex-col md:flex-row
+                items-center justify-between gap-6
+              "
+            >
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(243,208,122,0.14),transparent_60%)]" />
+
+              <div className="relative z-10 max-w-xl">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  Want ParshLedger for Your Business?
+                </h3>
+                <p className="text-slate-300">
+                  We are shaping ParshLedger for real business accounting needs.
+                  Share your ledger workflow and we can suggest early access or
+                  a custom version.
+                </p>
+              </div>
+
+              <a
+                href="/contact?intent=parshledger"
+                className="
+                  relative z-10
+                  inline-flex items-center justify-center
+                  px-8 py-4
+                  rounded-full
+                  bg-[#f3d07a]
+                  text-black
+                  font-semibold
+                  hover:brightness-95
+                  transition
+                "
+              >
+                Discuss ParshLedger
+              </a>
+            </motion.div>
+          </motion.div>
+        </div>
+
         {/* ================= WHY SAAS ================= */}
         <div className="text-center mb-24">
           <h3 className="text-3xl font-bold text-white">
