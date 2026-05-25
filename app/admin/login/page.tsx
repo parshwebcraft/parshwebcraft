@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 // import { useRouter } from "next/navigation";
-import { supabaseClient } from "@/lib/supabase/client";
+import { getSupabaseClient } from "@/lib/supabase/client";
 
 
 export default function AdminLoginPage() {
@@ -17,6 +17,14 @@ export default function AdminLoginPage() {
   e.preventDefault();
   setError("");
   setLoading(true);
+
+  const supabaseClient = getSupabaseClient();
+
+  if (!supabaseClient) {
+    setLoading(false);
+    setError("Supabase env not configured.");
+    return;
+  }
 
   const { error } = await supabaseClient.auth.signInWithPassword({
     email,

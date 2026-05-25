@@ -22,9 +22,11 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
+    { label: "Marketing", href: "/digital-marketing-udaipur" },
     { label: "SaaS", href: "/saas/parshvyapar", highlight: true },
     { label: "Case Studies", href: "/case-studies" },
     { label: "Portfolio", href: "/portfolio" },
+    { label: "Blog", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
@@ -43,6 +45,7 @@ export default function Navbar() {
 
   const isActive = (href) => {
     if (href.startsWith("/saas")) return pathname.startsWith("/saas");
+    if (href === "/blog") return pathname.startsWith("/blog");
     return pathname === href;
   };
 

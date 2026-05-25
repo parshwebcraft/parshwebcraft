@@ -12,6 +12,7 @@ import FloatingParticles from "../components/FloatingParticles";
 import MotionWrapper from "./motion/wrapper";
 import ClientShell from "../components/ClientShell";
 import AuthListener from "../components/AuthListener";
+import FloatingCTA from "../components/FloatingCTA";
 import { Analytics } from "@vercel/analytics/react";
 
 const geistSans = Geist({
@@ -184,6 +185,7 @@ export default function RootLayout({
             <Navbar />
             <main>{children}</main>
             <Footer />
+            <FloatingCTA />
           </ClientShell>
         </MotionWrapper>
       </body>

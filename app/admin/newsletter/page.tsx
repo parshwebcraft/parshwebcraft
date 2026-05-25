@@ -1,12 +1,20 @@
 import { createClient } from "@supabase/supabase-js";
 import { formatISTWithAgo } from "@/lib/formatDate";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
-
 export default async function NewsletterAdminPage() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !key) {
+    return (
+      <div className="p-6 text-amber-200">
+        Supabase env not configured.
+      </div>
+    );
+  }
+
+  const supabase = createClient(url, key);
+
   const { data, error } = await supabase
     .from("newsletter")
     .select("email, created_at")
@@ -31,7 +39,7 @@ export default async function NewsletterAdminPage() {
             </tr>
           </thead>
           <tbody>
-            {data.map((row) => (
+            {(data || []).map((row) => (
               <tr
                 key={row.email}
                 className="border-b border-white/5"

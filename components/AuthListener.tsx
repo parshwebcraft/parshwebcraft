@@ -1,10 +1,16 @@
 "use client";
 
 import { useEffect } from "react";
-import { supabaseClient } from "@/lib/supabase/client";
+import { getSupabaseClient } from "@/lib/supabase/client";
 
 export default function AuthListener() {
   useEffect(() => {
+    const supabaseClient = getSupabaseClient();
+
+    if (!supabaseClient) {
+      return;
+    }
+
     const {
       data: { subscription },
     } = supabaseClient.auth.onAuthStateChange(() => {

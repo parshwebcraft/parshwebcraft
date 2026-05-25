@@ -1,12 +1,27 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+function getSupabase() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!url || !key) {
+    return null;
+  }
+
+  return createClient(url, key);
+}
 
 export async function GET() {
+  const supabase = getSupabase();
+
+  if (!supabase) {
+    return NextResponse.json(
+      { error: "Supabase env not configured" },
+      { status: 500 }
+    );
+  }
+
   const { data, error } = await supabase
     .from("settings")
     .select("*")
@@ -25,6 +40,15 @@ export async function GET() {
 
 export async function PATCH(req) {
   try {
+    const supabase = getSupabase();
+
+    if (!supabase) {
+      return NextResponse.json(
+        { error: "Supabase env not configured" },
+        { status: 500 }
+      );
+    }
+
     const updates = await req.json();
 
     // Always update the single settings row

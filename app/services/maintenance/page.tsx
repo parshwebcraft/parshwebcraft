@@ -1,179 +1,80 @@
-"use client";
+import type { Metadata } from "next";
+import {
+  CardGrid,
+  CTABanner,
+  FAQSection,
+  HeroSection,
+  LocalSeoSection,
+  ProcessSection,
+  RelatedLinks,
+  TestimonialPlaceholder,
+} from "@/components/SeoSections";
 
-import { motion, useReducedMotion } from "framer-motion";
-import Link from "next/link";
-
-const container = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+export const metadata: Metadata = {
+  title: "Website Maintenance and Support | ParshWebCraft",
+  description:
+    "Website maintenance services for updates, backups, security, bug fixes, speed checks, content changes, hosting support, and ongoing website care.",
+  keywords: ["website maintenance", "website support", "hosting support", "website security"],
+  openGraph: {
+    title: "Website Maintenance and Support | ParshWebCraft",
+    description:
+      "Keep your website secure, fast, updated, and ready for leads with ParshWebCraft maintenance and support.",
+    url: "https://www.parshwebcraft.in/services/maintenance",
+  },
 };
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+const services = [
+  { title: "Regular Updates", desc: "Framework, dependency, plugin, content, and technical updates to keep your website healthy." },
+  { title: "Security Checks", desc: "Monitoring, SSL review, access hygiene, vulnerability checks, and safer website operations." },
+  { title: "Backups and Recovery", desc: "Backup planning and recovery support so your website can be restored when issues happen." },
+  { title: "Bug Fixes", desc: "Fix layout issues, broken forms, failed integrations, mobile bugs, and small website problems." },
+  { title: "Performance Checks", desc: "Speed reviews, image checks, Core Web Vitals basics, and user experience improvements." },
+  { title: "Hosting and Domain Support", desc: "Domain, hosting, DNS, SSL, email, and deployment support for smooth operations." },
+];
 
-const glowHover = {
-  scale: 1.02,
-  boxShadow:
-    "0 6px 24px rgba(18,24,38,0.5), 0 0 28px rgba(243,208,122,0.18), inset 0 0 18px rgba(243,208,122,0.03)",
-};
+const benefits = [
+  { title: "Protect Your Website Investment", desc: "Maintenance keeps your website stable after launch and avoids preventable downtime." },
+  { title: "Keep Lead Flow Working", desc: "Forms, WhatsApp links, tracking, landing pages, and CTAs need periodic checks to keep enquiries coming." },
+  { title: "Stay Ready for Growth", desc: "As your services, campaigns, and content grow, maintenance keeps the site organized and current." },
+];
+
+const steps = [
+  { title: "Website Review", desc: "We review your current website, hosting, forms, speed, errors, content, and support needs." },
+  { title: "Maintenance Plan", desc: "We define update frequency, backup needs, support scope, and priority areas." },
+  { title: "Ongoing Support", desc: "We handle fixes, updates, checks, and small improvements so your website stays reliable." },
+];
+
+const faqs = [
+  { q: "Do websites need maintenance after launch?", a: "Yes. Websites need updates, security checks, backups, form testing, content updates, and performance reviews." },
+  { q: "Can you maintain websites built by someone else?", a: "In many cases, yes. We first review the website stack, access, hosting, and code quality before confirming support." },
+  { q: "Do you provide hosting and domain setup?", a: "Yes. We can help with hosting, domains, SSL, DNS, deployment, and technical setup." },
+];
 
 export default function MaintenanceServicePage() {
-  const reduce = useReducedMotion();
-
   return (
-    <main className="min-h-screen pt-24 px-6 lg:px-24">
-      {/* ================= HERO ================= */}
-      <section className="py-20">
-        <motion.div
-          className="max-w-4xl mx-auto text-center"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.span
-            className="text-[#f3d07a] text-sm tracking-wide uppercase font-semibold"
-            variants={fadeUp}
-          >
-            Service
-          </motion.span>
-
-          <motion.h1 className="text-4xl font-extrabold mt-3" variants={fadeUp}>
-            Website Maintenance & Support
-          </motion.h1>
-
-          <motion.p
-            className="text-slate-300 max-w-2xl mx-auto mt-6"
-            variants={fadeUp}
-          >
-            Keep your website secure, fast, and up-to-date with ongoing
-            maintenance and professional support.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* ================= FEATURES ================= */}
-      <section className="py-10">
-        <motion.div
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
-          variants={container}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {[
-            {
-              title: "Regular Updates",
-              desc: "Core, plugin, and dependency updates.",
-            },
-            {
-              title: "Security Monitoring",
-              desc: "Protection against vulnerabilities and threats.",
-            },
-            {
-              title: "Automated Backups",
-              desc: "Safe backups with quick recovery options.",
-            },
-            {
-              title: "Performance Checks",
-              desc: "Speed and uptime monitoring.",
-            },
-            {
-              title: "Bug Fixes",
-              desc: "Quick fixes for minor issues and errors.",
-            },
-            {
-              title: "Priority Support",
-              desc: "Fast response for maintenance-related queries.",
-            },
-          ].map((card) => (
-            <motion.div
-              key={card.title}
-              variants={fadeUp}
-              whileHover={!reduce ? glowHover : undefined}
-              transition={{ type: "spring", stiffness: 300, damping: 22 }}
-              className="glass p-6 rounded-xl border border-[rgba(243,208,122,0.15)]"
-            >
-              <h3 className="text-xl font-semibold mb-2">{card.title}</h3>
-              <p className="text-slate-300">{card.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-      </section>
-
-      {/* ================= MAINTENANCE PRICING (ADD-ON) ================= */}
-      <section className="py-20">
-        <motion.div
-          className="max-w-5xl mx-auto text-center glass p-10 rounded-2xl border border-[rgba(243,208,122,0.12)]"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          whileHover={!reduce ? glowHover : undefined}
-        >
-          <h2 className="text-3xl font-bold mb-4">
-            Maintenance as an Add-On Service
-          </h2>
-
-          <p className="text-slate-300 max-w-2xl mx-auto mb-6">
-            Website maintenance is offered as an optional add-on with all
-            website plans. It ensures your website stays secure, updated, and
-            performs at its best even after launch.
-          </p>
-
-          <div className="text-lg font-semibold text-[#f3d07a] mb-6">
-            Starting at ₹3,997 / month
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link
-              href="/pricing"
-              className="px-6 py-3 rounded-full bg-gradient-to-r from-[#f3d07a] to-[#e6c35a]
-                   text-black font-semibold shadow-lg hover:scale-105 transition"
-            >
-              View Pricing Plans
-            </Link>
-
-            <Link
-              href="/contact"
-              className="px-6 py-3 rounded-full border border-[#f3d07a]
-                   text-[#f3d07a] hover:bg-[#f3d07a]/10 transition"
-            >
-              Ask About Maintenance
-            </Link>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* ================= CTA ================= */}
-      <section className="py-20">
-        <motion.div
-          className="max-w-5xl mx-auto glass p-10 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 border border-[rgba(243,208,122,0.12)]"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          whileHover={!reduce ? glowHover : undefined}
-        >
-          <div>
-            <h3 className="text-2xl font-bold mb-2">
-              Need Ongoing Website Support?
-            </h3>
-            <p className="text-slate-300">
-              Let ParshWebCraft handle maintenance while you focus on growth.
-            </p>
-          </div>
-
-          <Link
-            href="/contact"
-            className="px-6 py-3 rounded-full bg-gradient-to-r from-[#f3d07a] to-[#e6c35a]
-                       text-black font-semibold shadow-lg hover:scale-105 transition"
-          >
-            Get Maintenance Plan
-          </Link>
-        </motion.div>
-      </section>
+    <main className="min-h-screen px-6 lg:px-24">
+      <HeroSection
+        eyebrow="Website Maintenance and Support"
+        title="Keep Your Website"
+        highlight="Secure, Fast and Updated"
+        description="ParshWebCraft provides website maintenance, support, backups, bug fixes, hosting help, domain setup, and performance checks for businesses that want a reliable online presence."
+        primaryCta="Get Maintenance Plan"
+      />
+      <CardGrid eyebrow="Services" title="Maintenance Services" items={services} />
+      <CardGrid eyebrow="Benefits" title="Why Maintenance Matters" items={benefits} />
+      <ProcessSection steps={steps} />
+      <LocalSeoSection />
+      <TestimonialPlaceholder />
+      <FAQSection faqs={faqs} />
+      <RelatedLinks
+        links={[
+          { label: "Web Development", href: "/web-development-udaipur" },
+          { label: "SEO Services", href: "/services/seo" },
+          { label: "Contact Support", href: "/contact" },
+          { label: "Pricing", href: "/pricing" },
+        ]}
+      />
+      <CTABanner title="Need Ongoing Website Support?" cta="Get Maintenance Plan" />
     </main>
   );
 }
