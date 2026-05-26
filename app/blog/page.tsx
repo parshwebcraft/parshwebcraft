@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blogs";
 import { CTABanner, Eyebrow } from "@/components/SeoSections";
@@ -44,9 +45,21 @@ export default function BlogPage() {
               key={post.slug}
               className="glass flex h-full flex-col overflow-hidden rounded-xl border border-[#f3d07a]/15 transition hover:-translate-y-1 hover:border-[#f3d07a]/40"
             >
-              <div className="flex aspect-[16/9] items-center justify-center bg-[#f3d07a]/10 px-6 text-center text-sm font-semibold uppercase tracking-wide text-[#f3d07a]">
-                Featured Image Placeholder
-              </div>
+              {post.image ? (
+                <div className="relative aspect-[16/9] bg-[#f3d07a]/10">
+                  <Image
+                    src={post.image}
+                    alt={post.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="flex aspect-[16/9] items-center justify-center bg-[#f3d07a]/10 px-6 text-center text-sm font-semibold uppercase tracking-wide text-[#f3d07a]">
+                  Featured Image Placeholder
+                </div>
+              )}
               <div className="flex flex-1 flex-col p-6">
                 <div className="flex items-center gap-3 text-xs text-slate-400">
                   <span>{post.category}</span>

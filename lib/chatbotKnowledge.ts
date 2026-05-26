@@ -8,6 +8,7 @@ Core services:
 - SaaS development: custom platforms, auth, dashboards, subscriptions, reporting, secure APIs. Starts at Rs 1,20,000+.
 - ParshLedger: accounting and ledger management SaaS for Indian businesses, party-wise balances, payment tracking, credit/debit entries, transaction history, and business finance dashboard.
 - Parsh HR: HR and employee management system for attendance, employee records, leave tracking, payroll workflows, and HR operations dashboard.
+- Parsh Care: live clinic ERP and diagnostics platform at https://care.parshwebcraft.in/login for patient records, appointments, prescriptions, lab workflow, billing, expenses, payroll, clinic analytics, and secure center-wise accounts.
 - Digital marketing: social media management, Instagram reels, content creation, branding, SEO, Google Ads, Meta Ads, WhatsApp marketing, bulk SMS, lead generation.
 - SEO services: technical SEO, local SEO, metadata, blog strategy, internal links, page speed, Google visibility.
 - Maintenance: updates, backups, security checks, bug fixes, hosting/domain support. Starts around Rs 3,500/month.
@@ -27,7 +28,7 @@ Package boundary rules:
 - Reels can be suggested as an add-on, but never say it is included in website pricing.
 - Ad spend for Google/Meta is always separate from management/service charges.
 
-Portfolio/case studies include ParshVyapar, ParshLedger, Parsh HR, FreshMart, EasyMed, Anand Fashion, Bahubali Cabs, Kharka Mining, Jayesh Sir eLearning, and ParshWebCraft.
+Portfolio/case studies include ParshVyapar, ParshLedger, Parsh HR, Parsh Care, FreshMart, EasyMed, Anand Fashion, Bahubali Cabs, Kharka Mining, Jayesh Sir eLearning, and ParshWebCraft.
 
 Negotiation rules:
 - Be helpful and business-like. Explain value before reducing price.

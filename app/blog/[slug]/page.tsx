@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts, getBlogPost } from "@/lib/blogs";
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.description,
       url: `https://www.parshwebcraft.in/blog/${post.slug}`,
       type: "article",
+      images: post.image ? [post.image] : undefined,
     },
   };
 }
@@ -68,13 +70,26 @@ export default async function BlogDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <div
-          role="img"
-          aria-label={post.imageAlt}
-          className="mt-10 flex aspect-[16/9] items-center justify-center rounded-2xl border border-[#f3d07a]/15 bg-[#f3d07a]/10 px-6 text-center font-semibold uppercase tracking-wide text-[#f3d07a]"
-        >
-          Featured Image Placeholder
-        </div>
+        {post.image ? (
+          <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-2xl border border-[#f3d07a]/15 bg-[#f3d07a]/10">
+            <Image
+              src={post.image}
+              alt={post.imageAlt}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 896px"
+              className="object-cover"
+            />
+          </div>
+        ) : (
+          <div
+            role="img"
+            aria-label={post.imageAlt}
+            className="mt-10 flex aspect-[16/9] items-center justify-center rounded-2xl border border-[#f3d07a]/15 bg-[#f3d07a]/10 px-6 text-center font-semibold uppercase tracking-wide text-[#f3d07a]"
+          >
+            Featured Image Placeholder
+          </div>
+        )}
 
         <aside className="mt-10 rounded-xl border border-white/10 bg-white/[0.03] p-6">
           <h2 className="text-xl font-bold text-white">Table of Contents</h2>

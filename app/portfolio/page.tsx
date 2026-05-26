@@ -80,6 +80,21 @@ export default function PortfolioPage() {
       status: "in-progress",
     },
     {
+      title: "Parsh Care — Clinic ERP & Diagnostics Platform",
+      category: "Healthcare SaaS • Clinic ERP",
+      image: "/portfolio/parsh-care.svg",
+      description:
+        "A live clinic ERP and diagnostics platform built for patient records, appointments, prescriptions, lab workflows, billing, expenses, payroll, analytics, and secure center-wise access.",
+      outcomes: [
+        "Live Healthcare ERP",
+        "Clinic Workflow Automation",
+        "Secure Center Accounts",
+      ],
+      tech: ["Next.js", "React", "ERP", "Healthcare SaaS", "Cloud Hosting"],
+      href: "https://care.parshwebcraft.in/login",
+      status: "live",
+    },
+    {
       title: "Medexia Journal – Academic Publishing Website",
       category: "Journal & Research Website",
       image: "/portfolio/medexia-journal.png",

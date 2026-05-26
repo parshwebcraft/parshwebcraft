@@ -55,6 +55,25 @@ export default function CaseStudiesPage() {
           </span>
         </Link>
 
+        {/* ================= PARSH CARE ================= */}
+        <Link
+          href="/case-studies/parsh-care"
+          className="group rounded-2xl border border-emerald-400/30 p-8 hover:border-emerald-400/60 transition bg-emerald-950/10"
+        >
+          <span className="inline-block text-xs text-emerald-400 mb-2 font-semibold">
+            Healthcare SaaS · Live ERP Platform
+          </span>
+          <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
+            Parsh Care — Clinic ERP & Diagnostics Platform
+          </h2>
+          <p className="text-slate-300 mb-4">
+            A live clinic ERP built for reception, patient records,
+            appointments, prescriptions, lab workflow, billing, expenses,
+            payroll, analytics, and secure center-wise clinic operations.
+          </p>
+          <span className="text-sm text-emerald-400">View case study →</span>
+        </Link>
+
         {/* ================= KHARKA MINING ================= */}
         <Link
           href="/case-studies/kharka-mining"

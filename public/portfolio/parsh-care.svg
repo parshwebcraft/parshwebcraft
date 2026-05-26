@@ -1,0 +1,38 @@
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="36" fill="#f4f7f3"/>
+  <rect x="34" y="34" width="520" height="607" rx="28" fill="#163d34"/>
+  <rect x="34" y="34" width="520" height="607" rx="28" fill="url(#leftGlow)" opacity="0.86"/>
+  <rect x="630" y="135" width="510" height="360" rx="22" fill="white"/>
+  <rect x="630" y="135" width="510" height="360" rx="22" stroke="#dbe5df"/>
+  <rect x="88" y="290" width="72" height="72" rx="16" fill="#ffffff" opacity="0.22"/>
+  <path d="M102 327H116L124 303L138 349L148 327H160" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="88" y="395" fill="#d6eee4" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="4">CLINIC ERP &amp; DIAGNOSTICS</text>
+  <text x="88" y="448" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="800">Clinic ERP</text>
+  <text x="88" y="496" fill="#e8f2ee" font-family="Arial, Helvetica, sans-serif" font-size="25">Reception, lab, billing aur attendance ka</text>
+  <text x="88" y="532" fill="#e8f2ee" font-family="Arial, Helvetica, sans-serif" font-size="25">daily workflow ek clean system me.</text>
+  <rect x="88" y="575" width="352" height="44" rx="10" fill="#ffffff" opacity="0.14" stroke="#ffffff" stroke-opacity="0.25"/>
+  <text x="109" y="604" fill="#ecf7f2" font-family="Arial, Helvetica, sans-serif" font-size="18">Patients, appointments, prescriptions</text>
+  <rect x="658" y="164" width="62" height="62" rx="13" fill="#0f5b44"/>
+  <path d="M674 195H684L690 176L701 213L709 195H722" stroke="white" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="740" y="190" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="29" font-weight="800">Clinic ERP</text>
+  <text x="740" y="222" fill="#82a89a" font-family="Arial, Helvetica, sans-serif" font-size="18">Sign in to your center</text>
+  <rect x="658" y="255" width="450" height="52" rx="10" fill="#f4f6f5"/>
+  <rect x="663" y="259" width="156" height="44" rx="8" fill="white"/>
+  <text x="714" y="288" fill="#0f5b44" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Sign in</text>
+  <text x="858" y="288" fill="#8aa99d" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Forgot</text>
+  <text x="995" y="288" fill="#8aa99d" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Create account</text>
+  <text x="658" y="354" fill="#1f2937" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Email / Username</text>
+  <rect x="658" y="372" width="450" height="48" rx="8" fill="white" stroke="#d9e1dd" stroke-width="2"/>
+  <text x="658" y="466" fill="#1f2937" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">Password</text>
+  <rect x="658" y="484" width="450" height="48" rx="8" fill="white" stroke="#d9e1dd" stroke-width="2"/>
+  <rect x="658" y="552" width="450" height="48" rx="8" fill="#0f5b44"/>
+  <text x="852" y="583" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Sign in</text>
+  <text x="831" y="637" fill="#0f5b44" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Parsh Care by ParshWebCraft</text>
+  <defs>
+    <radialGradient id="leftGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(252 137) rotate(81.8) scale(570 360)">
+      <stop stop-color="#8aa99d"/>
+      <stop offset="0.55" stop-color="#244c43"/>
+      <stop offset="1" stop-color="#09241e"/>
+    </radialGradient>
+  </defs>
+</svg>

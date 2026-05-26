@@ -6,6 +6,7 @@ export type BlogPost = {
   date: string;
   readTime: string;
   category: string;
+  image?: string;
   imageAlt: string;
   toc: string[];
   sections: {
@@ -19,6 +20,72 @@ export type BlogPost = {
 };
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "clinic-erp-software-for-healthcare-businesses",
+    title: "How Clinic ERP Software Improves Daily Healthcare Operations",
+    description:
+      "Learn how Parsh Care-style clinic ERP software helps healthcare businesses manage patients, appointments, billing, diagnostics, reports, payroll, and analytics from one system.",
+    keywords: [
+      "clinic ERP software",
+      "healthcare SaaS",
+      "clinic management software",
+      "diagnostics ERP",
+      "SaaS development company",
+    ],
+    date: "2026-03-01",
+    readTime: "6 min read",
+    category: "Healthcare SaaS",
+    image: "/portfolio/parsh-care.svg",
+    imageAlt: "Parsh Care clinic ERP and diagnostics platform interface",
+    toc: [
+      "Why clinics need ERP",
+      "Core clinic workflows",
+      "Billing and analytics",
+      "Secure center accounts",
+    ],
+    sections: [
+      {
+        heading: "Clinics need more than a basic website",
+        body: [
+          "Modern clinics and diagnostic centers handle patients, appointments, prescriptions, lab reports, billing, staff records, expenses, and analytics every day. When these workflows are split across registers, spreadsheets, and messaging apps, the team loses time and owners lose visibility.",
+          "A clinic ERP brings the daily workflow into one clean dashboard so reception, lab, billing, and management can work with the same operational data.",
+        ],
+      },
+      {
+        heading: "Parsh Care shows how healthcare SaaS can simplify operations",
+        body: [
+          "Parsh Care is a live clinic ERP and diagnostics platform built by ParshWebCraft. It is designed around practical clinic needs: patient records, appointment flow, prescriptions, reports, billing, expenses, payroll, and clinic analytics.",
+          "The system also supports separate secure accounts for every center, which is important for healthcare businesses that operate multiple branches or want controlled access for staff.",
+        ],
+      },
+      {
+        heading: "Billing, reports and analytics become easier to manage",
+        body: [
+          "A strong clinic ERP helps teams reduce manual mistakes, generate cleaner records, and understand clinic activity from one place. Billing, expenses, payroll, and reports can be reviewed without hunting through different files.",
+        ],
+      },
+      {
+        heading: "Custom healthcare SaaS can fit the exact workflow",
+        body: [
+          "Every healthcare business works differently. A diagnostic lab, multi-speciality clinic, physiotherapy center, or small local clinic may need different modules. Custom SaaS development allows the ERP to match the real workflow instead of forcing the team into generic software.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is clinic ERP software?",
+        a: "Clinic ERP software is a web-based system that helps clinics manage patient records, appointments, billing, reports, staff workflows, expenses, and analytics from one dashboard.",
+      },
+      {
+        q: "Can ParshWebCraft build healthcare SaaS platforms?",
+        a: "Yes. ParshWebCraft builds custom healthcare SaaS, clinic ERP, diagnostics workflows, dashboards, and secure web applications for healthcare and service businesses.",
+      },
+      {
+        q: "Is clinic ERP useful for small clinics?",
+        a: "Yes. Even small clinics benefit from cleaner records, faster billing, better appointment handling, and fewer manual workflow gaps.",
+      },
+    ],
+  },
   {
     slug: "why-every-business-needs-a-website-2026",
     title: "Why Every Business Needs a Website in 2026",
