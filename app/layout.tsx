@@ -1,5 +1,5 @@
 // app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -28,54 +28,117 @@ const geistMono = Geist_Mono({
 
 // GA ID from ENV
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const SITE_URL = "https://www.parshwebcraft.in";
+const SITE_TITLE =
+  "ParshWebCraft | Web Development & Digital Marketing Agency in Udaipur";
+const SITE_DESCRIPTION =
+  "ParshWebCraft is a leading web development and digital marketing agency in Udaipur offering websites, SaaS development, SEO, branding, social media management, reels marketing, GST billing software and business growth solutions.";
+const GOOGLE_SITE_VERIFICATION =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+  "google-site-verification-placeholder";
+const SEO_KEYWORDS = [
+  "web development company in udaipur",
+  "digital marketing agency in udaipur",
+  "SaaS development company",
+  "website development services",
+  "ecommerce website development",
+  "seo services udaipur",
+  "social media management company",
+  "branding agency udaipur",
+  "landing pages",
+  "GST billing software",
+  "reel marketing",
+  "bulk SMS services",
+  "UI UX design",
+  "hosting and deployment",
+  "performance optimization",
+];
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#050414",
+};
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.parshwebcraft.in"),
+  metadataBase: new URL(SITE_URL),
 
   title: {
-    default: "Web Development Company in Udaipur | ParshWebCraft",
+    default: SITE_TITLE,
     template: "%s | ParshWebCraft",
   },
 
-  description:
-    "ParshWebCraft is a leading web development company in Udaipur offering website design, ecommerce development, and SaaS solutions for businesses across India.",
+  description: SITE_DESCRIPTION,
 
-  keywords: [
-    "web development company in udaipur",
-    "website design in udaipur",
-    "web designer in udaipur",
-    "ecommerce website development india",
-    "saas development company india",
-    "business website development",
+  keywords: SEO_KEYWORDS,
+
+  authors: [{ name: "ParshWebCraft", url: SITE_URL }],
+  creator: "ParshWebCraft",
+  publisher: "ParshWebCraft",
+  applicationName: "ParshWebCraft",
+  category: "Web Development and Digital Marketing",
+
+  verification: {
+    google: GOOGLE_SITE_VERIFICATION,
+  },
+
+  other: {
+    language: "en-IN",
+    "revisit-after": "7 days",
+    "theme-color": "#050414",
+    "sitemap": `${SITE_URL}/sitemap.xml`,
+    "robots.txt": `${SITE_URL}/robots.txt`,
+  },
+
+  appleWebApp: {
+    capable: true,
+    title: "ParshWebCraft",
+    statusBarStyle: "black-translucent",
+  },
+
+  manifest: "/site.webmanifest",
+
+  assets: [
+    "/images/logo-main.png",
+    "/images/social-preview.png",
   ],
 
   alternates: {
-    canonical: "https://www.parshwebcraft.in/",
+    canonical: SITE_URL,
     languages: {
-      "en-IN": "https://www.parshwebcraft.in/",
-      "x-default": "https://www.parshwebcraft.in/",
+      "en-IN": SITE_URL,
+      "x-default": SITE_URL,
     },
   },
 
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   },
 
   icons: {
-    icon: "/icon.png",
+    icon: [
+      { url: "/icon.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 
   openGraph: {
-    title: "Web Development Company in Udaipur | ParshWebCraft",
-    description:
-      "We build high-converting websites, ecommerce stores, and SaaS platforms for growing businesses.",
-    url: "https://www.parshwebcraft.in",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
     siteName: "ParshWebCraft",
+    locale: "en_IN",
     images: [
       {
         url: "/images/social-preview.png",
@@ -89,9 +152,8 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Web Development Company in Udaipur | ParshWebCraft",
-    description:
-      "Premium website design and SaaS development for modern businesses.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/images/social-preview.png"],
   },
 };
@@ -104,6 +166,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* SEO performance hints: preconnect/preload critical brand assets. */}
+        <link rel="canonical" href={SITE_URL} />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link rel="preload" as="image" href="/images/logo-hero.png" />
+        <link rel="preload" as="image" href="/images/social-preview.png" />
+        <meta name="author" content="ParshWebCraft" />
+        <meta name="language" content="en-IN" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="theme-color" content="#050414" />
+        <meta name="google-site-verification" content={GOOGLE_SITE_VERIFICATION} />
+
         {GA_ID && (
           <>
             <Script
@@ -123,50 +199,79 @@ export default function RootLayout({
           </>
         )}
 
+        {/* Structured data strengthens local SEO, brand authority, and AI visibility. */}
         <Script
           id="ld-json"
           type="application/ld+json"
           strategy="afterInteractive"
         >
-          {JSON.stringify([
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "ParshWebCraft",
-              url: "https://www.parshwebcraft.in",
-              logo: "https://www.parshwebcraft.in/icon.png",
-              description:
-                "Web development company in Udaipur building websites, ecommerce platforms, and SaaS products.",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Udaipur",
-                addressRegion: "Rajasthan",
-                addressCountry: "India",
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": `${SITE_URL}/#organization`,
+                name: "ParshWebCraft",
+                url: SITE_URL,
+                logo: `${SITE_URL}/icon.png`,
+                image: `${SITE_URL}/images/social-preview.png`,
+                description: SITE_DESCRIPTION,
+                sameAs: [
+                  "https://www.instagram.com/parshwebcraft",
+                  "https://www.linkedin.com/company/parshwebcraft",
+                ],
+                contactPoint: {
+                  "@type": "ContactPoint",
+                  telephone: "+91-9521347419",
+                  contactType: "customer support",
+                  areaServed: "IN",
+                  availableLanguage: ["English", "Hindi"],
+                },
               },
-              contactPoint: {
-                "@type": "ContactPoint",
+              {
+                "@type": "LocalBusiness",
+                "@id": `${SITE_URL}/#localbusiness`,
+                name: "ParshWebCraft",
+                url: SITE_URL,
+                logo: `${SITE_URL}/icon.png`,
+                image: `${SITE_URL}/images/social-preview.png`,
+                description: SITE_DESCRIPTION,
                 telephone: "+91-9521347419",
-                contactType: "customer support",
-                areaServed: "IN",
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Udaipur",
+                  addressRegion: "Rajasthan",
+                  addressCountry: "IN",
+                },
+                areaServed: [
+                  { "@type": "City", name: "Udaipur" },
+                  { "@type": "State", name: "Rajasthan" },
+                  { "@type": "Country", name: "India" },
+                ],
+                makesOffer: SEO_KEYWORDS.map((keyword) => ({
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Service",
+                    name: keyword,
+                    areaServed: "Udaipur, Rajasthan, India",
+                  },
+                })),
               },
-              sameAs: [
-                "https://www.instagram.com/parshwebcraft",
-                "https://www.linkedin.com/company/parshwebcraft",
-              ],
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              url: "https://www.parshwebcraft.in",
-              name: "ParshWebCraft",
-              potentialAction: {
-                "@type": "SearchAction",
-                target:
-                  "https://www.parshwebcraft.in/search?q={search_term_string}",
-                "query-input": "required name=search_term_string",
+              {
+                "@type": "WebSite",
+                "@id": `${SITE_URL}/#website`,
+                url: SITE_URL,
+                name: "ParshWebCraft",
+                publisher: { "@id": `${SITE_URL}/#organization` },
+                inLanguage: "en-IN",
+                potentialAction: {
+                  "@type": "SearchAction",
+                  target: `${SITE_URL}/search?q={search_term_string}`,
+                  "query-input": "required name=search_term_string",
+                },
               },
-            },
-          ])}
+            ],
+          })}
         </Script>
       </head>
 

@@ -15,23 +15,12 @@ export default function Hero() {
       }
     : {};
 
-  const glowPulse = !reduce
-    ? {
-        boxShadow: [
-          "0 0 20px rgba(243,208,122,0.25)",
-          "0 0 36px rgba(243,208,122,0.45)",
-          "0 0 20px rgba(243,208,122,0.25)",
-        ],
-      }
-    : {};
-
   const spring = { type: "spring", stiffness: 300, damping: 22 };
 
   const delays = {
     badge: 0,
     heading: 0.08,
     subtext: 0.16,
-    saas: 0.24,
     ctas: 0.32,
     secondary: 0.4,
   };
@@ -76,9 +65,12 @@ export default function Hero() {
   ];
 
   return (
-    <main className="min-h-screen pt-24 px-6 lg:px-24">
+    <div className="min-h-screen pt-24 px-6 lg:px-24">
       {/* HERO */}
-      <section className="max-w-4xl mx-auto py-20 relative">
+      <section
+        className="max-w-4xl mx-auto py-20 relative"
+        aria-labelledby="homepage-hero-title"
+      >
         {/* Floating Logo */}
         <motion.div
           aria-hidden
@@ -110,19 +102,20 @@ export default function Hero() {
           </motion.span>
 
           <motion.h1
+            id="homepage-hero-title"
             className="text-5xl font-extrabold leading-tight text-white"
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: delays.heading }}
           >
-            <div>
+            <span className="block">
               Web Development Company in{" "}
               <span className="text-[#f3d07a]">Udaipur</span>
-            </div>
-            <div className="text-3xl mt-2 font-semibold text-slate-300">
-              We Build High-Converting Websites & SaaS Products
-            </div>
+            </span>
+            <span className="block text-3xl mt-2 font-semibold text-slate-300">
+              Websites, SaaS Development & Digital Marketing for Business Growth
+            </span>
           </motion.h1>
 
           <motion.p
@@ -133,9 +126,10 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: delays.subtext }}
           >
             ParshWebCraft is a leading web development company in Udaipur
-            offering website design, ecommerce development, and custom SaaS
-            solutions. We help businesses build fast, SEO-optimized websites
-            that generate real leads and drive long-term growth.
+            and digital marketing agency offering website development, ecommerce
+            website development, custom SaaS development, SEO services, branding,
+            social media management, reel marketing, GST billing software, and
+            business growth solutions across Rajasthan and India.
           </motion.p>
 
           {/* 🔥 FEATURED SAAS — PARSHVYAPAR */}
@@ -147,6 +141,7 @@ export default function Hero() {
             {/* PRIMARY */}
             <motion.a
               href="/portfolio"
+              aria-label="View ParshWebCraft portfolio and website projects"
               className="px-6 py-3 rounded-xl bg-[#f3d07a] text-black font-semibold text-center"
               whileHover={glowHover}
               transition={spring}
@@ -157,6 +152,7 @@ export default function Hero() {
             {/* SECONDARY */}
             <motion.a
               href="/web-development-udaipur"
+              aria-label="Explore web development services in Udaipur"
               className="px-6 py-3 rounded-xl border border-[#f3d07a]/40 text-[#f3d07a] text-center"
               whileHover={glowHover}
               transition={spring}
@@ -167,6 +163,7 @@ export default function Hero() {
             {/* OUTLINE */}
             <motion.a
               href="/contact"
+              aria-label="Contact ParshWebCraft for website and marketing consultation"
               className="px-6 py-3 rounded-xl border border-white/20 text-slate-300 text-center"
               whileHover={glowHover}
               transition={spring}
@@ -195,7 +192,7 @@ export default function Hero() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-24">
+      <section className="py-24" aria-labelledby="homepage-services-title">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -205,12 +202,16 @@ export default function Hero() {
             className="text-center mb-16"
           >
             <span className="text-[#f3d07a] font-medium">Our Services</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
-              Website Design & Development for Businesses
+            <h2
+              id="homepage-services-title"
+              className="text-3xl md:text-4xl font-bold mt-2 text-white"
+            >
+              Website Development, SaaS & Digital Marketing Services in Udaipur
             </h2>
             <p className="text-slate-300 mt-3">
-              Website design, web development, and SaaS solutions built for real
-              business growth.
+              Website development services, ecommerce website development, SEO,
+              social media management, branding, landing pages, and SaaS
+              solutions built for real business growth.
             </p>
           </motion.div>
 
@@ -218,7 +219,8 @@ export default function Hero() {
             {services.map((item, i) => (
               <motion.a
                 key={i}
-                href="/services"
+                href={item.link}
+                aria-label={`Explore ${item.title}`}
                 className="p-6 rounded-xl border border-[#2a2a2a] bg-transparent transition-all cursor-pointer"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -238,7 +240,7 @@ export default function Hero() {
       </section>
 
       {/* PROCESS */}
-      <section className="py-24">
+      <section className="py-24" aria-labelledby="homepage-process-title">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -248,7 +250,10 @@ export default function Hero() {
             className="text-center mb-16"
           >
             <span className="text-[#f3d07a] font-medium">How It Works</span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-2 text-white">
+            <h2
+              id="homepage-process-title"
+              className="text-3xl md:text-4xl font-bold mt-2 text-white"
+            >
               A Proven Web Development Process
             </h2>
           </motion.div>
@@ -276,8 +281,11 @@ export default function Hero() {
           </div>
         </div>
       </section>
-      <section className="py-24 max-w-4xl mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-6">
+      <section
+        className="py-24 max-w-4xl mx-auto"
+        aria-labelledby="homepage-faq-title"
+      >
+        <h2 id="homepage-faq-title" className="text-3xl font-bold text-white mb-6">
           Frequently Asked Questions
         </h2>
 
@@ -306,6 +314,6 @@ export default function Hero() {
           </p>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
