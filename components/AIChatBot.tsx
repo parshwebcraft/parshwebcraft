@@ -42,26 +42,13 @@ export default function AIChatBot() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const stored =
-      window.localStorage.getItem("pwc_chat_session_id") || createSessionId();
-    window.localStorage.setItem("pwc_chat_session_id", stored);
-    setSessionId(stored);
-
-    const saved = window.localStorage.getItem("pwc_chat_messages");
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length) {
-          setMessages(parsed.slice(-30));
-        }
-      } catch {
-        // Ignore corrupted local chat cache.
-      }
-    }
+    const freshSessionId = createSessionId();
+    window.localStorage.setItem("pwc_chat_session_id", freshSessionId);
+    window.localStorage.removeItem("pwc_chat_messages");
+    setSessionId(freshSessionId);
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("pwc_chat_messages", JSON.stringify(messages));
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
       behavior: "smooth",
