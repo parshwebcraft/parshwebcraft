@@ -115,7 +115,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
 
     // If honeypot is filled, silently pretend success (bot trap)
     if (honeypotRef.current?.value) {
-      setStatus("Message sent — thank you!");
+      setStatus("Message sent — Thank you!");
       return;
     }
 
@@ -141,7 +141,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
       const data = await res.json();
 
       if (!res.ok) {
-        setStatus(data?.error || "Something went wrong. Please try again.");
+        setStatus(data?.error || "Something went wrong. Please try again later.");
         return;
       }
 
@@ -150,7 +150,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
       setErrors({});
       onSuccess?.();
     } catch {
-      setStatus("Network error. Please try again or WhatsApp us directly.");
+      setStatus("Network error. Please try again or WhatsApp DM us directly.");
     } finally {
       setSending(false);
     }
