@@ -4,6 +4,55 @@ import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 
+const WA_HERO =
+  "https://wa.me/919521347419?text=Hi%20ParshWebCraft%2C%20I%20need%20a%20website%20for%20my%20business.%20Can%20we%20talk%3F";
+
+const trustItems = [
+  { icon: "🏆", label: "50+ Projects" },
+  { icon: "⭐", label: "4.9 Rating" },
+  { icon: "📍", label: "Udaipur-Based" },
+  { icon: "⚡", label: "2-Hr Response" },
+];
+
+const services = [
+  {
+    icon: "💻",
+    title: "Website Design in Udaipur",
+    text: "Professional business websites with modern UI/UX.",
+    link: "/web-design-udaipur",
+  },
+  {
+    icon: "⚙️",
+    title: "Web Development Company in Udaipur",
+    text: "Custom dashboards, SaaS platforms, and systems.",
+    link: "/web-development-udaipur",
+  },
+  {
+    icon: "📈",
+    title: "SEO Optimized Websites",
+    text: "Fast, secure, and search-engine-ready websites.",
+    link: "/seo-services-udaipur",
+  },
+];
+
+const process = [
+  {
+    step: "Step 1",
+    title: "Requirement Discussion",
+    desc: "We understand your business goals, target audience, and website requirements.",
+  },
+  {
+    step: "Step 2",
+    title: "Design & Development",
+    desc: "We design and build scalable, SEO-friendly websites with clean code and UI.",
+  },
+  {
+    step: "Step 3",
+    title: "Launch & Growth",
+    desc: "Your website is optimized, deployed, and ready to support business growth.",
+  },
+];
+
 export default function Hero() {
   const reduce = useReducedMotion();
 
@@ -21,52 +70,13 @@ export default function Hero() {
     badge: 0,
     heading: 0.08,
     subtext: 0.16,
-    ctas: 0.32,
-    secondary: 0.4,
+    ctas: 0.28,
+    trust: 0.38,
   };
-
-  const services = [
-    {
-      icon: "💻",
-      title: "Website Design in Udaipur",
-      text: "Professional business websites with modern UI/UX.",
-      link: "/web-design-udaipur",
-    },
-    {
-      icon: "⚙️",
-      title: "Web Development Company in Udaipur",
-      text: "Custom dashboards, SaaS platforms, and systems.",
-      link: "/web-development-udaipur",
-    },
-    {
-      icon: "📈",
-      title: "SEO Optimized Websites",
-      text: "Fast, secure, and search-engine-ready websites.",
-      link: "/seo-services-udaipur",
-    },
-  ];
-
-  const process = [
-    {
-      step: "Step 1",
-      title: "Requirement Discussion",
-      desc: "We understand your business goals, target audience, and website requirements.",
-    },
-    {
-      step: "Step 2",
-      title: "Design & Development",
-      desc: "We design and build scalable, SEO-friendly websites with clean code and UI.",
-    },
-    {
-      step: "Step 3",
-      title: "Launch & Growth",
-      desc: "Your website is optimized, deployed, and ready to support business growth.",
-    },
-  ];
 
   return (
     <div className="min-h-screen pt-24 px-6 lg:px-24">
-      {/* HERO */}
+      {/* ══════════════ HERO ══════════════ */}
       <section
         className="max-w-4xl mx-auto py-20 relative"
         aria-labelledby="homepage-hero-title"
@@ -74,12 +84,12 @@ export default function Hero() {
         {/* Floating Logo */}
         <motion.div
           aria-hidden
-          className="hidden md:block absolute -right-3 top-[280px] z-0"
-          animate={{ y: [0, 12, 0] }}
+          className="hidden md:block absolute right-0 top-[260px] z-0"
+          animate={!reduce ? { y: [0, 12, 0] } : {}}
           transition={{ duration: 5.5, ease: "easeInOut", repeat: Infinity }}
         >
-          <div className="relative w-56 h-56 rounded-full overflow-hidden">
-            <div className="absolute inset-0 rounded-full blur-3xl bg-[#f3d07a26]" />
+          <div className="relative w-52 h-52 rounded-full overflow-hidden">
+            <div className="absolute inset-0 rounded-full blur-3xl bg-[#f3d07a1a]" />
             <Image
               src="/images/logo-hero.png"
               alt="ParshWebCraft Logo"
@@ -90,108 +100,130 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <div className="relative z-10">
+        <div className="relative z-10 max-w-2xl">
+          {/* Eyebrow badge */}
           <motion.span
-            className="inline-block mb-4 px-4 py-1 rounded-full bg-[#f3d07a22] text-[#f3d07a] font-medium tracking-wide"
+            className="inline-block mb-5 px-4 py-1.5 rounded-full bg-[#f3d07a1a] text-[#f3d07a] font-medium tracking-wide text-sm border border-[#f3d07a22]"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.badge }}
           >
-            Premium Web & SaaS Solutions in Udaipur
+            🏆 Udaipur&apos;s Trusted Web Agency
           </motion.span>
 
+          {/* H1 — outcome-focused */}
           <motion.h1
             id="homepage-hero-title"
-            className="text-5xl font-extrabold leading-tight text-white"
+            className="text-5xl md:text-6xl font-extrabold leading-[1.1] text-white"
             initial={{ opacity: 0, y: 22 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: delays.heading }}
           >
-            <span className="block">
-              Web Development Company in{" "}
-              <span className="text-[#f3d07a]">Udaipur</span>
-            </span>
-            <span className="block text-3xl mt-2 font-semibold text-slate-300">
-              Websites, SaaS Development & Digital Marketing for Business Growth
-            </span>
+            We Build Websites That Get Your Business{" "}
+            <span className="text-[#f3d07a]">More Calls</span>
           </motion.h1>
 
+          {/* Subtext */}
           <motion.p
-            className="text-slate-300 text-lg mt-6 max-w-xl"
+            className="text-slate-300 text-lg mt-5 max-w-xl leading-7"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: delays.subtext }}
           >
-            ParshWebCraft is a leading web development company in Udaipur
-            and digital marketing agency offering website development, ecommerce
-            website development, custom SaaS development, SEO services, branding,
-            social media management, reel marketing, GST billing software, and
-            business growth solutions across Rajasthan and India.
+            ParshWebCraft is a{" "}
+            <strong className="text-white">web development company in Udaipur</strong>{" "}
+            helping local businesses get professional websites, SEO, and digital
+            marketing that drive real enquiries — not just traffic.
           </motion.p>
 
-          {/* 🔥 FEATURED SAAS — PARSHVYAPAR */}
-
-          {/* PRIMARY CTAs */}
-            {/* ✅ FIXED CTA BUTTONS */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            
-            {/* PRIMARY */}
-            <motion.a
-              href="/portfolio"
-              aria-label="View ParshWebCraft portfolio and website projects"
-              className="px-6 py-3 rounded-xl bg-[#f3d07a] text-black font-semibold text-center"
-              whileHover={glowHover}
-              transition={spring}
-            >
-              View Portfolio →
-            </motion.a>
-
-            {/* SECONDARY */}
-            <motion.a
-              href="/web-development-udaipur"
-              aria-label="Explore web development services in Udaipur"
-              className="px-6 py-3 rounded-xl border border-[#f3d07a]/40 text-[#f3d07a] text-center"
-              whileHover={glowHover}
-              transition={spring}
-            >
-              Web Development in Udaipur
-            </motion.a>
-
-            {/* OUTLINE */}
+          {/* ── CTA HIERARCHY ── */}
+          <motion.div
+            className="mt-9 flex flex-col sm:flex-row gap-4"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: delays.ctas }}
+          >
+            {/* PRIMARY — enquiry */}
             <motion.a
               href="/contact"
-              aria-label="Contact ParshWebCraft for website and marketing consultation"
-              className="px-6 py-3 rounded-xl border border-white/20 text-slate-300 text-center"
+              id="hero-primary-cta"
+              aria-label="Get a free website consultation from ParshWebCraft"
+              className="px-7 py-3.5 rounded-xl bg-[#f3d07a] text-black font-bold text-center text-base shadow-[0_0_24px_rgba(243,208,122,0.3)] transition"
+              whileHover={
+                !reduce
+                  ? {
+                      scale: 1.03,
+                      boxShadow: "0 0 36px rgba(243,208,122,0.45)",
+                    }
+                  : {}
+              }
+              transition={spring}
+            >
+              Get Free Consultation →
+            </motion.a>
+
+            {/* SECONDARY — portfolio */}
+            <motion.a
+              href="/portfolio"
+              id="hero-secondary-cta"
+              aria-label="View ParshWebCraft portfolio and website projects"
+              className="px-7 py-3.5 rounded-xl border border-[#f3d07a]/40 text-[#f3d07a] text-center font-semibold transition"
               whileHover={glowHover}
               transition={spring}
             >
-              Contact Us
+              See Our Work
             </motion.a>
-          </div>
+          </motion.div>
 
-          {/* SECONDARY TRUST CTA */}
+          {/* ── TRUST MICRO-BAR ── */}
           <motion.div
-            className="mt-4"
+            className="mt-8 flex flex-wrap gap-x-6 gap-y-2"
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: delays.secondary }}
+            transition={{ duration: 0.6, delay: delays.trust }}
+          >
+            {trustItems.map((item) => (
+              <span
+                key={item.label}
+                className="flex items-center gap-1.5 text-sm text-slate-400"
+              >
+                <span aria-hidden>{item.icon}</span>
+                {item.label}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Soft CTA */}
+          <motion.div
+            className="mt-4"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.48 }}
           >
             <a
-              href="/contact?intent=free-review"
-              className="inline-flex items-center gap-2 text-sm text-[#f3d07a] hover:underline"
+              href={WA_HERO}
+              target="_blank"
+              rel="noopener noreferrer"
+              id="hero-whatsapp-cta"
+              className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-white transition"
             >
-              Not sure what you need?
-              <span className="font-semibold">Get a free website review →</span>
+              <span className="w-2 h-2 rounded-full bg-[#25D366] inline-block" aria-hidden />
+              Not sure what you need?{" "}
+              <span className="text-[#f3d07a] font-semibold hover:underline">
+                WhatsApp us — free, no pressure →
+              </span>
             </a>
           </motion.div>
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* ══════════════ SERVICES ══════════════ */}
       <section className="py-24" aria-labelledby="homepage-services-title">
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -206,7 +238,7 @@ export default function Hero() {
               id="homepage-services-title"
               className="text-3xl md:text-4xl font-bold mt-2 text-white"
             >
-              Website Development, SaaS & Digital Marketing Services in Udaipur
+              Website Development, SaaS &amp; Digital Marketing Services in Udaipur
             </h2>
             <p className="text-slate-300 mt-3">
               Website development services, ecommerce website development, SEO,
@@ -229,9 +261,7 @@ export default function Hero() {
                 whileHover={!reduce ? glowHover : undefined}
               >
                 <div className="text-3xl mb-3">{item.icon}</div>
-                <h3 className="text-xl font-semibold text-white">
-                  {item.title}
-                </h3>
+                <h3 className="text-xl font-semibold text-white">{item.title}</h3>
                 <p className="text-slate-300 mt-2">{item.text}</p>
               </motion.a>
             ))}
@@ -239,7 +269,7 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* PROCESS */}
+      {/* ══════════════ PROCESS ══════════════ */}
       <section className="py-24" aria-labelledby="homepage-process-title">
         <div className="max-w-5xl mx-auto">
           <motion.div
@@ -281,6 +311,8 @@ export default function Hero() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════ FAQ ══════════════ */}
       <section
         className="py-24 max-w-4xl mx-auto"
         aria-labelledby="homepage-faq-title"
@@ -291,9 +323,7 @@ export default function Hero() {
 
         <div className="space-y-4 text-slate-300">
           <p>
-            <strong>
-              What is the best web development company in Udaipur?
-            </strong>
+            <strong>What is the best web development company in Udaipur?</strong>
             <br />
             ParshWebCraft is one of the leading web development companies in
             Udaipur offering modern website design and SaaS solutions.
@@ -309,8 +339,12 @@ export default function Hero() {
           <p>
             <strong>How much does a website cost in Udaipur?</strong>
             <br />
-            Website cost depends on features, design, and functionality. Contact
-            us for a custom quote.
+            Website cost depends on features, design, and functionality. Our
+            plans start from ₹4,999 — see our{" "}
+            <a href="/pricing" className="text-[#f3d07a] hover:underline">
+              pricing page
+            </a>{" "}
+            or contact us for a custom quote.
           </p>
         </div>
       </section>

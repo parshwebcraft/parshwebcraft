@@ -52,3 +52,62 @@ body {
   border-color: rgba(243,208,122,0.12);
   transform: translateY(-6px);
 }
+
+/* ---- WHATSAPP PULSE DOT ---- */
+@keyframes wa-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+  50% { box-shadow: 0 0 0 7px rgba(37,211,102,0); }
+}
+.wa-pulse-dot {
+  animation: wa-pulse 2s ease-in-out infinite;
+}
+
+/* ---- STAT COUNTER FADE-UP ---- */
+@keyframes stat-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.stat-animate {
+  animation: stat-fade-up 0.55s ease-out both;
+}
+
+/* ---- TESTIMONIAL SCROLL SNAP ---- */
+.testimonial-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 1.25rem;
+  padding-bottom: 0.5rem;
+}
+.testimonial-track::-webkit-scrollbar { display: none; }
+.testimonial-card {
+  scroll-snap-align: start;
+  flex: 0 0 calc(100% - 0px);
+}
+@media (min-width: 768px) {
+  .testimonial-card { flex: 0 0 calc(50% - 0.625rem); }
+}
+@media (min-width: 1024px) {
+  .testimonial-card { flex: 0 0 calc(33.333% - 0.833rem); }
+}
+
+/* ---- QUICK ENQUIRY STRIP ---- */
+.enquiry-strip {
+  background: linear-gradient(135deg,
+    rgba(14,11,43,0.98) 0%,
+    rgba(9,7,27,0.98) 50%,
+    rgba(5,4,20,0.98) 100%);
+  border-top: 1px solid rgba(243,208,122,0.15);
+  border-bottom: 1px solid rgba(243,208,122,0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* ---- PRICING TEASER HIGHLIGHT ---- */
+.pricing-featured {
+  background: linear-gradient(145deg, rgba(243,208,122,0.10) 0%, rgba(243,208,122,0.03) 100%);
+  border-color: rgba(243,208,122,0.35) !important;
+  position: relative;
+}
+
