@@ -22,21 +22,50 @@ export const metadata = {
   title: "AI Chat History | ParshWebCraft Admin",
 };
 
+/* ── Personal data masking ─────────────────────────────────── */
+function maskEmail(email: string | null): string {
+  if (!email) return "—";
+  const [local, domain] = email.split("@");
+  if (!domain) return "***";
+  const masked = local.length > 2
+    ? `${local[0]}${"*".repeat(local.length - 2)}${local.at(-1)}`
+    : "**";
+  return `${masked}@${domain}`;
+}
+
+function maskPhone(phone: string | null): string {
+  if (!phone) return "—";
+  const digits = phone.replace(/\D/g, "");
+  if (digits.length < 6) return "****";
+  return `${digits.slice(0, 2)}${"X".repeat(digits.length - 4)}${digits.slice(-2)}`;
+}
+
+function maskContent(text: string): string {
+  // Mask phone numbers in message content
+  let masked = text.replace(
+    /(?:\+91[\s-]?)?[6-9]\d{9}/g,
+    (m) => m.slice(0, 4) + "XXXXXX"
+  );
+  // Mask email in message content
+  masked = masked.replace(
+    /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi,
+    (m) => {
+      const [l, d] = m.split("@");
+      return `${l[0]}***@${d}`;
+    }
+  );
+  return masked;
+}
+
 export default async function AdminChatHistoryPage() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!url || !key) {
-    return (
-      <div className="p-6 text-amber-200">
-        Supabase env not configured.
-      </div>
-    );
+    return <div className="p-6 text-amber-200">Supabase env not configured.</div>;
   }
 
-  const supabase = createClient(url, key, {
-    auth: { persistSession: false },
-  });
+  const supabase = createClient(url, key, { auth: { persistSession: false } });
 
   const { data: sessions, error: sessionError } = await supabase
     .from("ai_chat_sessions")
@@ -49,15 +78,14 @@ export default async function AdminChatHistoryPage() {
       <div className="p-6">
         <h1 className="text-xl font-semibold mb-3">AI Chat History</h1>
         <div className="rounded-lg border border-amber-400/20 bg-amber-400/10 p-4 text-sm text-amber-100">
-          Chat tables are not ready yet. Run{" "}
+          Chat tables not ready. Run{" "}
           <code>supabase/ai-chatbot-schema.sql</code> in Supabase SQL editor.
         </div>
       </div>
     );
   }
 
-  const sessionIds = (sessions || []).map((session: ChatSession) => session.id);
-
+  const sessionIds = (sessions ?? []).map((s: ChatSession) => s.id);
   const { data: messages } = sessionIds.length
     ? await supabase
         .from("ai_chat_messages")
@@ -66,10 +94,10 @@ export default async function AdminChatHistoryPage() {
         .order("created_at", { ascending: true })
     : { data: [] };
 
-  const messagesBySession = (messages || []).reduce(
-    (acc: Record<string, ChatMessage[]>, message: ChatMessage) => {
-      acc[message.session_id] = acc[message.session_id] || [];
-      acc[message.session_id].push(message);
+  const messagesBySession = (messages ?? []).reduce(
+    (acc: Record<string, ChatMessage[]>, msg: ChatMessage) => {
+      acc[msg.session_id] = acc[msg.session_id] || [];
+      acc[msg.session_id].push(msg);
       return acc;
     },
     {}
@@ -77,60 +105,118 @@ export default async function AdminChatHistoryPage() {
 
   return (
     <div className="p-6">
-      <h1 className="text-xl font-semibold mb-2">AI Chat History</h1>
-      <p className="text-sm text-slate-400 mb-6">
-        See who asked what, when they asked, and whether they shared contact details.
-      </p>
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h1 className="text-xl font-semibold">AI Chat History</h1>
+          <p className="text-sm text-slate-400 mt-1">
+            Personal data is masked. Delete sessions to permanently remove data.
+          </p>
+        </div>
+        <span className="text-xs text-slate-500 bg-white/5 border border-white/10 px-3 py-1 rounded-full">
+          🔒 PII masked
+        </span>
+      </div>
 
       <div className="space-y-5">
-        {(sessions || []).length === 0 && (
+        {(sessions ?? []).length === 0 && (
           <div className="rounded-lg border border-white/10 p-6 text-slate-400">
             No AI chats yet.
           </div>
         )}
 
-        {(sessions || []).map((session: ChatSession) => (
+        {(sessions ?? []).map((session: ChatSession) => (
           <section
             key={session.id}
             className="rounded-xl border border-white/10 bg-white/[0.03] p-5"
           >
-            <div className="mb-4 flex flex-col justify-between gap-3 md:flex-row">
+            <div className="mb-4 flex flex-col justify-between gap-3 md:flex-row md:items-start">
               <div>
-                <h2 className="font-semibold text-white">
-                  Session {session.id.slice(0, 8)}
+                <h2 className="font-semibold text-white text-sm">
+                  Session{" "}
+                  <span className="font-mono text-xs text-slate-400">
+                    {session.id.slice(0, 8)}…
+                  </span>
                 </h2>
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 mt-0.5">
                   Last active: {formatISTWithAgo(session.updated_at)}
                 </p>
               </div>
-              <div className="text-sm text-slate-300 md:text-right">
-                <p>{session.page_path || "Unknown page"}</p>
-                <p>
-                  {session.phone || "No phone"} · {session.email || "No email"}
-                </p>
+
+              <div className="flex items-start gap-4">
+                <div className="text-xs text-slate-400 md:text-right">
+                  <p>{session.page_path || "Unknown page"}</p>
+                  <p className="mt-0.5">
+                    📞 {maskPhone(session.phone)} · ✉️ {maskEmail(session.email)}
+                  </p>
+                </div>
+
+                {/* Delete button */}
+                <DeleteSessionButton sessionId={session.id} />
               </div>
             </div>
 
-            <div className="space-y-3">
-              {(messagesBySession[session.id] || []).map((message) => (
+            <div className="space-y-2.5">
+              {(messagesBySession[session.id] ?? []).map((msg) => (
                 <div
-                  key={message.id}
-                  className={`rounded-lg p-3 text-sm ${
-                    message.role === "user"
-                      ? "ml-auto max-w-3xl bg-[#f3d07a] text-black"
-                      : "max-w-3xl bg-black/30 text-slate-200"
+                  key={msg.id}
+                  className={`rounded-lg p-3 text-sm max-w-3xl ${
+                    msg.role === "user"
+                      ? "ml-auto bg-[#f3d07a]/90 text-black"
+                      : "bg-black/30 text-slate-200"
                   }`}
                 >
-                  <div className="mb-1 text-xs opacity-70">
-                    {message.role} · {formatISTWithAgo(message.created_at)}
+                  <div className="mb-1 text-xs opacity-60">
+                    {msg.role} · {formatISTWithAgo(msg.created_at)}
                   </div>
-                  <p className="whitespace-pre-wrap">{message.content}</p>
+                  <p className="whitespace-pre-wrap">{maskContent(msg.content)}</p>
                 </div>
               ))}
+              {!(messagesBySession[session.id]?.length) && (
+                <p className="text-xs text-slate-500 italic">No messages in this session.</p>
+              )}
             </div>
           </section>
         ))}
       </div>
     </div>
+  );
+}
+
+/* ── Client-side delete button ───────────────────────────── */
+function DeleteSessionButton({ sessionId }: { sessionId: string }) {
+  "use client";
+  // Note: since this is a server component file, the delete action is handled
+  // via fetch to the API endpoint. The button is rendered as a form for SSR safety.
+  return (
+    <form
+      action={`/api/admin/chat/delete`}
+      method="POST"
+      onSubmit={async (e) => {
+        e.preventDefault();
+        if (!confirm("Delete this chat session and all its messages? This cannot be undone.")) return;
+        try {
+          const res = await fetch("/api/admin/chat/delete", {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ sessionId }),
+          });
+          if (res.ok) {
+            window.location.reload();
+          } else {
+            alert("Failed to delete session. Please try again.");
+          }
+        } catch {
+          alert("Network error. Please try again.");
+        }
+      }}
+    >
+      <button
+        type="submit"
+        className="text-xs text-red-400 hover:text-red-300 border border-red-400/20 hover:border-red-400/40 px-2.5 py-1 rounded-lg transition whitespace-nowrap"
+        title="Delete this conversation"
+      >
+        🗑 Delete
+      </button>
+    </form>
   );
 }

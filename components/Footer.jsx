@@ -25,7 +25,13 @@ const FOOTER_LINKS = {
   support: [
     { name: "Pricing Plans", href: "/pricing" },
     { name: "Start a Project", href: "/contact" },
+    { name: "FAQ", href: "/faq" },
+  ],
+  legal: [
     { name: "Privacy Policy", href: "/privacy" },
+    { name: "Terms & Conditions", href: "/terms" },
+    { name: "Refund Policy", href: "/refund" },
+    { name: "Cookie Policy", href: "/cookie-policy" },
   ],
 };
 
@@ -167,6 +173,17 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+
+            <h4 className="text-white font-semibold mt-7 mb-5">Legal</h4>
+            <ul className="space-y-3 text-sm text-slate-400">
+              {FOOTER_LINKS.legal.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="hover:text-[#f3d07a]">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
           {/* NEWSLETTER + CTA */}
           <div className="lg:col-span-4">
@@ -218,15 +235,21 @@ export default function Footer() {
           </div>
         </div>
         {/* BOTTOM */}
-        <div className="mt-12 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
-          <span>© {new Date().getFullYear()} ParshWebCraft</span>
-
-          <span className="text-[10px] text-slate-600">
-            Web Development Company in Udaipur | Website Design Udaipur |
-            Ecommerce Development India | SaaS Development Company
-          </span>
-
-          <span>Built by Gauransh Jaroli</span>
+        <div className="mt-12 pt-6 border-t border-white/5 space-y-3">
+          <div className="flex flex-wrap gap-4 text-xs text-slate-500">
+            <Link href="/privacy" className="hover:text-[#f3d07a] transition">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-[#f3d07a] transition">Terms &amp; Conditions</Link>
+            <Link href="/refund" className="hover:text-[#f3d07a] transition">Refund Policy</Link>
+            <Link href="/cookie-policy" className="hover:text-[#f3d07a] transition">Cookie Policy</Link>
+          </div>
+          <div className="flex flex-col md:flex-row justify-between gap-2 text-xs text-slate-500">
+            <span>© {new Date().getFullYear()} ParshWebCraft. All rights reserved.</span>
+            <span className="text-[10px] text-slate-600">
+              Web Development Company in Udaipur | Website Design Udaipur |
+              Ecommerce Development India | SaaS Development Company
+            </span>
+            <span>Built by Gauransh Jaroli</span>
+          </div>
         </div>
       </div>
     </footer>
