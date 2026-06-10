@@ -1,5 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 import { formatISTWithAgo } from "@/lib/formatDate";
+import DeleteSessionButton from "./DeleteSessionButton";
 
 type ChatSession = {
   id: string;
@@ -182,41 +183,3 @@ export default async function AdminChatHistoryPage() {
   );
 }
 
-/* ── Client-side delete button ───────────────────────────── */
-function DeleteSessionButton({ sessionId }: { sessionId: string }) {
-  "use client";
-  // Note: since this is a server component file, the delete action is handled
-  // via fetch to the API endpoint. The button is rendered as a form for SSR safety.
-  return (
-    <form
-      action={`/api/admin/chat/delete`}
-      method="POST"
-      onSubmit={async (e) => {
-        e.preventDefault();
-        if (!confirm("Delete this chat session and all its messages? This cannot be undone.")) return;
-        try {
-          const res = await fetch("/api/admin/chat/delete", {
-            method: "DELETE",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ sessionId }),
-          });
-          if (res.ok) {
-            window.location.reload();
-          } else {
-            alert("Failed to delete session. Please try again.");
-          }
-        } catch {
-          alert("Network error. Please try again.");
-        }
-      }}
-    >
-      <button
-        type="submit"
-        className="text-xs text-red-400 hover:text-red-300 border border-red-400/20 hover:border-red-400/40 px-2.5 py-1 rounded-lg transition whitespace-nowrap"
-        title="Delete this conversation"
-      >
-        🗑 Delete
-      </button>
-    </form>
-  );
-}
