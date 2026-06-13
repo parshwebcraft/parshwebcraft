@@ -14,7 +14,7 @@ export default function ContactClient() {
 
   const whatsappNumber = "919521347419";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    "Hi ParshWebCraft! I want to discuss a website or SaaS App development project."
+    "Hi ParshWebCraft! I want to discuss a website or SaaS App development project.",
   )}`;
 
   return (
@@ -69,9 +69,7 @@ export default function ContactClient() {
 
               <div>
                 <p className="font-semibold">📍 Location</p>
-                <p className="text-slate-300">
-                  Udaipur, Rajasthan, India
-                </p>
+                <p className="text-slate-300">Udaipur, Rajasthan, India</p>
               </div>
             </div>
           </div>
@@ -102,7 +100,7 @@ export default function ContactClient() {
           <div className="rounded-2xl overflow-hidden border border-[#f3d07a]/20">
             <iframe
               title="Udaipur Location"
-              src="https://maps.app.goo.gl/w5weELn34XiQebMPA"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d590.8967365711178!2d73.7313213510171!3d24.574862808214387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjTCsDM0JzMwLjEiTiA3M8KwNDMnNTUuMyJF!5e1!3m2!1sen!2sin!4v1781340271614!5m2!1sen!2sin"
               className="w-full h-[250px]"
               loading="lazy"
             />
@@ -111,9 +109,7 @@ export default function ContactClient() {
 
         {/* RIGHT SIDE (FORM) */}
         <div className="glass p-8 rounded-2xl border border-white/10">
-          <h2 className="text-2xl font-bold mb-3">
-            Get a Free Consultation
-          </h2>
+          <h2 className="text-2xl font-bold mb-3">Get a Free Consultation</h2>
 
           <p className="text-slate-400 text-sm mb-6">
             Share your idea and we’ll guide you with the best approach.
