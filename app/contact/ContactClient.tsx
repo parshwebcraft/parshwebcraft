@@ -102,7 +102,7 @@ export default function ContactClient() {
           <div className="rounded-2xl overflow-hidden border border-[#f3d07a]/20">
             <iframe
               title="Udaipur Location"
-              src="https://www.google.com/maps?q=Udaipur%20Rajasthan&output=embed"
+              src="https://maps.app.goo.gl/w5weELn34XiQebMPA"
               className="w-full h-[250px]"
               loading="lazy"
             />
