@@ -71,7 +71,7 @@ export default function PricingPage() {
             animate="visible"
             className="text-slate-300 mt-4 max-w-2xl mx-auto"
           >
-            We don't build cheap, slow templates. We build modern, lightning-fast
+            We don&apos;t build cheap, slow templates. We build modern, lightning-fast
             Next.js web applications, headless e-commerce systems, and SaaS platforms
             engineered for growth, safety, and long-term scale.
           </motion.p>
@@ -263,7 +263,7 @@ export default function PricingPage() {
               Why Our Websites Stand Out
             </h2>
             <p className="text-slate-400 mt-2 max-w-xl mx-auto text-sm">
-              We don't build cheap, slow, vulnerable template sites. Every line of code is engineered for speed, safety, and modern AI capability.
+              We don&apos;t build cheap, slow, vulnerable template sites. Every line of code is engineered for speed, safety, and modern AI capability.
             </p>
           </div>
 
