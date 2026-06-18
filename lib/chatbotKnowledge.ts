@@ -25,14 +25,17 @@ CORE SERVICES:
    - Ecommerce: product catalog, cart, checkout, payment gateway, mobile commerce
    - Custom CRM, dashboards, booking systems, restaurant QR menu systems
 
-2. SaaS Platform Development
+2. SaaS App Development
    - Custom SaaS apps, auth systems, dashboards, subscriptions, APIs
-   - Starting at Rs 1,20,000+ (timeline: 1 month minimum)
+   - Starting at Rs 2,20,000 (timeline: 1 month minimum)
 
 3. OWN SaaS PRODUCTS:
    - ParshLedger: Accounting & ledger SaaS for Indian businesses (party balances, payment tracking)
    - Parsh HR: HR & employee management (attendance, payroll, leave tracking)
-   - Parsh Care: Live clinic ERP at care.parshwebcraft.in — patient records, appointments, billing, lab workflow
+   - ParshCare ERP: Live clinic ERP at care.parshwebcraft.in — patient records, appointments, billing, lab workflow
+   - ParshvTrack: Live field workforce GPS tracking and location monitoring dashboard
+   - Carbon AI: Voice calling AI agent and automated call analysis dashboard
+   - ParshHire: Live Applicant Tracking System (ATS) & recruitment dashboard
 
 4. Digital Marketing (SEPARATE from website — NOT included in website packages)
    - Social media management, Instagram reels, content creation
@@ -54,10 +57,11 @@ WEBSITE PRICING PLANS:
 
 | Plan | Price | Pages | Delivery | Best For |
 |------|-------|-------|----------|----------|
-| Starter Website | Rs 4,999 | 1 page | 3-5 days | Simple presence, single service |
-| Business Website | Rs 14,999 | 6-8 pages | 7-10 days | Most businesses — includes WhatsApp form, local SEO, analytics |
-| Premium Website | Rs 34,999+ | 10-15 pages | 15-20 days | Ecommerce, booking, automation, payment integration |
-| SaaS Platform | Rs 1,20,000+ | Custom | 1 month+ | Full web apps, dashboards |
+| Starter Website | Rs 17,999 | 1 page | 3-5 days | Simple presence, single service |
+| Business Website | Rs 34,999 | 6-8 pages | 7-10 days | Most businesses — includes WhatsApp form, local SEO, analytics |
+| Premium Website | Rs 59,999 | 10-15 pages | 15-20 days | Custom landing flows, booking, automation |
+| Ecommerce Store | Rs 1,20,000 | Custom | 15-25 days | Full headless/custom online store with payment |
+| SaaS App | Rs 2,20,000 | Custom | 1 month+ | Full custom SaaS products, dashboards |
 | Enterprise | Custom | Custom | Custom | Complex systems |
 | Monthly Maintenance | ~Rs 3,500/month | — | Ongoing | Updates, backups, support |
 
@@ -81,10 +85,10 @@ WHAT IS NOT INCLUDED IN WEBSITE PLANS (separate service, separate charges):
 const CHUNK_NEGOTIATION = `
 NEGOTIATION RULES (follow strictly):
 
-- Starter (Rs 4,999): already minimum price — no discount. Can suggest scope reduction if budget very tight.
-- Business (Rs 14,999): up to 5% discount if client confirms they are ready to start NOW.
-- Premium (Rs 34,999+): up to 7% discount OR add one bonus (basic SEO audit or extra content section).
-- SaaS/Enterprise: cannot finalize price in chat. Ask for requirements and suggest a discovery call.
+- Starter (Rs 17,999): up to 5% discount if client ready to start now.
+- Business (Rs 34,999): up to 7% discount if client confirms they are ready to start NOW.
+- Premium (Rs 59,999): up to 10% discount OR add one bonus.
+- Ecommerce (Rs 1,20,000) / SaaS (Rs 2,20,000): require scoping. Ask for requirements before detailing discounts.
 
 LEAD COLLECTION (collect when user seems ready):
 Ask for: name, business type, city/location, phone/WhatsApp, rough budget, timeline.
@@ -94,6 +98,7 @@ IMPORTANT — Never:
 - Promise a legal contract is confirmed in chat
 - Say a final price is locked without team verification
 - Say reels/ads are included in any website plan
+- Make statements about reels/content marketing being included
 `.trim();
 
 // ── CHUNK 5: Portfolio & Case Studies ────────────────────────
@@ -102,19 +107,22 @@ PORTFOLIO / CASE STUDIES:
 
 | Project | Type | Highlights |
 |---------|------|-----------|
+| ParshvTrack | SaaS — GPS Tracker | Field workforce tracking, dispatcher route scheduling |
+| Carbon AI | AI SaaS | AI voice calling agent, call transcription, sentiment analyst |
+| ParshCare ERP | Healthcare SaaS | Patient records, billing, appointment scheduling |
+| ParshHire | SaaS — Recruitment | Applicant Tracking System (ATS), job board, application flow |
+| ParshVyapar | SaaS — Inventory | Billing, stock management, GST invoicing |
 | Bahubali Hills Taxi Service | Local business website | Professional taxi booking site, online presence |
 | Mahapragya Vihar | Community platform | Jain community portal, modern design |
 | ATDC Udaipur | Clinic ERP | Streamlined operations, day-to-day management |
 | Him Cream Naturals | QR ordering system | Simplified customer ordering experience |
 | ParshLedger | SaaS — Accounting | Party balances, payment tracking, finance dashboard |
 | Parsh HR | SaaS — HR System | Attendance, payroll, employee management |
-| Parsh Care | SaaS — Clinic ERP | Patient records, appointments, billing, lab |
 | FreshMart | Ecommerce | Online grocery/product store |
 | EasyMed | Medical | Healthcare website |
 | Anand Fashion | Ecommerce/catalog | Fashion store catalog |
 | Kharka Mining | Industrial | Mining company website |
 | Jayesh Sir eLearning | EdTech | Online coaching platform |
-| ParshVyapar | SaaS | Billing and inventory |
 
 Relevant portfolios are shown at: parshwebcraft.in/portfolio
 `.trim();
@@ -124,48 +132,48 @@ const CHUNK_BUSINESS_FLOWS = `
 RECOMMENDATIONS BY BUSINESS TYPE:
 
 JEWELLERY SHOWROOM:
-Best: Premium Website (Rs 34,999+) or Ecommerce Website
+Best: Premium Website (Rs 59,999) or Ecommerce Store (Rs 1,20,000)
 Key features: luxury brand design, product catalog, WhatsApp enquiry per product, Google Maps, local SEO "jewellery showroom Udaipur", testimonials, offers, festive campaigns
 Add-ons: Instagram reels, Meta Ads, product photoshoot (separate charges)
 Ask: "Catalog me kitne products/categories hain? Online payment chahiye ya WhatsApp enquiry enough hai?"
 
 RESTAURANT / CAFE / HOTEL:
-Best: Business Website (Rs 14,999) + QR menu system
+Best: Business Website (Rs 34,999) + QR menu system
 Key features: QR menu with table ordering, Google Maps, local SEO, food photoshoot sections, WhatsApp offers
 Add-ons: Reels strategy, Meta local ads (separate)
 Ask: "Dine-in hai ya cloud kitchen/takeaway?"
 
 CLINIC / DOCTOR / HOSPITAL:
-Best: Business Website (Rs 14,999); Premium if multiple departments
+Best: Business Website (Rs 34,999); Premium (Rs 59,999) if multiple departments
 Key features: doctor profiles, appointment CTA, WhatsApp/call button, Google Maps, local SEO, patient FAQs, testimonials
 Ask: "Clinic kis specialty ka hai? Kitne doctors hain?"
 
 COACHING / INSTITUTE / SCHOOL:
-Best: Business (Rs 14,999) to start; Premium for many course pages
+Best: Business (Rs 34,999) to start; Premium (Rs 59,999) for many course pages
 Key features: course pages, admission form, WhatsApp counselling CTA, results/testimonials, SEO blogs
 Add-ons: Meta/Google ads landing page (separate)
 Ask: "Kaunse courses offer karte ho? Students local ya online?"
 
 GYM / FITNESS:
-Best: Business Website (Rs 14,999) + social media combo
+Best: Business Website (Rs 34,999) + social media combo
 Key features: membership plans, trainer profiles, transformation gallery, WhatsApp trial booking, local SEO
 Add-ons: Reels and Meta ads (separate)
 
 RETAIL / FASHION / SALON / BOUTIQUE:
-Best: Business (Rs 14,999) for catalog; Premium/Ecommerce for online orders
+Best: Business (Rs 34,999) for catalog; Ecommerce Store (Rs 1,20,000) for online orders
 Key features: product catalog, WhatsApp enquiry, offers, local SEO, Instagram content
 Ask: "Online order lena chahte ho ya WhatsApp enquiry only?"
 
 STARTUP / SAAS / SOFTWARE:
-Best: Premium landing page (Rs 34,999+) for validation; SaaS development (Rs 1,20,000+) for full app
+Best: Premium Website (Rs 59,999) for validation; SaaS App (Rs 2,20,000) for full app
 Ask: "Sirf landing page chahiye ya full dashboard/app build karna hai?"
 
 REAL ESTATE / BUILDER:
-Best: Premium Website (Rs 34,999+)
+Best: Premium Website (Rs 59,999)
 Key features: property listings, virtual tours, lead forms, WhatsApp enquiry, local SEO "flats in Udaipur"
 
 ECOMMERCE / ONLINE STORE:
-Best: Premium Website / Ecommerce (Rs 34,999+)
+Best: Ecommerce Store (Rs 1,20,000)
 Key features: product catalog, cart, Razorpay/PhonePe payment, order tracking, mobile commerce
 `.trim();
 
@@ -173,7 +181,7 @@ Key features: product catalog, cart, Razorpay/PhonePe payment, order tracking, m
 const CHUNK_BOUNDARIES = `
 CRITICAL PACKAGE BOUNDARY RULES — NEVER VIOLATE:
 
-1. Rs 14,999 Business Website plan DOES NOT include:
+1. Rs 34,999 Business Website plan DOES NOT include:
    - Instagram reels ❌
    - Social media posts ❌
    - Video creation or editing ❌
@@ -181,8 +189,8 @@ CRITICAL PACKAGE BOUNDARY RULES — NEVER VIOLATE:
    - Meta Ads or Google Ads management ❌
    - Ad spend (always paid by client directly) ❌
 
-2. If user asks "kya reels included hain Rs 14,999 me?" — Answer:
-   "Nahi, reels included nahi hain. Rs 14,999 sirf website ka kaam cover karta hai (6-8 pages, WhatsApp form, local SEO, analytics). Reels aur social media content ek alag digital marketing service hai jiske alag charges hote hain."
+2. If user asks "kya reels included hain Rs 34,999 me?" — Answer:
+   "Nahi, reels included nahi hain. Rs 34,999 sirf website ka kaam cover karta hai (6-8 pages, WhatsApp form, local SEO, analytics). Reels aur social media content ek alag digital marketing service hai jiske alag charges hote hain."
 
 3. Never say ad spend is included in any package.
 4. Reels can be SUGGESTED as an add-on but NEVER said to be included.
@@ -212,7 +220,7 @@ const ALL_CHUNKS: KnowledgeChunk[] = [
   {
     name: "PRICING",
     content: CHUNK_PRICING,
-    keywords: ["price", "pricing", "cost", "rate", "kitna", "budget", "plan", "starter", "business", "premium", "4999", "14999", "34999", "120000", "package", "include", "kya milega"],
+    keywords: ["price", "pricing", "cost", "rate", "kitna", "budget", "plan", "starter", "business", "premium", "17999", "34999", "59999", "120000", "220000", "package", "include", "kya milega"],
   },
   {
     name: "NEGOTIATION",
@@ -222,7 +230,7 @@ const ALL_CHUNKS: KnowledgeChunk[] = [
   {
     name: "PORTFOLIO",
     content: CHUNK_PORTFOLIO,
-    keywords: ["portfolio", "work", "project", "case", "example", "client", "previous", "dikhao", "show", "bahubali", "freshmart", "anand", "parshledger", "parsh hr", "parsh care"],
+    keywords: ["portfolio", "work", "project", "case", "example", "client", "previous", "dikhao", "show", "bahubali", "freshmart", "anand", "parshledger", "parsh hr", "parsh care", "parshvtrack", "carbon", "carbon ai", "parshhire"],
   },
   {
     name: "BUSINESS_FLOWS",
@@ -301,18 +309,18 @@ export function getFallbackChatReply(message: string, history: HistoryMessage[] 
 
   // Boundary rule: reels/content included question
   if (
-    hasAny(text, ["reel", "reels", "video", "content", "shoot", "photoshoot", "instagram post"]) &&
-    hasAny(text, ["include", "included", "isme", "sath", "saath", "milega", "14999", "package"])
+    hasAny(text, ["reel", "reels", "video", "content", "custom", "shoot", "photoshoot", "instagram post"]) &&
+    hasAny(text, ["include", "included", "isme", "sath", "saath", "milega", "34999", "package"])
   ) {
-    return "Nahi, Rs 14,999 Business Website plan me reels included nahi hain.\n\nRs 14,999 me sirf website ka kaam hota hai:\n- 6-8 website pages\n- Premium UI/UX\n- WhatsApp/enquiry form\n- Local SEO foundation\n- Analytics setup\n\nInstagram reels, social media content, photoshoot — ye sab digital marketing add-ons hain jiske alag charges hote hain. Main inhe alag recommend kar sakta hoon.";
+    return "Nahi, Rs 34,999 Business Website plan me reels included nahi hain.\n\nRs 34,999 me sirf website ka kaam hota hai:\n- 6-8 website pages\n- Premium UI/UX\n- WhatsApp/enquiry form\n- Local SEO foundation\n- Analytics setup\n\nInstagram reels, social media content, photoshoot — ye sab digital marketing add-ons hain jiske alag charges hote hain. Main inhe alag recommend kar sakta hoon.";
   }
 
   if (hasAny(text, ["price", "pricing", "cost", "rate", "kitna", "budget", "discount", "plan"])) {
-    return "💰 Pricing Plans:\n\n• Starter Website — Rs 4,999 (1 page, 3-5 days)\n• Business Website — Rs 14,999 (6-8 pages, 7-10 days) ⭐ Most popular\n• Premium Website — Rs 34,999+ (10-15 pages, 15-20 days)\n• SaaS Platform — Rs 1,20,000+ (1 month+)\n• Maintenance — ~Rs 3,500/month\n\nBusiness plan me discount possible hai agar aap ready to start hain. Aapka business type kya hai?";
+    return "💰 Pricing Plans:\n\n• Starter Website — Rs 17,999 (1 page, 3-5 days)\n• Business Website — Rs 34,999 (6-8 pages, 7-10 days) ⭐ Most popular\n• Premium Website — Rs 59,999 (10-15 pages, 15-20 days)\n• Ecommerce Store — Rs 1,20,000 (15-25 days)\n• SaaS App — Rs 2,20,000 (1 month+)\n• Maintenance — ~Rs 3,500/month\n\nBusiness plan me discount possible hai agar aap ready to start hain. Aapka business type kya hai?";
   }
 
   if (hasAny(text, ["portfolio", "work", "case", "dikhao", "example"])) {
-    return "🏆 Recent projects:\n\n• Bahubali Cabs — Local taxi booking site\n• Anand Fashion — Ecommerce catalog\n• FreshMart — Online grocery store\n• Him Cream Naturals — QR ordering system\n• ParshLedger — Accounting SaaS\n• Parsh Care — Clinic ERP\n• ATDC Udaipur — Clinic ERP project\n\nAapki industry batao, main closest example suggest karunga.";
+    return "🏆 Recent projects:\n\n• ParshvTrack — Field workforce GPS tracking SaaS\n• Carbon AI — Voice AI calling & analyst agent\n• ParshCare ERP — Clinic & diagnostic ERP\n• ParshHire — ATS & recruitment platform\n• ParshVyapar — Billing & inventory SaaS\n• Anand Fashion — Ecommerce catalog\n• Him Cream Naturals — QR ordering system\n\nAapki industry batao, main closest example suggest karunga.";
   }
 
   if (hasAny(text, ["hello", "hi", "hey", "namaste", "hii"])) {

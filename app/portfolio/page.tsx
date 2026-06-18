@@ -52,6 +52,66 @@ export default function PortfolioPage() {
       status: "live",
     },
     {
+      title: "ParshvTrack — Field Workforce GPS Tracker",
+      category: "SaaS • Location & Operations",
+      image: "/portfolio/parshvtrack.png",
+      description:
+        "A live field workforce tracking and location monitoring platform built to optimize route operations, attendance logging, and dispatcher scheduling in real-time.",
+      outcomes: [
+        "Live GPS Tracking Dashboard",
+        "Field Attendance Logging",
+        "Dispatcher Route Optimization",
+      ],
+      tech: ["Next.js", "React", "Geofencing", "Maps API", "SaaS"],
+      href: "https://parshvtrack.vercel.app/",
+      status: "live",
+    },
+    {
+      title: "Carbon AI — Voice Calling Agent & Analyst",
+      category: "AI SaaS • Automated Telephony",
+      image: "/portfolio/carbon-ai.png",
+      description:
+        "An advanced AI voice agent dashboard that automates outbound/inbound phone calls, transcribes voice in real-time, and analyzes user sentiment with executive summaries.",
+      outcomes: [
+        "Autonomous Voice Calling",
+        "Real-Time Call Transcription",
+        "Sentiment & Lead Analysis",
+      ],
+      tech: ["React", "Next.js", "Twilio API", "Generative AI", "WebSockets"],
+      href: "https://carbon-ai-chi.vercel.app/",
+      status: "live",
+    },
+    {
+      title: "ParshCare ERP — Clinic & Diagnostic Platform",
+      category: "Healthcare SaaS • Clinic ERP",
+      image: "/portfolio/parsh-care.svg",
+      description:
+        "A live clinic ERP and diagnostics platform built for patient records, appointments, prescriptions, lab workflows, billing, expenses, payroll, analytics, and secure center-wise access.",
+      outcomes: [
+        "Live Healthcare ERP",
+        "Clinic Workflow Automation",
+        "Secure Center Accounts",
+      ],
+      tech: ["Next.js", "React", "ERP", "Healthcare SaaS", "Cloud Hosting"],
+      href: "https://care.parshwebcraft.in/login",
+      status: "live",
+    },
+    {
+      title: "ParshHire — Recruitment & ATS Platform",
+      category: "SaaS • Talent Acquisition",
+      image: "/portfolio/parshhire.png",
+      description:
+        "A complete Applicant Tracking System (ATS) built for job postings, parsing candidate resumes, candidate profile pipelines, and recruiter scheduling.",
+      outcomes: [
+        "ATS Applicant Pipeline",
+        "AI Resume Parsing Highlights",
+        "Job Board & Application Flow",
+      ],
+      tech: ["Next.js", "React", "Supabase", "ATS", "Tailwind CSS"],
+      href: "https://hire.parshwebcraft.in/",
+      status: "live",
+    },
+    {
       title: "ParshLedger — Accounting & Ledger SaaS",
       category: "SaaS • Accounting Automation",
       image: "/images/social-preview.png",
@@ -78,21 +138,6 @@ export default function PortfolioPage() {
       ],
       tech: ["Next.js", "React", "Database Design", "Admin Dashboard"],
       status: "in-progress",
-    },
-    {
-      title: "Parsh Care — Clinic ERP & Diagnostics Platform",
-      category: "Healthcare SaaS • Clinic ERP",
-      image: "/portfolio/parsh-care.svg",
-      description:
-        "A live clinic ERP and diagnostics platform built for patient records, appointments, prescriptions, lab workflows, billing, expenses, payroll, analytics, and secure center-wise access.",
-      outcomes: [
-        "Live Healthcare ERP",
-        "Clinic Workflow Automation",
-        "Secure Center Accounts",
-      ],
-      tech: ["Next.js", "React", "ERP", "Healthcare SaaS", "Cloud Hosting"],
-      href: "https://care.parshwebcraft.in/login",
-      status: "live",
     },
     {
       title: "Medexia Journal – Academic Publishing Website",
@@ -125,7 +170,6 @@ export default function PortfolioPage() {
       href: "https://kharka-mining-llp.vercel.app/",
       status: "live",
     },
-
     {
       title: "Bahubali Cabs – Taxi Service Website",
       category: "Local Business Website",
@@ -153,9 +197,6 @@ export default function PortfolioPage() {
       href: "https://www.ospfudr.com/",
       status: "live",
     },
-
-    // 🔥 NEW PROJECTS
-
     {
       title: "Him Cream Naturals — QR Ordering System",
       category: "Restaurant Tech • QR Ordering",
@@ -171,7 +212,6 @@ export default function PortfolioPage() {
       href: "https://www.himcreamnaturals.com/select-table",
       status: "live",
     },
-
     {
       title: "Anand Fashion Udaipur — Ecommerce Website",
       category: "Ecommerce Website",
@@ -187,7 +227,6 @@ export default function PortfolioPage() {
       href: "https://www.anandfashionudaipur.com/",
       status: "live",
     },
-
     {
       title: "Bullet Raja Showroom — Digital Presence",
       category: "Showroom Website",

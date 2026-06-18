@@ -39,6 +39,48 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.82,
     },
     {
+      url: `${baseUrl}/case-studies/anand-fashion`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
+    {
+      url: `${baseUrl}/case-studies/bahubali-cabs`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
+    {
+      url: `${baseUrl}/case-studies/carbon-ai`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
+    {
+      url: `${baseUrl}/case-studies/jayesh-sir-elearning`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
+    {
+      url: `${baseUrl}/case-studies/kharka-mining`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
+    {
+      url: `${baseUrl}/case-studies/parshhire`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
+    {
+      url: `${baseUrl}/case-studies/parshwebcraft`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.82,
+    },
+    {
       url: `${baseUrl}/contact`,
       lastModified: now,
       changeFrequency: "yearly",

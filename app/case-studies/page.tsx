@@ -33,7 +33,7 @@ export default function CaseStudiesPage() {
           CASE STUDIES GRID
       ========================= */}
       <section className="grid md:grid-cols-2 gap-8">
-        {/* ================= PARSHVYAPAR (TOP 1) ================= */}
+        {/* ================= PARSHVYAPAR ================= */}
         <Link
           href="/saas/parshvyapar"
           className="group rounded-2xl border border-[#f3d07a]/40 p-8 hover:border-[#f3d07a]/70 transition bg-[#0b1220]"
@@ -55,7 +55,7 @@ export default function CaseStudiesPage() {
           </span>
         </Link>
 
-        {/* ================= PARSH CARE ================= */}
+        {/* ================= PARSHCARE ERP ================= */}
         <Link
           href="/case-studies/parsh-care"
           className="group rounded-2xl border border-emerald-400/30 p-8 hover:border-emerald-400/60 transition bg-emerald-950/10"
@@ -64,7 +64,7 @@ export default function CaseStudiesPage() {
             Healthcare SaaS · Live ERP Platform
           </span>
           <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
-            Parsh Care — Clinic ERP & Diagnostics Platform
+            ParshCare ERP — Clinic & Diagnostic Platform
           </h2>
           <p className="text-slate-300 mb-4">
             A live clinic ERP built for reception, patient records,
@@ -72,6 +72,40 @@ export default function CaseStudiesPage() {
             payroll, analytics, and secure center-wise clinic operations.
           </p>
           <span className="text-sm text-emerald-400">View case study →</span>
+        </Link>
+
+        {/* ================= CARBON AI ================= */}
+        <Link
+          href="/case-studies/carbon-ai"
+          className="group rounded-2xl border border-white/10 p-8 hover:border-white/20 transition bg-[#0b1220]/50"
+        >
+          <span className="inline-block text-xs text-amber-400 mb-2 font-semibold">
+            AI SaaS · Voice Agent
+          </span>
+          <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
+            Carbon AI — Voice Calling Agent & Analyst
+          </h2>
+          <p className="text-slate-300 mb-4">
+            An advanced AI voice calling and transcription system that automates phone calls, transcribes conversations in real-time, and analyzes sentiments with detailed summary dashboards.
+          </p>
+          <span className="text-sm text-amber-400">View case study →</span>
+        </Link>
+
+        {/* ================= PARSHHIRE ================= */}
+        <Link
+          href="/case-studies/parshhire"
+          className="group rounded-2xl border border-white/10 p-8 hover:border-white/20 transition bg-[#0b1220]/50"
+        >
+          <span className="inline-block text-xs text-amber-400 mb-2 font-semibold">
+            SaaS · Applicant Tracking
+          </span>
+          <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
+            ParshHire — Recruiter ATS Platform
+          </h2>
+          <p className="text-slate-300 mb-4">
+            A complete Applicant Tracking System (ATS) built to handle job board postings, resume parsing highlights, applicant pipeline tracking, and recruiter coordination dashboards.
+          </p>
+          <span className="text-sm text-amber-400">View case study →</span>
         </Link>
 
         {/* ================= KHARKA MINING ================= */}
@@ -155,42 +189,6 @@ export default function CaseStudiesPage() {
           <p className="text-slate-400 mb-4">
             A PWA-first e-learning platform with secure student access, structured
             courses, and scalable content delivery.
-          </p>
-          <span className="text-sm text-amber-400">View case study →</span>
-        </Link>
-
-        {/* ================= FRESHMART ================= */}
-        <Link
-          href="/case-studies/freshmart"
-          className="group rounded-2xl border border-white/10 p-8 hover:border-white/20 transition"
-        >
-          <span className="inline-block text-xs text-amber-400 mb-2">
-            Internal SaaS System
-          </span>
-          <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
-            FreshMart — Hyperlocal Grocery Admin System
-          </h2>
-          <p className="text-slate-400 mb-4">
-            A grocery admin system focused on product variants, order workflows,
-            banners, and backend stability for hyperlocal operations.
-          </p>
-          <span className="text-sm text-amber-400">View case study →</span>
-        </Link>
-
-        {/* ================= EASYMED ================= */}
-        <Link
-          href="/case-studies/easymed"
-          className="group rounded-2xl border border-white/10 p-8 hover:border-white/20 transition"
-        >
-          <span className="inline-block text-xs text-amber-400 mb-2">
-            Internal SaaS System
-          </span>
-          <h2 className="text-2xl font-semibold mb-3 group-hover:underline">
-            EasyMed — Pharmacy Inventory System
-          </h2>
-          <p className="text-slate-400 mb-4">
-            A pharmacy inventory system focused on batch-wise stock tracking,
-            expiry visibility, and daily operational usability.
           </p>
           <span className="text-sm text-amber-400">View case study →</span>
         </Link>
