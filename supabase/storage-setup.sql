@@ -14,7 +14,12 @@ VALUES (
 )
 ON CONFLICT (id) DO NOTHING;
 
--- 2. Allow authenticated candidates to upload their resume to their own user folder
+-- 2. Drop existing policies to prevent conflict errors
+DROP POLICY IF EXISTS "Allow candidates to upload resumes" ON storage.objects;
+DROP POLICY IF EXISTS "Allow candidates to select own resumes" ON storage.objects;
+DROP POLICY IF EXISTS "Allow admin read access to all resumes" ON storage.objects;
+
+-- 3. Allow authenticated candidates to upload their resume to their own user folder
 CREATE POLICY "Allow candidates to upload resumes"
 ON storage.objects FOR INSERT
 TO authenticated
@@ -23,7 +28,7 @@ WITH CHECK (
   (storage.foldername(name))[1] = auth.uid()::text
 );
 
--- 3. Allow candidates to view/download their own uploaded resumes
+-- 4. Allow candidates to view/download their own uploaded resumes
 CREATE POLICY "Allow candidates to select own resumes"
 ON storage.objects FOR SELECT
 TO authenticated
@@ -32,7 +37,7 @@ USING (
   (storage.foldername(name))[1] = auth.uid()::text
 );
 
--- 4. Allow backend service role (admin) to read and manage all resumes
+-- 5. Allow backend service role (admin) to read and manage all resumes
 CREATE POLICY "Allow admin read access to all resumes"
 ON storage.objects FOR ALL
 TO service_role
