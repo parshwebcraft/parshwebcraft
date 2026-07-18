@@ -13,7 +13,6 @@ CREATE TABLE IF NOT EXISTS public.careers_jobs (
   location      text          NOT NULL, -- e.g., 'Udaipur, Rajasthan / Remote'
   type          text          NOT NULL, -- e.g., 'Full-time', 'Internship'
   experience    text          NOT NULL, -- e.g., '1-3 Years'
-  salary_range  text,          -- e.g., '₹4,00,000 - ₹8,00,000 / Year'
   description   text          NOT NULL,
   requirements  text[]        NOT NULL DEFAULT '{}',
   benefits      text[]        NOT NULL DEFAULT '{}',
@@ -73,7 +72,7 @@ CREATE POLICY "service_role_only_admin_applications" ON public.careers_applicati
 
 -- 3. Seed Default Active Job Roles
 -- ─────────────────────────────────────────────────────────────
-INSERT INTO public.careers_jobs (job_id, title, department, location, type, experience, salary_range, description, requirements, benefits)
+INSERT INTO public.careers_jobs (job_id, title, department, location, type, experience, description, requirements, benefits)
 VALUES
   (
     'PWC-DEV-01',
@@ -82,7 +81,6 @@ VALUES
     'Udaipur, Rajasthan / Remote',
     'Full-time',
     '1-3 Years',
-    '₹4,00,000 - ₹8,00,000 / Year',
     'We are looking for a passionate Frontend Engineer skilled in React, Next.js, Tailwind CSS, and TypeScript. You will build lightning-fast web applications, optimize Core Web Vitals (LCP, INP), and craft responsive dark-mode interfaces.',
     ARRAY['Proficiency in HTML, CSS, JavaScript, TypeScript, and React/Next.js (App Router).', 'Experience with Framer Motion, Tailwind CSS, and responsive layouts.', 'Familiarity with RESTful APIs, Supabase database, and Git version control.'],
     ARRAY['Competitive salary package.', 'Flexible remote / hybrid work culture.', 'Monthly learning stipend and hardware allowance.']
@@ -94,7 +92,6 @@ VALUES
     'Udaipur, Rajasthan / Hybrid',
     'Full-time',
     '2+ Years',
-    '₹3,00,000 - ₹6,00,000 / Year',
     'Join our team to design premium websites, branding systems, and custom SaaS dashboards. You will work closely with development teams to craft visual assets and intuitive candidate/user journeys.',
     ARRAY['Strong portfolio showcasing minimalist, clean, and dark-theme web/app designs.', 'Proficiency in Figma, Adobe Illustrator, and prototyping workflows.', 'Understanding of grid systems, visual hierarchies, and responsive typography.'],
     ARRAY['Creative design freedom.', 'Collaborative workspace environment.', 'Performance-based bonuses.']
@@ -106,9 +103,30 @@ VALUES
     'Udaipur, Rajasthan',
     'Full-time',
     '1-2 Years',
-    '₹2,50,000 - ₹4,50,000 / Year',
     'We are seeking a Digital Marketing Specialist to coordinate client SEO campaigns, execute Instagram Reels strategies, create content calendars, and handle targeted Google/Meta ad accounts.',
     ARRAY['Experience with Google Analytics, search console, and SEO auditing tools.', 'Familiarity with copywriting, social media strategy, and video edit hooks.', 'Ability to calculate CPA (Cost Per Acquisition) and return on ad spend.'],
     ARRAY['Dynamic hands-on marketing campaigns.', 'Professional growth opportunity.', 'Performance incentives.']
+  ),
+  (
+    'PWC-APP-01',
+    'App Developer (Flutter & React Native)',
+    'Development',
+    'Udaipur, Rajasthan / Remote',
+    'Full-time',
+    '2+ Years',
+    'We are seeking a skilled Mobile App Developer with 2+ years of experience in Flutter and React Native. You will build and deploy premium cross-platform iOS and Android applications, ensuring fluid performance, native API integrations, and pixel-perfect UI execution.',
+    ARRAY['2+ years of professional mobile development experience with Flutter or React Native.', 'Strong understanding of native mobile capabilities, push notifications, and state management.', 'Experience deploying and managing production apps in Apple App Store and Google Play Store.'],
+    ARRAY['Modern development environment.', 'Remote and hybrid workspace flexibility.', 'Hardware allowance and certification sponsorship.']
+  ),
+  (
+    'PWC-OPS-01',
+    'AWS DevOps Engineer',
+    'Development',
+    'Udaipur, Rajasthan / Remote',
+    'Full-time',
+    '2+ Years',
+    'We are looking for an AWS DevOps Engineer with 2+ years of experience to automate deployment pipelines, maintain server reliability, and optimize cloud infrastructure. You will manage continuous integration, security policies, and performance monitoring.',
+    ARRAY['2+ years of DevOps experience working with AWS Cloud Services (EC2, S3, RDS, ECS, Lambda).', 'Strong expertise in CI/CD pipeline automation (GitHub Actions, Vercel, Docker).', 'Knowledge of Infrastructure as Code (Terraform), server security hardening, and database backups.'],
+    ARRAY['Highly scalable product environments.', 'Training and AWS certification sponsorship.', 'Flexible work hours.']
   )
 ON CONFLICT (job_id) DO NOTHING;

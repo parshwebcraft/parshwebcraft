@@ -14,7 +14,6 @@ type Job = {
   location: string;
   type: string;
   experience: string;
-  salary_range: string;
   description: string;
   requirements: string[];
   benefits: string[];
@@ -411,11 +410,6 @@ export default function CareersPage() {
                       <span>💼 {selectedJob.type}</span>
                     </div>
                   </div>
-                  {selectedJob.salary_range && (
-                    <span className="bg-[#f3d07a]/10 border border-[#f3d07a]/20 text-[#f3d07a] text-xs font-semibold px-3 py-1 rounded-full">
-                      {selectedJob.salary_range}
-                    </span>
-                  )}
                 </div>
 
                 <div className="mt-5 space-y-6 max-h-[40vh] overflow-y-auto pr-2 custom-scrollbar">
@@ -477,7 +471,7 @@ export default function CareersPage() {
                 <svg className="w-12 h-12 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                <p className="text-xs">Select a position from the left to view job descriptions, salary ranges, requirements, and to start your application.</p>
+                <p className="text-xs">Select a position from the left to view job descriptions, requirements, and to start your application.</p>
               </div>
             )}
           </AnimatePresence>

@@ -10,7 +10,6 @@ const DEFAULT_JOBS = [
     location: "Udaipur, Rajasthan / Remote",
     type: "Full-time",
     experience: "1-3 Years",
-    salary_range: "₹4,00,000 - ₹8,00,000 / Year",
     description: "We are looking for a passionate Frontend Engineer skilled in React, Next.js, Tailwind CSS, and TypeScript. You will build lightning-fast web applications, optimize Core Web Vitals (LCP, INP), and craft responsive dark-mode interfaces.",
     requirements: [
       "Proficiency in HTML, CSS, JavaScript, TypeScript, and React/Next.js (App Router).",
@@ -31,8 +30,7 @@ const DEFAULT_JOBS = [
     location: "Udaipur, Rajasthan / Hybrid",
     type: "Full-time",
     experience: "2+ Years",
-    salary_range: "₹3,00,000 - ₹6,00,000 / Year",
-    description: "Join our team to design premium websites, branding systems, and custom SaaS dashboards. You will work closely with development teams to craft visual assets and intuitive candidate/user journeys.",
+    description: "Join our team to design premium websites, branding systems, and custom SaaS dashboards. You will work closely with development teams to craft visual interfaces and intuitive candidate/user journeys.",
     requirements: [
       "Strong portfolio showcasing minimalist, clean, and dark-theme web/app designs.",
       "Proficiency in Figma, Adobe Illustrator, and prototyping workflows.",
@@ -52,7 +50,6 @@ const DEFAULT_JOBS = [
     location: "Udaipur, Rajasthan",
     type: "Full-time",
     experience: "1-2 Years",
-    salary_range: "₹2,50,000 - ₹4,50,000 / Year",
     description: "We are seeking a Digital Marketing Specialist to coordinate client SEO campaigns, execute Instagram Reels strategies, create content calendars, and handle targeted Google/Meta ad accounts.",
     requirements: [
       "Experience with Google Analytics, search console, and SEO auditing tools.",
@@ -63,6 +60,46 @@ const DEFAULT_JOBS = [
       "Dynamic hands-on marketing campaigns.",
       "Professional growth opportunity.",
       "Performance incentives."
+    ]
+  },
+  {
+    id: "pwc-job-app-1",
+    job_id: "PWC-APP-01",
+    title: "App Developer (Flutter & React Native)",
+    department: "Development",
+    location: "Udaipur, Rajasthan / Remote",
+    type: "Full-time",
+    experience: "2+ Years",
+    description: "We are seeking a skilled Mobile App Developer with 2+ years of experience in Flutter and React Native. You will build and deploy premium cross-platform iOS and Android applications, ensuring fluid performance, native API integrations, and pixel-perfect UI execution.",
+    requirements: [
+      "2+ years of professional mobile development experience with Flutter or React Native.",
+      "Strong understanding of native mobile capabilities, push notifications, and state management.",
+      "Experience deploying and managing production apps in Apple App Store and Google Play Store."
+    ],
+    benefits: [
+      "Modern development environment.",
+      "Remote and hybrid workspace flexibility.",
+      "Hardware allowance and certification sponsorship."
+    ]
+  },
+  {
+    id: "pwc-job-ops-1",
+    job_id: "PWC-OPS-01",
+    title: "AWS DevOps Engineer",
+    department: "Development",
+    location: "Udaipur, Rajasthan / Remote",
+    type: "Full-time",
+    experience: "2+ Years",
+    description: "We are looking for an AWS DevOps Engineer with 2+ years of experience to automate deployment pipelines, maintain server reliability, and optimize cloud infrastructure. You will manage continuous integration, security policies, and performance monitoring.",
+    requirements: [
+      "2+ years of DevOps experience working with AWS Cloud Services (EC2, S3, RDS, ECS, Lambda).",
+      "Strong expertise in CI/CD pipeline automation (GitHub Actions, Vercel, Docker).",
+      "Knowledge of Infrastructure as Code (Terraform), server security hardening, and database backups."
+    ],
+    benefits: [
+      "Highly scalable product environments.",
+      "Training and AWS certification sponsorship.",
+      "Flexible work hours."
     ]
   }
 ];
