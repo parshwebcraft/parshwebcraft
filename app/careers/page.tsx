@@ -595,7 +595,7 @@ function CareersPageContent() {
                   {otpSent ? (
                     <div>
                       <p className="text-xs text-slate-400 mt-2">
-                        We sent a secure link and a <b>6-digit verification code</b> to <b>{authEmail}</b>. You can click the link in your email, or enter the code below to sign in instantly.
+                        We sent a secure link and a <b>8-digit verification code</b> to <b>{authEmail}</b>. You can click the link in your email, or enter the code below to sign in instantly.
                       </p>
 
                       <form onSubmit={handleVerifyOtp} className="space-y-4 mt-6">
@@ -605,14 +605,14 @@ function CareersPageContent() {
                           </div>
                         )}
                         <div>
-                          <label className="block text-xs font-medium text-slate-400 mb-1.5">6-Digit Verification Code</label>
+                          <label className="block text-xs font-medium text-slate-400 mb-1.5">8-Digit Verification Code</label>
                           <input
                             type="text"
                             required
-                            maxLength={6}
+                            maxLength={8}
                             value={otpCode}
                             onChange={(e) => setOtpCode(e.target.value)}
-                            placeholder="123456"
+                            placeholder="12345678"
                             className="w-full rounded-lg bg-black/40 border border-white/10 px-4 py-3 text-sm font-semibold tracking-widest text-center focus:outline-none focus:border-[#f3d07a]/50 text-white placeholder-slate-700"
                           />
                         </div>
