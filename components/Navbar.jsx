@@ -28,6 +28,7 @@ export default function Navbar() {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
     { label: "Pricing", href: "/pricing" },
+    { label: "Careers", href: "/careers" },
     { label: "About Us", href: "/about" },
     { label: "Contact", href: "/contact" },
   ];
@@ -46,6 +47,7 @@ export default function Navbar() {
   const isActive = (href) => {
     if (href.startsWith("/saas")) return pathname.startsWith("/saas");
     if (href === "/blog") return pathname.startsWith("/blog");
+    if (href === "/careers") return pathname.startsWith("/careers");
     return pathname === href;
   };
 
