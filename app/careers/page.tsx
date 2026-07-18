@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { getSupabaseClient } from "@/lib/supabase/client";
 import { formatIST } from "@/lib/formatDate";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Eyebrow } from "@/components/SeoSections";
 
@@ -28,7 +29,7 @@ type Application = {
   created_at: string;
 };
 
-export default function CareersPage() {
+function CareersPageContent() {
   const supabase = getSupabaseClient();
 
   // Job data states
@@ -62,6 +63,21 @@ export default function CareersPage() {
   // Candidate applications dashboard states
   const [myApplications, setMyApplications] = useState<Application[]>([]);
   const [dashboardLoading, setDashboardLoading] = useState(false);
+  const searchParams = useSearchParams();
+
+  // Auto-open application form if redirected with apply_job_id query param
+  useEffect(() => {
+    if (jobs.length > 0 && searchParams) {
+      const applyJobId = searchParams.get("apply_job_id");
+      if (applyJobId) {
+        const matched = jobs.find((j) => j.job_id === applyJobId);
+        if (matched) {
+          setSelectedJob(matched);
+          setFormOpen(true);
+        }
+      }
+    }
+  }, [jobs, searchParams]);
 
   // Load jobs and session
   useEffect(() => {
@@ -131,10 +147,14 @@ export default function CareersPage() {
     setFormError("");
 
     try {
+      const redirectUrl = selectedJob
+        ? `${window.location.origin}/auth/callback?next=${encodeURIComponent(`/careers?apply_job_id=${selectedJob.job_id}`)}`
+        : `${window.location.origin}/auth/callback?next=/careers`;
+
       const { error } = await supabase.auth.signInWithOtp({
         email: authEmail.trim().toLowerCase(),
         options: {
-          emailRedirectTo: `${window.location.origin}/auth/callback?next=/careers`,
+          emailRedirectTo: redirectUrl,
         },
       });
 
@@ -728,5 +748,17 @@ export default function CareersPage() {
         )}
       </AnimatePresence>
     </main>
+  );
+}
+
+export default function CareersPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[#050414] text-white flex items-center justify-center">
+        <div className="h-8 w-8 rounded-full border-4 border-[#f3d07a] border-t-transparent animate-spin" />
+      </div>
+    }>
+      <CareersPageContent />
+    </Suspense>
   );
 }
