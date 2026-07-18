@@ -92,6 +92,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.85,
     },
+    {
+      url: `${baseUrl}/careers`,
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
 
     // SEO Pages (IMPORTANT for ranking)
     {
