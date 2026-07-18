@@ -59,6 +59,9 @@ function CareersPageContent() {
   const [formLoading, setFormLoading] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState("");
+  const [otpSent, setOtpSent] = useState(false);
+  const [otpCode, setOtpCode] = useState("");
+  const [verifyingOtp, setVerifyingOtp] = useState(false);
 
   // Candidate applications dashboard states
   const [myApplications, setMyApplications] = useState<Application[]>([]);
@@ -162,11 +165,66 @@ function CareersPageContent() {
         setFormError(error.message);
       } else {
         setAuthSuccess(true);
+        setOtpSent(true);
       }
     } catch (err: any) {
       setFormError(err?.message ?? "An error occurred.");
     } finally {
       setAuthLoading(false);
+    }
+  }
+
+  // Verify OTP Code login trigger
+  async function handleVerifyOtp(e: React.FormEvent) {
+    e.preventDefault();
+    if (!authEmail || !otpCode || !supabase) return;
+    setVerifyingOtp(true);
+    setFormError("");
+
+    try {
+      // 1. Try 'email' type (standard magiclink/OTP)
+      let { data, error } = await supabase.auth.verifyOtp({
+        email: authEmail.trim().toLowerCase(),
+        token: otpCode.trim(),
+        type: "email",
+      });
+
+      // 2. Fallback to 'signup' type
+      if (error) {
+        const signupResult = await supabase.auth.verifyOtp({
+          email: authEmail.trim().toLowerCase(),
+          token: otpCode.trim(),
+          type: "signup",
+        });
+        if (!signupResult.error) {
+          data = signupResult.data;
+          error = null;
+        }
+      }
+
+      // 3. Fallback to 'magiclink' type
+      if (error) {
+        const magiclinkResult = await supabase.auth.verifyOtp({
+          email: authEmail.trim().toLowerCase(),
+          token: otpCode.trim(),
+          type: "magiclink",
+        });
+        if (!magiclinkResult.error) {
+          data = magiclinkResult.data;
+          error = null;
+        }
+      }
+
+      if (error) {
+        setFormError(error.message);
+      } else {
+        setUser(data.user);
+        setFormOpen(true);
+      }
+    } catch (err: any) {
+      setFormError(err?.message ?? "Verification failed.");
+    } finally {
+      setVerifyingOtp(false);
     }
   }
 
@@ -534,12 +592,61 @@ function CareersPageContent() {
                     Enter your email to receive a passwordless **Magic Link**. Signing in allows you to submit applications and track their hiring statuses.
                   </p>
 
-                  {authSuccess ? (
-                    <div className="mt-6 rounded-xl bg-emerald-500/10 border border-emerald-500/20 p-5 text-center">
-                      <p className="text-sm font-semibold text-emerald-300">📬 Magic Link Dispatched!</p>
+                  {otpSent ? (
+                    <div>
                       <p className="text-xs text-slate-400 mt-2">
-                        We sent a secure sign-in link to <b>{authEmail}</b>. Please open your inbox and click the link to continue your application.
+                        We sent a secure link and a <b>6-digit verification code</b> to <b>{authEmail}</b>. You can click the link in your email, or enter the code below to sign in instantly.
                       </p>
+
+                      <form onSubmit={handleVerifyOtp} className="space-y-4 mt-6">
+                        {formError && (
+                          <div className="rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 px-4 py-2.5 text-xs text-center">
+                            {formError}
+                          </div>
+                        )}
+                        <div>
+                          <label className="block text-xs font-medium text-slate-400 mb-1.5">6-Digit Verification Code</label>
+                          <input
+                            type="text"
+                            required
+                            maxLength={6}
+                            value={otpCode}
+                            onChange={(e) => setOtpCode(e.target.value)}
+                            placeholder="123456"
+                            className="w-full rounded-lg bg-black/40 border border-white/10 px-4 py-3 text-sm font-semibold tracking-widest text-center focus:outline-none focus:border-[#f3d07a]/50 text-white placeholder-slate-700"
+                          />
+                        </div>
+
+                        <button
+                          type="submit"
+                          disabled={verifyingOtp}
+                          className="w-full bg-[#f3d07a] text-black font-semibold py-3 rounded-lg hover:brightness-95 transition text-xs flex items-center justify-center gap-2"
+                        >
+                          {verifyingOtp ? (
+                            <>
+                              <span className="h-4 w-4 rounded-full border-2 border-black/30 border-t-black animate-spin" />
+                              Verifying Code…
+                            </>
+                          ) : (
+                            "Verify Code & Sign In"
+                          )}
+                        </button>
+
+                        <div className="text-center mt-3">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setOtpSent(false);
+                              setAuthSuccess(false);
+                              setOtpCode("");
+                              setFormError("");
+                            }}
+                            className="text-xs text-[#f3d07a] hover:underline"
+                          >
+                            ← Back/Change Email Address
+                          </button>
+                        </div>
+                      </form>
                     </div>
                   ) : (
                     <form onSubmit={handleMagicLink} className="space-y-4 mt-6">
