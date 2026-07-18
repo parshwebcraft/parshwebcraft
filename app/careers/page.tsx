@@ -134,7 +134,7 @@ export default function CareersPage() {
       const { error } = await supabase.auth.signInWithOtp({
         email: authEmail.trim().toLowerCase(),
         options: {
-          emailRedirectTo: `${window.location.origin}/careers`,
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=/careers`,
         },
       });
 
