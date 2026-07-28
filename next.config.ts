@@ -56,8 +56,8 @@ const securityHeaders = [
         "https://va.vercel-scripts.com",
         "wss://*.supabase.co",
       ].join(" "),
-      // Frames: reCAPTCHA only
-      "frame-src https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/",
+      // Frames: reCAPTCHA + Google Maps
+      "frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/ https://www.google.com/maps/",
       // Media: self only
       "media-src 'self'",
       // Objects: none
