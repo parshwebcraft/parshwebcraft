@@ -239,12 +239,12 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
           className={`${inputBase} ${inputNormal} appearance-none bg-[rgba(255,255,255,0.02)] cursor-pointer`}
         >
           <option className="bg-[#0b1220]" value="">Select a plan (Optional)</option>
-          <option className="bg-[#0b1220]" value="Starter Plan – ₹4,999">💎 Starter Plan – ₹4,999</option>
-          <option className="bg-[#0b1220]" value="Business Growth Plan – ₹14,999">✨ Business Growth Plan – ₹14,999</option>
-          <option className="bg-[#0b1220]" value="Premium Website Plan – ₹34,999+">🚀 Premium Website Plan – ₹34,999+</option>
-          <option className="bg-[#0b1220]" value="SaaS Platform Development – Starting ₹1,20,000+">🧩 SaaS Platform Development – ₹1,20,000+</option>
-          <option className="bg-[#0b1220]" value="Enterprise (Custom)">👑 Enterprise (Custom) Plan</option>
-          <option className="bg-[#0b1220]" value="Not Sure">❓ Not Sure (Need Help)</option>
+          <option className="bg-[#0b1220]" value="Starter Website – ₹17,999">💎 Starter Website – ₹17,999</option>
+          <option className="bg-[#0b1220]" value="Business Website – ₹34,999">✨ Business Website – ₹34,999</option>
+          <option className="bg-[#0b1220]" value="Premium Website – ₹59,999">🚀 Premium Website – ₹59,999</option>
+          <option className="bg-[#0b1220]" value="E-Commerce Store – ₹1,20,000+">🛍️ E-Commerce Store – ₹1,20,000+</option>
+          <option className="bg-[#0b1220]" value="Enterprise (Custom) Plan">👑 Enterprise (Custom) Plan</option>
+          <option className="bg-[#0b1220]" value="Not Sure (Need Help)">❓ Not Sure (Need Help)</option>
         </select>
       </div>
 
