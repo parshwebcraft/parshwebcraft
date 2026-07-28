@@ -153,7 +153,7 @@ export async function POST(req) {
     if (dbError) {
       console.error("[api/contact] DB insert error:", dbError.message);
       return NextResponse.json(
-        { error: "Failed to save your enquiry. Please try again." },
+        { error: `Database insert failed: ${dbError.message}` },
         { status: 500 }
       );
     }
