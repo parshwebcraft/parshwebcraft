@@ -2,6 +2,22 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
 
+async function fetchWithTimeout(url, options = {}, timeout = 6000) {
+  const controller = new AbortController();
+  const id = setTimeout(() => controller.abort(), timeout);
+  try {
+    const response = await fetch(url, {
+      ...options,
+      signal: controller.signal
+    });
+    clearTimeout(id);
+    return response;
+  } catch (err) {
+    clearTimeout(id);
+    throw err;
+  }
+}
+
 /* ── reCAPTCHA v3 verification ─────────────────────────────────
    Add these to your .env / Vercel environment variables:
    NEXT_PUBLIC_RECAPTCHA_SITE_KEY = "your_site_key_here"
@@ -171,14 +187,13 @@ export async function POST(req) {
       const crmPass = process.env.CRM_ADMIN_PASSWORD || "password123";
 
       // 1. Fetch JWT login token dynamically
-      const loginRes = await fetch("https://carbon-ai-dsom.onrender.com/api/users/login", {
+      const loginRes = await fetchWithTimeout("https://carbon-ai-dsom.onrender.com/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: `username=${encodeURIComponent(crmUser)}&password=${encodeURIComponent(crmPass)}`,
-        signal: AbortSignal.timeout(6000) // 6 seconds timeout
-      });
+        body: `username=${encodeURIComponent(crmUser)}&password=${encodeURIComponent(crmPass)}`
+      }, 6000);
 
       if (loginRes.ok) {
         const loginData = await loginRes.json();
@@ -209,7 +224,7 @@ export async function POST(req) {
           }
 
           // 4. Send Lead POST request
-          await fetch("https://carbon-ai-dsom.onrender.com/api/leads", {
+          await fetchWithTimeout("https://carbon-ai-dsom.onrender.com/api/leads", {
             method: "POST",
             headers: {
               "Authorization": `Bearer ${token}`,
@@ -224,9 +239,8 @@ export async function POST(req) {
               budget: budget,
               status: "New",
               source: "Website"
-            }),
-            signal: AbortSignal.timeout(6000)
-          });
+            })
+          }, 6000);
         }
       } else {
         console.error("[api/contact] CRM Login failed:", loginRes.statusText);
@@ -243,7 +257,7 @@ export async function POST(req) {
         const templateName = process.env.META_WHATSAPP_TEMPLATE_NAME || "hello_world";
         const templateLang = process.env.META_WHATSAPP_TEMPLATE_LANG || "en_US";
 
-        await fetch(`https://graph.facebook.com/v18.0/${process.env.META_WHATSAPP_PHONE_NUMBER_ID}/messages`, {
+        await fetchWithTimeout(`https://graph.facebook.com/v18.0/${process.env.META_WHATSAPP_PHONE_NUMBER_ID}/messages`, {
           method: "POST",
           headers: {
             "Authorization": `Bearer ${process.env.META_WHATSAPP_TOKEN}`,
@@ -270,9 +284,8 @@ export async function POST(req) {
                 }
               ] : []
             }
-          }),
-          signal: AbortSignal.timeout(6000)
-        });
+          })
+        }, 6000);
       } catch (waErr) {
         console.error("[api/contact] WhatsApp sending failed:", waErr?.message ?? waErr);
       }
