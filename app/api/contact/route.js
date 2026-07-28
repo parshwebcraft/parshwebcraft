@@ -165,6 +165,118 @@ export async function POST(req) {
       // Don't block the response if email fails
       console.error("[api/contact] Email error:", mailErr?.message ?? mailErr);
     }
+    /* ── Forward lead details to Carbon AI CRM ── */
+    try {
+      const crmUser = process.env.CRM_ADMIN_USER || "admin@parshwebcraft.com";
+      const crmPass = process.env.CRM_ADMIN_PASSWORD || "password123";
+
+      // 1. Fetch JWT login token dynamically
+      const loginRes = await fetch("https://carbon-ai-dsom.onrender.com/api/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `username=${encodeURIComponent(crmUser)}&password=${encodeURIComponent(crmPass)}`,
+        signal: AbortSignal.timeout(6000) // 6 seconds timeout
+      });
+
+      if (loginRes.ok) {
+        const loginData = await loginRes.json();
+        const token = loginData?.token || loginData?.accessToken || loginData?.data?.token;
+
+        if (token) {
+          // 2. Parse budget based on selected plan
+          let budget = 10000;
+          if (cleanPlan) {
+            const planLower = cleanPlan.toLowerCase();
+            if (planLower.includes("starter")) budget = 17999;
+            else if (planLower.includes("business")) budget = 34999;
+            else if (planLower.includes("premium")) budget = 59999;
+            else if (planLower.includes("commerce") || planLower.includes("e-commerce")) budget = 120000;
+          }
+
+          // 3. Format phone to +91XXXXXXXXXX
+          let formattedPhone = cleanPhone || "";
+          if (formattedPhone) {
+            const digits = formattedPhone.replace(/\D/g, "");
+            if (digits.length === 10) {
+              formattedPhone = `+91${digits}`;
+            } else if (digits.length === 12 && digits.startsWith("91")) {
+              formattedPhone = `+${digits}`;
+            } else if (!formattedPhone.startsWith("+")) {
+              formattedPhone = `+${digits}`;
+            }
+          }
+
+          // 4. Send Lead POST request
+          await fetch("https://carbon-ai-dsom.onrender.com/api/leads", {
+            method: "POST",
+            headers: {
+              "Authorization": `Bearer ${token}`,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              name: cleanName,
+              phone: formattedPhone,
+              email: cleanEmail || null,
+              city: "Udaipur",
+              customer_type: cleanRequirement || "General Enquiry",
+              budget: budget,
+              status: "New",
+              source: "Website"
+            }),
+            signal: AbortSignal.timeout(6000)
+          });
+        }
+      } else {
+        console.error("[api/contact] CRM Login failed:", loginRes.statusText);
+      }
+    } catch (crmErr) {
+      console.error("[api/contact] CRM sync error:", crmErr?.message ?? crmErr);
+    }
+
+    /* ── Send automated WhatsApp message via Meta Cloud API ── */
+    if (process.env.META_WHATSAPP_TOKEN && process.env.META_WHATSAPP_PHONE_NUMBER_ID && cleanPhone) {
+      try {
+        const digits = cleanPhone.replace(/\D/g, "");
+        const recipientPhone = digits.startsWith("91") && digits.length > 10 ? digits : `91${digits}`;
+        const templateName = process.env.META_WHATSAPP_TEMPLATE_NAME || "hello_world";
+        const templateLang = process.env.META_WHATSAPP_TEMPLATE_LANG || "en_US";
+
+        await fetch(`https://graph.facebook.com/v18.0/${process.env.META_WHATSAPP_PHONE_NUMBER_ID}/messages`, {
+          method: "POST",
+          headers: {
+            "Authorization": `Bearer ${process.env.META_WHATSAPP_TOKEN}`,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            messaging_product: "whatsapp",
+            to: recipientPhone,
+            type: "template",
+            template: {
+              name: templateName,
+              language: {
+                code: templateLang
+              },
+              components: templateName !== "hello_world" ? [
+                {
+                  type: "body",
+                  parameters: [
+                    {
+                      type: "text",
+                      text: cleanName
+                    }
+                  ]
+                }
+              ] : []
+            }
+          }),
+          signal: AbortSignal.timeout(6000)
+        });
+      } catch (waErr) {
+        console.error("[api/contact] WhatsApp sending failed:", waErr?.message ?? waErr);
+      }
+    }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
