@@ -99,7 +99,7 @@ export default function PortfolioPage() {
     {
       title: "ParshHire — Recruitment & ATS Platform",
       category: "SaaS • Talent Acquisition",
-      image: "/portfolio/parshhire.png",
+      image: "/portfolio/parshHiree.png",
       description:
         "A complete Applicant Tracking System (ATS) built for job postings, parsing candidate resumes, candidate profile pipelines, and recruiter scheduling.",
       outcomes: [
@@ -114,7 +114,7 @@ export default function PortfolioPage() {
     {
       title: "ParshLedger — Accounting & Ledger SaaS",
       category: "SaaS • Accounting Automation",
-      image: "/images/social-preview.png",
+      image: "/portfolio/parshledger.png",
       description:
         "A business ledger and accounting SaaS concept built to help Indian businesses manage parties, transactions, balances, and financial records in one clean dashboard.",
       outcomes: [
@@ -123,12 +123,13 @@ export default function PortfolioPage() {
         "Business Finance Dashboard",
       ],
       tech: ["Next.js", "React", "Supabase", "Tailwind CSS", "SaaS"],
-      status: "in-progress",
+      href: "https://parshledger.parshvyapar.in/",
+      status: "live",
     },
     {
       title: "Parsh HR — HR & Employee Management System",
       category: "SaaS • HR Management",
-      image: "/images/social-preview.png",
+      image: "/portfolio/parshhr.png",
       description:
         "An HR management system planned for attendance, employee records, leave tracking, payroll workflows, and internal business operations.",
       outcomes: [
@@ -137,12 +138,13 @@ export default function PortfolioPage() {
         "HR Operations Dashboard",
       ],
       tech: ["Next.js", "React", "Database Design", "Admin Dashboard"],
-      status: "in-progress",
+      href: "https://hr.parshwebcraft.in/",
+      status: "live",
     },
     {
       title: "Medexia Journal – Academic Publishing Website",
       category: "Journal & Research Website",
-      image: "/portfolio/medexia-journal.jpg",
+      image: "/portfolio/medexia.png",
       description:
         "A professional international journal website built for research publication, article access, and author submissions with trust-focused design.",
       outcomes: [
@@ -184,7 +186,7 @@ export default function PortfolioPage() {
     {
       title: "OSPF Official Website",
       category: "Organization Website",
-      image: "/portfolio/ospf-platform.jpg",
+      image: "/portfolio/ospf.png",
       description:
         "A professional website developed for an organization with member access, structured information pages, and secure login features.",
       outcomes: [
@@ -215,7 +217,7 @@ export default function PortfolioPage() {
     {
       title: "Anand Fashion Udaipur — Ecommerce Website",
       category: "Ecommerce Website",
-      image: "/portfolio/anand-fashion.jpg",
+      image: "/portfolio/anandfashion.png",
       description:
         "A product-heavy ecommerce-style website built for Anand Fashion with large inventory handling and catalog browsing.",
       outcomes: [
