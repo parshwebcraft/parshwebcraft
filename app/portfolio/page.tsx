@@ -142,7 +142,7 @@ export default function PortfolioPage() {
     {
       title: "Medexia Journal – Academic Publishing Website",
       category: "Journal & Research Website",
-      image: "/portfolio/medexia-journal.png",
+      image: "/portfolio/medexia-journal.jpg",
       description:
         "A professional international journal website built for research publication, article access, and author submissions with trust-focused design.",
       outcomes: [
@@ -184,7 +184,7 @@ export default function PortfolioPage() {
     {
       title: "OSPF Official Website",
       category: "Organization Website",
-      image: "/portfolio/ospf-platform.png",
+      image: "/portfolio/ospf-platform.jpg",
       description:
         "A professional website developed for an organization with member access, structured information pages, and secure login features.",
       outcomes: [
@@ -215,7 +215,7 @@ export default function PortfolioPage() {
     {
       title: "Anand Fashion Udaipur — Ecommerce Website",
       category: "Ecommerce Website",
-      image: "/portfolio/anand-fashion.png",
+      image: "/portfolio/anand-fashion.jpg",
       description:
         "A product-heavy ecommerce-style website built for Anand Fashion with large inventory handling and catalog browsing.",
       outcomes: [
