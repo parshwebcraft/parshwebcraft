@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { trackEvent } from "../lib/analytics";
 
 // Extend Window to include the Google reCAPTCHA global (injected by their script)
 declare global {
@@ -126,6 +127,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
     try {
       // Get reCAPTCHA token (empty string if not configured — backend handles gracefully)
       const recaptchaToken = await getRecaptchaToken("contact");
+      const eventId = `lead_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
 
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -133,6 +135,7 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         body: JSON.stringify({
           ...form,
           recaptchaToken,
+          eventId,
           // Honeypot field (empty for humans)
           website: honeypotRef.current?.value ?? "",
         }),
@@ -144,6 +147,14 @@ export default function ContactForm({ onSuccess }: ContactFormProps) {
         setStatus(data?.error || "Something went wrong. Please try again later.");
         return;
       }
+
+      // Trigger client-side Meta Pixel & GA4 conversion tracking event (with matching CAPI eventID)
+      trackEvent("Lead", {
+        content_name: form.plan || "General Enquiry",
+        content_category: "Contact Form",
+        value: 100,
+        currency: "INR"
+      }, { eventID: eventId });
 
       setStatus("Message sent — thank you!");
       setForm({ name: "", email: "", phone: "", plan: "", requirement: "", message: "" });

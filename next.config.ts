@@ -37,13 +37,13 @@ const securityHeaders = [
     value: [
       "default-src 'self'",
       // Scripts: self + Google Analytics + reCAPTCHA + Vercel Analytics
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://va.vercel-scripts.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://www.google.com/recaptcha/ https://www.gstatic.com/recaptcha/ https://va.vercel-scripts.com https://connect.facebook.net https://www.googleadservices.com https://googleads.g.doubleclick.net",
       // Styles: self + Google Fonts
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       // Fonts: self + Google Fonts CDN
       "font-src 'self' https://fonts.gstatic.com data:",
       // Images: self + data URIs + Google + common image CDNs
-      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.co.in",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.co.in https://www.facebook.com https://googleads.g.doubleclick.net",
       // API / WS connections: self + Supabase + OpenAI + Google APIs
       [
         "connect-src 'self'",
@@ -54,11 +54,13 @@ const securityHeaders = [
         "https://www.googletagmanager.com",
         "https://www.google.com",
         "https://stats.g.doubleclick.net",
+        "https://www.facebook.com",
+        "https://googleads.g.doubleclick.net",
         "https://va.vercel-scripts.com",
         "wss://*.supabase.co",
       ].join(" "),
-      // Frames: reCAPTCHA + Google Maps
-      "frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/ https://www.google.com/maps/",
+      // Frames: reCAPTCHA + Google Maps + GTM Noscript Frame
+      "frame-src 'self' https://www.google.com/recaptcha/ https://recaptcha.google.com/recaptcha/ https://www.google.com/maps/ https://www.googletagmanager.com/",
       // Media: self only
       "media-src 'self'",
       // Objects: none

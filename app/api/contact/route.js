@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { createClient } from "@supabase/supabase-js";
+import { sendMetaCapiEvent } from "../../../lib/metaCapi";
 
 async function fetchWithTimeout(url, options = {}, timeout = 6000) {
   const controller = new AbortController();
@@ -55,6 +56,7 @@ export async function POST(req) {
       requirement,
       message,
       recaptchaToken,
+      eventId,
       // Honeypot — bots fill this, humans leave it empty
       website: honeypot,
     } = body ?? {};
@@ -289,6 +291,25 @@ export async function POST(req) {
       } catch (waErr) {
         console.error("[api/contact] WhatsApp sending failed:", waErr?.message ?? waErr);
       }
+    }
+
+    // Server-side Conversions API (CAPI) sync for deduplicated Lead tracking
+    if (eventId) {
+      const userAgent = req.headers.get("user-agent") || "";
+      sendMetaCapiEvent({
+        eventName: "Lead",
+        eventId: eventId,
+        sourceUrl: `${req.nextUrl.origin}/contact`,
+        ipAddress: ip === "unknown" ? null : ip,
+        userAgent: userAgent,
+        userData: {
+          email: cleanEmail,
+          phone: cleanPhone,
+          name: cleanName,
+        },
+      }).catch((err) => {
+        console.error("[api/contact] Meta CAPI trigger error:", err);
+      });
     }
 
     return NextResponse.json({ ok: true });
