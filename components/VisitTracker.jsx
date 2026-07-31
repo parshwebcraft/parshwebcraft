@@ -26,7 +26,7 @@ export default function VisitTracker() {
       if (typeof sessionStorage !== "undefined") sessionStorage.setItem(key, "1");
 
       // fire-and-forget
-      void fetch("/api/visits", {
+      void fetch("/api/visit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ path: pathname }),
@@ -36,7 +36,7 @@ export default function VisitTracker() {
       });
     } catch (e) {
       // sessionStorage may be blocked; still attempt request
-      void fetch("/api/visits", {
+      void fetch("/api/visit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ path: pathname }),

@@ -43,7 +43,7 @@ const securityHeaders = [
       // Fonts: self + Google Fonts CDN
       "font-src 'self' https://fonts.gstatic.com data:",
       // Images: self + data URIs + Google + common image CDNs
-      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com",
+      "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.co.in",
       // API / WS connections: self + Supabase + OpenAI + Google APIs
       [
         "connect-src 'self'",
@@ -53,6 +53,7 @@ const securityHeaders = [
         "https://analytics.google.com",
         "https://www.googletagmanager.com",
         "https://www.google.com",
+        "https://stats.g.doubleclick.net",
         "https://va.vercel-scripts.com",
         "wss://*.supabase.co",
       ].join(" "),
