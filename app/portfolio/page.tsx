@@ -283,8 +283,7 @@ export default function PortfolioPage() {
           className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
           variants={container}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          animate="visible"
         >
           {projects.map((p) => (
             <motion.div
