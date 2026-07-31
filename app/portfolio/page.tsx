@@ -279,17 +279,15 @@ export default function PortfolioPage() {
           </motion.div>
         </motion.div>
 
-        <motion.div
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-          variants={container}
-          initial="hidden"
-          animate="visible"
-        >
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p) => (
             <motion.div
               key={p.title}
               className="rounded-lg overflow-hidden border border-white/5 bg-transparent relative"
               variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
               whileHover={!reduce ? glowHover : undefined}
               transition={{ type: "spring", stiffness: 280, damping: 22 }}
             >
@@ -363,7 +361,7 @@ export default function PortfolioPage() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </section>
     </main>
   );
