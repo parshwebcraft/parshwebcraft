@@ -59,8 +59,8 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 2xl:px-10">
-        <div className="flex items-center justify-between h-16">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="flex h-16 items-center gap-8">
 
           {/* LOGO */}
           <Link href="/" className="flex shrink-0 items-center gap-3">
@@ -78,7 +78,7 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden xl:flex min-w-0 items-center gap-3 2xl:gap-5">
+          <nav className="hidden min-w-0 flex-1 items-center justify-end gap-4 xl:flex">
             {navItems.map((item) => {
               const active = isActive(item.href);
 
@@ -92,7 +92,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`relative whitespace-nowrap text-[13px] transition 2xl:text-sm ${
+                    className={`relative whitespace-nowrap text-sm transition ${
                       active
                         ? "text-[#f3d07a]"
                         : "text-slate-300 hover:text-white"
