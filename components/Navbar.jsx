@@ -59,12 +59,12 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-24">
+      <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-8 2xl:px-10">
         <div className="flex items-center justify-between h-16">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full overflow-hidden border border-white/10">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
+            <div className="h-9 w-9 shrink-0 rounded-full overflow-hidden border border-white/10">
               <Image
                 src="/images/logo-main.png"
                 alt="ParshWebCraft"
@@ -72,13 +72,13 @@ export default function Navbar() {
                 height={36}
               />
             </div>
-            <span className="text-sm font-semibold text-white">
+            <span className="whitespace-nowrap text-sm font-semibold text-white">
               ParshWebCraft
             </span>
           </Link>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden xl:flex min-w-0 items-center gap-3 2xl:gap-5">
             {navItems.map((item) => {
               const active = isActive(item.href);
 
@@ -92,7 +92,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className={`relative text-sm transition ${
+                    className={`relative whitespace-nowrap text-[13px] transition 2xl:text-sm ${
                       active
                         ? "text-[#f3d07a]"
                         : "text-slate-300 hover:text-white"
@@ -146,7 +146,9 @@ export default function Navbar() {
           {/* MOBILE BUTTON */}
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2 text-white"
+            className="xl:hidden p-2 text-white"
+            aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={open}
           >
             ☰
           </button>
@@ -155,7 +157,7 @@ export default function Navbar() {
 
       {/* MOBILE MENU */}
       <motion.div
-        className="md:hidden bg-black/90 backdrop-blur border-t border-white/10 overflow-hidden"
+        className="xl:hidden bg-black/90 backdrop-blur border-t border-white/10 overflow-hidden"
         initial={false}
         animate={
           open ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }
