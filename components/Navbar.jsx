@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -146,11 +147,11 @@ export default function Navbar() {
           {/* MOBILE BUTTON */}
           <button
             onClick={() => setOpen(!open)}
-            className="xl:hidden p-2 text-white"
+            className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-md text-white transition hover:bg-white/10 xl:hidden"
             aria-label={open ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={open}
           >
-            ☰
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
