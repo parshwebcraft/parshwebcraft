@@ -60,7 +60,7 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="flex h-16 items-center gap-8">
+        <div className="flex h-16 items-center">
 
           {/* LOGO */}
           <Link href="/" className="flex shrink-0 items-center gap-3">
@@ -78,7 +78,7 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP NAV */}
-          <nav className="hidden min-w-0 flex-1 items-center justify-end gap-4 xl:flex">
+          <nav className="ml-10 hidden min-w-0 items-center gap-4 xl:flex">
             {navItems.map((item) => {
               const active = isActive(item.href);
 
