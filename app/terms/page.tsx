@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Terms and Conditions for ParshWebCraft web design, development, and digital marketing services. Governed by Indian law.",
 };
 
-const LAST_UPDATED = "10 June 2025";
+const LAST_UPDATED = "14 August 2026";
 const COMPANY = "ParshWebCraft";
 const EMAIL = "hello@parshwebcraft.in";
 const PHONE = "+91-9521347419";
@@ -81,6 +81,19 @@ export default function TermsPage() {
               All prices are exclusive of applicable GST (Goods and Services Tax) unless explicitly
               stated otherwise. GST will be charged at the prevailing rate (currently 18% for
               software/IT services) and will appear separately on invoices.
+            </p>
+
+            <h3 className="text-lg font-semibold text-white mb-2 mt-5">
+              3.4 Suspension of Services and Website Availability for Overdue Payments
+            </h3>
+            <p>
+              If any payment or invoice remains overdue beyond 7 days of the payment due date (or any stated grace period in the relevant Project Agreement), {COMPANY} reserves the right, subject to applicable law and the terms agreed for the relevant project, to temporarily suspend services associated with the project. Such suspension may include ongoing development work, maintenance, updates, technical support, hosting-related services, and, where {COMPANY} is responsible for providing or maintaining the relevant hosting infrastructure, temporary suspension of website availability.
+            </p>
+            <p className="mt-3">
+              Services may be restored after all outstanding dues have been cleared in full, subject to any applicable reactivation or third-party infrastructure charges.
+            </p>
+            <p className="mt-3">
+              {COMPANY} will not be required to continue providing ongoing services or incur third-party hosting or infrastructure costs indefinitely while project payments remain overdue.
             </p>
           </section>
 
