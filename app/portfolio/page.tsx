@@ -37,6 +37,51 @@ export default function PortfolioPage() {
 
   const projects: Project[] = [
     {
+      title: "Ultimate Fitness with Deepti — Online Training Platform",
+      category: "Fitness & Online Training",
+      image: "/portfolio/ultimate-fitness.png",
+      description:
+        "India's fastest-growing online fitness community featuring live classes, recorded workouts, and weight loss programs by Deepti Dhakar.",
+      outcomes: [
+        "925K+ Instagram Fans",
+        "10,000+ Happy Members",
+        "Interactive Live Training",
+      ],
+      tech: ["Next.js", "React", "Tailwind CSS", "Video Streaming"],
+      href: "https://ultimatefitnesswithdeepti.com/",
+      status: "live",
+    },
+    {
+      title: "Bright & Beauty by Jiya Vadhwani — Professional MUA",
+      category: "Beauty & Bridal Makeup",
+      image: "/portfolio/bright-and-beauty.png",
+      description:
+        "A luxury website for certified professional makeup artist Jiya Vadhwani in Udaipur, showcasing bridal, party, and HD makeup packages.",
+      outcomes: [
+        "Certified MUA Branding",
+        "Bridal Package Showcase",
+        "Online Appointment CTA",
+      ],
+      tech: ["React", "Next.js", "Tailwind CSS", "SEO"],
+      href: "https://www.brightandbeautybyjiyavadhwani.com/",
+      status: "live",
+    },
+    {
+      title: "Ashirwad Solar — Sustainable Energy Solutions",
+      category: "Clean Tech • Solar Energy",
+      image: "/portfolio/ashirwad-solar.png",
+      description:
+        "A high-converting website engineered for premium solar installations for residential and commercial clients across India.",
+      outcomes: [
+        "10+ Years Experience",
+        "700+ Installations",
+        "Free Quote Lead Capture",
+      ],
+      tech: ["Next.js", "React", "Tailwind CSS", "Vercel"],
+      href: "https://ashirwadsolarin.in/",
+      status: "live",
+    },
+    {
       title: "ParshVyapar — Billing & Inventory SaaS",
       category: "SaaS • Business Management",
       image: "/portfolio/parshvyapar.png",
@@ -227,32 +272,6 @@ export default function PortfolioPage() {
       ],
       tech: ["React", "MongoDB", "Vercel"],
       href: "https://www.anandfashionudaipur.com/",
-      status: "live",
-    },
-    {
-      title: "Bullet Raja Showroom — Digital Presence",
-      category: "Showroom Website",
-      image: "/portfolio/bullet-raja.png",
-      description:
-        "A showroom-focused website designed to highlight premium bike inventory and improve local reach.",
-      outcomes: [
-        "Showroom Branding",
-        "Inventory Highlight",
-        "Local Customer Reach",
-      ],
-      tech: ["React", "Tailwind CSS"],
-      href: "https://bulletrajweb.vercel.app/",
-      status: "live",
-    },
-    {
-      title: "Strong Fit — Fitness Brand Website",
-      category: "Fitness Website",
-      image: "/portfolio/strong-fit.png",
-      description:
-        "A fitness-focused website built to represent the Strong Fit brand and convert visitors into gym members.",
-      outcomes: ["Brand Positioning", "Lead Capture", "Mobile-First Design"],
-      tech: ["Next.js", "Tailwind CSS"],
-      href: "https://strongfitweb.vercel.app/",
       status: "live",
     },
   ];
