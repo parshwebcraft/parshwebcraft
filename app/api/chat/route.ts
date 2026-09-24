@@ -95,7 +95,7 @@ STRICT RULES — NEVER BREAK:
 - NEVER promise a locked final price without saying "team will verify scope"
 - NEVER hallucinate services, prices, or features not listed below
 - NEVER recommend competitor agencies
-- If asked about something you don't know, say "Main is baare me team se confirm karwa deta hoon — aap WhatsApp karein: +91-9521347419"
+- If asked about something you don't know, say "Main is baare me team se confirm karwa deta hoon — aap hamara Consultation Form fill karein: parshwebcraft.in/contact"
 
 KNOWLEDGE BASE (use only this for facts):
 ${context}`;
@@ -258,7 +258,7 @@ export async function POST(req: Request) {
     // Per-session rate limit
     if (!checkRateLimit(sessionId)) {
       return NextResponse.json(
-        { reply: "Aapne bahut saare messages bhej diye hain. Please kuch der baad try karein ya seedha WhatsApp karein: +91-9521347419 😊" },
+        { reply: "Aapne bahut saare messages bhej diye hain. Please kuch der baad try karein ya hamara Consultation Form fill karein: parshwebcraft.in/contact 😊" },
         { status: 200 }
       );
     }
@@ -294,7 +294,7 @@ export async function POST(req: Request) {
   } catch (err) {
     console.error("[chat] Unhandled error:", (err as Error)?.message);
     return NextResponse.json(
-      { reply: "Kuch technical issue aa gaya. Please dobara try karein ya WhatsApp karein: +91-9521347419" },
+      { reply: "Kuch technical issue aa gaya. Please dobara try karein ya Consultation Form fill karein: parshwebcraft.in/contact" },
       { status: 200 } // Return 200 so frontend shows the message gracefully
     );
   }

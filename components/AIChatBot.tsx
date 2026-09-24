@@ -295,7 +295,7 @@ export default function AIChatBot() {
             role: "assistant",
             content:
               data?.reply ??
-              "Kuch issue aa gaya. Please dobara try karein ya WhatsApp karein: +91-9521347419",
+              "Kuch issue aa gaya. Please dobara try karein ya hamara Consultation Form fill karein: /contact",
             time: getTimeLabel(),
           },
         ]);
@@ -305,7 +305,7 @@ export default function AIChatBot() {
           {
             role: "assistant",
             content:
-              "Network error. Please try again, ya seedha WhatsApp karein: +91-9521347419 😊",
+              "Network error. Please try again, ya Consultation Form fill karein: /contact 😊",
             time: getTimeLabel(),
           },
         ]);

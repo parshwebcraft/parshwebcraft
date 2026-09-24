@@ -231,7 +231,7 @@ export default function TermsPage() {
               <p><strong className="text-white">{COMPANY}</strong></p>
               <p>{ADDRESS}</p>
               <p>Email: <a href={`mailto:${EMAIL}`} className="text-[#f3d07a] hover:underline">{EMAIL}</a></p>
-              <p>WhatsApp: {PHONE}</p>
+              <p>Inquiry: <Link href="/contact" className="text-[#f3d07a] hover:underline">Fill Consultation Form</Link></p>
             </div>
           </section>
 

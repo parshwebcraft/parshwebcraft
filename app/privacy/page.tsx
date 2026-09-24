@@ -220,7 +220,7 @@ export default function PrivacyPolicyPage() {
                 <strong className="text-white">Email:</strong>{" "}
                 <a href={`mailto:${EMAIL}`} className="text-[#f3d07a] hover:underline">{EMAIL}</a>
               </p>
-              <p><strong className="text-white">Phone:</strong> {PHONE}</p>
+              <p><strong className="text-white">Contact:</strong> <Link href="/contact" className="text-[#f3d07a] hover:underline">Submit Consultation Inquiry</Link></p>
               <p><strong className="text-white">Response time:</strong> Within 30 days of receipt</p>
             </div>
           </section>
@@ -257,7 +257,7 @@ export default function PrivacyPolicyPage() {
                 Email:{" "}
                 <a href={`mailto:${EMAIL}`} className="text-[#f3d07a] hover:underline">{EMAIL}</a>
               </p>
-              <p>WhatsApp: {PHONE}</p>
+              <p>Inquiry: <Link href="/contact" className="text-[#f3d07a] hover:underline">Fill Consultation Form</Link></p>
             </div>
           </section>
 

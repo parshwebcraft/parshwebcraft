@@ -51,9 +51,19 @@ export default function ContactClient() {
 
             <div className="space-y-4 text-sm">
               <div>
-                <p className="font-semibold">📞 Phone / WhatsApp</p>
-                <a href="tel:+919521347419" className="text-slate-300">
-                  +91 95213 47419
+                <p className="font-semibold">📞 Direct Phone Support</p>
+                <p className="text-slate-400 text-xs mt-1 mb-2">
+                  Fill out the consultation form to request a direct callback &amp; project inquiry.
+                </p>
+                <a
+                  href="#contact-form"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="inline-block text-xs font-semibold text-black bg-[#f3d07a] hover:bg-[#e2bd66] px-3.5 py-2 rounded-lg transition shadow-sm"
+                >
+                  Fill Consultation Form →
                 </a>
               </div>
 
@@ -108,7 +118,7 @@ export default function ContactClient() {
         </div>
 
         {/* RIGHT SIDE (FORM) */}
-        <div className="glass p-8 rounded-2xl border border-white/10">
+        <div id="contact-form" className="glass p-8 rounded-2xl border border-white/10">
           <h2 className="text-2xl font-bold mb-3">Get a Free Consultation</h2>
 
           <p className="text-slate-400 text-sm mb-6">
