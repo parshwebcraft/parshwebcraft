@@ -253,8 +253,9 @@ function CareersPageContent() {
           });
 
         if (uploadError) {
+          console.error("[Careers Resume Upload Error]:", uploadError);
           throw new Error(
-            "Supabase Storage 'resumes' bucket is missing or permissions are blocked. Please use the 'Paste Resume Link' tab below to submit your resume link instead."
+            uploadError.message || "Failed to upload resume. Please try again or paste a resume link."
           );
         }
 
