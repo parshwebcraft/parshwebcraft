@@ -341,23 +341,35 @@ function CareersPageContent() {
     }
   };
 
+  function handleSelectJob(job: Job) {
+    setSelectedJob(job);
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      setTimeout(() => {
+        const el = document.getElementById("job-details-panel");
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 100);
+    }
+  }
+
   return (
-    <main className="min-h-screen bg-[#050414] text-white px-6 lg:px-24 pt-28 pb-16">
+    <main className="min-h-screen bg-[#050414] text-white px-4 sm:px-6 lg:px-24 pt-28 pb-16">
       {/* 1. HERO SECTION */}
-      <section className="text-center max-w-4xl mx-auto mb-16">
+      <section className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
         <Eyebrow>Join Our Team</Eyebrow>
-        <h1 className="text-4xl md:text-6xl font-extrabold text-white mt-4 tracking-tight">
-          Build the Future of Web & Brand Experience
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mt-4 tracking-tight">
+          Build the Future of Web &amp; Brand Experience
         </h1>
-        <p className="text-lg text-slate-300 mt-6 leading-relaxed">
-          We don't build slow, bloated template sites. We write cutting-edge Next.js apps, headless
+        <p className="text-sm sm:text-lg text-slate-300 mt-4 sm:mt-6 leading-relaxed">
+          We don&apos;t build slow, bloated template sites. We write cutting-edge Next.js apps, headless
           architectures, custom SaaS products, and run organic digital campaigns. Check out our open roles.
         </p>
       </section>
 
       {/* 2. AUTHENTICATED CANDIDATE DASHBOARD */}
       {user && (
-        <section className="max-w-5xl mx-auto mb-12 bg-white/[0.02] border border-white/10 rounded-2xl p-6 shadow-xl relative overflow-hidden">
+        <section className="max-w-5xl mx-auto mb-12 bg-white/[0.02] border border-white/10 rounded-2xl p-4 sm:p-6 shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 p-4">
             <button
               onClick={handleLogout}
@@ -380,7 +392,7 @@ function CareersPageContent() {
                 Updating application status...
               </div>
             ) : myApplications.length === 0 ? (
-              <p className="text-xs text-slate-500 italic">You haven't submitted any applications yet. Select a role below to apply.</p>
+              <p className="text-xs text-slate-500 italic">You haven&apos;t submitted any applications yet. Select a role below to apply.</p>
             ) : (
               <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {myApplications.map((app) => (
@@ -411,8 +423,8 @@ function CareersPageContent() {
       )}
 
       {/* 3. FILTER BAR */}
-      <section className="max-w-5xl mx-auto mb-10 flex flex-wrap justify-between items-center gap-4 border-b border-white/10 pb-6">
-        <div className="flex gap-2">
+      <section className="max-w-5xl mx-auto mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/10 pb-4">
+        <div className="flex gap-2 overflow-x-auto max-w-full pb-2 sm:pb-0 custom-scrollbar">
           {deptList.map((dept) => (
             <button
               key={dept}
@@ -420,10 +432,10 @@ function CareersPageContent() {
                 setSelectedDept(dept);
                 setSelectedJob(null);
               }}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold border transition ${
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold border whitespace-nowrap transition ${
                 selectedDept === dept
                   ? "bg-[#f3d07a] border-[#f3d07a] text-black"
-                  : "border-white/15 text-slate-300 hover:border-white/30"
+                  : "border-white/15 text-slate-300 hover:border-white/30 bg-white/[0.02]"
               }`}
             >
               {dept}
@@ -436,13 +448,13 @@ function CareersPageContent() {
       </section>
 
       {/* 4. JOB LISTINGS GRID */}
-      <section className="max-w-5xl mx-auto grid gap-6 md:grid-cols-2">
+      <section className="max-w-5xl mx-auto grid gap-6 md:grid-cols-2 items-start">
         <div className="space-y-4">
           {filteredJobs.map((job) => (
             <div
               key={job.id}
-              onClick={() => setSelectedJob(job)}
-              className={`p-6 rounded-2xl cursor-pointer border transition hover:bg-white/[0.03] ${
+              onClick={() => handleSelectJob(job)}
+              className={`p-5 sm:p-6 rounded-2xl cursor-pointer border transition hover:bg-white/[0.03] ${
                 selectedJob?.id === job.id
                   ? "bg-white/[0.04] border-[#f3d07a]/50 shadow-lg shadow-[#f3d07a]/5"
                   : "bg-white/[0.01] border-white/5"
@@ -453,22 +465,48 @@ function CareersPageContent() {
                   <span className="text-[10px] uppercase font-bold text-[#f3d07a] tracking-wider font-mono">
                     {job.department}
                   </span>
-                  <h3 className="text-lg font-bold text-white mt-1">{job.title}</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-white mt-1">{job.title}</h3>
                 </div>
-                <span className="text-[10px] text-slate-500 font-mono">{job.job_id}</span>
+                <span className="text-[10px] text-slate-500 font-mono shrink-0">{job.job_id}</span>
               </div>
 
-              <div className="flex flex-wrap gap-4 mt-4 text-xs text-slate-400">
+              <div className="flex flex-wrap gap-3 mt-3 text-xs text-slate-400">
                 <span className="flex items-center gap-1">📍 {job.location}</span>
                 <span className="flex items-center gap-1">💼 {job.type}</span>
                 <span className="flex items-center gap-1">🎓 {job.experience}</span>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between gap-2">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleSelectJob(job);
+                  }}
+                  className="text-xs font-semibold text-[#f3d07a] hover:underline flex items-center gap-1"
+                >
+                  View Details →
+                </button>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedJob(job);
+                    setFormOpen(true);
+                    setFormSuccess(false);
+                    setFormError("");
+                  }}
+                  className="bg-[#f3d07a] text-black font-semibold text-xs px-3.5 py-1.5 rounded-lg hover:brightness-95 transition shadow-sm"
+                >
+                  Apply Now 🚀
+                </button>
               </div>
             </div>
           ))}
         </div>
 
         {/* 5. JOB DETAIL & APPLICATION COLUMN */}
-        <div className="h-full">
+        <div id="job-details-panel" className="h-full scroll-mt-28">
           <AnimatePresence mode="wait">
             {selectedJob ? (
               <motion.div
