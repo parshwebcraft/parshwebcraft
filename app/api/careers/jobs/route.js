@@ -3,11 +3,53 @@ import { createClient } from "@supabase/supabase-js";
 
 const DEFAULT_JOBS = [
   {
+    id: "pwc-job-vid-1",
+    job_id: "PWC-VID-01",
+    title: "Video Editor (Reels & Social Media)",
+    department: "Creative",
+    location: "Ahmedabad, Gujarat (On-site)",
+    type: "Full-time • Immediate Hiring",
+    experience: "0-2 Years",
+    description: "ParshWebCraft is expanding our creative team in Ahmedabad, Gujarat! We are looking for an on-site Video Editor to create engaging Reels, social media videos, YouTube shorts, and promotional campaign content for growing brands.",
+    requirements: [
+      "Create engaging Reels, social media videos, and promotional content with fast turnaround.",
+      "Experience with Premiere Pro, After Effects, CapCut, DaVinci Resolve, or similar tools.",
+      "Strong sense of pacing, hook creation, trending audio sync, and subtitle typography.",
+      "Ability to work on-site in our Ahmedabad, Gujarat office."
+    ],
+    benefits: [
+      "Immediate hiring for on-site creative role in Ahmedabad.",
+      "Competitive salary and performance incentives.",
+      "Creative freedom working on diverse brand & client campaigns."
+    ]
+  },
+  {
+    id: "pwc-job-gdsn-1",
+    job_id: "PWC-GDSN-01",
+    title: "Graphic Designer (Brand & Social Media)",
+    department: "Design",
+    location: "Ahmedabad, Gujarat (On-site)",
+    type: "Full-time • Immediate Hiring",
+    experience: "0-2 Years",
+    description: "We are seeking an on-site Graphic Designer in Ahmedabad, Gujarat to design striking social media creatives, brand identity packages, marketing assets, ad carousels, and client visuals.",
+    requirements: [
+      "Design social media creatives, branding materials, marketing assets, and client visuals.",
+      "Knowledge of Canva, Photoshop, Illustrator, Figma, or similar design tools.",
+      "Solid understanding of layout design, color theory, typography, and visual hierarchy.",
+      "Ability to work on-site in our Ahmedabad, Gujarat office."
+    ],
+    benefits: [
+      "Immediate hiring for on-site design role in Ahmedabad.",
+      "Collaborative and fast-paced agency culture.",
+      "Opportunity to shape brand visual identities across multiple industries."
+    ]
+  },
+  {
     id: "pwc-job-dev-1",
     job_id: "PWC-DEV-01",
     title: "Frontend Engineer (Next.js & React)",
     department: "Development",
-    location: "Udaipur, Rajasthan / Remote",
+    location: "Ahmedabad, Gujarat / Remote",
     type: "Full-time",
     experience: "1-3 Years",
     description: "We are looking for a passionate Frontend Engineer skilled in React, Next.js, Tailwind CSS, and TypeScript. You will build lightning-fast web applications, optimize Core Web Vitals (LCP, INP), and craft responsive dark-mode interfaces.",
@@ -27,7 +69,7 @@ const DEFAULT_JOBS = [
     job_id: "PWC-DSN-01",
     title: "UI/UX Designer",
     department: "Design",
-    location: "Udaipur, Rajasthan / Hybrid",
+    location: "Ahmedabad, Gujarat / Hybrid",
     type: "Full-time",
     experience: "2+ Years",
     description: "Join our team to design premium websites, branding systems, and custom SaaS dashboards. You will work closely with development teams to craft visual interfaces and intuitive candidate/user journeys.",
@@ -38,7 +80,7 @@ const DEFAULT_JOBS = [
     ],
     benefits: [
       "Creative design freedom.",
-      "Collaborative workspace environment.",
+      "Collaborative workspace environment in Ahmedabad.",
       "Performance-based bonuses."
     ]
   },
@@ -47,10 +89,10 @@ const DEFAULT_JOBS = [
     job_id: "PWC-MKT-01",
     title: "Digital Marketing Specialist",
     department: "Marketing",
-    location: "Udaipur, Rajasthan",
+    location: "Ahmedabad, Gujarat (On-site)",
     type: "Full-time",
     experience: "1-2 Years",
-    description: "We are seeking a Digital Marketing Specialist to coordinate client SEO campaigns, execute Instagram Reels strategies, create content calendars, and handle targeted Google/Meta ad accounts.",
+    description: "We are seeking a Digital Marketing Specialist in Ahmedabad to coordinate client SEO campaigns, execute Instagram Reels strategies, create content calendars, and handle targeted Google/Meta ad accounts.",
     requirements: [
       "Experience with Google Analytics, search console, and SEO auditing tools.",
       "Familiarity with copywriting, social media strategy, and video edit hooks.",
@@ -58,7 +100,7 @@ const DEFAULT_JOBS = [
     ],
     benefits: [
       "Dynamic hands-on marketing campaigns.",
-      "Professional growth opportunity.",
+      "Professional growth opportunity in Ahmedabad.",
       "Performance incentives."
     ]
   },
@@ -67,7 +109,7 @@ const DEFAULT_JOBS = [
     job_id: "PWC-APP-01",
     title: "App Developer (Flutter & React Native)",
     department: "Development",
-    location: "Udaipur, Rajasthan / Remote",
+    location: "Ahmedabad, Gujarat / Remote",
     type: "Full-time",
     experience: "2+ Years",
     description: "We are seeking a skilled Mobile App Developer with 2+ years of experience in Flutter and React Native. You will build and deploy premium cross-platform iOS and Android applications, ensuring fluid performance, native API integrations, and pixel-perfect UI execution.",
@@ -87,7 +129,7 @@ const DEFAULT_JOBS = [
     job_id: "PWC-OPS-01",
     title: "AWS DevOps Engineer",
     department: "Development",
-    location: "Udaipur, Rajasthan / Remote",
+    location: "Ahmedabad, Gujarat / Remote",
     type: "Full-time",
     experience: "2+ Years",
     description: "We are looking for an AWS DevOps Engineer with 2+ years of experience to automate deployment pipelines, maintain server reliability, and optimize cloud infrastructure. You will manage continuous integration, security policies, and performance monitoring.",

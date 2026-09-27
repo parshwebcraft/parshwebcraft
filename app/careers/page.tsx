@@ -322,7 +322,7 @@ function CareersPageContent() {
     }
   }
 
-  const deptList = ["All", "Development", "Design", "Marketing"];
+  const deptList = ["All", "Creative", "Design", "Development", "Marketing"];
 
   const getStatusColor = (status: string) => {
     switch (status.toLowerCase()) {
