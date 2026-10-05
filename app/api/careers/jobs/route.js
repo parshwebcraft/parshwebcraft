@@ -3,22 +3,22 @@ import { createClient } from "@supabase/supabase-js";
 
 const DEFAULT_JOBS = [
   {
-    id: "pwc-job-vid-1",
-    job_id: "PWC-VID-01",
-    title: "Video Editor (Reels & Social Media)",
-    department: "Creative",
+    id: "pwc-job-smm-1",
+    job_id: "PWC-SMM-01",
+    title: "Social Media Manager (Reels & Social Media)",
+    department: "Marketing",
     location: "Ahmedabad, Gujarat (On-site)",
     type: "Full-time • Immediate Hiring",
     experience: "0-2 Years",
-    description: "ParshWebCraft is expanding our creative team in Ahmedabad, Gujarat! We are looking for an on-site Video Editor to create engaging Reels, social media videos, YouTube shorts, and promotional campaign content for growing brands.",
+    description: "ParshWebCraft is expanding our team in Ahmedabad, Gujarat! We are looking for an on-site Social Media Manager to create high-converting Reels, Shorts, brand promotional videos, and engage audience growth across social platforms.",
     requirements: [
-      "Create engaging Reels, social media videos, and promotional content with fast turnaround.",
+      "Create high-converting Reels, Shorts, and brand promotional videos.",
       "Experience with Premiere Pro, After Effects, CapCut, DaVinci Resolve, or similar tools.",
-      "Strong sense of pacing, hook creation, trending audio sync, and subtitle typography.",
+      "Strong understanding of social media trends, content planning, hook creation, and audience engagement.",
       "Ability to work on-site in our Ahmedabad, Gujarat office."
     ],
     benefits: [
-      "Immediate hiring for on-site creative role in Ahmedabad.",
+      "Immediate hiring for on-site role in Ahmedabad.",
       "Competitive salary and performance incentives.",
       "Creative freedom working on diverse brand & client campaigns."
     ]
