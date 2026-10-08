@@ -339,12 +339,12 @@ export default function Hero() {
           <p>
             <strong>How much does a website cost in Udaipur?</strong>
             <br />
-            Website cost depends on features, design, and functionality. Our
-            custom plans start from ₹17,999 — see our{" "}
+            Website cost depends on features, design, and functionality. Basic
+            landing pages start from ₹4,999 — see our{" "}
             <a href="/pricing" className="text-[#f3d07a] hover:underline">
               pricing page
             </a>{" "}
-            or contact us for a custom quote.
+            or contact us for a custom package tailored to your budget.
           </p>
         </div>
       </section>
